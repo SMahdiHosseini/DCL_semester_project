@@ -1,8 +1,5 @@
 import torch
-from torchvision.datasets import MNIST
-from torch.utils.data import random_split, DataLoader
-import torchvision.transforms as transforms
-import matplotlib.pyplot as plt
+from torch.utils.data import DataLoader
 from Utils import Helper
 
 ## Define FederatedNet class
