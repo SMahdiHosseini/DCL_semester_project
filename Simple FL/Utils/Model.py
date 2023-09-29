@@ -33,8 +33,8 @@ class FederatedNet(torch.nn.Module):
     def apply_parameters(self, parameters_dict):
         with torch.no_grad():
             for layer_name in parameters_dict:
-                # self.track_layers[layer_name].weight.data *= 0
-                # self.track_layers[layer_name].bias.data *= 0
+                self.track_layers[layer_name].weight.data *= 0
+                self.track_layers[layer_name].bias.data *= 0
                 self.track_layers[layer_name].weight.data = parameters_dict[layer_name]['weight']
                 self.track_layers[layer_name].bias.data = parameters_dict[layer_name]['bias']
 
@@ -42,8 +42,8 @@ class FederatedNet(torch.nn.Module):
         parameters_dict = dict()
         for layer_name in self.track_layers:
             parameters_dict[layer_name] = {
-                'weight': self.track_layers[layer_name].weight.data,
-                'bias': self.track_layers[layer_name].bias.data
+                'weight': self.track_layers[layer_name].weight.data.clone(),
+                'bias': self.track_layers[layer_name].bias.data.clone()
             }
         return parameters_dict
 

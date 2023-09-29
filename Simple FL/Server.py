@@ -3,17 +3,27 @@ from Utils import Model, Helper, Message
 from Utils.Message import Msg
 from Utils.DataDistributer import test_dataset, dev_dataset, train_dataset
 from multiprocessing.connection import Listener
-from multiprocessing import Manager
+from torch.multiprocessing import Manager
 from threading import Thread
+from torch.multiprocessing import Pool, Process, set_start_method
+try:
+     set_start_method('spawn')
+except RuntimeError:
+    pass
 
 def receiveNewParams(connection, new_params):
     msg = connection.recv()
     if msg.header == Message.NEW_PARAMETERS:
-        new_params.append(msg.content)
+        client_parameters = dict([(layer_name, {'weight': 0, 'bias': 0}) for layer_name in msg.content[Message.PARAMS]])
+        for layer_name in msg.content[Message.PARAMS]:
+            # convert Tensros from CUDA to CPU to aggregate them
+            client_parameters[layer_name]['weight'] = msg.content[Message.FRACTION] * msg.content[Message.PARAMS][layer_name]['weight'].cpu()
+            client_parameters[layer_name]['bias'] = msg.content[Message.FRACTION] * msg.content[Message.PARAMS][layer_name]['bias'].cpu()
+        new_params[connection] = client_parameters
 
 def getAllNewParams(connections, current_parameters):
     threads = []
-    new_params = Manager().list()
+    new_params = Manager().dict()
     for client in connections.keys():
         connections[client].send(Msg(header=Message.TRAIN, content=current_parameters))
         new_thread = Thread(target=receiveNewParams, args=(connections[client], new_params))
@@ -21,18 +31,17 @@ def getAllNewParams(connections, current_parameters):
         new_thread.start()    
     for t in threads:
         t.join()
-    return list(new_params)
+    return new_params
     
 def runTheRound(round, connections, global_net):
     print('Start Round {} ...'.format(round))
     new_params = getAllNewParams(connections, global_net.get_parameters())
-    curr_parameters = global_net.get_parameters()
-    new_model_parameters = dict([(layer_name, {'weight': 0, 'bias': 0}) for layer_name in curr_parameters])
-    for params in new_params:
-        for layer_name in params[Message.PARAMS]:
-            new_model_parameters[layer_name]['weight'] += params[Message.FRACTION] * params[Message.PARAMS][layer_name]['weight']
-            new_model_parameters[layer_name]['bias'] += params[Message.FRACTION] * params[Message.PARAMS][layer_name]['bias']    
-    
+    new_model_parameters = dict([(layer_name, {'weight': 0, 'bias': 0}) for layer_name in global_net.get_parameters()])
+    for _, param in new_params.items():
+        for layer_name in param:
+            new_model_parameters[layer_name]['weight'] += param[layer_name]['weight'].to(Helper.device)
+            new_model_parameters[layer_name]['bias'] += param[layer_name]['bias'].to(Helper.device)
+
     global_net.apply_parameters(new_model_parameters)
 
 def evaluateTheRound(global_net, history, r):
@@ -47,7 +56,7 @@ def federatedLearningPhase(connections):
     history = []
     for i in range(Helper.rounds):
         runTheRound(i + 1, connections, global_net)
-        evaluateTheRound(global_net, history, round)
+        evaluateTheRound(global_net, history, i + 1)
 
 def connectToClient(listener):
     new_connection = listener.accept()
@@ -68,6 +77,7 @@ def connectionEstablishmentPahse():
     return listener, connections
 
 def closeConnections(connections):
+    print("Server in closing sonnections!")
     for connection in connections:
         connection.send(Msg(header=Message.TERMINATE))
         connection.close()
@@ -77,6 +87,7 @@ def main():
     federatedLearningPhase(connections)
     closeConnections(connections.values())
     listener.close()
+    print("Done!")
 
 if __name__ == '__main__':
     main()

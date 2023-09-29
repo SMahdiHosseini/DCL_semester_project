@@ -1,0 +1,29 @@
+Server is running on port: 6000
+Server established new connection with client 2
+Server established new connection with client 3
+Server established new connection with client 0
+Server established new connection with client 6
+Server established new connection with client 4
+Server established new connection with client 1
+Server established new connection with client 8
+Server established new connection with client 7
+Server established new connection with client 9
+Server established new connection with client 5
+Server connected to clients: dict_keys([2, 3, 0, 6, 4, 1, 8, 7, 9, 5])
+Start Round 1 ...
+After round 1, train_loss = 0.4905, train_acc = 0.8771, dev_loss = 0.4994, dev_acc = 0.8755, test_loss = 0.4663, test_acc = 0.8836
+
+Start Round 2 ...
+After round 2, train_loss = 0.4092, train_acc = 0.8911, dev_loss = 0.418, dev_acc = 0.8901, test_loss = 0.3892, test_acc = 0.8966
+
+Start Round 3 ...
+After round 3, train_loss = 0.3753, train_acc = 0.8984, dev_loss = 0.3844, dev_acc = 0.8964, test_loss = 0.3581, test_acc = 0.9032
+
+Start Round 4 ...
+After round 4, train_loss = 0.3558, train_acc = 0.9023, dev_loss = 0.3653, dev_acc = 0.9006, test_loss = 0.3403, test_acc = 0.9073
+
+Start Round 5 ...
+After round 5, train_loss = 0.343, train_acc = 0.905, dev_loss = 0.3529, dev_acc = 0.9036, test_loss = 0.3292, test_acc = 0.9091
+
+Server in closing sonnections!
+Done!

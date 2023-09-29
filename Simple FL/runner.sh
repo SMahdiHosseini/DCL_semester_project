@@ -1,14 +1,17 @@
 #!/bin/bash          
 
-if [ $# -lt 3 ]
+if [ $# -lt 1 ]
 then
     echo "usage: $0 <number of clients>"
     exit
 fi
 
-start python Server.py
+python3 Server.py > "./Results/res_server.txt" &
 
-for i in `seq $2`
+for ((c=0; c<$1; c++))
 do
-    start python Client.py $i
+    python3 Client.py $c > "./Results/res_$c.txt" &
 done
+
+wait
+echo "Done!" 
