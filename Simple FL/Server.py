@@ -11,9 +11,9 @@ try:
 except RuntimeError:
     pass
 
-train_dataset = load("../Data/trainDataset.pt")
-test_dataset = load("../Data/testDataset.pt")
-dev_dataset = load("../Data/devDataset.pt")
+train_dataset = load("./Data/trainDataset.pt")
+test_dataset = load("./Data/testDataset.pt")
+dev_dataset = load("./Data/devDataset.pt")
 
 def receiveNewParams(connection, new_params):
     msg = connection.recv()

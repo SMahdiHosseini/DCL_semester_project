@@ -4,8 +4,6 @@ from torch.utils.data import random_split, Subset
 import Helper
 import torch
 
-torch.manual_seed(1)
-
 train_dataset = MNIST('../Data', train=True, download=True, transform=transforms.ToTensor())
 test_dataset = MNIST('../Data', train=False, download=True, transform=transforms.ToTensor())
 
