@@ -14,6 +14,7 @@ except RuntimeError:
 train_dataset = load("./Data/trainDataset.pt")
 test_dataset = load("./Data/testDataset.pt")
 dev_dataset = load("./Data/devDataset.pt")
+total_train_size = len(train_dataset)
 
 def receiveNewParams(connection, new_params):
     msg = connection.recv()
@@ -21,8 +22,8 @@ def receiveNewParams(connection, new_params):
         client_parameters = dict([(layer_name, {'weight': 0, 'bias': 0}) for layer_name in msg.content[Message.PARAMS]])
         for layer_name in msg.content[Message.PARAMS]:
             # convert Tensros from CUDA to CPU to aggregate them
-            client_parameters[layer_name]['weight'] = msg.content[Message.FRACTION] * msg.content[Message.PARAMS][layer_name]['weight'].cpu()
-            client_parameters[layer_name]['bias'] = msg.content[Message.FRACTION] * msg.content[Message.PARAMS][layer_name]['bias'].cpu()
+            client_parameters[layer_name]['weight'] = msg.content[Message.FRACTION] / total_train_size * msg.content[Message.PARAMS][layer_name]['weight'].cpu()
+            client_parameters[layer_name]['bias'] = msg.content[Message.FRACTION] / total_train_size * msg.content[Message.PARAMS][layer_name]['bias'].cpu()
         new_params[connection] = client_parameters
 
 def getAllNewParams(connections, current_parameters):
