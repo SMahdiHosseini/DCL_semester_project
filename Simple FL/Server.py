@@ -1,15 +1,19 @@
 
 from Utils import Model, Helper, Message
 from Utils.Message import Msg
-from Utils.DataDistributer import test_dataset, dev_dataset, train_dataset
 from multiprocessing.connection import Listener
 from torch.multiprocessing import Manager
 from threading import Thread
-from torch.multiprocessing import Pool, Process, set_start_method
+from torch.multiprocessing import set_start_method
+from torch import load
 try:
      set_start_method('spawn')
 except RuntimeError:
     pass
+
+train_dataset = load("../Data/trainDataset.pt")
+test_dataset = load("../Data/testDataset.pt")
+dev_dataset = load("../Data/devDataset.pt")
 
 def receiveNewParams(connection, new_params):
     msg = connection.recv()

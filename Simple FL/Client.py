@@ -1,8 +1,8 @@
 from Utils import Model, Helper, Message
 from Utils.Message import Msg
-from Utils.DataDistributer import client_datasets, total_train_size
 from multiprocessing.connection import Client
 import sys
+import torch
 
 ## Define Client Class
 class TraningClient:
@@ -33,13 +33,14 @@ def connectToServer(client_id):
 def main():
     client_id = int(sys.argv[1])
     print("Client {} started! ... ".format(client_id))
-    traning_client = TraningClient(client_id, client_datasets[client_id])
+    traning_client = TraningClient(client_id, torch.load("./Data/ClientsDatasets/" + str(client_id) + ".pt"))
+    print("client created")
     connection = connectToServer(client_id)
     while True:
         msg = connection.recv()
         if msg.header == Message.TRAIN:
             client_parameters = traning_client.train(msg.content)
-            connection.send(Msg(header=Message.NEW_PARAMETERS, content={Message.FRACTION: traning_client.get_dataset_size() / total_train_size, Message.PARAMS: client_parameters}))
+            connection.send(Msg(header=Message.NEW_PARAMETERS, content={Message.FRACTION: traning_client.get_dataset_size(), Message.PARAMS: client_parameters}))
         if msg.header == Message.TERMINATE:
             break
 
