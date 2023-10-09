@@ -1,6 +1,4 @@
-from Utils import Model, Helper, Message
-# from Utils.Message import Msg
-# from Utils.DataDistributer import client_datasets, total_train_size
+from Utils import Model, Helper
 import sys
 import socket
 import jpysocket
@@ -19,6 +17,9 @@ class TraningClient:
     def get_client_id(self):
         return self.client_id
 
+    def set_params(self, parameters):
+        self.net.apply_parameters(parameters)
+
     def train(self):
         train_history = self.net.fit(self.dataset, Helper.epochs_per_client, Helper.learning_rate, Helper.batch_size)
         print('{}: Loss = {}, Accuracy = {}'.format(self.client_id, round(train_history[-1][0], 4), round(train_history[-1][1], 4)))
@@ -31,23 +32,37 @@ def connect(client_id, hostAddress, hostPort):
     print("Client {} sent new connection request".format(client_id))
     return connection
 
+def applyNewParameters(connection):
+    connection.send(jpysocket.jpyencode("ACK"))
+    params_size = int(jpysocket.jpydecode(connection.recv(1024))) * 4
+    connection.send(jpysocket.jpyencode("ACK"))
+    params = connection.recv(params_size).decode()
+    connection.send(jpysocket.jpyencode("ACK"))
+
+def handleTrainCmd(connection, training_client):
+    client_parameters = training_client.train()
+    res = str(client_parameters)
+    connection.send(jpysocket.jpyencode(str(training_client.get_dataset_size())))
+    connection.send(jpysocket.jpyencode(str(len(res))))
+    connection.send(bytes(res, 'utf-8'))
+
+def execute(connection, training_client):
+    while True:
+        msg = jpysocket.jpydecode(connection.recv(1024))
+        if msg == "NEWPARAMS":
+            applyNewParameters(connection)
+        if msg == "TRAIN":
+            handleTrainCmd(connection, training_client)
+        if msg == "TERMINATE":
+            connection.send(jpysocket.jpyencode("ACK"))
+            return
+        
 def main():
     client_id = int(sys.argv[1])
     print("Client {} started! ... ".format(client_id))
-    traning_client = TraningClient(client_id, torch.load("F:/DCL/Semester Project 1/Codes/DCL_semester_project/Simple_FL/Data/ClientsDatasets/" + str(client_id) + ".pt"))
+    training_client = TraningClient(client_id, torch.load("F:/DCL/Semester Project 1/Codes/DCL_semester_project/Simple_FL/Data/ClientsDatasets/" + str(client_id) + ".pt"))
     connection = connect(client_id, sys.argv[2], int(sys.argv[3]))
-    while True:
-        msg_size = int(jpysocket.jpydecode(connection.recv(1024))) * 4
-        msg = jpysocket.jpydecode(connection.recv(msg_size))
-        if msg == "TRAIN":
-            client_parameters = traning_client.train()
-            res = str(client_parameters)
-            connection.send(jpysocket.jpyencode(str(traning_client.get_dataset_size())))
-            connection.send(jpysocket.jpyencode(str(len(res))))
-            connection.send(jpysocket.jpyencode(res))
-        if msg == "TERMINATE":
-            break
-
+    execute(connection, training_client)
     connection.close()
     print("Client {} terminated! ...".format(client_id))
 
