@@ -1,29 +1,29 @@
 Server is running on port: 6000
-Server established new connection with client 2
-Server established new connection with client 7
-Server established new connection with client 0
-Server established new connection with client 6
-Server established new connection with client 4
-Server established new connection with client 3
 Server established new connection with client 9
-Server established new connection with client 1
+Server established new connection with client 2
+Server established new connection with client 3
 Server established new connection with client 8
+Server established new connection with client 0
+Server established new connection with client 7
 Server established new connection with client 5
-Server connected to clients: dict_keys([2, 7, 0, 6, 4, 3, 9, 1, 8, 5])
+Server established new connection with client 6
+Server established new connection with client 1
+Server established new connection with client 4
+Server connected to clients: dict_keys([9, 2, 3, 8, 0, 7, 5, 6, 1, 4])
 Start Round 1 ...
-After round 1, train_loss = 0.485, train_acc = 0.8793, dev_loss = 0.5072, dev_acc = 0.8725, test_loss = 0.4627, test_acc = 0.8853
+After round 1, train_loss = 0.4849, train_acc = 0.8786, dev_loss = 0.5081, dev_acc = 0.8721, test_loss = 0.4627, test_acc = 0.8831
 
 Start Round 2 ...
-After round 2, train_loss = 0.4053, train_acc = 0.892, dev_loss = 0.43, dev_acc = 0.8853, test_loss = 0.3873, test_acc = 0.8983
+After round 2, train_loss = 0.4045, train_acc = 0.8927, dev_loss = 0.4301, dev_acc = 0.885, test_loss = 0.387, test_acc = 0.8972
 
 Start Round 3 ...
-After round 3, train_loss = 0.3724, train_acc = 0.8993, dev_loss = 0.3985, dev_acc = 0.8919, test_loss = 0.3569, test_acc = 0.9043
+After round 3, train_loss = 0.372, train_acc = 0.8999, dev_loss = 0.399, dev_acc = 0.8922, test_loss = 0.3564, test_acc = 0.9048
 
 Start Round 4 ...
-After round 4, train_loss = 0.3528, train_acc = 0.9041, dev_loss = 0.3799, dev_acc = 0.8968, test_loss = 0.3391, test_acc = 0.9082
+After round 4, train_loss = 0.3525, train_acc = 0.9041, dev_loss = 0.3801, dev_acc = 0.8959, test_loss = 0.3388, test_acc = 0.9093
 
 Start Round 5 ...
-After round 5, train_loss = 0.3399, train_acc = 0.9065, dev_loss = 0.3677, dev_acc = 0.8984, test_loss = 0.3277, test_acc = 0.9104
+After round 5, train_loss = 0.3396, train_acc = 0.907, dev_loss = 0.3681, dev_acc = 0.898, test_loss = 0.3276, test_acc = 0.9116
 
 Server in closing sonnections!
 Done!

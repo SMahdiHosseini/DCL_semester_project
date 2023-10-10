@@ -27,25 +27,29 @@ class FederatedNet(torch.nn.Module):
         out = self.linear(out)
         return out
 
+    def flattenTensors(self, list_of_tensor):
+        return torch.cat(tuple(tensor.detach().view(-1) for tensor in list_of_tensor))
+
+    def unflatten(self, flat_tensor, list_of_tensor):
+        c = 0
+        returned_list = [torch.zeros(tensor.shape) for tensor in list_of_tensor]
+        for i, tensor in enumerate(list_of_tensor):
+            count = torch.numel(tensor.data)
+            returned_list[i].data = flat_tensor[c:c + count].view(returned_list[i].data.shape)
+            c = c + count
+        return returned_list
+
     def get_track_layers(self):
         return self.track_layers
 
-    def apply_parameters(self, parameters_dict):
-        with torch.no_grad():
-            for layer_name in parameters_dict:
-                self.track_layers[layer_name].weight.data *= 0
-                self.track_layers[layer_name].bias.data *= 0
-                self.track_layers[layer_name].weight.data = parameters_dict[layer_name]['weight']
-                self.track_layers[layer_name].bias.data = parameters_dict[layer_name]['bias']
+    def apply_parameters(self, new_parameters):
+        list_of_tensor = self.unflatten(new_parameters, [tensor for tensor in self.parameters()])
+        for j, param in enumerate(self.parameters()):
+            param.data = list_of_tensor[j].data.to(Helper.device)
+
 
     def get_parameters(self):
-        parameters_dict = dict()
-        for layer_name in self.track_layers:
-            parameters_dict[layer_name] = {
-                'weight': self.track_layers[layer_name].weight.data.clone(),
-                'bias': self.track_layers[layer_name].bias.data.clone()
-            }
-        return parameters_dict
+        return self.flattenTensors(self.parameters())
 
     def batch_accuracy(self, outputs, labels):
         with torch.no_grad():

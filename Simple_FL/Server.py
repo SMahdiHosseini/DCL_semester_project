@@ -6,6 +6,7 @@ from torch.multiprocessing import Manager
 from threading import Thread
 from torch.multiprocessing import set_start_method
 from torch import load
+import torch
 try:
      set_start_method('spawn')
 except RuntimeError:
@@ -19,16 +20,11 @@ total_train_size = len(train_dataset)
 def receiveNewParams(connection, new_params):
     msg = connection.recv()
     if msg.header == Message.NEW_PARAMETERS:
-        client_parameters = dict([(layer_name, {'weight': 0, 'bias': 0}) for layer_name in msg.content[Message.PARAMS]])
-        for layer_name in msg.content[Message.PARAMS]:
-            # convert Tensros from CUDA to CPU to aggregate them
-            client_parameters[layer_name]['weight'] = msg.content[Message.FRACTION] / total_train_size * msg.content[Message.PARAMS][layer_name]['weight'].cpu()
-            client_parameters[layer_name]['bias'] = msg.content[Message.FRACTION] / total_train_size * msg.content[Message.PARAMS][layer_name]['bias'].cpu()
-        new_params[connection] = client_parameters
+        new_params.append(msg.content[Message.FRACTION] / total_train_size * msg.content[Message.PARAMS].cpu())
 
 def getAllNewParams(connections, current_parameters):
     threads = []
-    new_params = Manager().dict()
+    new_params = Manager().list()
     for client in connections.keys():
         connections[client].send(Msg(header=Message.TRAIN, content=current_parameters))
         new_thread = Thread(target=receiveNewParams, args=(connections[client], new_params))
@@ -41,12 +37,7 @@ def getAllNewParams(connections, current_parameters):
 def runTheRound(round, connections, global_net):
     print('Start Round {} ...'.format(round))
     new_params = getAllNewParams(connections, global_net.get_parameters())
-    new_model_parameters = dict([(layer_name, {'weight': 0, 'bias': 0}) for layer_name in global_net.get_parameters()])
-    for _, param in new_params.items():
-        for layer_name in param:
-            new_model_parameters[layer_name]['weight'] += param[layer_name]['weight'].to(Helper.device)
-            new_model_parameters[layer_name]['bias'] += param[layer_name]['bias'].to(Helper.device)
-
+    new_model_parameters = torch.sum(torch.stack(list(new_params)), dim=0)
     global_net.apply_parameters(new_model_parameters)
 
 def evaluateTheRound(global_net, history, r):
