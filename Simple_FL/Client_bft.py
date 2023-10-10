@@ -2,7 +2,7 @@ from Utils import Model, Helper
 import sys
 import socket
 import jpysocket
-import torch
+from torch import load
 
 ## Define Client Class
 class TraningClient:
@@ -40,11 +40,12 @@ def applyNewParameters(connection):
     connection.send(jpysocket.jpyencode("ACK"))
 
 def handleTrainCmd(connection, training_client):
-    client_parameters = training_client.train()
+    client_parameters = training_client.train().tolist()
     res = str(client_parameters)
     connection.send(jpysocket.jpyencode(str(training_client.get_dataset_size())))
     connection.send(jpysocket.jpyencode(str(len(res))))
     connection.send(bytes(res, 'utf-8'))
+    print(len(res))
 
 def execute(connection, training_client):
     while True:
@@ -60,7 +61,7 @@ def execute(connection, training_client):
 def main():
     client_id = int(sys.argv[1])
     print("Client {} started! ... ".format(client_id))
-    training_client = TraningClient(client_id, torch.load("F:/DCL/Semester Project 1/Codes/DCL_semester_project/Simple_FL/Data/ClientsDatasets/" + str(client_id) + ".pt"))
+    training_client = TraningClient(client_id, load("F:/DCL/Semester Project 1/Codes/DCL_semester_project/Simple_FL/Data/ClientsDatasets/" + str(client_id) + ".pt"))
     connection = connect(client_id, sys.argv[2], int(sys.argv[3]))
     execute(connection, training_client)
     connection.close()

@@ -5,13 +5,11 @@ from multiprocessing.connection import Listener
 from torch.multiprocessing import Manager
 from threading import Thread
 from torch.multiprocessing import set_start_method
-from torch import load
+from torch import load, tensor
 from Utils import Model, Helper
 import sys
 import socket
 import jpysocket
-import torch
-import json
 
 try:
      set_start_method('spawn')
@@ -40,7 +38,11 @@ def receiveNewParams(new_param, dataset_size):
 def unzip_data(data):
     data = data.split("#")
     dataset_size = data[0]
-    params = json.loads(data[1])
+    # params = json.loads(data[1])
+    # params = torch.as_tensor(data[1], dtype=torch.StringType)
+    lst = [float(x) for x in data[1][data[1].find('[')+1:data[1].find(']')].split(',')]
+    params = tensor(lst)
+    print("Params:", params)
     return dataset_size, params
 
 def pushNewParams(connection, new_params):
@@ -50,7 +52,8 @@ def pushNewParams(connection, new_params):
     msg = connection.recv(msg_size).decode()
     connection.send(jpysocket.jpyencode("ACK"))
     dataset_size, params = unzip_data(msg)
-    new_params.append(receiveNewParams(params, dataset_size))
+    # new_params.append(receiveNewParams(params, dataset_size))
+    new_params.append((params, dataset_size))
     return new_params
 
 def execute(connection):
@@ -59,7 +62,7 @@ def execute(connection):
         msg = jpysocket.jpydecode(connection.recv(1024))
         if msg == "NEWPARAMS":
             new_params = pushNewParams(connection, new_params)
-            print(new_params)
+            # print(new_params)
         # if msg == "TRAIN":
         #     client_parameters = traning_client.train()
         #     res = str(client_parameters)
@@ -72,7 +75,7 @@ def execute(connection):
             break
 
 def main():
-    print("Client server started! ... ")
+    print("server started! ... ")
     global_net = Helper.to_device(Model.FederatedNet(), Helper.device)
     connection = connect(sys.argv[1], int(sys.argv[2]))
     execute(connection)
