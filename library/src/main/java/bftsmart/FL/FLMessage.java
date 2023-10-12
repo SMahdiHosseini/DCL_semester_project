@@ -6,17 +6,19 @@ import java.util.Set;
 
 public class FLMessage {
     private MessageType type;
-    private byte[] content;
+    private String content;
     private int round;
     private int clientId;
-    private int contentSize;
+//    private int contentSize;
+    private String extension;
 
-    public FLMessage(MessageType t, byte[] c, int r, int id, int cSize) {
+    public FLMessage(MessageType t, String c, int r, int id, String ex) {
         type = t;
         content = c;
         round = r;
         clientId = id;
-        contentSize = cSize;
+//        contentSize = cSize;
+        extension = ex;
     }
     public FLMessage() {
     }
@@ -28,8 +30,9 @@ public class FLMessage {
         objOut.writeObject(message.getType());
         objOut.writeInt(message.getRound());
         objOut.writeInt(message.getClientId());
-        objOut.writeInt(message.getContentSize());
-        objOut.write(message.getContent());
+        objOut.writeObject(message.getExtension());
+//        objOut.writeInt(message.getContentSize());
+        objOut.writeObject(message.getContent());
 
         objOut.flush();
         byteOut.flush();
@@ -45,10 +48,11 @@ public class FLMessage {
         msg.setType((MessageType) objIn.readObject());
         msg.setRound((int) objIn.readInt());
         msg.setClientId((int) objIn.readInt());
-        msg.setContentSize((int) objIn.readInt());
-        byte[] b = new byte[msg.getContentSize()];
-        objIn.read(b, 0, msg.getContentSize());
-        msg.setContent(b);
+        msg.setExtension((String) objIn.readObject());
+//        msg.setContentSize((int) objIn.readInt());
+//        byte[] b = new byte[msg.getContentSize()];
+//        objIn.read(b, 0, msg.getContentSize());
+        msg.setContent((String) objIn.readObject());
 
         return msg;
     }
@@ -65,10 +69,10 @@ public class FLMessage {
     public void setClientId(int id) {
         clientId = id;
     }
-    public byte[] getContent() {
+    public String getContent() {
         return content;
     }
-    public void setContent(byte[] c) {
+    public void setContent(String c) {
         content = c;
     }
     public int getRound(){
@@ -77,10 +81,16 @@ public class FLMessage {
     public void setRound(int r){
         round = r;
     }
-    public void setContentSize(int cs){
-        contentSize = cs;
+//    public void setContentSize(int cs){
+//        contentSize = cs;
+//    }
+//    public int getContentSize(){
+//        return contentSize;
+//    }
+    public String getExtension(){
+        return extension;
     }
-    public int getContentSize(){
-        return contentSize;
+    public void setExtension(String ex){
+        extension = ex;
     }
 }

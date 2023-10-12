@@ -1,14 +1,8 @@
-
-from Utils import Model, Helper, Message
-from Utils.Message import Msg
-from multiprocessing.connection import Listener
-from torch.multiprocessing import Manager
-from threading import Thread
+from Utils import Model, Helper, bft_Helper
 from torch.multiprocessing import set_start_method
-from torch import load, tensor
+from torch import load, tensor, sum, stack
 from Utils import Model, Helper
 import sys
-import socket
 import jpysocket
 
 try:
@@ -16,69 +10,38 @@ try:
 except RuntimeError:
     pass
 
-train_dataset = load("./Data/trainDataset.pt")
-test_dataset = load("./Data/testDataset.pt")
-dev_dataset = load("./Data/devDataset.pt")
+train_dataset = load("F:/DCL/Semester Project 1/Codes/DCL_semester_project/Simple_FL/Data/trainDataset.pt")
+test_dataset = load("F:/DCL/Semester Project 1/Codes/DCL_semester_project/Simple_FL/Data/testDataset.pt")
+dev_dataset = load("F:/DCL/Semester Project 1/Codes/DCL_semester_project/Simple_FL/Data/devDataset.pt")
 total_train_size = len(train_dataset)
 
-def connect(hostAddress, hostPort):
-    address = (hostAddress, hostPort)
-    connection = socket.socket()
-    connection.connect(address)
-    return connection
 
-def receiveNewParams(new_param, dataset_size):
-    client_parameters = dict([(layer_name, {'weight': 0, 'bias': 0}) for layer_name in new_param])
-    for layer_name in new_param:
-        # convert Tensros from CUDA to CPU to aggregate them
-        client_parameters[layer_name]['weight'] = dataset_size / total_train_size * new_param[layer_name]['weight'].cpu()
-        client_parameters[layer_name]['bias'] = dataset_size / total_train_size * new_param[layer_name]['bias'].cpu()
-    return client_parameters
+def aggregateParams(params):
+    return sum(stack(params), dim=0).tolist()
 
-def unzip_data(data):
-    data = data.split("#")
-    dataset_size = data[0]
-    # params = json.loads(data[1])
-    # params = torch.as_tensor(data[1], dtype=torch.StringType)
-    lst = [float(x) for x in data[1][data[1].find('[')+1:data[1].find(']')].split(',')]
-    params = tensor(lst)
-    print("Params:", params)
-    return dataset_size, params
-
-def pushNewParams(connection, new_params):
+def handleNewParam(connection):
     connection.send(jpysocket.jpyencode("ACK"))
-    msg_size = int(jpysocket.jpydecode(connection.recv(1024))) * 4
-    connection.send(jpysocket.jpyencode("ACK"))
-    msg = connection.recv(msg_size).decode()
-    connection.send(jpysocket.jpyencode("ACK"))
-    dataset_size, params = unzip_data(msg)
-    # new_params.append(receiveNewParams(params, dataset_size))
-    new_params.append((params, dataset_size))
-    return new_params
+    datasetSize = int(jpysocket.jpydecode(connection.recv(1024)))
+    return (datasetSize / total_train_size * tensor(bft_Helper.getNewParameters(connection)))
 
-def execute(connection):
-    new_params = []
+def execute(connection, global_net):
+    params = []
     while True:
         msg = jpysocket.jpydecode(connection.recv(1024))
         if msg == "NEWPARAMS":
-            new_params = pushNewParams(connection, new_params)
-            # print(new_params)
-        # if msg == "TRAIN":
-        #     client_parameters = traning_client.train()
-        #     res = str(client_parameters)
-        #     connection.send(jpysocket.jpyencode(str(traning_client.get_dataset_size())))
-        #     connection.send(jpysocket.jpyencode(str(len(res))))
-        #     # connection.send(jpysocket.jpyencode(res))
-        #     connection.send(bytes(res, 'utf-8'))
+            params.append(handleNewParam(connection))
+        if msg == "AGGREGATE":
+            bft_Helper.sendNewParameters(connection, bytes(''.join([str(round(x, 4)) + "," for x in aggregateParams(params)]), 'utf-8'))
+            params = []
         if msg == "TERMINATE":
             connection.send(jpysocket.jpyencode("ACK"))
-            break
+            return
 
 def main():
     print("server started! ... ")
     global_net = Helper.to_device(Model.FederatedNet(), Helper.device)
-    connection = connect(sys.argv[1], int(sys.argv[2]))
-    execute(connection)
+    connection = bft_Helper.connect(sys.argv[1], int(sys.argv[2]))
+    execute(connection, global_net)
     connection.close()
     print("Server terminated! ...")
 

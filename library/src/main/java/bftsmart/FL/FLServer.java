@@ -17,12 +17,13 @@ public final class FLServer extends DefaultSingleRecoverable {
     private int numOfRounds;
     private int currentRound;
     private int sentAggParams;
-    private byte[] aggregatedParams;
+    private static String aggregatedParams;
     private int receivedParams;
     private int receivedParamsNext;
-    private int port;
-//    private DataInputStream in;
-//    private DataOutputStream out;
+    private ArrayList<String> receivedParamsNextArr;
+    private ArrayList<String> receivedParamsNextDatasetSizeArr;
+    private DataInputStream in;
+    private DataOutputStream out;
     public FLServer(int id, int _clientNums, int _numOfRounds, String address){
         this.numOfRounds = _numOfRounds;
         this.clientNums = _clientNums;
@@ -30,92 +31,116 @@ public final class FLServer extends DefaultSingleRecoverable {
         this.receivedParams = 0;
         this.sentAggParams = 0;
         this.currentRound = 1;
+        this.receivedParamsNextArr = new ArrayList<String>();
+        this.receivedParamsNextDatasetSizeArr = new ArrayList<String>();
         new ServiceReplica(id, this, this);
 
-//        try {
-//
+        try {
+
 //            ServerSocket serverSocket = new ServerSocket(6000);
-////            ServerSocket serverSocket = new ServerSocket(0);
-//            this.port = serverSocket.getLocalPort();
-////            System.out.println("Server " + id + " Port: " + this.port);
-////            Process modelProcess = Runtime.getRuntime().exec("python ../../../../Simple_FL/Server_bft.py " + Integer.toString(id) + " " + address + " " + Integer.toString(this.port));
-////            DataInputStream err = new DataInputStream(modelProcess.getErrorStream());
-////            String s;
-////            while((s = err.readLine()) != null)
-////                System.out.println("FF: " + s);
-//            Socket socket = serverSocket.accept();
-//            in = new DataInputStream(socket.getInputStream());
-//            out = new DataOutputStream(socket.getOutputStream());
-//        } catch (IOException e) {
-//            throw new RuntimeException(e);
-//        }
+            ServerSocket serverSocket = new ServerSocket(0);
+            int port = serverSocket.getLocalPort();
+            System.out.println("Server " + id + " Port: " + port);
+            Process modelProcess = Runtime.getRuntime().exec("python ../../../../Simple_FL/Server_bft.py " + address + " " + Integer.toString(port));
+            Socket socket = serverSocket.accept();
+            in = new DataInputStream(socket.getInputStream());
+            out = new DataOutputStream(socket.getOutputStream());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public void aggregateParams() throws IOException {
-        //TODO
-        aggregatedParams = "NEW PARAM: SALAM, HI, BLABLABLA".getBytes();
-//        if (currentRound == numOfRounds){
-//            String terminate = "TERMINATE";
-//            out.writeUTF(terminate);
-//            out.flush();
-//            String ack = in.readUTF();
-//            if (ack.equals("ACK"))
-//                System.out.println("Python process terminated");
-//        }
+        String aggregate = "AGGREGATE";
+        out.writeUTF(aggregate);
+        out.flush();
+        System.out.println("Aggregating parameters of round " + currentRound);
+
+        int msg_size = Integer.parseInt(in.readUTF());
+        byte[] data = new byte[msg_size];
+        in.read(data, 0, data.length);
+        aggregatedParams = new String(data, 0, data.length);
+
+        BufferedWriter writer = new BufferedWriter(new FileWriter("TEMP.txt"));
+        writer.write(aggregatedParams);
+        writer.close();
+
+        if (currentRound == numOfRounds) {
+            terminateTheAggregator();
+        }
     }
 
-    public void checkRoundEnd(){
+    public void checkRoundEnd() throws IOException {
         if (sentAggParams == clientNums){
+            for (int i = 0; i < receivedParamsNextArr.size(); i++){
+                sendParametersToAggregator(receivedParamsNextArr.get(i), receivedParamsNextDatasetSizeArr.get(i));
+            }
             sentAggParams = 0;
-            receivedParamsNext = receivedParams;
-            receivedParams = 0;
+            receivedParams = receivedParamsNext;
+            receivedParamsNext = 0;
+            receivedParamsNextArr = new ArrayList<String>();
             currentRound++;
         }
 
     }
-    public FLMessage sendAggParams(int clientId){
+    public FLMessage sendAggParams(int clientId) throws IOException {
         sentAggParams++;
-        FLMessage msg = new FLMessage((currentRound == numOfRounds) ? MessageType.LASTAGGPARAM : MessageType.AGGPARAM, aggregatedParams, currentRound, clientId, aggregatedParams.length);
+        //TODO: send agg param to client log
+        FLMessage msg = new FLMessage((currentRound == numOfRounds) ? MessageType.LASTAGGPARAM : MessageType.AGGPARAM, aggregatedParams, currentRound, clientId, "non");
         checkRoundEnd();
         return msg;
 
     }
-    public void sendParameters(byte[] parameters) throws IOException {
+    public void terminateTheAggregator() throws IOException {
+        String terminate = "TERMINATE";
+        out.writeUTF(terminate);
+        out.flush();
+        String ack = in.readUTF();
+        if (ack.equals("ACK"))
+            System.out.println("Python process terminated");
+    }
+    public void sendParametersToAggregator(String parameters, String datasetSize) throws IOException {
         String newParams = "NEWPARAMS";
-//        out.writeUTF(newParams);
-//        String ack = in.readUTF();
-//        if (ack.equals("ACK"))
-//            out.writeUTF(String.valueOf(parameters.length));
-//        ack = in.readUTF();
-//        if (ack.equals("ACK"))
-//            out.write(parameters, 0, parameters.length);
-//        ack = in.readUTF();
-//        out.flush();
+        out.writeUTF(newParams);
+        String ack = in.readUTF();
+        if (ack.equals("ACK"))
+            out.writeUTF(datasetSize);
+        ack = in.readUTF();
+        if (ack.equals("ACK"))
+            out.writeUTF(String.valueOf(parameters.getBytes().length));
+        ack = in.readUTF();
+        if (ack.equals("ACK"))
+            out.write(parameters.getBytes(), 0, parameters.getBytes().length);
+        ack = in.readUTF();
+        out.flush();
     }
     public FLMessage handleNewParam(FLMessage msg) throws IOException {
+        System.out.println("Gor new param from " + msg.getClientId() + " Curretn Round: " + currentRound + " Client round:" + msg.getRound());
         if (msg.getRound() == currentRound){
-            //TODO: send to .py
-            sendParameters(msg.getContent());
-            System.out.println("newParam:" + new String(msg.getContent(), 0, msg.getContentSize()));
+            sendParametersToAggregator(msg.getContent(), msg.getExtension());
             receivedParams++;
+            System.out.println("Send Params to Aggregator by client " + msg.getClientId());
         } else {
-            //TODO: send to .py
+            System.out.println("Save Params for client " + msg.getClientId());
+            receivedParamsNextArr.add(msg.getContent());
             receivedParamsNext++;
+            return new FLMessage(MessageType.WAITTHIS, "", currentRound, msg.getClientId(), "non");
         }
 
         if (receivedParams == clientNums){
+            System.out.println("Send Aggregate to Aggregator by client " + msg.getClientId());
             aggregateParams();
             return sendAggParams(msg.getClientId());
         } else {
-            return new FLMessage(MessageType.WAITTHIS, new byte[0], currentRound, msg.getClientId(), 0);
+            return new FLMessage(MessageType.WAITTHIS, "", currentRound, msg.getClientId(), "non");
         }
     }
 
-    public FLMessage handleCheckMsg(FLMessage msg){
+    public FLMessage handleCheckMsg(FLMessage msg) throws IOException {
         if (receivedParams == clientNums){
             return sendAggParams(msg.getClientId());
         } else {
-            return new FLMessage(MessageType.WAITTHIS, new byte[0], currentRound, msg.getClientId(), 0);
+            return new FLMessage(MessageType.WAITTHIS, "", currentRound, msg.getClientId(), "non");
         }
     }
     @Override
@@ -138,6 +163,7 @@ public final class FLServer extends DefaultSingleRecoverable {
                 return FLMessage.toBytes(handleCheckMsg(message));
             }
             System.err.println("Not valid message type!");
+            terminateTheAggregator();
             return null;
 
         } catch (IOException | ClassNotFoundException e) {
@@ -154,6 +180,7 @@ public final class FLServer extends DefaultSingleRecoverable {
                 return FLMessage.toBytes(handleCheckMsg(message));
             }
             System.err.println("Not valid message type!");
+            terminateTheAggregator();
             return null;
 
         } catch (IOException | ClassNotFoundException e) {

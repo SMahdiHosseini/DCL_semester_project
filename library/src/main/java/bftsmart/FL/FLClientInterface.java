@@ -3,6 +3,7 @@ package bftsmart.FL;
 import java.io.*;
 
 import bftsmart.tom.ServiceProxy;
+import org.graalvm.compiler.bytecode.Bytes;
 
 public class FLClientInterface {
 
@@ -10,7 +11,7 @@ public class FLClientInterface {
 
     public static boolean handleMessage(FLMessage msg, ServiceProxy serviceProxy) throws IOException, ClassNotFoundException, InterruptedException {
         while (msg.getType().equals(MessageType.WAITTHIS)){
-            byte[] reply = serviceProxy.invokeUnordered(FLMessage.toBytes(new FLMessage(MessageType.CHECK, new byte[0], msg.getRound(), msg.getClientId(), 0)));
+            byte[] reply = serviceProxy.invokeUnordered(FLMessage.toBytes(new FLMessage(MessageType.CHECK, "", msg.getRound(), msg.getClientId(), "non")));
             if (reply == null){
                 System.out.println(", ERROR! Exiting.");
                 return true;
@@ -23,16 +24,17 @@ public class FLClientInterface {
         } else if (msg.getType().equals(MessageType.END)){
             return true;
         } else if (msg.getType().equals(MessageType.AGGPARAM)){
+            System.out.println("GOt AGGPARAM Message for round " + msg.getRound());
             modelClient.setParameters(msg.getContent());
         }
         return false;
 
     }
     private static boolean runTheRound(int round, int clientId, ServiceProxy serviceProxy) throws IOException, ClassNotFoundException, InterruptedException {
-        byte[] newParams = modelClient.train();
-//        System.out.println("Got HERE New Param: " + newParams);
-        System.out.println("Got HERE New Param Size: " + newParams.length);
-        FLMessage message = new FLMessage(MessageType.NEWPARAM, newParams, round, clientId, newParams.length);
+        String newParams = modelClient.train();
+        System.out.println("Got New Params");
+
+        FLMessage message = new FLMessage(MessageType.NEWPARAM, newParams, round, clientId, modelClient.datasetSize);
         byte[] reply = serviceProxy.invokeOrdered(FLMessage.toBytes(message));
         if (reply == null){
             System.out.println(" ERROR! Exiting.");
@@ -48,6 +50,7 @@ public class FLClientInterface {
         while(!exit){
             System.out.println("Start Round " + round + " ...");
             exit = runTheRound(round, clientId, serviceProxy);
+            System.out.println("End Round " + round + " ...");
             round++;
         }
     }

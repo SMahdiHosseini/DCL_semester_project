@@ -10,7 +10,7 @@ class FederatedNet(torch.nn.Module):
         # self.conv2 = torch.nn.Conv2d(20, 40, 7)
         # self.maxpool = torch.nn.MaxPool2d(2, 2)
         self.flatten = torch.nn.Flatten()
-        self.linear = torch.nn.Linear(784, 128)
+        self.linear = torch.nn.Linear(784, 10)
         # self.non_linearity = torch.nn.functional.relu
         # self.track_layers = {'conv1': self.conv1, 'conv2': self.conv2, 'linear': self.linear}
         self.track_layers = {'linear': self.linear}
