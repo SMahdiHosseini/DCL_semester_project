@@ -10,6 +10,7 @@ import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
+import java.util.concurrent.locks.ReentrantLock;
 
 public final class FLServer extends DefaultSingleRecoverable {
 
@@ -18,8 +19,10 @@ public final class FLServer extends DefaultSingleRecoverable {
     private int currentRound;
     private int sentAggParams;
     private static String aggregatedParams;
+    private boolean aggregated;
     private int receivedParams;
     private int receivedParamsNext;
+    private ReentrantLock lock;
     private ArrayList<String> receivedParamsNextArr;
     private ArrayList<String> receivedParamsNextDatasetSizeArr;
     private DataInputStream in;
@@ -31,8 +34,10 @@ public final class FLServer extends DefaultSingleRecoverable {
         this.receivedParams = 0;
         this.sentAggParams = 0;
         this.currentRound = 1;
+        this.aggregated = false;
         this.receivedParamsNextArr = new ArrayList<String>();
         this.receivedParamsNextDatasetSizeArr = new ArrayList<String>();
+        this.lock = new ReentrantLock();
         new ServiceReplica(id, this, this);
 
         try {
@@ -60,18 +65,17 @@ public final class FLServer extends DefaultSingleRecoverable {
         byte[] data = new byte[msg_size];
         in.read(data, 0, data.length);
         aggregatedParams = new String(data, 0, data.length);
-
-        BufferedWriter writer = new BufferedWriter(new FileWriter("TEMP.txt"));
-        writer.write(aggregatedParams);
-        writer.close();
-
+//        System.out.println("**** Aggregated of round " + currentRound);
+        aggregated = true;
         if (currentRound == numOfRounds) {
             terminateTheAggregator();
         }
     }
 
-    public void checkRoundEnd() throws IOException {
+    public void checkRoundEnd(int clientId) throws IOException {
         if (sentAggParams == clientNums){
+            aggregated = false;
+//            System.out.println("Round Ended by sending to client " + clientId);
             for (int i = 0; i < receivedParamsNextArr.size(); i++){
                 sendParametersToAggregator(receivedParamsNextArr.get(i), receivedParamsNextDatasetSizeArr.get(i));
             }
@@ -84,10 +88,14 @@ public final class FLServer extends DefaultSingleRecoverable {
 
     }
     public FLMessage sendAggParams(int clientId) throws IOException {
+        lock.lock();
         sentAggParams++;
-        //TODO: send agg param to client log
+//        System.out.println("Send Aggregated param of round " + currentRound + " to client " + clientId);
+//        System.out.println("SentAggParams = " + sentAggParams);
         FLMessage msg = new FLMessage((currentRound == numOfRounds) ? MessageType.LASTAGGPARAM : MessageType.AGGPARAM, aggregatedParams, currentRound, clientId, "non");
-        checkRoundEnd();
+//        FLMessage msg = new FLMessage((currentRound == numOfRounds) ? MessageType.LASTAGGPARAM : MessageType.AGGPARAM, "Hello", currentRound, clientId, "non");
+        checkRoundEnd(clientId);
+        lock.unlock();
         return msg;
 
     }
@@ -96,8 +104,7 @@ public final class FLServer extends DefaultSingleRecoverable {
         out.writeUTF(terminate);
         out.flush();
         String ack = in.readUTF();
-        if (ack.equals("ACK"))
-            System.out.println("Python process terminated");
+        System.out.println("Python process terminated");
     }
     public void sendParametersToAggregator(String parameters, String datasetSize) throws IOException {
         String newParams = "NEWPARAMS";
@@ -115,20 +122,20 @@ public final class FLServer extends DefaultSingleRecoverable {
         out.flush();
     }
     public FLMessage handleNewParam(FLMessage msg) throws IOException {
-        System.out.println("Gor new param from " + msg.getClientId() + " Curretn Round: " + currentRound + " Client round:" + msg.getRound());
+//        System.out.println("Got new param from " + msg.getClientId() + " Curretn Round: " + currentRound + " Client round:" + msg.getRound());
         if (msg.getRound() == currentRound){
             sendParametersToAggregator(msg.getContent(), msg.getExtension());
             receivedParams++;
-            System.out.println("Send Params to Aggregator by client " + msg.getClientId());
+//            System.out.println("Send Params to Aggregator by client " + msg.getClientId());
         } else {
-            System.out.println("Save Params for client " + msg.getClientId());
+//            System.out.println("Save Params for client " + msg.getClientId());
             receivedParamsNextArr.add(msg.getContent());
             receivedParamsNext++;
             return new FLMessage(MessageType.WAITTHIS, "", currentRound, msg.getClientId(), "non");
         }
 
-        if (receivedParams == clientNums){
-            System.out.println("Send Aggregate to Aggregator by client " + msg.getClientId());
+        if ((receivedParams == clientNums) && (!aggregated)){
+//            System.out.println("Send Aggregate to Aggregator by client " + msg.getClientId());
             aggregateParams();
             return sendAggParams(msg.getClientId());
         } else {
@@ -137,7 +144,7 @@ public final class FLServer extends DefaultSingleRecoverable {
     }
 
     public FLMessage handleCheckMsg(FLMessage msg) throws IOException {
-        if (receivedParams == clientNums){
+        if ((receivedParams == clientNums) && (aggregated)){
             return sendAggParams(msg.getClientId());
         } else {
             return new FLMessage(MessageType.WAITTHIS, "", currentRound, msg.getClientId(), "non");

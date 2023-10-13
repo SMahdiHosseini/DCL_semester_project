@@ -10,9 +10,9 @@ test_dataset = MNIST('../Data', train=False, download=True, transform=transforms
 train_dataset, dev_dataset = random_split(train_dataset, [int(len(train_dataset) * 0.83), int(len(train_dataset) * 0.17)])
 
 # for test
-# train_dataset = Subset(train_dataset, range(100))
-# test_dataset = Subset(test_dataset, range(100))
-# dev_dataset = Subset(dev_dataset, range(100))
+train_dataset = Subset(train_dataset, range(100))
+test_dataset = Subset(test_dataset, range(100))
+dev_dataset = Subset(dev_dataset, range(100))
 
 total_train_size = len(train_dataset)
 total_test_size = len(test_dataset)

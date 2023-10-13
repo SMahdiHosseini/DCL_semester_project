@@ -5,7 +5,7 @@ from torch.utils.data import DataLoader
 ## Constraints
 localHost = 'localhost'
 server_port = 6000
-num_clients = 10
+num_clients = 5
 rounds = 5
 batch_size = 128
 epochs_per_client = 3

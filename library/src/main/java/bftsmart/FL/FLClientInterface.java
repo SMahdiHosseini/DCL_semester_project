@@ -11,7 +11,7 @@ public class FLClientInterface {
 
     public static boolean handleMessage(FLMessage msg, ServiceProxy serviceProxy) throws IOException, ClassNotFoundException, InterruptedException {
         while (msg.getType().equals(MessageType.WAITTHIS)){
-            byte[] reply = serviceProxy.invokeUnordered(FLMessage.toBytes(new FLMessage(MessageType.CHECK, "", msg.getRound(), msg.getClientId(), "non")));
+            byte[] reply = serviceProxy.invokeOrdered(FLMessage.toBytes(new FLMessage(MessageType.CHECK, "", msg.getRound(), msg.getClientId(), "non")));
             if (reply == null){
                 System.out.println(", ERROR! Exiting.");
                 return true;
