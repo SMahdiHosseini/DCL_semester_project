@@ -46,7 +46,10 @@ public final class FLServer extends DefaultSingleRecoverable {
             ServerSocket serverSocket = new ServerSocket(0);
             int port = serverSocket.getLocalPort();
             System.out.println("Server " + id + " Port: " + port);
-            Process modelProcess = Runtime.getRuntime().exec("python ../../../../Simple_FL/Server_bft.py " + address + " " + Integer.toString(port));
+            //Windows
+            // Process modelProcess = Runtime.getRuntime().exec("python ../../../../Simple_FL/Server_bft.py " + address + " " + Integer.toString(port));
+            //Linux
+            // Process modelProcess = Runtime.getRuntime().exec("python3 ../../../../Simple_FL/Server_bft.py " + address + " " + Integer.toString(port));
             Socket socket = serverSocket.accept();
             in = new DataInputStream(socket.getInputStream());
             out = new DataOutputStream(socket.getOutputStream());
@@ -65,7 +68,7 @@ public final class FLServer extends DefaultSingleRecoverable {
         byte[] data = new byte[msg_size];
         in.read(data, 0, data.length);
         aggregatedParams = new String(data, 0, data.length);
-//        System.out.println("**** Aggregated of round " + currentRound);
+       System.out.println("**** Aggregated of round " + currentRound);
         aggregated = true;
         if (currentRound == numOfRounds) {
             terminateTheAggregator();
@@ -122,11 +125,11 @@ public final class FLServer extends DefaultSingleRecoverable {
         out.flush();
     }
     public FLMessage handleNewParam(FLMessage msg) throws IOException {
-//        System.out.println("Got new param from " + msg.getClientId() + " Curretn Round: " + currentRound + " Client round:" + msg.getRound());
+       System.out.println("Got new param from " + msg.getClientId() + " Curretn Round: " + currentRound + " Client round:" + msg.getRound());
         if (msg.getRound() == currentRound){
             sendParametersToAggregator(msg.getContent(), msg.getExtension());
             receivedParams++;
-//            System.out.println("Send Params to Aggregator by client " + msg.getClientId());
+           System.out.println("Send Params to Aggregator by client " + msg.getClientId());
         } else {
 //            System.out.println("Save Params for client " + msg.getClientId());
             receivedParamsNextArr.add(msg.getContent());
@@ -135,7 +138,7 @@ public final class FLServer extends DefaultSingleRecoverable {
         }
 
         if ((receivedParams == clientNums) && (!aggregated)){
-//            System.out.println("Send Aggregate to Aggregator by client " + msg.getClientId());
+           System.out.println("Send Aggregate to Aggregator by client " + msg.getClientId());
             aggregateParams();
             return sendAggParams(msg.getClientId());
         } else {
@@ -197,8 +200,8 @@ public final class FLServer extends DefaultSingleRecoverable {
     }
 
     public static void main(String[] args){
-        if(args.length < 3) {
-            System.out.println("Use: java FLServer <processId> <ClientNums> <NumOfRounds>");
+        if(args.length < 4) {
+            System.out.println("Use: java FLServer <processId> <ClientNums> <NumOfRounds> <address>");
             System.exit(-1);
         }
         new FLServer(Integer.parseInt(args[0]), Integer.parseInt(args[1]), Integer.parseInt(args[2]), args[3]);
