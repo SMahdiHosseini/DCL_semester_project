@@ -47,7 +47,7 @@ public final class FLServer extends DefaultSingleRecoverable {
             int port = serverSocket.getLocalPort();
             System.out.println("Server " + id + " Port: " + port);
             //Windows
-            // Process modelProcess = Runtime.getRuntime().exec("python ../../../../Simple_FL/Server_bft.py " + address + " " + Integer.toString(port));
+             Process modelProcess = Runtime.getRuntime().exec("python ../../../../Simple_FL/Server_bft.py " + address + " " + Integer.toString(port));
             //Linux
             // Process modelProcess = Runtime.getRuntime().exec("python3 ../../../../Simple_FL/Server_bft.py " + address + " " + Integer.toString(port));
             Socket socket = serverSocket.accept();
