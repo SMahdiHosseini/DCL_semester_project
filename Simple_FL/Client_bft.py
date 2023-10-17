@@ -46,8 +46,8 @@ def execute(connection, training_client):
 def main():
     client_id = int(sys.argv[1])
     print("Client {} started! ... ".format(client_id))
-    training_client = TraningClient(client_id, load("F:/DCL/Semester Project 1/Codes/DCL_semester_project/Simple_FL/Data/ClientsDatasets/" + str(client_id) + ".pt"))
-    # training_client = TraningClient(client_id, load("/localhome/shossein/DCL_semester_project/Simple_FL/Data/ClientsDatasets/" + str(client_id) + ".pt"))
+    # training_client = TraningClient(client_id, load("F:/DCL/Semester Project 1/Codes/DCL_semester_project/Simple_FL/Data/ClientsDatasets/" + str(client_id) + ".pt"))
+    training_client = TraningClient(client_id, load("/localhome/shossein/DCL_semester_project/Simple_FL/Data/ClientsDatasets/" + str(client_id) + ".pt"))
     connection = bft_Helper.connect(sys.argv[2], int(sys.argv[3]))
     execute(connection, training_client)
     connection.close()
