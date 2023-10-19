@@ -58,25 +58,27 @@ class TraningClient:
 
     def runTheRound(self, r):
         client_parameters = self.train()
-        self.shareToNeighbors(client_parameters, r)
+        if r < Helper.rounds:
+            # print("****", r)
+            self.shareToNeighbors(client_parameters, r)
 
-        recvd_params = []
-        recvd_size = []
-        # recvd_params.append(client_parameters.cpu())
-        # recvd_size.append(self.get_dataset_size())
-        while len(recvd_params) < len(self.neighbors):
-            ready_to_read, _, _ = select.select(self.connections.values(), [], [])
-            for sock in ready_to_read:
-                msg = sock.recv()
-                if msg.header == Message.NEW_PARAMETERS:
-                    if int(msg.content[Message.ROUND]) == r:
-                        recvd_params.append(msg.content[Message.PARAMS].cpu())
-                        recvd_size.append(msg.content[Message.FRACTION])
-                    else:
-                        sock.send(Msg(header=Message.WAIT))
-                if msg.header == Message.WAIT:
-                    sock.send(Msg(header=Message.NEW_PARAMETERS, content={Message.ROUND: str(r), Message.FRACTION: self.get_dataset_size(), Message.PARAMS: client_parameters}))
-        self.aggregateParams(recvd_params, recvd_size)
+            recvd_params = []
+            recvd_size = []
+            recvd_params.append(client_parameters.cpu())
+            recvd_size.append(self.get_dataset_size())
+            while len(recvd_params) < len(self.neighbors):
+                ready_to_read, _, _ = select.select(self.connections.values(), [], [])
+                for sock in ready_to_read:
+                    msg = sock.recv()
+                    if msg.header == Message.NEW_PARAMETERS:
+                        if int(msg.content[Message.ROUND]) == r:
+                            recvd_params.append(msg.content[Message.PARAMS].cpu())
+                            recvd_size.append(msg.content[Message.FRACTION])
+                        else:
+                            sock.send(Msg(header=Message.WAIT))
+                    if msg.header == Message.WAIT:
+                        sock.send(Msg(header=Message.NEW_PARAMETERS, content={Message.ROUND: str(r), Message.FRACTION: self.get_dataset_size(), Message.PARAMS: client_parameters}))
+            self.aggregateParams(recvd_params, recvd_size)
 
     def execute(self):
         for r in range(1, Helper.rounds + 1):

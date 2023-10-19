@@ -49,7 +49,8 @@ public class ModelClient {
         datasetSize = in.readUTF();
         int msg_size = Integer.parseInt(in.readUTF());
         byte[] data = new byte[msg_size];
-        in.read(data, 0, data.length);
+        // in.read(data, 0, data.length);
+        in.readFully(data);
         return new String(data, 0, data.length);
     }
     public void terminate() throws IOException {

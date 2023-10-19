@@ -12,8 +12,11 @@ def getNewParameters(connection):
     connection.send(jpysocket.jpyencode("ACK"))
     params_size = int(jpysocket.jpydecode(connection.recv(1024))) * 4
     connection.send(jpysocket.jpyencode("ACK"))
-    p = connection.recv(params_size).decode()
-    params = [float(num) for num in p.split(',') if num]
+    total_data = ''
+    while ((len(total_data)*4) < params_size):
+        p = connection.recv(params_size - (len(total_data) * 4)).decode()
+        total_data = total_data + p
+    params = [float(num) for num in total_data.split(',') if num]
     connection.send(jpysocket.jpyencode("ACK"))
     return params
 

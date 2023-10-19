@@ -66,7 +66,7 @@ public final class FLServer extends DefaultSingleRecoverable {
 
         int msg_size = Integer.parseInt(in.readUTF());
         byte[] data = new byte[msg_size];
-        in.read(data, 0, data.length);
+        in.readFully(data);
         aggregatedParams = new String(data, 0, data.length);
        System.out.println("**** Aggregated of round " + currentRound);
         aggregated = true;
