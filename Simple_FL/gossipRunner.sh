@@ -9,7 +9,7 @@ fi
 for ((c=0; c<$1; c++))
 do
     python3 Client_Gossip.py $c > "./Results/gossip/res_$c.txt" &
-    sleep 1s
+    sleep 2s
 done
 
 wait

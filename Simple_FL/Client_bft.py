@@ -14,15 +14,11 @@ class TraningClient:
     def get_dataset_size(self):
         return len(self.dataset)
 
-    def get_client_id(self):
-        return self.client_id
-
     def set_params(self, parameters):
         self.net.apply_parameters(parameters)
 
     def train(self):
-        train_history = self.net.fit(self.dataset, Helper.epochs_per_client, Helper.learning_rate, Helper.batch_size)
-        print('{}: Loss = {}, Accuracy = {}'.format(self.client_id, round(train_history[-1][0], 4), round(train_history[-1][1], 4)))
+        self.net.fit(self.dataset)
         return self.net.get_parameters()
     
 def handleTrainCmd(connection, training_client):

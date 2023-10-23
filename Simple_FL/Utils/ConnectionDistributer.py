@@ -3,10 +3,17 @@ import random
 
 random.seed(10)
 
-adjMat = [[(i - 1) % Helper.num_clients, (i + 1) % Helper.num_clients] for i in range(Helper.num_clients)]
+# adjMat = [[(i - 1) % Helper.num_clients, (i + 1) % Helper.num_clients] for i in range(Helper.num_clients)]
 # adjMat = [[(i + 1) % Helper.num_clients] for i in range(Helper.num_clients)]
+adjMat = [[] for i in range(Helper.num_clients)]
+for i in range(Helper.num_clients):
+    s = []
+    for j in range(Helper.num_clients):
+        if i != j:
+            s.append(j)
+    adjMat[i] = s
 
-portsPool = [Helper.server_port + i for i in random.sample(range(0, 100), Helper.num_clients)]
+# portsPool = [Helper.server_port + i for i in random.sample(range(0, 100), Helper.num_clients)]
 
 numOfports = 0
 for i in range(Helper.num_clients):

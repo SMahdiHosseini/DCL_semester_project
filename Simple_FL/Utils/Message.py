@@ -9,6 +9,7 @@ PARAMS = "PARAMS"
 FRACTION = "FRACTION"
 ROUND = "ROUND"
 WAIT = "WAIT"
+ACK = "ACK"
 
 
 class Msg:

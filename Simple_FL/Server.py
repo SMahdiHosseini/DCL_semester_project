@@ -34,8 +34,8 @@ def getAllNewParams(connections, current_parameters):
         t.join()
     return new_params
     
-def runTheRound(round, connections, global_net):
-    print('Start Round {} ...'.format(round))
+def runTheRound(r, connections, global_net):
+    print('Start Round {} ...'.format(r))
     new_params = getAllNewParams(connections, global_net.get_parameters())
     new_model_parameters = torch.sum(torch.stack(list(new_params)), dim=0)
     global_net.apply_parameters(new_model_parameters)

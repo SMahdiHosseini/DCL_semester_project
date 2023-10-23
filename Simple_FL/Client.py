@@ -14,39 +14,51 @@ class TraningClient:
     def get_dataset_size(self):
         return len(self.dataset)
 
-    def get_client_id(self):
-        return self.client_id
+    def connectToServer(self):
+        address = (Helper.localHost, Helper.server_port)
+        self.connection = Client(address)
+        self.connection.send(Msg(self.client_id, header=Message.NEW_CONNECTION))
 
-    def train(self, current_parameters):
-        self.net.apply_parameters(current_parameters)
-        train_history = self.net.fit(self.dataset, Helper.epochs_per_client, Helper.learning_rate, Helper.batch_size)
-        print('{}: Loss = {}, Accuracy = {}'.format(self.client_id, round(train_history[-1][0], 4), round(train_history[-1][1], 4)))
-        return self.net.get_parameters()
+    def terminate(self):
+        self.connection.close()
 
-def connectToServer(client_id):
-    address = (Helper.localHost, Helper.server_port)
-    connection = Client(address)
-    connection.send(Msg(client_id, header=Message.NEW_CONNECTION))
-    print("Client {} sent new connection request".format(client_id))
-    return connection
+    def execute(self):
+        first = True
+        while True:
+            msg = self.connection.recv()
+            if msg.header == Message.TRAIN:
+                if first is not True:
+                    self.net.apply_parameters(msg.content)
+                    p = self.net.get_parameters()
+                    s = ''.join([str(round(x, 4)) + "," for x in p.tolist()])
+                    file = open("temp_fl_before.txt", "w")
+                    file.write(s)
+                    file.close()
 
+                # client_parameters = self.train()
+                self.net.fit(self.dataset)
+                client_parameters = self.net.get_parameters()
+
+                if first is not True:
+                    p = self.net.get_parameters()
+                    s = ''.join([str(round(x, 4)) + "," for x in p.tolist()])
+                    file = open("temp_fl_after.txt", "w")
+                    file.write(s)
+                    file.close()
+
+                first = False
+                self.connection.send(Msg(header=Message.NEW_PARAMETERS, content={Message.FRACTION: self.get_dataset_size(), Message.PARAMS: client_parameters}))
+            if msg.header == Message.TERMINATE:
+                break
 def main():
     client_id = int(sys.argv[1])
     print("Client {} started! ... ".format(client_id))
     traning_client = TraningClient(client_id, torch.load("./Data/ClientsDatasets/" + str(client_id) + ".pt"))
-    print("client created")
-    connection = connectToServer(client_id)
-    while True:
-        msg = connection.recv()
-        if msg.header == Message.TRAIN:
-            client_parameters = traning_client.train(msg.content)
-            connection.send(Msg(header=Message.NEW_PARAMETERS, content={Message.FRACTION: traning_client.get_dataset_size(), Message.PARAMS: client_parameters}))
-        if msg.header == Message.TERMINATE:
-            break
-
-    connection.close()
+    traning_client.connectToServer()
+    print("Client connected to the server!")
+    traning_client.execute()
+    traning_client.terminate()
     print("Client {} terminated! ...".format(client_id))
-
 
 if __name__ == "__main__":
     main()

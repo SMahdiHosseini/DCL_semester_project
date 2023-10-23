@@ -1,6 +1,16 @@
 import torch
 from torch.utils.data import DataLoader
 from Utils import Helper
+import numpy as np
+import random
+
+random_seed = 10
+torch.manual_seed(random_seed)
+torch.cuda.manual_seed(random_seed)
+torch.backends.cudnn.deterministic = True
+torch.backends.cudnn.benchmark = False
+np.random.seed(random_seed)
+random.seed(random_seed)
 
 ## Define FederatedNet class
 class FederatedNet(torch.nn.Module):
@@ -63,7 +73,11 @@ class FederatedNet(torch.nn.Module):
         accuracy = self.batch_accuracy(outputs, labels)
         return (loss, accuracy)
 
-    def fit(self, dataset, epochs, lr, batch_size=128, opt=torch.optim.SGD):
+    def fit(self, dataset):
+        epochs = Helper.epochs_per_client
+        lr = Helper.learning_rate
+        batch_size = Helper.batch_size
+        opt = torch.optim.SGD
         dataloader = Helper.DeviceDataLoader(DataLoader(dataset, batch_size, shuffle=True), Helper.device)
         optimizer = opt(self.parameters(), lr)
         history = []
@@ -81,7 +95,8 @@ class FederatedNet(torch.nn.Module):
             avg_loss = torch.stack(losses).mean().item()
             avg_acc = torch.stack(accs).mean().item()
             history.append((avg_loss, avg_acc))
-        return history
+        print('Loss = {}, Accuracy = {}'.format(round(history[-1][0], 4), round(history[-1][1], 4)))
+        # return history
 
     def evaluate(self, dataset, batch_size=128):
         dataloader = Helper.DeviceDataLoader(DataLoader(dataset, batch_size), Helper.device)
