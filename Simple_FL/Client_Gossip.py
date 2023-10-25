@@ -69,23 +69,8 @@ class TraningClient:
         self.text_file.write('After round {}, train_loss = {}, train_acc = {}, dev_loss = {}, dev_acc = {}, test_loss = {}, test_acc = {}\n'.format(r, round(train_loss, 4), round(train_acc, 4), round(dev_loss, 4), round(dev_acc, 4), round(test_loss, 4), round(test_acc, 4)))
 
     def runTheRound(self, r):
-        if r == Helper.rounds:
-            p = self.net.get_parameters()
-            s = ''.join([str(round(x, 4)) + "," for x in p.tolist()])
-            file = open("temp_go_before.txt", "w")
-            file.write(s)
-            file.close()
-
-        # client_parameters = self.train()
         self.net.fit(self.dataset)
         client_parameters = self.net.get_parameters()
-
-        if r == Helper.rounds:
-            p = self.net.get_parameters()
-            s = ''.join([str(round(x, 4)) + "," for x in p.tolist()])
-            file = open("temp_go_after.txt", "w")
-            file.write(s)
-            file.close()
             
         self.shareToNeighbors(client_parameters, r)
 
@@ -106,13 +91,12 @@ class TraningClient:
                 if msg.header == Message.WAIT:
                     sock.send(Msg(header=Message.NEW_PARAMETERS, content={Message.ROUND: str(r), Message.FRACTION: self.get_dataset_size(), Message.PARAMS: client_parameters}))
         self.aggregateParams(recvd_params, recvd_size, r)
-        
-        if self.client_id == 0:
-            self.evaluateTheRound(r)
 
     def execute(self):
         for r in range(1, Helper.rounds + 1):
             self.runTheRound(r)
+            if self.client_id == 0:
+                self.evaluateTheRound(r)
 
 def main():
     client_id = int(sys.argv[1])

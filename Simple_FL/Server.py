@@ -1,89 +1,59 @@
-
-from Utils import Model, Helper, Message
+from Utils import Helper, Message
 from Utils.Message import Msg
 from multiprocessing.connection import Listener
-from torch.multiprocessing import Manager
-from threading import Thread
-from torch.multiprocessing import set_start_method
-from torch import load
+import select
 import torch
-try:
-     set_start_method('spawn')
-except RuntimeError:
-    pass
 
-train_dataset = load("./Data/trainDataset.pt")
-test_dataset = load("./Data/testDataset.pt")
-dev_dataset = load("./Data/devDataset.pt")
-total_train_size = len(train_dataset)
-
-def receiveNewParams(connection, new_params):
-    msg = connection.recv()
-    if msg.header == Message.NEW_PARAMETERS:
-        new_params.append(msg.content[Message.FRACTION] / total_train_size * msg.content[Message.PARAMS].cpu())
-
-def getAllNewParams(connections, current_parameters):
-    threads = []
-    new_params = Manager().list()
-    for client in connections.keys():
-        connections[client].send(Msg(header=Message.TRAIN, content=current_parameters))
-        new_thread = Thread(target=receiveNewParams, args=(connections[client], new_params))
-        threads.append(new_thread)
-        new_thread.start()    
-    for t in threads:
-        t.join()
-    return new_params
-    
-def runTheRound(r, connections, global_net):
-    print('Start Round {} ...'.format(r))
-    new_params = getAllNewParams(connections, global_net.get_parameters())
-    new_model_parameters = torch.sum(torch.stack(list(new_params)), dim=0)
-    global_net.apply_parameters(new_model_parameters)
-
-def evaluateTheRound(global_net, history, r):
-    train_loss, train_acc = global_net.evaluate(train_dataset)
-    dev_loss, dev_acc = global_net.evaluate(dev_dataset)
-    test_loss, test_acc = global_net.evaluate(test_dataset)
-    print('After round {}, train_loss = {}, train_acc = {}, dev_loss = {}, dev_acc = {}, test_loss = {}, test_acc = {}\n'.format(r, round(train_loss, 4), round(train_acc, 4), round(dev_loss, 4), round(dev_acc, 4), round(test_loss, 4), round(test_acc, 4)))
-    history.append((train_loss, dev_loss))
-
-def federatedLearningPhase(connections):
-    global_net = Helper.to_device(Model.FederatedNet(), Helper.device)
-    history = []
-    for i in range(Helper.rounds):
-        runTheRound(i + 1, connections, global_net)
-        evaluateTheRound(global_net, history, i + 1)
-
-def connectToClient(listener):
-    new_connection = listener.accept()
-    msg = new_connection.recv()
-    if msg.header == Message.NEW_CONNECTION:
-        print("Server established new connection with client {}".format(msg.src_id))
-        return msg.src_id, new_connection
-
-def connectionEstablishmentPahse():
-    address = (Helper.localHost, Helper.server_port)
-    listener = Listener(address)
+def connectToClients(ports):
+    Listeners = []
     connections = dict()
-    print("Server is running on port: {}".format(Helper.server_port))
     for client in range(Helper.num_clients):
-        src_id, new_connecion = connectToClient(listener)
-        connections[src_id] = new_connecion
-    print("Server connected to clients: {}".format(str(connections.keys())))
-    return listener, connections
+        address = (Helper.localHost, ports[client])
+        listener = Listener(address)
+        connections[client] = listener.accept()
+        Listeners.append(listener)
+        
+    print("Server connected to clients!")
+    return Listeners, connections
 
-def closeConnections(connections):
-    print("Server in closing sonnections!")
-    for connection in connections:
-        connection.send(Msg(header=Message.TERMINATE))
-        connection.close()
+def runTheRound(r, connections):
+    recvd_params = []
+    recvd_size = []
+    while len(recvd_params) < Helper.num_clients:
+        ready_to_read, _, _ = select.select(connections, [], [])
+        for sock in ready_to_read:
+            msg = sock.recv()
+            if msg.header == Message.NEW_PARAMETERS:
+                if int(msg.content[Message.ROUND]) == r:
+                    recvd_params.append(torch.tensor([float(num) for num in msg.content[Message.PARAMS].split(',') if num]))
+                    recvd_size.append(msg.content[Message.FRACTION])
+                else:
+                    sock.send(Msg(header=Message.WAIT))
+    cluster_size = sum(recvd_size)
+    for i in range(len(recvd_params)):
+        recvd_params[i] = recvd_size[i] / cluster_size * recvd_params[i]
+    new_model_parameters = torch.sum(torch.stack(recvd_params), dim=0)
+    new_model_parameters = ''.join([str(round(x, 4)) + "," for x in new_model_parameters.tolist()])
+    
+    for conn in connections:
+        conn.send(Msg(header=Message.NEW_PARAMETERS, content=new_model_parameters))
+
+def execute(connections):
+    for r in range(1, Helper.rounds + 1):
+        runTheRound(r, connections)
+
+def terminate(connections, listeners):
+    for conn in connections:
+        conn.close()
+    for lis in listeners:
+        lis.close()
 
 def main():
-    listener, connections = connectionEstablishmentPahse()
-    federatedLearningPhase(connections)
-    closeConnections(connections.values())
-    listener.close()
-    print("Done!")
+    print("Server started! ... ")
+    listeners, connections = connectToClients(Helper.ports)
+    execute(connections.values())
+    terminate(connections.values(), listeners)
+    print("Server terminated! ...")
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

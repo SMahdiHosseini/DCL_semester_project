@@ -1,16 +1,19 @@
 import torch
 from torch.utils.data import DataLoader
+import random
 
+random.seed(10)
 
 ## Constraints
 localHost = 'localhost'
 server_port = 6000
-num_clients = 5
-rounds = 2
+num_clients = 10
+rounds = 5
 batch_size = 128
 epochs_per_client = 3
 learning_rate = 2e-2
 
+ports = [server_port + i for i in random.sample(range(0, 100), num_clients)]
 ## Define utilities for GPU support
 def get_device():
     return torch.device('cuda') if torch.cuda.is_available() else torch.device('cpu')
