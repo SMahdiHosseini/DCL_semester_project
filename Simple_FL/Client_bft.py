@@ -1,9 +1,9 @@
-from Utils import Model, Helper, bft_Helper
+from Utils import Model, Helper, Message, connectionHelper, evaluator
 import sys
-import socket
 import jpysocket
-from torch import load, tensor
+from torch import load
 
+text_file = open("/localhome/shossein/DCL_semester_project/Consensus_res/Output.txt", "w")
 ## Define Client Class
 class TraningClient:
     def __init__(self, client_id, dataset):
@@ -13,40 +13,41 @@ class TraningClient:
 
     def get_dataset_size(self):
         return len(self.dataset)
-
-    def set_params(self, parameters):
-        self.net.apply_parameters(parameters)
-
-    def train(self):
-        self.net.fit(self.dataset)
-        return self.net.get_parameters()
     
-def handleTrainCmd(connection, training_client):
-    client_parameters = bytes(''.join([str(round(x, 4)) + "," for x in training_client.train().tolist()]), 'utf-8')
-    connection.send(jpysocket.jpyencode(str(training_client.get_dataset_size())))
-    bft_Helper.sendNewParameters(connection, client_parameters)
+    def handleTrainCmd(self, connection):
+        self.net.fit(self.dataset)
+        connection.send(jpysocket.jpyencode(str(self.get_dataset_size())))
+        connectionHelper.sendNewParameters(connection, self.net.get_parameters(), connectionHelper.JAVA)
 
-def execute(connection, training_client):
-    while True:
-        msg = jpysocket.jpydecode(connection.recv(1024))
-        if msg == "NEWPARAMS":
-            training_client.set_params(tensor(bft_Helper.getNewParameters(connection)))
-            print("Round Ended!")
-            continue
-        if msg == "TRAIN":
-            handleTrainCmd(connection, training_client)
-        if msg == "TERMINATE":
-            connection.send(jpysocket.jpyencode("ACK"))
-            return
+    def execute(self, connection):
+        r = 1
+        while True:
+            msg = jpysocket.jpydecode(connection.recv(1024))
+            if msg == Message.NEW_PARAMETERS:
+                new_param = connectionHelper.getNewParameters(connection, connectionHelper.JAVA)
+                self.net.apply_parameters(new_param)
+                if self.client_id == 0:
+                    evaluator.evaluateTheRound(new_param, r, text_file)
+                r += 1
+                print("Round Ended!")
+                continue
+            if msg == Message.TRAIN:
+                self.handleTrainCmd(connection)
+                continue
+            if msg == Message.TERMINATE:
+                connection.send(jpysocket.jpyencode("ACK"))
+                return
         
 def main():
     client_id = int(sys.argv[1])
     print("Client {} started! ... ".format(client_id))
     # training_client = TraningClient(client_id, load("F:/DCL/Semester Project 1/Codes/DCL_semester_project/Simple_FL/Data/ClientsDatasets/" + str(client_id) + ".pt"))
     training_client = TraningClient(client_id, load("/localhome/shossein/DCL_semester_project/Simple_FL/Data/ClientsDatasets/" + str(client_id) + ".pt"))
-    connection = bft_Helper.connect(sys.argv[2], int(sys.argv[3]))
-    execute(connection, training_client)
+    connection = connectionHelper.connect(sys.argv[2], int(sys.argv[3]))
+    training_client.execute(connection)
     connection.close()
+    text_file.close()
+
     print("Client {} terminated! ...".format(client_id))
 
 
