@@ -9,7 +9,7 @@ ROUND = "ROUND"
 WAIT = "WAIT"
 ACK = "ACK"
 AGGREGATE = "AGGREGATE"
-
+SRC = "SRC"
 
 class Msg:
   def __init__(self, src_id=None, dest_id=None, header=None, content=None):

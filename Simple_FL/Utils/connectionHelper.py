@@ -2,6 +2,8 @@ import socket
 import jpysocket
 from torch import tensor
 from Utils import Message
+from Utils.Message import Msg
+import select
 
 JAVA = "JAVA"
 PYTHON = "PYTHON"
@@ -19,26 +21,37 @@ def connect(hostAddress, hostPort):
     print("Connected!")
     return connection
 
-def sendNewParameters(connection, params, config):
-    params = bytes(tensorToString(params), 'utf-8')
+def sendNewParameters(connection, params, config, info=None):
+    params = tensorToString(params)
     if config == JAVA:
-        sendNewParametersToJava(connection, params)
+        sendNewParametersToJava(connection, bytes(params, 'utf-8'))
     else:
-        sendNewParametersToPython(connection)
+        sendNewParametersToPython(connection, params, info)
 
-def getNewParameters(connection, config):
+def getNewParameters(connection, config, info=None):
     if config == JAVA:
         return getNewParametersFromJava(connection)
     else:
-        return getNewParametersFromPython(connection)
+        return getNewParametersFromPython(connection, info)
     
-def getNewParametersFromPython(connection):
-    #TODO
-    return None
+def getNewParametersFromPython(connections, info):
+    recvd_params = dict()
+    recvd_size = dict()
+    ready_to_read, _, _ = select.select(connections, [], [])
+    for sock in ready_to_read:
+        msg = sock.recv()
+        if msg.header == Message.NEW_PARAMETERS:
+            if int(msg.content[Message.ROUND]) == info[Message.ROUND]:
+                recvd_params[msg.src_id] = stringToTensor(msg.content[Message.PARAMS])
+                recvd_size[msg.src_id] = msg.content[Message.SIZE]
+            else:
+                sock.send(Msg(header=Message.WAIT))
+        if msg.header == Message.WAIT:
+            sendNewParameters(sock, info[Message.PARAMS], PYTHON, info={Message.ROUND: info[Message.ROUND], Message.SIZE: info[Message.SIZE], Message.SRC: info[Message.SRC]})
+    return recvd_params, recvd_size
 
-def sendNewParametersToPython(connection, params):
-    #TODO
-    return
+def sendNewParametersToPython(connection, params, info):
+    connection.send(Msg(header=Message.NEW_PARAMETERS, content={Message.ROUND: info[Message.ROUND], Message.SIZE: info[Message.SIZE], Message.PARAMS: params}, src_id=info[Message.SRC]))
 
 def getNewParametersFromJava(connection):
     connection.send(jpysocket.jpyencode("ACK"))

@@ -1,10 +1,9 @@
-from Utils import Model, Helper, Message
+from Utils import Model, Helper, Message, aggregator, connectionHelper, evaluator
 from Utils.Message import Msg
 from Utils.ConnectionDistributer import adjMat, ports
 from multiprocessing.connection import Client, Listener
 import sys
 import torch
-import select
 
 ## Define Client Class
 class TraningClient:
@@ -17,9 +16,6 @@ class TraningClient:
         self.connections = dict()
         self.listeners = []
         if client_id == 0:
-            self.train_dataset = torch.load("/localhome/shossein/DCL_semester_project/Simple_FL/Data/trainDataset.pt")
-            self.test_dataset = torch.load("/localhome/shossein/DCL_semester_project/Simple_FL/Data/testDataset.pt")
-            self.dev_dataset = torch.load("/localhome/shossein/DCL_semester_project/Simple_FL/Data/devDataset.pt")
             self.text_file = open("/localhome/shossein/DCL_semester_project/Gossip_res/Output.txt", "w")
 
     def get_dataset_size(self):
@@ -51,52 +47,35 @@ class TraningClient:
         for listener in self.listeners:
             listener.close()
     
-    def shareToNeighbors(self, client_parameters, r):
+    def shareToNeighbors(self, r):
+        client_parameters = self.net.get_parameters()
         for conn in self.connections.values():
-            conn.send(Msg(header=Message.NEW_PARAMETERS, content={Message.ROUND: str(r), Message.FRACTION: self.get_dataset_size(), Message.PARAMS: client_parameters}))
+            connectionHelper.sendNewParameters(conn, client_parameters, connectionHelper.PYTHON, info={Message.ROUND: r, Message.SIZE: self.get_dataset_size(), Message.SRC: self.client_id})
 
-    def aggregateParams(self, recvd_params, recvd_size, r):
-        cluster_size = sum(recvd_size)
-        for i in range(len(recvd_params)):
-            recvd_params[i] = recvd_size[i] / cluster_size * recvd_params[i]
-        new_model_parameters = torch.sum(torch.stack(recvd_params), dim=0)
-        self.net.apply_parameters(new_model_parameters)
-
-    def evaluateTheRound(self, r):
-        train_loss, train_acc = self.net.evaluate(self.train_dataset)
-        dev_loss, dev_acc = self.net.evaluate(self.dev_dataset)
-        test_loss, test_acc = self.net.evaluate(self.test_dataset)
-        self.text_file.write('After round {}, train_loss = {}, train_acc = {}, dev_loss = {}, dev_acc = {}, test_loss = {}, test_acc = {}\n'.format(r, round(train_loss, 4), round(train_acc, 4), round(dev_loss, 4), round(dev_acc, 4), round(test_loss, 4), round(test_acc, 4)))
+    def getAllParams(self, r):
+        client_parameters = self.net.get_parameters()
+        recvd_params = dict()
+        recvd_size = dict()
+        recvd_params[self.client_id] = client_parameters.cpu()
+        recvd_size[self.client_id] = self.get_dataset_size()
+        while len(list(recvd_size.values())) < len(self.neighbors) + 1:
+            new_params, new_sizes = connectionHelper.getNewParameters(self.connections.values(), connectionHelper.PYTHON, info={Message.ROUND: r, Message.SIZE: self.get_dataset_size(), Message.PARAMS: client_parameters, Message.SRC: self.client_id})
+            recvd_params.update(new_params)
+            recvd_size.update(new_sizes)
+        return recvd_params, recvd_size
 
     def runTheRound(self, r):
         self.net.fit(self.dataset)
-        client_parameters = self.net.get_parameters()
-            
-        self.shareToNeighbors(client_parameters, r)
-
-        recvd_params = []
-        recvd_size = []
-        recvd_params.append(client_parameters.cpu())
-        recvd_size.append(self.get_dataset_size())
-        while len(recvd_params) < len(self.neighbors) + 1:
-            ready_to_read, _, _ = select.select(self.connections.values(), [], [])
-            for sock in ready_to_read:
-                msg = sock.recv()
-                if msg.header == Message.NEW_PARAMETERS:
-                    if int(msg.content[Message.ROUND]) == r:
-                        recvd_params.append(msg.content[Message.PARAMS].cpu())
-                        recvd_size.append(msg.content[Message.FRACTION])
-                    else:
-                        sock.send(Msg(header=Message.WAIT))
-                if msg.header == Message.WAIT:
-                    sock.send(Msg(header=Message.NEW_PARAMETERS, content={Message.ROUND: str(r), Message.FRACTION: self.get_dataset_size(), Message.PARAMS: client_parameters}))
-        self.aggregateParams(recvd_params, recvd_size, r)
+        self.shareToNeighbors(r)            
+        recvd_params, recvd_size = self.getAllParams(r)
+        new_model_parameters = aggregator.averageAgg(list(recvd_params.values()), list(recvd_size.values()))
+        self.net.apply_parameters(new_model_parameters)
 
     def execute(self):
         for r in range(1, Helper.rounds + 1):
             self.runTheRound(r)
             if self.client_id == 0:
-                self.evaluateTheRound(r)
+                evaluator.evaluateTheRound(self.net.get_parameters(), r, self.text_file)
 
 def main():
     client_id = int(sys.argv[1])
