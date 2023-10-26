@@ -46,7 +46,7 @@ def getNewParametersFromPython(connections, info):
                 recvd_size[msg.src_id] = msg.content[Message.SIZE]
             else:
                 sock.send(Msg(header=Message.WAIT))
-        if msg.header == Message.WAIT:
+        if msg.header == Message.WAIT and info[Message.SRC] != None:
             sendNewParameters(sock, info[Message.PARAMS], PYTHON, info={Message.ROUND: info[Message.ROUND], Message.SIZE: info[Message.SIZE], Message.SRC: info[Message.SRC]})
     return recvd_params, recvd_size
 
@@ -68,3 +68,12 @@ def getNewParametersFromJava(connection):
 def sendNewParametersToJava(connection, params):
     connection.send(jpysocket.jpyencode(str(len(params))))
     connection.send(params)
+
+def getAllParams(connections, num_of_params, client_parameters, dataset_size, client_id, r):
+    recvd_params = dict()
+    recvd_size = dict()
+    while len(list(recvd_size.values())) < num_of_params:
+        new_params, new_sizes = getNewParameters(connections, PYTHON, info={Message.ROUND: r, Message.SIZE: dataset_size, Message.PARAMS: client_parameters, Message.SRC: client_id})
+        recvd_params.update(new_params)
+        recvd_size.update(new_sizes)
+    return recvd_params, recvd_size

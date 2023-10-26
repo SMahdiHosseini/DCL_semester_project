@@ -52,22 +52,12 @@ class TraningClient:
         for conn in self.connections.values():
             connectionHelper.sendNewParameters(conn, client_parameters, connectionHelper.PYTHON, info={Message.ROUND: r, Message.SIZE: self.get_dataset_size(), Message.SRC: self.client_id})
 
-    def getAllParams(self, r):
-        client_parameters = self.net.get_parameters()
-        recvd_params = dict()
-        recvd_size = dict()
-        recvd_params[self.client_id] = client_parameters.cpu()
-        recvd_size[self.client_id] = self.get_dataset_size()
-        while len(list(recvd_size.values())) < len(self.neighbors) + 1:
-            new_params, new_sizes = connectionHelper.getNewParameters(self.connections.values(), connectionHelper.PYTHON, info={Message.ROUND: r, Message.SIZE: self.get_dataset_size(), Message.PARAMS: client_parameters, Message.SRC: self.client_id})
-            recvd_params.update(new_params)
-            recvd_size.update(new_sizes)
-        return recvd_params, recvd_size
-
     def runTheRound(self, r):
         self.net.fit(self.dataset)
         self.shareToNeighbors(r)            
-        recvd_params, recvd_size = self.getAllParams(r)
+        recvd_params, recvd_size = connectionHelper.getAllParams(list(self.connections.values()), len(self.neighbors), self.net.get_parameters(), self.get_dataset_size(), self.client_id, r)
+        recvd_params[self.client_id] = self.net.get_parameters().cpu()
+        recvd_size[self.client_id] = self.get_dataset_size()
         new_model_parameters = aggregator.averageAgg(list(recvd_params.values()), list(recvd_size.values()))
         self.net.apply_parameters(new_model_parameters)
 
