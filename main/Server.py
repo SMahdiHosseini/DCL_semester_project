@@ -1,8 +1,8 @@
-from Utils import Helper, Message, connectionHelper, aggregator
-from Utils.Message import Msg
+from Utils import Helper, Message, connectionHelper
+from Utils.aggregator import RobustAggregator
 from multiprocessing.connection import Listener
-import select
-import torch
+
+aggregator = RobustAggregator("average", '', 1, Helper.nb_byz, Helper.device)
 
 def connectToClients(ports):
     Listeners = []
@@ -18,7 +18,7 @@ def connectToClients(ports):
 
 def runTheRound(r, connections):
     recvd_params, recvd_size = connectionHelper.getAllParams(connections, Helper.num_clients, None, None, None, r)
-    new_model_parameters = aggregator.averageAgg(list(recvd_params.values()), list(recvd_size.values()))
+    new_model_parameters = aggregator.aggregate(list(recvd_params.values()))
     
     for conn in connections:
         connectionHelper.sendNewParameters(conn, new_model_parameters, connectionHelper.PYTHON, info={Message.ROUND: r, Message.SIZE: None, Message.SRC: None})

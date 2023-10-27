@@ -1,5 +1,4 @@
 from Utils import Helper, Model, Message, evaluator, connectionHelper
-from Utils.Message import Msg
 from multiprocessing.connection import Client
 import sys
 import torch
@@ -34,6 +33,9 @@ class TraningClient:
         for r in range(1, Helper.rounds + 1):
             self.runTheRound(r)
             if self.client_id == 0:
+                s = open("param_fl_r" + str(r) + ".txt", "w")
+                s.write(connectionHelper.tensorToString(self.net.get_parameters()))
+                s.close()
                 evaluator.evaluateTheRound(self.net.get_parameters(), r, self.text_file)
 
     def terminate(self):

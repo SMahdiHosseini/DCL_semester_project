@@ -1,3 +1,4 @@
+from Utils import connectionHelper
 # import torch
 # import zlib
 
@@ -29,7 +30,14 @@
 # print(f)
 # print(decodeTag(f))
 
-dict1 = {'a': 10, 'b': 8}
-dict2 = {'d': 6, 'c': 4}
-dict1.update(dict2)
-print(dict1)
+s1 = open("param_fl_r1.txt", "r")
+s2 = open("param_go_r1.txt", "r")
+ss1 = s1.readline()
+ss2 = s2.readline()
+ss1 = connectionHelper.stringToTensor(ss1).tolist()
+ss2 = connectionHelper.stringToTensor(ss2).tolist()
+
+for i in range(len(ss1)):
+    if round(ss1[i], 4) != round(ss2[i], 4):
+        print(round(ss1[i], 4), round(ss2[i], 4))
+        # print(ss1[i], ss2[i])

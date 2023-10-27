@@ -1,4 +1,5 @@
-from Utils import Model, Helper, Message, aggregator, connectionHelper, evaluator
+from Utils import Model, Helper, Message, connectionHelper, evaluator
+from Utils.aggregator import RobustAggregator
 from Utils.Message import Msg
 from Utils.ConnectionDistributer import adjMat, ports
 from multiprocessing.connection import Client, Listener
@@ -15,6 +16,7 @@ class TraningClient:
         self.neighbors.sort()
         self.connections = dict()
         self.listeners = []
+        self.aggregator = RobustAggregator("average", '', 1, Helper.nb_byz, Helper.device)
         if client_id == 0:
             self.text_file = open("/localhome/shossein/DCL_semester_project/Gossip_res/Output.txt", "w")
 
@@ -58,13 +60,16 @@ class TraningClient:
         recvd_params, recvd_size = connectionHelper.getAllParams(list(self.connections.values()), len(self.neighbors), self.net.get_parameters(), self.get_dataset_size(), self.client_id, r)
         recvd_params[self.client_id] = self.net.get_parameters().cpu()
         recvd_size[self.client_id] = self.get_dataset_size()
-        new_model_parameters = aggregator.averageAgg(list(recvd_params.values()), list(recvd_size.values()))
+        new_model_parameters = self.aggregator.aggregate(list(recvd_params.values()))
         self.net.apply_parameters(new_model_parameters)
 
     def execute(self):
         for r in range(1, Helper.rounds + 1):
             self.runTheRound(r)
             if self.client_id == 0:
+                file = open("param_go_r" + str(r) + ".txt", "w")
+                file.write(connectionHelper.tensorToString(self.net.get_parameters()))
+                file.close()
                 evaluator.evaluateTheRound(self.net.get_parameters(), r, self.text_file)
 
 def main():
