@@ -9,7 +9,7 @@ JAVA = "JAVA"
 PYTHON = "PYTHON"
 
 def tensorToString(t):
-    return ''.join([str(round(x, 4)) + "," for x in t.tolist()])
+    return ''.join([str(round(x, 5)) + "," for x in t.tolist()])
 
 def stringToTensor(s):
     return tensor([float(num) for num in s.split(',') if num])
