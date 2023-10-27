@@ -10,7 +10,7 @@ server_port = 6000
 num_clients = 10
 rounds = 5
 batch_size = 128
-epochs_per_client = 3
+epochs_per_client = 1
 learning_rate = 2e-2
 
 ports = [server_port + i for i in random.sample(range(0, 100), num_clients)]
