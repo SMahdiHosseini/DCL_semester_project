@@ -41,8 +41,8 @@ class TraningClient:
 def main():
     client_id = int(sys.argv[1])
     print("Client {} started! ... ".format(client_id))
-    # training_client = TraningClient(client_id, load("F:/DCL/Semester Project 1/Codes/DCL_semester_project/Simple_FL/Data/ClientsDatasets/" + str(client_id) + ".pt"))
-    training_client = TraningClient(client_id, load("/localhome/shossein/DCL_semester_project/Simple_FL/Data/ClientsDatasets/" + str(client_id) + ".pt"))
+    # training_client = TraningClient(client_id, load("F:/DCL/Semester Project 1/Codes/DCL_semester_project/main/Data/ClientsDatasets/" + str(client_id) + ".pt"))
+    training_client = TraningClient(client_id, load("/localhome/shossein/DCL_semester_project/main/Data/ClientsDatasets/" + str(client_id) + ".pt"))
     connection = connectionHelper.connect(sys.argv[2], int(sys.argv[3]))
     training_client.execute(connection)
     connection.close()
