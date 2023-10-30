@@ -18,12 +18,12 @@ total_train_size = len(train_dataset)
 total_test_size = len(test_dataset)
 total_dev_size = len(dev_dataset)
 
-examples_per_client = total_train_size // Helper.num_clients
+examples_per_client = total_train_size // Helper.nb_clients
 client_datasets = random_split(train_dataset, [min(i + examples_per_client, total_train_size) - i for i in range(0, total_train_size, examples_per_client)])
 
 torch.save(train_dataset, "../Data/trainDataset.pt")
 torch.save(test_dataset, "../Data/testDataset.pt")
 torch.save(dev_dataset, "../Data/devDataset.pt")
 
-for i in range(Helper.num_clients):
+for i in range(Helper.nb_clients):
     torch.save(client_datasets[i], "../Data/ClientsDatasets/" + str(i) + ".pt")

@@ -7,7 +7,7 @@ aggregator = RobustAggregator("average", '', 1, Helper.nb_byz, Helper.device)
 def connectToClients(ports):
     Listeners = []
     connections = dict()
-    for client in range(Helper.num_clients):
+    for client in range(Helper.nb_clients):
         address = (Helper.localHost, ports[client])
         listener = Listener(address)
         connections[client] = listener.accept()
@@ -17,7 +17,7 @@ def connectToClients(ports):
     return Listeners, connections
 
 def runTheRound(r, connections):
-    recvd_params, recvd_size = connectionHelper.getAllParams(connections, Helper.num_clients, None, None, None, r)
+    recvd_params, recvd_size = connectionHelper.getAllParams(connections, Helper.nb_clients - Helper.nb_byz, None, None, None, r)
     new_model_parameters = aggregator.aggregate(list(recvd_params.values()))
     
     for conn in connections:

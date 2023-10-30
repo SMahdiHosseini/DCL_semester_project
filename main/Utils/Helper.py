@@ -7,14 +7,14 @@ random.seed(10)
 ## Constraints
 localHost = 'localhost'
 server_port = 6000
-num_clients = 10
+nb_clients = 10
 rounds = 5
 batch_size = 128
 epochs_per_client = 1
 learning_rate = 2e-2
 nb_byz = 0
 
-ports = [server_port + i for i in random.sample(range(0, 100), num_clients)]
+ports = [server_port + i for i in random.sample(range(0, 100), nb_clients)]
 ## Define utilities for GPU support
 def get_device():
     # return torch.device('cuda') if torch.cuda.is_available() else torch.device('cpu')
