@@ -12,7 +12,7 @@ def tensorToString(t):
     return ''.join([str(round(x, 5)) + "," for x in t.tolist()])
 
 def stringToTensor(s):
-    return tensor([round(float(num), 4) for num in s.split(',') if num])
+    return tensor([round(float(num), 5) for num in s.split(',') if num])
 
 def connect(hostAddress, hostPort):
     address = (hostAddress, hostPort)

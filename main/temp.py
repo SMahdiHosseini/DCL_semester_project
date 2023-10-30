@@ -1,5 +1,5 @@
 from Utils import connectionHelper
-# import torch
+from torch import tensor
 # import zlib
 
 # # Given string
@@ -34,10 +34,18 @@ s1 = open("param_fl_r1.txt", "r")
 s2 = open("param_go_r1.txt", "r")
 ss1 = s1.readline()
 ss2 = s2.readline()
+lss1 = [num for num in ss1.split(',') if num]
+lss2 = [num for num in ss2.split(',') if num]
 ss1 = connectionHelper.stringToTensor(ss1).tolist()
 ss2 = connectionHelper.stringToTensor(ss2).tolist()
 
 for i in range(len(ss1)):
-    if round(ss1[i], 4) != round(ss2[i], 4):
-        print(round(ss1[i], 4), round(ss2[i], 4))
+    if ss1[i] != ss2[i]:
+        print(ss1[i], lss1[i], ss2[i], lss2[i])
         # print(ss1[i], ss2[i])
+
+# a = tensor([1.21234567989, 2.235456354, 5.322434637895])
+# s = connectionHelper.tensorToString(a)
+# print(s)
+# b = connectionHelper.stringToTensor(s)
+# print(b)

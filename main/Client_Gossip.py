@@ -67,9 +67,6 @@ class TraningClient:
         for r in range(1, Helper.rounds + 1):
             self.runTheRound(r)
             if self.client_id == 0:
-                file = open("param_go_r" + str(r) + ".txt", "w")
-                file.write(connectionHelper.tensorToString(self.net.get_parameters()))
-                file.close()
                 evaluator.evaluateTheRound(self.net.get_parameters(), r, self.text_file)
 
 def main():
