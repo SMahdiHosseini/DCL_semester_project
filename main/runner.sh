@@ -24,7 +24,7 @@ fi
 
 if [[ "$1" == "p2p" || "$1" == "all" ]]
 then
-    echo "$1" "$localHost" "$nb_clients"
+    bash gossipRunner.sh "$nb_clients" "$localHost" "$server_port" "$nb_byz" "$rounds"
 fi
 
 if [[ "$1" == "con" || "$1" == "all" ]]

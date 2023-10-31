@@ -34,3 +34,4 @@ def generateGossipPorts(server_port, nb_clients):
                 ports[i][j] = portsPool[k]
                 ports[j][i] = portsPool[k]
                 k +=1
+    return ports, adjMat

@@ -1,17 +1,18 @@
 from Utils import Model, Helper, Message, connectionHelper, evaluator
 from Utils.aggregator import RobustAggregator
 from Utils.Message import Msg
-from Utils.ConnectionDistributer import adjMat, ports
+from Utils.ConnectionDistributer import generateGossipPorts
 from multiprocessing.connection import Client, Listener
 import sys
 import torch
 
-#program input: nb_clients, client_id, server_address, server_port, nb_rounds
-nb_clients = int(sys.argv[1])
-client_id = int(sys.argv[2])
+#program input: client_id, nb_clients, server_address, server_port, nb_byz, nb_rounds
+client_id = int(sys.argv[1])
+nb_clients = int(sys.argv[2])
 server_address = sys.argv[3]
 server_port = int(sys.argv[4])
-nb_rounds = int(sys.argv[5])
+nb_byz = int(sys.argv[5])
+nb_rounds = int(sys.argv[6])
 
 ## Define Client Class
 class TraningClient:
@@ -32,7 +33,7 @@ class TraningClient:
 
     def connectToNeighbors(self, ports):
         for neighborId in self.neighbors:
-            address = (Helper.localHost, ports[neighborId])
+            address = (server_address, ports[neighborId])
             if neighborId < self.client_id:
                 self.connections[neighborId] = Client(address)
             else:
@@ -71,14 +72,14 @@ class TraningClient:
         self.net.apply_parameters(new_model_parameters)
 
     def execute(self):
-        for r in range(1, Helper.rounds + 1):
+        for r in range(1, nb_rounds + 1):
             self.runTheRound(r)
             if self.client_id == 0:
                 evaluator.evaluateTheRound(self.net.get_parameters(), r, self.text_file)
 
 def main():
-    client_id = int(sys.argv[1])
     print("Client {} started! ... ".format(client_id))
+    ports, adjMat = generateGossipPorts(server_port, nb_clients)
     traning_client = TraningClient(client_id, torch.load("./Data/ClientsDatasets/" + str(client_id) + ".pt"), adjMat[client_id])
     traning_client.connectToNeighbors(ports[client_id])
     print("client connected to neighbors!")
