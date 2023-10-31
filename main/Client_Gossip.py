@@ -6,6 +6,13 @@ from multiprocessing.connection import Client, Listener
 import sys
 import torch
 
+#program input: nb_clients, client_id, server_address, server_port, nb_rounds
+nb_clients = int(sys.argv[1])
+client_id = int(sys.argv[2])
+server_address = sys.argv[3]
+server_port = int(sys.argv[4])
+nb_rounds = int(sys.argv[5])
+
 ## Define Client Class
 class TraningClient:
     def __init__(self, client_id, dataset, neighbors):
@@ -16,7 +23,7 @@ class TraningClient:
         self.neighbors.sort()
         self.connections = dict()
         self.listeners = []
-        self.aggregator = RobustAggregator("average", '', 1, Helper.nb_byz, Helper.device)
+        self.aggregator = RobustAggregator("average", '', 1, nb_byz, Helper.device)
         if client_id == 0:
             self.text_file = open("/localhome/shossein/DCL_semester_project/Gossip_res/Output.txt", "w")
 

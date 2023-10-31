@@ -29,7 +29,7 @@ fi
 
 if [[ "$1" == "con" || "$1" == "all" ]]
 then
-    echo "$1" "$localHost" "$nb_clients"
+    bash ConsensusRunner.sh "$nb_replicas" "$nb_clients" "$rounds" "$localHost" "$nb_byz"
 fi
 
 if [[ "$1" != "con" && "$1" != "p2p" && "$1" != "fl" && "$1" != "all" ]]

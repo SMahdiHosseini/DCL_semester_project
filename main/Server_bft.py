@@ -3,7 +3,11 @@ from Utils.aggregator import RobustAggregator
 import sys
 import jpysocket
 
-aggregator = RobustAggregator("average", '', 1, Helper.nb_byz, Helper.device)
+#program input: server_address, server_port, nb_byz
+server_address = sys.argv[1]
+server_port = int(sys.argv[2])
+nb_byz = int(sys.argv[3])
+aggregator = RobustAggregator("average", '', 1, nb_byz, Helper.device)
 
 def handleNewParam(connection):
     connection.send(jpysocket.jpyencode("ACK"))
@@ -37,7 +41,7 @@ def execute(connection):
 
 def main():
     print("server started! ... ")
-    connection = connectionHelper.connect(sys.argv[1], int(sys.argv[2]))
+    connection = connectionHelper.connect(server_address, server_port)
     execute(connection)
     connection.close()
     print("Server terminated! ...")
