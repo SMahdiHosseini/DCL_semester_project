@@ -6,13 +6,14 @@ from multiprocessing.connection import Client, Listener
 import sys
 import torch
 
-#program input: client_id, nb_clients, server_address, server_port, nb_byz, nb_rounds
+#program input: client_id, nb_clients, server_address, server_port, nb_byz, nb_rounds, aggregator_name
 client_id = int(sys.argv[1])
 nb_clients = int(sys.argv[2])
 server_address = sys.argv[3]
 server_port = int(sys.argv[4])
 nb_byz = int(sys.argv[5])
 nb_rounds = int(sys.argv[6])
+aggregator_name = sys.argv[7]
 
 ## Define Client Class
 class TraningClient:
@@ -24,9 +25,9 @@ class TraningClient:
         self.neighbors.sort()
         self.connections = dict()
         self.listeners = []
-        self.aggregator = RobustAggregator("average", '', 1, nb_byz, Helper.device)
+        self.aggregator = RobustAggregator(aggregator_name, '', 1, nb_byz, Helper.device)
         if client_id == 0:
-            self.text_file = open("/localhome/shossein/DCL_semester_project/Gossip_res/Output.txt", "w")
+            self.text_file = open("/localhome/shossein/DCL_semester_project/Gossip_res/ncl_" + str(nb_clients) + "_agg_" + aggregator_name + "_nbyz_" + str(nb_byz) + ".txt", "w")
 
     def get_dataset_size(self):
         return len(self.dataset)

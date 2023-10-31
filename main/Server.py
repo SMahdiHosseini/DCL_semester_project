@@ -3,13 +3,14 @@ from Utils.aggregator import RobustAggregator
 from multiprocessing.connection import Listener
 import sys
 
-#program input: nb_clients, server_address, server_port, nb_byz, nb_rounds
+#program input: nb_clients, server_address, server_port, nb_byz, nb_rounds aggregator_name
 nb_clients = int(sys.argv[1])
 server_address = sys.argv[2]
 server_port = int(sys.argv[3])
 nb_byz = int(sys.argv[4])
 nb_rounds = int(sys.argv[5])
-aggregator = RobustAggregator("average", '', 1, nb_byz, Helper.device)
+aggregator_name = sys.argv[6]
+aggregator = RobustAggregator(aggregator_name, '', 1, nb_byz, Helper.device)
 
 def connectToClients(ports):
     Listeners = []

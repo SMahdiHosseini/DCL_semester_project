@@ -3,12 +3,14 @@ from multiprocessing.connection import Client
 import sys
 import torch
 
-#program input: nb_clients, client_id, server_address, server_port, nb_rounds
+#program input: nb_clients, client_id, server_address, server_port, nb_rounds, aggregator
 nb_clients = int(sys.argv[1])
 client_id = int(sys.argv[2])
 server_address = sys.argv[3]
 server_port = int(sys.argv[4])
 nb_rounds = int(sys.argv[5])
+nb_byz = int(sys.argv[6])
+aggregator = sys.argv[7]
 
 ## Define Client Class
 class TraningClient:
@@ -18,7 +20,7 @@ class TraningClient:
         self.net = Helper.to_device(Model.FederatedNet(), Helper.device)
         self.connection = None
         if client_id == 0:
-            self.text_file = open("/localhome/shossein/DCL_semester_project/FL_res/Output.txt", "w")
+            self.text_file = open("/localhome/shossein/DCL_semester_project/FL_res/ncl_" + str(nb_clients) + "_agg_" + aggregator + "_nbyz_" + str(nb_byz) + ".txt", "w")
 
     def get_dataset_size(self):
         return len(self.dataset)

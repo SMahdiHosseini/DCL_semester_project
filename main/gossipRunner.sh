@@ -1,14 +1,14 @@
 #!/bin/bash          
 
-if [ $# -lt 5 ]
+if [ $# -lt 6 ]
 then
-    echo "usage: $0 <nb_clients> <server_address> <server_port> <nb_byz> <nb_rounds>"
+    echo "usage: $0 <nb_clients> <server_address> <server_port> <nb_byz> <nb_rounds> <aggregator>"
     exit
 fi
 
 for ((c=0; c<$1; c++))
 do
-    python3 Client_Gossip.py $c $1 $2 $3 $4 $5 > "./Results/gossip/res_$c.txt" &
+    python3 Client_Gossip.py $c $1 $2 $3 $4 $5 $6 > "./Results/gossip/res_$c.txt" &
     sleep 2s
 done
 
