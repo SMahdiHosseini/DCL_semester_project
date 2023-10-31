@@ -2,7 +2,7 @@ from Utils import Helper, Message, connectionHelper, ConnectionDistributer
 from Utils.aggregator import RobustAggregator
 from multiprocessing.connection import Listener
 import sys
-
+import random
 #program input: nb_clients, server_address, server_port, nb_byz, nb_rounds aggregator_name
 nb_clients = int(sys.argv[1])
 server_address = sys.argv[2]
@@ -10,7 +10,7 @@ server_port = int(sys.argv[3])
 nb_byz = int(sys.argv[4])
 nb_rounds = int(sys.argv[5])
 aggregator_name = sys.argv[6]
-aggregator = RobustAggregator(aggregator_name, '', 1, nb_byz, Helper.device)
+aggregator = RobustAggregator('nnm', aggregator_name, 1, nb_byz, Helper.device)
 
 def connectToClients(ports):
     Listeners = []
@@ -28,12 +28,14 @@ def runTheRound(r, connections):
     recvd_params, recvd_size = connectionHelper.getAllParams(connections, nb_clients - nb_byz, None, None, None, r)
     new_model_parameters = aggregator.aggregate(list(recvd_params.values()))
     
+    random.shuffle(connections)
     for conn in connections:
         connectionHelper.sendNewParameters(conn, new_model_parameters, connectionHelper.PYTHON, info={Message.ROUND: r, Message.SIZE: None, Message.SRC: None})
 
 def execute(connections):
     for r in range(1, nb_rounds + 1):
         runTheRound(r, connections)
+        print("*****")
 
 def terminate(connections, listeners):
     for conn in connections:
@@ -45,6 +47,7 @@ def main():
     print("Server started! ... ")
     listeners, connections = connectToClients(ConnectionDistributer.generateFLPorts(server_port, nb_clients))
     execute(list(connections.values()))
+    # connectionHelper.dummyRecv(list(connections.values()))
     terminate(list(connections.values()), listeners)
     print("Server terminated! ...")
 

@@ -2,6 +2,7 @@ from Utils import Helper, Model, Message, evaluator, connectionHelper, Connectio
 from multiprocessing.connection import Client
 import sys
 import torch
+import threading
 
 #program input: nb_clients, client_id, server_address, server_port, nb_rounds, aggregator
 nb_clients = int(sys.argv[1])
@@ -42,10 +43,15 @@ class TraningClient:
         for r in range(1, nb_rounds + 1):
             self.runTheRound(r)
             if self.client_id == 0:
-                evaluator.evaluateTheRound(self.net.get_parameters(), r, self.text_file)
+                my_thread = threading.Thread(target=evaluation, args=(self.net.get_parameters(), r, self.text_file))
+                my_thread.start()
+            #     evaluator.evaluateTheRound(self.net.get_parameters(), r, self.text_file)
 
     def terminate(self):
         self.connection.close()
+
+def evaluation(params, r, text_file):
+    evaluator.evaluateTheRound(params, r, text_file)
 
 def main():
     print("Client {} started! ... ".format(client_id))
