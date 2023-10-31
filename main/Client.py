@@ -1,7 +1,14 @@
-from Utils import Helper, Model, Message, evaluator, connectionHelper
+from Utils import Helper, Model, Message, evaluator, connectionHelper, ConnectionDistributer
 from multiprocessing.connection import Client
 import sys
 import torch
+
+#program input: nb_clients, client_id, server_address, server_port, nb_rounds
+nb_clients = int(sys.argv[1])
+client_id = int(sys.argv[2])
+server_address = sys.argv[3]
+server_port = int(sys.argv[4])
+nb_rounds = int(sys.argv[5])
 
 ## Define Client Class
 class TraningClient:
@@ -17,7 +24,7 @@ class TraningClient:
         return len(self.dataset)
 
     def connectToServer(self, port):
-        address = (Helper.localHost, port)
+        address = (server_address, port)
         self.connection = Client(address)
         print("Client {} connected to the server!".format(self.client_id))
 
@@ -30,7 +37,7 @@ class TraningClient:
         self.net.apply_parameters(list(recvd_params.values())[0])
 
     def execute(self):
-        for r in range(1, Helper.rounds + 1):
+        for r in range(1, nb_rounds + 1):
             self.runTheRound(r)
             if self.client_id == 0:
                 evaluator.evaluateTheRound(self.net.get_parameters(), r, self.text_file)
@@ -39,10 +46,9 @@ class TraningClient:
         self.connection.close()
 
 def main():
-    client_id = int(sys.argv[1])
     print("Client {} started! ... ".format(client_id))
     traning_client = TraningClient(client_id, torch.load("./Data/ClientsDatasets/" + str(client_id) + ".pt"))
-    traning_client.connectToServer(Helper.ports[client_id])
+    traning_client.connectToServer(ConnectionDistributer.generateFLPorts(server_port, nb_clients)[client_id])
     traning_client.execute()
     traning_client.terminate()
     print("Client {} terminated! ...".format(client_id))

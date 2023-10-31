@@ -1,18 +1,39 @@
 #!/bin/bash          
 
-if [ $# -lt 1 ]
+if [ $# -lt 2 ]
 then
-    echo "usage: $0 <number of clients>"
+    echo "usage: $0 <senario> <config>"
     exit
 fi
 
-python3 Server.py > "./Results/FL/server_res.txt" &
+if [[ "$2" == "main" ]];
+then 
+    . main.config
+elif [[ "$2" == "test" ]];
+then 
+    . test.config
+else
+    echo "Worng config file!"
+    exit
+fi
 
-for ((c=0; c<$1; c++))
-do
-    python3 Client.py $c > "./Results/FL/res_$c.txt" &
-    sleep 2s
-done
+if [[ "$1" == "fl" || "$1" == "all" ]]
+then
+    bash FLRunner.sh "$nb_clients" "$localHost" "$server_port" "$nb_byz" "$rounds"
+fi
 
-wait
-echo "Done!" 
+if [[ "$1" == "p2p" || "$1" == "all" ]]
+then
+    echo "$1" "$localHost" "$nb_clients"
+fi
+
+if [[ "$1" == "con" || "$1" == "all" ]]
+then
+    echo "$1" "$localHost" "$nb_clients"
+fi
+
+if [[ "$1" != "con" && "$1" != "p2p" && "$1" != "fl" && "$1" != "all" ]]
+then
+    echo "Wrong senario!"
+    exit
+fi

@@ -6,6 +6,8 @@ then
     exit
 fi
 
+cd /localhome/shossein/DCL_semester_project/library/build/install/library
+
 for ((r=0; r<$1; r++))
 do
     ./smartrun.sh bftsmart.FL.FLServer $r $2 $3 localhost > "./Results/res_$r.txt" &
