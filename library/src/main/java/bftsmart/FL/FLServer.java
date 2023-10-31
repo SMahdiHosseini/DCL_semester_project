@@ -27,7 +27,7 @@ public final class FLServer extends DefaultSingleRecoverable {
     private ArrayList<String> receivedParamsNextDatasetSizeArr;
     private DataInputStream in;
     private DataOutputStream out;
-    public FLServer(int id, int _clientNums, int _numOfRounds, String address, int byzNums){
+    public FLServer(int id, int _clientNums, int _numOfRounds, String address, int byzNums, String aggregatorName){
         this.numOfRounds = _numOfRounds;
         this.clientNums = _clientNums;
         this.receivedParamsNext = 0;
@@ -49,7 +49,7 @@ public final class FLServer extends DefaultSingleRecoverable {
             //Windows
             //  Process modelProcess = Runtime.getRuntime().exec("python ../../../../main/Server_bft.py " + address + " " + Integer.toString(port));
             //Linux
-            Process modelProcess = Runtime.getRuntime().exec("python3 ../../../../main/Server_bft.py " + address + " " + Integer.toString(port) + " " + Integer.toString(byzNums));
+            Process modelProcess = Runtime.getRuntime().exec("python3 ../../../../main/Server_bft.py " + address + " " + Integer.toString(port) + " " + Integer.toString(byzNums) + " " + aggregatorName);
             Socket socket = serverSocket.accept();
             in = new DataInputStream(socket.getInputStream());
             out = new DataOutputStream(socket.getOutputStream());
@@ -201,9 +201,9 @@ public final class FLServer extends DefaultSingleRecoverable {
 
     public static void main(String[] args){
         if(args.length < 5) {
-            System.out.println("Use: java FLServer <processId> <ClientNums> <NumOfRounds> <address> <byzNums>");
+            System.out.println("Use: java FLServer <processId> <ClientNums> <NumOfRounds> <address> <byzNums> <aggregator>");
             System.exit(-1);
         }
-        new FLServer(Integer.parseInt(args[0]), Integer.parseInt(args[1]), Integer.parseInt(args[2]), args[3], Integer.parseInt(args[4]));
+        new FLServer(Integer.parseInt(args[0]), Integer.parseInt(args[1]), Integer.parseInt(args[2]), args[3], Integer.parseInt(args[4]), args[5]);
     }
 }

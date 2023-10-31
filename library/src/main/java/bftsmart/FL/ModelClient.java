@@ -11,7 +11,7 @@ public class ModelClient {
     private DataInputStream in;
     private DataOutputStream out;
     public String datasetSize;
-    public ModelClient(String address, int id){
+    public ModelClient(String address, int id, int clientsNums, int byzNums, String aggregator){
         try {
 //            ServerSocket serverSocket = new ServerSocket(6100);
             ServerSocket serverSocket = new ServerSocket(0);
@@ -20,7 +20,7 @@ public class ModelClient {
             //Windows
             //  Process modelProcess = Runtime.getRuntime().exec("python ../../../../main/Client_bft.py " + Integer.toString(id) + " " + address + " " + Integer.toString(port));
             //Linux
-            Process modelProcess = Runtime.getRuntime().exec("python3 ../../../../main/Client_bft.py " + Integer.toString(id) + " " + address + " " + Integer.toString(port));
+            Process modelProcess = Runtime.getRuntime().exec("python3 ../../../../main/Client_bft.py " + Integer.toString(clientsNums) + " " + Integer.toString(id) + " " + address + " " + Integer.toString(port) + " " + Integer.toString(byzNums) + " " + aggregator);
             Socket socket = serverSocket.accept();
             in = new DataInputStream(socket.getInputStream());
             out = new DataOutputStream(socket.getOutputStream());
