@@ -2,6 +2,7 @@ from Utils import Model, Helper, Message, connectionHelper, evaluator
 import sys
 import jpysocket
 from torch import load
+import threading
 
 #program input: nb_clients, client_id, server_address, server_port, nb_byz, aggregator_name
 nb_clients = int(sys.argv[1])
@@ -30,13 +31,16 @@ class TraningClient:
 
     def execute(self, connection):
         r = 1
+        my_thread = []
         while True:
             msg = jpysocket.jpydecode(connection.recv(1024))
             if msg == Message.NEW_PARAMETERS:
                 new_param = connectionHelper.getNewParameters(connection, connectionHelper.JAVA)
                 self.net.apply_parameters(new_param)
                 if self.client_id == 0:
-                    evaluator.evaluateTheRound(new_param, r, self.text_file)
+                    new_thread = threading.Thread(target=evaluation, args=(self.net.get_parameters(), r, self.text_file))
+                    new_thread.start()
+                    my_thread.append(new_thread)
                 r += 1
                 print("Round Ended!")
                 continue
@@ -44,9 +48,14 @@ class TraningClient:
                 self.handleTrainCmd(connection)
                 continue
             if msg == Message.TERMINATE:
+                for t in my_thread:
+                    t.join()
                 connection.send(jpysocket.jpyencode("ACK"))
                 return
-        
+            
+def evaluation(params, r, text_file):
+    evaluator.evaluateTheRound(params, r, text_file)        
+
 def main():
     print("Client {} started! ... ".format(client_id))
     # training_client = TraningClient(client_id, load("F:/DCL/Semester Project 1/Codes/DCL_semester_project/main/Data/ClientsDatasets/" + str(client_id) + ".pt"))

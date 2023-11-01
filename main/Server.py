@@ -2,7 +2,7 @@ from Utils import Helper, Message, connectionHelper, ConnectionDistributer
 from Utils.aggregator import RobustAggregator
 from multiprocessing.connection import Listener
 import sys
-import random
+
 #program input: nb_clients, server_address, server_port, nb_byz, nb_rounds aggregator_name
 nb_clients = int(sys.argv[1])
 server_address = sys.argv[2]

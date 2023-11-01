@@ -31,7 +31,7 @@ def execute(connection):
             recvd_size.append(s)
             continue
         if msg == Message.AGGREGATE:
-            finalizeTheRound(recvd_params, connection)
+            finalizeTheRound(recvd_params[:len(recvd_params) - nb_byz], connection)
             r += 1
             recvd_params = []
             recvd_size = []

@@ -5,6 +5,8 @@ from Utils.ConnectionDistributer import generateGossipPorts
 from multiprocessing.connection import Client, Listener
 import sys
 import torch
+from datetime import datetime
+import threading
 
 #program input: client_id, nb_clients, server_address, server_port, nb_byz, nb_rounds, aggregator_name
 client_id = int(sys.argv[1])
@@ -66,17 +68,23 @@ class TraningClient:
     def runTheRound(self, r):
         self.net.fit(self.dataset)
         self.shareToNeighbors(r)            
+        t = datetime.now().strftime("%H:%M:%S:%f")
         recvd_params, recvd_size = connectionHelper.getAllParams(list(self.connections.values()), len(self.neighbors), self.net.get_parameters(), self.get_dataset_size(), self.client_id, r)
-        recvd_params[self.client_id] = self.net.get_parameters().cpu()
-        recvd_size[self.client_id] = self.get_dataset_size()
-        new_model_parameters = self.aggregator.aggregate(list(recvd_params.values()))
+        recvd_params[(self.client_id, t)] = self.net.get_parameters().cpu()
+        recvd_size[(self.client_id, t)] = self.get_dataset_size()
+        ordered_params = dict(sorted(recvd_params.items(), key=lambda x: x[0][1])[:nb_clients - nb_byz])
+        new_model_parameters = self.aggregator.aggregate(list(ordered_params.values()))
         self.net.apply_parameters(new_model_parameters)
 
     def execute(self):
         for r in range(1, nb_rounds + 1):
             self.runTheRound(r)
             if self.client_id == 0:
-                evaluator.evaluateTheRound(self.net.get_parameters(), r, self.text_file)
+                my_thread = threading.Thread(target=evaluation, args=(self.net.get_parameters(), r, self.text_file))
+                my_thread.start()
+
+def evaluation(params, r, text_file):
+    evaluator.evaluateTheRound(params, r, text_file)
 
 def main():
     print("Client {} started! ... ".format(client_id))
