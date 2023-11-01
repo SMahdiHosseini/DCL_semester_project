@@ -30,18 +30,18 @@ from torch import tensor
 # print(f)
 # print(decodeTag(f))
 
-s1 = open("param_fl_r1.txt", "r")
-s2 = open("param_go_r1.txt", "r")
-ss1 = s1.readline()
-ss2 = s2.readline()
-lss1 = [num for num in ss1.split(',') if num]
-lss2 = [num for num in ss2.split(',') if num]
-ss1 = connectionHelper.stringToTensor(ss1).tolist()
-ss2 = connectionHelper.stringToTensor(ss2).tolist()
+# s1 = open("param_fl_r1.txt", "r")
+# s2 = open("param_go_r1.txt", "r")
+# ss1 = s1.readline()
+# ss2 = s2.readline()
+# lss1 = [num for num in ss1.split(',') if num]
+# lss2 = [num for num in ss2.split(',') if num]
+# ss1 = connectionHelper.stringToTensor(ss1).tolist()
+# ss2 = connectionHelper.stringToTensor(ss2).tolist()
 
-for i in range(len(ss1)):
-    if ss1[i] != ss2[i]:
-        print(ss1[i], lss1[i], ss2[i], lss2[i])
+# for i in range(len(ss1)):
+#     if ss1[i] != ss2[i]:
+#         print(ss1[i], lss1[i], ss2[i], lss2[i])
         # print(ss1[i], ss2[i])
 
 # a = tensor([1.21234567989, 2.235456354, 5.322434637895])
@@ -49,3 +49,8 @@ for i in range(len(ss1)):
 # print(s)
 # b = connectionHelper.stringToTensor(s)
 # print(b)
+
+my_dict = {('a', 2): 3, ('b', 1): 2, ('c', 3): 1, ('d', 2): 4}
+m = 2
+sorted_dict = dict(sorted(my_dict.items(), key=lambda x: x[0][1])[:m])
+print(sorted_dict)

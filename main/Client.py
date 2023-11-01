@@ -45,7 +45,6 @@ class TraningClient:
             if self.client_id == 0:
                 my_thread = threading.Thread(target=evaluation, args=(self.net.get_parameters(), r, self.text_file))
                 my_thread.start()
-            #     evaluator.evaluateTheRound(self.net.get_parameters(), r, self.text_file)
 
     def terminate(self):
         self.connection.close()

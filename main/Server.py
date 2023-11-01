@@ -25,17 +25,16 @@ def connectToClients(ports):
     return Listeners, connections
 
 def runTheRound(r, connections):
-    recvd_params, recvd_size = connectionHelper.getAllParams(connections, nb_clients - nb_byz, None, None, None, r)
-    new_model_parameters = aggregator.aggregate(list(recvd_params.values()))
+    recvd_params, recvd_size = connectionHelper.getAllParams(connections, nb_clients, None, None, None, r)
+    ordered_params = dict(sorted(recvd_params.items(), key=lambda x: x[0][1])[:nb_clients - nb_byz])
+    new_model_parameters = aggregator.aggregate(list(ordered_params.values()))
     
-    random.shuffle(connections)
     for conn in connections:
         connectionHelper.sendNewParameters(conn, new_model_parameters, connectionHelper.PYTHON, info={Message.ROUND: r, Message.SIZE: None, Message.SRC: None})
 
 def execute(connections):
     for r in range(1, nb_rounds + 1):
         runTheRound(r, connections)
-        print("*****")
 
 def terminate(connections, listeners):
     for conn in connections:
@@ -47,7 +46,6 @@ def main():
     print("Server started! ... ")
     listeners, connections = connectToClients(ConnectionDistributer.generateFLPorts(server_port, nb_clients))
     execute(list(connections.values()))
-    # connectionHelper.dummyRecv(list(connections.values()))
     terminate(list(connections.values()), listeners)
     print("Server terminated! ...")
 

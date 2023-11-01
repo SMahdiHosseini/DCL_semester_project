@@ -4,6 +4,7 @@ from torch import tensor
 from Utils import Message
 from Utils.Message import Msg
 import select
+from datetime import datetime
 
 JAVA = "JAVA"
 PYTHON = "PYTHON"
@@ -34,11 +35,6 @@ def getNewParameters(connection, config, info=None):
     else:
         return getNewParametersFromPython(connection, info)
     
-def dummyRecv(connections):
-    ready_to_read, _, _ = select.select(connections, [], [])
-    for sock in ready_to_read:
-        msg = sock.recv()
-
 def getNewParametersFromPython(connections, info):
     recvd_params = dict()
     recvd_size = dict()
@@ -46,11 +42,10 @@ def getNewParametersFromPython(connections, info):
     for sock in ready_to_read:
         msg = sock.recv()
         if msg.header == Message.NEW_PARAMETERS:
-            if info[Message.SRC] == None:
-                print(msg.src_id, msg.content[Message.ROUND], info[Message.ROUND])
             if int(msg.content[Message.ROUND]) == info[Message.ROUND]:
-                recvd_params[msg.src_id] = stringToTensor(msg.content[Message.PARAMS])
-                recvd_size[msg.src_id] = msg.content[Message.SIZE]
+                t = datetime.now().strftime("%H:%M:%S:%f")
+                recvd_params[(msg.src_id, t)] = stringToTensor(msg.content[Message.PARAMS])
+                recvd_size[(msg.src_id, t)] = msg.content[Message.SIZE]
             elif int(msg.content[Message.ROUND]) > info[Message.ROUND]:
                 sock.send(Msg(header=Message.WAIT))
         if msg.header == Message.WAIT and info[Message.SRC] != None:
