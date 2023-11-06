@@ -15,100 +15,100 @@
 		###################################
 		    Ready to process operations    
 		###################################
-Server 0 Port: 46601
 -- Session Created, active clients=0
 -- Session Created, active clients=0
 -- Session Created, active clients=0
 -- Session Created, active clients=0
 -- Session Created, active clients=0
-Got new param from 0 Curretn Round: 1 Client round:1
-Send Params to Aggregator by client 0
-Got new param from 2 Curretn Round: 1 Client round:1
-Send Params to Aggregator by client 2
-Got new param from 1 Curretn Round: 1 Client round:1
-Send Params to Aggregator by client 1
-Got new param from 3 Curretn Round: 1 Client round:1
-Send Params to Aggregator by client 3
+Server 0 Port: 42677
 Got new param from 4 Curretn Round: 1 Client round:1
 Send Params to Aggregator by client 4
-Send Aggregate to Aggregator by client 4
+Got new param from 2 Curretn Round: 1 Client round:1
+Send Params to Aggregator by client 2
+Got new param from 3 Curretn Round: 1 Client round:1
+Send Params to Aggregator by client 3
+Got new param from 0 Curretn Round: 1 Client round:1
+Send Params to Aggregator by client 0
+Got new param from 1 Curretn Round: 1 Client round:1
+Send Params to Aggregator by client 1
+Send Aggregate to Aggregator by client 1
 Aggregating parameters of round 1
 **** Aggregated of round 1
-Got new param from 1 Curretn Round: 2 Client round:2
-Send Params to Aggregator by client 1
-Got new param from 4 Curretn Round: 2 Client round:2
-Send Params to Aggregator by client 4
 Got new param from 0 Curretn Round: 2 Client round:2
 Send Params to Aggregator by client 0
-Got new param from 2 Curretn Round: 2 Client round:2
-Send Params to Aggregator by client 2
+Got new param from 1 Curretn Round: 2 Client round:2
+Send Params to Aggregator by client 1
 Got new param from 3 Curretn Round: 2 Client round:2
 Send Params to Aggregator by client 3
-Send Aggregate to Aggregator by client 3
+Got new param from 2 Curretn Round: 2 Client round:2
+Send Params to Aggregator by client 2
+Got new param from 4 Curretn Round: 2 Client round:2
+Send Params to Aggregator by client 4
+Send Aggregate to Aggregator by client 4
 Aggregating parameters of round 2
 **** Aggregated of round 2
 Got new param from 0 Curretn Round: 3 Client round:3
 Send Params to Aggregator by client 0
-Got new param from 3 Curretn Round: 3 Client round:3
-Send Params to Aggregator by client 3
-Got new param from 1 Curretn Round: 3 Client round:3
-Send Params to Aggregator by client 1
-Got new param from 2 Curretn Round: 3 Client round:3
-Send Params to Aggregator by client 2
 Got new param from 4 Curretn Round: 3 Client round:3
 Send Params to Aggregator by client 4
-Send Aggregate to Aggregator by client 4
+Got new param from 2 Curretn Round: 3 Client round:3
+Send Params to Aggregator by client 2
+Got new param from 1 Curretn Round: 3 Client round:3
+Send Params to Aggregator by client 1
+Got new param from 3 Curretn Round: 3 Client round:3
+Send Params to Aggregator by client 3
+Send Aggregate to Aggregator by client 3
 Aggregating parameters of round 3
 **** Aggregated of round 3
 Got new param from 0 Curretn Round: 4 Client round:4
 Send Params to Aggregator by client 0
-Got new param from 2 Curretn Round: 4 Client round:4
-Send Params to Aggregator by client 2
-Got new param from 4 Curretn Round: 4 Client round:4
-Send Params to Aggregator by client 4
-Got new param from 1 Curretn Round: 4 Client round:4
-Send Params to Aggregator by client 1
 Got new param from 3 Curretn Round: 4 Client round:4
 Send Params to Aggregator by client 3
-Send Aggregate to Aggregator by client 3
+Got new param from 2 Curretn Round: 4 Client round:4
+Send Params to Aggregator by client 2
+Got new param from 1 Curretn Round: 4 Client round:4
+Send Params to Aggregator by client 1
+Got new param from 4 Curretn Round: 4 Client round:4
+Send Params to Aggregator by client 4
+Send Aggregate to Aggregator by client 4
 Aggregating parameters of round 4
 **** Aggregated of round 4
-Got new param from 0 Curretn Round: 5 Client round:5
-Send Params to Aggregator by client 0
 Got new param from 1 Curretn Round: 5 Client round:5
 Send Params to Aggregator by client 1
-Got new param from 4 Curretn Round: 5 Client round:5
-Send Params to Aggregator by client 4
-Got new param from 3 Curretn Round: 5 Client round:5
-Send Params to Aggregator by client 3
 Got new param from 2 Curretn Round: 5 Client round:5
 Send Params to Aggregator by client 2
-Send Aggregate to Aggregator by client 2
+Got new param from 3 Curretn Round: 5 Client round:5
+Send Params to Aggregator by client 3
+Got new param from 4 Curretn Round: 5 Client round:5
+Send Params to Aggregator by client 4
+Got new param from 0 Curretn Round: 5 Client round:5
+Send Params to Aggregator by client 0
+Send Aggregate to Aggregator by client 0
 Aggregating parameters of round 5
 **** Aggregated of round 5
 Python process terminated
 -- 
 ---------- DEBUG INFO ----------
 
-Current time: 11:04:21.971
+Current time: 11:31:17.135
 Current leader: 0
 Current regency: 0
 
-Last finished consensus: 5714
+Last finished consensus: 1777
 
 	 -- Consensus state: 
 
 		ETS=0 
-		WriteSet=[[0 :: N8QCEyXBY23ZgSaNgnoTfmTLMsBCvifsQPEdREz3184=]] 
-		(VAL,TS)=[0 :: N8QCEyXBY23ZgSaNgnoTfmTLMsBCvifsQPEdREz3184=]
+		WriteSet=[[0 :: nQkpaA6knZqigP8Efb4+dz353Hj9EYG2tqxoUct6op8=]] 
+		(VAL,TS)=[0 :: nQkpaA6knZqigP8Efb4+dz353Hj9EYG2tqxoUct6op8=]
 
 	 -- Epoch state: 
 
-		CID=5714 
+		CID=1777 
 		TS=0 
-		Propose=[N8QCEyXBY23ZgSaNgnoTfmTLMsBCvifsQPEdREz3184=] 
-		Writes=([N8QCEyXBY23ZgSaNgnoTfmTLMsBCvifsQPEdREz3184=], [null], [N8QCEyXBY23ZgSaNgnoTfmTLMsBCvifsQPEdREz3184=], [N8QCEyXBY23ZgSaNgnoTfmTLMsBCvifsQPEdREz3184=]) 
-		Accepts=([N8QCEyXBY23ZgSaNgnoTfmTLMsBCvifsQPEdREz3184=], [null], [N8QCEyXBY23ZgSaNgnoTfmTLMsBCvifsQPEdREz3184=], [N8QCEyXBY23ZgSaNgnoTfmTLMsBCvifsQPEdREz3184=])
+		Propose=[nQkpaA6knZqigP8Efb4+dz353Hj9EYG2tqxoUct6op8=] 
+		Writes=([nQkpaA6knZqigP8Efb4+dz353Hj9EYG2tqxoUct6op8=], [nQkpaA6knZqigP8Efb4+dz353Hj9EYG2tqxoUct6op8=], [nQkpaA6knZqigP8Efb4+dz353Hj9EYG2tqxoUct6op8=], [nQkpaA6knZqigP8Efb4+dz353Hj9EYG2tqxoUct6op8=]) 
+		Accepts=([nQkpaA6knZqigP8Efb4+dz353Hj9EYG2tqxoUct6op8=], [nQkpaA6knZqigP8Efb4+dz353Hj9EYG2tqxoUct6op8=], [null], [nQkpaA6knZqigP8Efb4+dz353Hj9EYG2tqxoUct6op8=])
 
 Consensus in execution: None
 

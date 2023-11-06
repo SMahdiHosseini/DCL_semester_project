@@ -27,7 +27,7 @@ class TraningClient:
         self.neighbors.sort()
         self.connections = dict()
         self.listeners = []
-        self.aggregator = RobustAggregator(aggregator_name, '', 1, nb_byz, Helper.device)
+        self.aggregator = RobustAggregator('nnm', aggregator_name, 1, nb_byz, Helper.device)
         if client_id == 0:
             self.text_file = open("/localhome/shossein/DCL_semester_project/Gossip_res/ncl_" + str(nb_clients) + "_agg_" + aggregator_name + "_nbyz_" + str(nb_byz) + ".txt", "w")
 

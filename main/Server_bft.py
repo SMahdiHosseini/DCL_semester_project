@@ -8,7 +8,7 @@ server_address = sys.argv[1]
 server_port = int(sys.argv[2])
 nb_byz = int(sys.argv[3])
 aggregator_name = sys.argv[4]
-aggregator = RobustAggregator(aggregator_name, '', 1, nb_byz, Helper.device)
+aggregator = RobustAggregator('nnm', aggregator_name, 1, nb_byz, Helper.device)
 
 def handleNewParam(connection):
     connection.send(jpysocket.jpyencode("ACK"))
