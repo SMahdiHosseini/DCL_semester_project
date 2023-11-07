@@ -36,6 +36,6 @@ for agg in ${aggregator[@]}; do
 
     if [[ "$1" == "con" || "$1" == "all" ]]
     then
-        bash ConsensusRunner.sh "$nb_replicas" "$nb_clients" "$rounds" "$localHost" "$nb_byz" "$agg"
+        bash ConsensusRunner.sh "$nb_replicas" "$nb_clients" "$rounds" "$localHost" "$nb_byz" "$agg" "$attack"
     fi
 done
