@@ -8,6 +8,7 @@ random.seed(10)
 batch_size = 128
 epochs_per_client = 1
 learning_rate = 2e-2
+attackIds = [0]
 
 ## Define utilities for GPU support
 def get_device():

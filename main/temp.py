@@ -1,34 +1,6 @@
-from Utils import connectionHelper
-from torch import tensor
-# import zlib
-
-# # Given string
-# s = 'tensor([ 0.0118,  0.0261, -0.0229, -0.0163,  0.0201, -0.0379])'
-
-# # Extracting the list of floats from the string
-# lst = [float(x) for x in s[s.find('[')+1:s.find(']')].split(',')]
-
-# # Creating a PyTorch tensor from the list of floats
-# tensor = torch.tensor(lst)
-
-# print(tensor)
-
-# compressed = zlib.compress(bytes(''.join(str(round(x, 4)) + "," for x in [0.01182,  0.02261, -0.02292, -0.01623,  0.02012, -0.03792]), 'utf-8'))
-# print(compressed)
-
-# decom = [float(num) for num in zlib.decompress(compressed).decode().split(',') if num]
-# print(decom)
-
-# t = torch.tensor(decom)
-# print(t)
-
-# def encodeTag(header, r, s):
-#     return '#'.join([header, str(r), str(s)])
-# def decodeTag(tag):
-#     return [s for s in tag.split('#')]
-# f = encodeTag("EWEWEW", 2, 1450)
-# print(f)
-# print(decodeTag(f))
+from Utils import connectionHelper, Helper
+import torch 
+from torch.utils.data import Dataset, Subset, DataLoader
 
 # s1 = open("param_fl_r1.txt", "r")
 # s2 = open("param_go_r1.txt", "r")
@@ -54,3 +26,32 @@ my_dict = {('a', 2): 3, ('b', 1): 2, ('c', 3): 1, ('d', 2): 4}
 m = 2
 sorted_dict = dict(sorted(my_dict.items(), key=lambda x: x[0][1])[:m])
 print(sorted_dict)
+# def replace_0_with_6(targets):
+#     """
+#     :param targets: Target class IDs
+#     :type targets: list
+#     :param target_set: Set of class IDs possible
+#     :type target_set: list
+#     :return: new class IDs
+#     """
+#     new_data = []
+#     for data, label in targets:
+#         if label == 0:
+#             new_data.append((data, 6))
+#         else:
+#             new_data.append((data, label))
+#     return new_data
+
+# print(t)
+# counter = 0
+# for idx in range(len(t)):
+#     if t[idx][1] == 0:
+#         counter += 1
+# print(counter)
+# d = replace_0_with_6(t)
+# counter = 0
+# for idx in range(len(d)):
+#     if d[idx][1] == 0:
+#         counter += 1
+# print(counter)
+# print(d)

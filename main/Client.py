@@ -1,8 +1,7 @@
-from Utils import Helper, Model, Message, evaluator, connectionHelper, ConnectionDistributer
+from Utils import Helper, Model, Message, connectionHelper, ConnectionDistributer
 from multiprocessing.connection import Client
 import sys
 import torch
-import threading
 
 #program input: nb_clients, client_id, server_address, server_port, nb_rounds, aggregator
 nb_clients = int(sys.argv[1])
@@ -20,8 +19,6 @@ class TraningClient:
         self.dataset = dataset
         self.net = Helper.to_device(Model.FederatedNet(), Helper.device)
         self.connection = None
-        if client_id == 0:
-            self.text_file = open("/localhome/shossein/DCL_semester_project/FL_res/ncl_" + str(nb_clients) + "_agg_" + aggregator + "_nbyz_" + str(nb_byz) + ".txt", "w")
 
     def get_dataset_size(self):
         return len(self.dataset)
@@ -42,15 +39,9 @@ class TraningClient:
     def execute(self):
         for r in range(1, nb_rounds + 1):
             self.runTheRound(r)
-            if self.client_id == 0:
-                my_thread = threading.Thread(target=evaluation, args=(self.net.get_parameters(), r, self.text_file))
-                my_thread.start()
 
     def terminate(self):
         self.connection.close()
-
-def evaluation(params, r, text_file):
-    evaluator.evaluateTheRound(params, r, text_file)
 
 def main():
     print("Client {} started! ... ".format(client_id))

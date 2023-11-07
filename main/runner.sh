@@ -26,7 +26,7 @@ fi
 for agg in ${aggregator[@]}; do
     if [[ "$1" == "fl" || "$1" == "all" ]]
     then
-        bash FLRunner.sh "$nb_clients" "$localHost" "$server_port" "$nb_byz" "$rounds" "$agg"
+        bash FLRunner.sh "$nb_clients" "$localHost" "$server_port" "$nb_byz" "$rounds" "$agg" "$attack"
     fi
 
     if [[ "$1" == "p2p" || "$1" == "all" ]]
