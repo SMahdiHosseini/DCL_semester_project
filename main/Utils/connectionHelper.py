@@ -1,13 +1,15 @@
 import socket
 import jpysocket
 from torch import tensor
-from Utils import Message
+from Utils import Message, Log, Helper
 from Utils.Message import Msg
 import select
 from datetime import datetime
 
 JAVA = "JAVA"
 PYTHON = "PYTHON"
+LOGFILE = "FILE"
+TEST  = "TEST"
 
 def tensorToString(t):
     return ''.join([str(round(x, 5)) + "," for x in t.tolist()])
@@ -71,11 +73,14 @@ def sendNewParametersToJava(connection, params):
     connection.send(jpysocket.jpyencode(str(len(params))))
     connection.send(params)
 
-def getAllParams(connections, num_of_params, client_parameters, dataset_size, client_id, r):
+def getAllParams(connections, num_of_connections, client_parameters, dataset_size, client_id, r, num_of_params, log, test):
     recvd_params = dict()
     recvd_size = dict()
-    while len(list(recvd_size.values())) < num_of_params:
+    while len(list(recvd_size.values())) < num_of_connections:
         new_params, new_sizes = getNewParameters(connections, PYTHON, info={Message.ROUND: r, Message.SIZE: dataset_size, Message.PARAMS: client_parameters, Message.SRC: client_id})
         recvd_params.update(new_params)
         recvd_size.update(new_sizes)
+        if test == Helper.performance_test and len(list(recvd_size.values())) >= num_of_params:
+            log.addLog("received_params: {}\n".format(datetime.now().strftime("%H:%M:%S:%f")))
+
     return recvd_params, recvd_size

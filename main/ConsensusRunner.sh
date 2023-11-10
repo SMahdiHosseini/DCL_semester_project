@@ -17,7 +17,7 @@ sleep 3s
 
 for ((c=0; c<$2; c++))
 do
-    ./smartrun.sh bftsmart.FL.FLClientInterface $c $4 $2 $5 $6&
+    ./smartrun.sh bftsmart.FL.FLClientInterface $c $4 $2 $5 $6 $7&
 done
 
 wait

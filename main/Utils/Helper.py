@@ -8,12 +8,13 @@ random.seed(10)
 batch_size = 128
 epochs_per_client = 1
 learning_rate = 2e-2
-attackIds = [0]
+performance_test = "Performance"
+accuracy_test = "accuracy"
 
 ## Define utilities for GPU support
 def get_device():
-    return torch.device('cuda') if torch.cuda.is_available() else torch.device('cpu')
-    # return torch.device('cpu')
+    # return torch.device('cuda') if torch.cuda.is_available() else torch.device('cpu')
+    return torch.device('cpu')
 
 def to_device(data, device):
     if isinstance(data, (list, tuple)):

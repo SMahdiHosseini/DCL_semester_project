@@ -1,4 +1,4 @@
--- Creating current view from configuration file
+-- Using view stored on disk
 -- SSL/TLS handshake complete!, Id:0  ## CipherSuite: TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256.
 -- ID = 1
 -- N = 4
@@ -16,72 +16,72 @@
 		###################################
 		    Ready to process operations    
 		###################################
-Server 1 Port: 43995
+Server 1 Port: 43743
 -- Session Created, active clients=0
 -- Session Created, active clients=0
 -- Session Created, active clients=0
 -- Session Created, active clients=0
 -- Session Created, active clients=0
-Got new param from 1 Curretn Round: 1 Client round:1
-Send Params to Aggregator by client 1
-Got new param from 0 Curretn Round: 1 Client round:1
-Send Params to Aggregator by client 0
 Got new param from 4 Curretn Round: 1 Client round:1
 Send Params to Aggregator by client 4
+Got new param from 1 Curretn Round: 1 Client round:1
+Send Params to Aggregator by client 1
 Got new param from 3 Curretn Round: 1 Client round:1
 Send Params to Aggregator by client 3
+Got new param from 0 Curretn Round: 1 Client round:1
+Send Params to Aggregator by client 0
 Got new param from 2 Curretn Round: 1 Client round:1
 Send Params to Aggregator by client 2
 Send Aggregate to Aggregator by client 2
 Aggregating parameters of round 1
 **** Aggregated of round 1
-Got new param from 2 Curretn Round: 2 Client round:2
-Send Params to Aggregator by client 2
-Got new param from 3 Curretn Round: 2 Client round:2
-Send Params to Aggregator by client 3
 Got new param from 4 Curretn Round: 2 Client round:2
 Send Params to Aggregator by client 4
+Got new param from 2 Curretn Round: 2 Client round:2
+Send Params to Aggregator by client 2
 Got new param from 1 Curretn Round: 2 Client round:2
 Send Params to Aggregator by client 1
+Got new param from 3 Curretn Round: 2 Client round:2
+Send Params to Aggregator by client 3
 Got new param from 0 Curretn Round: 2 Client round:2
 Send Params to Aggregator by client 0
 Send Aggregate to Aggregator by client 0
 Aggregating parameters of round 2
 **** Aggregated of round 2
-Got new param from 3 Curretn Round: 3 Client round:3
-Send Params to Aggregator by client 3
-Got new param from 4 Curretn Round: 3 Client round:3
-Send Params to Aggregator by client 4
-Got new param from 2 Curretn Round: 3 Client round:3
-Send Params to Aggregator by client 2
 Got new param from 1 Curretn Round: 3 Client round:3
 Send Params to Aggregator by client 1
+Got new param from 2 Curretn Round: 3 Client round:3
+Send Params to Aggregator by client 2
+Got new param from 4 Curretn Round: 3 Client round:3
+Send Params to Aggregator by client 4
+Got new param from 3 Curretn Round: 3 Client round:3
+Send Params to Aggregator by client 3
 Got new param from 0 Curretn Round: 3 Client round:3
 Send Params to Aggregator by client 0
 Send Aggregate to Aggregator by client 0
 Aggregating parameters of round 3
 **** Aggregated of round 3
-Got new param from 4 Curretn Round: 4 Client round:4
-Send Params to Aggregator by client 4
-Got new param from 3 Curretn Round: 4 Client round:4
-Send Params to Aggregator by client 3
 Got new param from 2 Curretn Round: 4 Client round:4
 Send Params to Aggregator by client 2
 Got new param from 1 Curretn Round: 4 Client round:4
 Send Params to Aggregator by client 1
+Got new param from 3 Curretn Round: 4 Client round:4
+Send Params to Aggregator by client 3
+Got new param from 4 Curretn Round: 4 Client round:4
+Send Params to Aggregator by client 4
 Got new param from 0 Curretn Round: 4 Client round:4
 Send Params to Aggregator by client 0
 Send Aggregate to Aggregator by client 0
 Aggregating parameters of round 4
 **** Aggregated of round 4
-Got new param from 2 Curretn Round: 5 Client round:5
-Send Params to Aggregator by client 2
+Got new param from 3 Curretn Round: 5 Client round:5
+Send Params to Aggregator by client 3
 Got new param from 1 Curretn Round: 5 Client round:5
 Send Params to Aggregator by client 1
 Got new param from 4 Curretn Round: 5 Client round:5
 Send Params to Aggregator by client 4
-Got new param from 3 Curretn Round: 5 Client round:5
-Send Params to Aggregator by client 3
+Got new param from 2 Curretn Round: 5 Client round:5
+Send Params to Aggregator by client 2
 Got new param from 0 Curretn Round: 5 Client round:5
 Send Params to Aggregator by client 0
 Send Aggregate to Aggregator by client 0
@@ -91,25 +91,25 @@ Python process terminated
 -- 
 ---------- DEBUG INFO ----------
 
-Current time: 11:48:53.538
+Current time: 14:16:14.640
 Current leader: 0
 Current regency: 0
 
-Last finished consensus: 6865
+Last finished consensus: 5355
 
 	 -- Consensus state: 
 
 		ETS=0 
-		WriteSet=[[0 :: tcwntCD3Gsql75pzor3mLJtl49ww1Fqqn6eZ1/bU72E=]] 
-		(VAL,TS)=[0 :: tcwntCD3Gsql75pzor3mLJtl49ww1Fqqn6eZ1/bU72E=]
+		WriteSet=[[0 :: A3sqH3n51ElwFEa0og4O3XiwlfAoCL/L2dCB0Np5EbA=]] 
+		(VAL,TS)=[0 :: A3sqH3n51ElwFEa0og4O3XiwlfAoCL/L2dCB0Np5EbA=]
 
 	 -- Epoch state: 
 
-		CID=6865 
+		CID=5355 
 		TS=0 
-		Propose=[tcwntCD3Gsql75pzor3mLJtl49ww1Fqqn6eZ1/bU72E=] 
-		Writes=([null], [tcwntCD3Gsql75pzor3mLJtl49ww1Fqqn6eZ1/bU72E=], [tcwntCD3Gsql75pzor3mLJtl49ww1Fqqn6eZ1/bU72E=], [tcwntCD3Gsql75pzor3mLJtl49ww1Fqqn6eZ1/bU72E=]) 
-		Accepts=([null], [tcwntCD3Gsql75pzor3mLJtl49ww1Fqqn6eZ1/bU72E=], [tcwntCD3Gsql75pzor3mLJtl49ww1Fqqn6eZ1/bU72E=], [tcwntCD3Gsql75pzor3mLJtl49ww1Fqqn6eZ1/bU72E=])
+		Propose=[A3sqH3n51ElwFEa0og4O3XiwlfAoCL/L2dCB0Np5EbA=] 
+		Writes=([A3sqH3n51ElwFEa0og4O3XiwlfAoCL/L2dCB0Np5EbA=], [A3sqH3n51ElwFEa0og4O3XiwlfAoCL/L2dCB0Np5EbA=], [A3sqH3n51ElwFEa0og4O3XiwlfAoCL/L2dCB0Np5EbA=], [A3sqH3n51ElwFEa0og4O3XiwlfAoCL/L2dCB0Np5EbA=]) 
+		Accepts=([A3sqH3n51ElwFEa0og4O3XiwlfAoCL/L2dCB0Np5EbA=], [null], [A3sqH3n51ElwFEa0og4O3XiwlfAoCL/L2dCB0Np5EbA=], [A3sqH3n51ElwFEa0og4O3XiwlfAoCL/L2dCB0Np5EbA=])
 
 Consensus in execution: None
 

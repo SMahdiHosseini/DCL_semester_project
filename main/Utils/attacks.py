@@ -11,7 +11,15 @@ def signflipping(attack, honest_vectors, **kwargs):
     byzantine_vector = torch.mul(avg_honest_vector, -1)
     return [byzantine_vector] * attack.nb_real_byz
 
-byzantine_attacks = {"LF": labelflipping, "SF": signflipping}
+def fall_of_empires(attack, honest_vectors, attack_factor=3, negative=False, **kwargs):
+    avg_honest_vector = torch.stack(honest_vectors).mean(dim=0)
+    attack_vector = avg_honest_vector.neg()
+    if negative:
+        attack_factor = - attack_factor
+    byzantine_vector = avg_honest_vector.add(attack_vector, alpha=attack_factor)
+    return [byzantine_vector] * attack.nb_real_byz
+
+byzantine_attacks = {"LF": labelflipping, "SF": signflipping, "FOE": fall_of_empires}
 
 class ByzantineAttack(object):
 

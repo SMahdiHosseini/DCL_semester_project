@@ -4,13 +4,14 @@ import jpysocket
 from torch import load
 import threading
 
-#program input: nb_clients, client_id, server_address, server_port, nb_byz, aggregator_name
+#program input: nb_clients, client_id, server_address, server_port, nb_byz, aggregator_name, attack_name
 nb_clients = int(sys.argv[1])
 client_id = int(sys.argv[2])
 server_address = sys.argv[3]
 server_port = int(sys.argv[4])
 nb_byz = int(sys.argv[5])
 aggregator_name = sys.argv[6]
+attack_name = sys.argv[7]
 
 ## Define Client Class
 class TraningClient:
@@ -19,7 +20,7 @@ class TraningClient:
         self.dataset = dataset
         self.net = Helper.to_device(Model.FederatedNet(), Helper.device)
         if client_id == 0:
-            self.text_file = open("/localhome/shossein/DCL_semester_project/Consensus_res/ncl_" + str(nb_clients) + "_agg_" + aggregator_name + "_nbyz_" + str(nb_byz) + ".txt", "w")
+            self.text_file = open("/localhome/shossein/DCL_semester_project/Consensus_res/ncl_" + str(nb_clients) + "_agg_" + aggregator_name + "_nbyz_" + str(nb_byz)  + "_attack_" + attack_name + ".txt", "w")
 
     def get_dataset_size(self):
         return len(self.dataset)
