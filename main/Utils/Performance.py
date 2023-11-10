@@ -1,6 +1,6 @@
 import sys
 from datetime import datetime
-
+import Log
 #program input: nb_clients, nb_byz, nb_rounds, aggregator, senario
 nb_clients = int(sys.argv[1])
 nb_byz = int(sys.argv[2])
@@ -28,7 +28,8 @@ def sumOfTimes(times):
             result += times[i]
     return result
 
-def analyseFLPerformance(output_file_name):
+def analyseFLPerformance():
+    log = Log.Log("/localhome/shossein/DCL_semester_project/FL_res/" + aggregator + "/ncl_" + str(nb_clients) + "/nbyz_" + str(nb_byz) + "/Performance/performance.txt")
     lines_server = readlines("/localhome/shossein/DCL_semester_project/FL_res/" + aggregator + "/ncl_" + str(nb_clients) + "/nbyz_" + str(nb_byz) + "/Performance/server.txt")
     lines_clients = []
     for i in range(nb_clients):
@@ -50,10 +51,12 @@ def analyseFLPerformance(output_file_name):
         else:
             total += t
             total_average += avg
-        print("round {}\n\tserver time: {}\n\tclients average time: {}".format(r, t, avg))
-    print("total \n\tserver_time: {}\n\tclients average total time: {}".format(total, total_average))
+        log.addLog("round {}\n\tserver time: {}\n\tclients average time: {}\n".format(r, t, avg))
+    log.addLog("total \n\tserver_time: {}\n\tclients average total time: {}".format(total, total_average))
+    log.writeLogs()
 
-def analyseP2PPerformance(output_file_name):
+def analyseP2PPerformance():
+    log = Log.Log("/localhome/shossein/DCL_semester_project/Gossip_res/" + aggregator + "/ncl_" + str(nb_clients) + "/nbyz_" + str(nb_byz) + "/Performance/performance.txt")
     lines_clients = []
     for i in range(nb_clients):
         lines_clients.append(readlines("/localhome/shossein/DCL_semester_project/Gossip_res/" + aggregator + "/ncl_" + str(nb_clients) + "/nbyz_" + str(nb_byz) + "/Performance/" + str(i)  + ".txt"))
@@ -69,10 +72,11 @@ def analyseP2PPerformance(output_file_name):
             total_average = avg
         else:
             total_average += avg
-        print("round {}\n\tclients average time: {}".format(r, avg))
-    print("total \n\tclients average total time: {}".format(total_average))
+        log.addLog("round {}\n\tclients average time: {}\n".format(r, avg))
+    log.addLog("total \n\tclients average total time: {}".format(total_average))
+    log.writeLogs()
 
 if senario == "fl":
-    analyseFLPerformance("e")
+    analyseFLPerformance()
 if senario == "p2p":
-    analyseP2PPerformance("e")
+    analyseP2PPerformance()
