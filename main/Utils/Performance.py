@@ -76,7 +76,45 @@ def analyseP2PPerformance():
     log.addLog("total \n\tclients average total time: {}".format(total_average))
     log.writeLogs()
 
+def analyseConPerformance():
+    nb_replicas = 4
+    log = Log.Log("/localhome/shossein/DCL_semester_project/Consensus_res/" + aggregator + "/ncl_" + str(nb_clients) + "/nbyz_" + str(nb_byz) + "/Performance/performance.txt")
+    lines_replicas = []
+    lines_clients = []
+    for i in range(nb_clients):
+        lines_clients.append(readlines("/localhome/shossein/DCL_semester_project/Consensus_res/" + aggregator + "/ncl_" + str(nb_clients) + "/nbyz_" + str(nb_byz) + "/Performance/" + str(i)  + ".txt"))
+    for i in range(nb_replicas):
+        lines_replicas.append(readlines("/localhome/shossein/DCL_semester_project/Consensus_res/" + aggregator + "/ncl_" + str(nb_clients) + "/nbyz_" + str(nb_byz) + "/Performance/server_" + str(i)  + ".txt"))
+
+    total_average_clients = 0
+    total_average_replicas = 0
+    for r in range(1, nb_rounds + 1):
+        #clients
+        rounds_times = []
+        for c in range(nb_clients):
+            temp = lines_clients[c]['round_{}_end'.format(r)] - lines_clients[c]['round_{}_start'.format(r)]
+            rounds_times.append(temp)
+        avg_c = sumOfTimes(rounds_times) / nb_clients
+        #replicas
+        rounds_times = []
+        for s in range(nb_replicas):
+            temp = lines_replicas[s]['round_{}_received_params'.format(r)] - lines_replicas[s]['round_{}_start'.format(r)] + lines_replicas[s]['round_{}_end'.format(r)] - lines_replicas[s]['round_{}_aggregation'.format(r)]
+            rounds_times.append(temp)
+        avg_s = sumOfTimes(rounds_times) / nb_clients
+
+        if r == 1:
+            total_average_replicas = avg_s
+            total_average_clients = avg_c
+        else:
+            total_average_replicas += avg_s
+            total_average_clients += avg_c
+        log.addLog("round {}\n\treplicas average time: {}\n\tclients average time: {}\n".format(r, avg_s, avg_c))
+    log.addLog("total \n\treplicas average total time: {}\n\tclients average total time: {}".format(total_average_replicas, total_average_clients))
+    log.writeLogs()
+
 if senario == "fl":
     analyseFLPerformance()
 if senario == "p2p":
     analyseP2PPerformance()
+if senario == "con":
+    analyseConPerformance()

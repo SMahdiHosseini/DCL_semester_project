@@ -55,10 +55,10 @@ public class FLClientInterface {
         }
     }
     public static void main(String[] args){
-        if(args.length < 6) {
-            System.out.println("Usage: FL <client id> <modelClientAddress> <clientsNum> <byzNum> <aggregator> <attack>");
+        if(args.length < 7) {
+            System.out.println("Usage: FL <client id> <modelClientAddress> <clientsNum> <byzNum> <aggregator> <attack> <test>");
         }
-        modelClient = new ModelClient(args[1], Integer.parseInt(args[0]), Integer.parseInt(args[2]), Integer.parseInt(args[3]), args[4], args[5]);
+        modelClient = new ModelClient(args[1], Integer.parseInt(args[0]), Integer.parseInt(args[2]), Integer.parseInt(args[3]), args[4], args[5], args[6]);
         try {
             execute(Integer.parseInt(args[0]));
             modelClient.terminate();
