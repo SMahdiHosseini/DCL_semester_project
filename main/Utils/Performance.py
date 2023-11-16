@@ -64,7 +64,7 @@ def accuracy(input_file_name):
     return result
 
 def analyseFLPerformance(aggregator, attack, nb_clients, nb_byz, fl_res):
-    fl_res[aggregator][attack] = accuracy("/localhome/shossein/DCL_semester_project/FL_res/" + aggregator + "/ncl_" + str(nb_clients) + "/nbyz_" + str(nb_byz) + "/Accuracy/" + attack + "/0.txt")
+    # fl_res[aggregator][attack] = accuracy("/localhome/shossein/DCL_semester_project/FL_res/" + aggregator + "/ncl_" + str(nb_clients) + "/nbyz_" + str(nb_byz) + "/Accuracy/" + attack + "/0.txt")
     log = Log.Log("/localhome/shossein/DCL_semester_project/FL_res/" + aggregator + "/ncl_" + str(nb_clients) + "/nbyz_" + str(nb_byz) + "/Performance/performance.txt")
     lines_server = readlines("/localhome/shossein/DCL_semester_project/FL_res/" + aggregator + "/ncl_" + str(nb_clients) + "/nbyz_" + str(nb_byz) + "/Performance/server.txt")
     lines_clients = []
@@ -73,14 +73,15 @@ def analyseFLPerformance(aggregator, attack, nb_clients, nb_byz, fl_res):
     total_average = 0
     total = 0
     times = dict()
-    for r in range(1, nb_rounds + 1):
+    for r in range(2, nb_rounds + 1):
         #clients
         rounds_times = []
         for c in range(nb_clients):
-            temp = lines_clients[c]['round_{}_end'.format(r)] - lines_clients[c]['round_{}_start'.format(r)]
+            temp = lines_clients[c]['round_{}_end'.format(r)] - lines_clients[c]['round_{}_start'.format(r)] - (lines_server['round_{}_aggregation'.format(r)] - lines_server['round_{}_received_params'.format(r)])
             rounds_times.append(temp.total_seconds())
         avg = sumOfTimes(rounds_times) / nb_clients
         #server
+        t = (lines_server['round_{}_end'.format(r)] - lines_server['round_{}_start'.format(r)]).total_seconds()
         t = (lines_server['round_{}_received_params'.format(r)] - lines_server['round_{}_start'.format(r)] + lines_server['round_{}_end'.format(r)] - lines_server['round_{}_aggregation'.format(r)]).total_seconds()
         if r == 1:
             total = t
@@ -89,23 +90,25 @@ def analyseFLPerformance(aggregator, attack, nb_clients, nb_byz, fl_res):
             total += t
             total_average += avg
         log.addLog("round {}\n\tserver time: {}\n\tclients average time: {}\n".format(r, t, avg))
-        times[r] = [t] + rounds_times
+        # times[r] = [t] + rounds_times
+        times[r] = rounds_times
     log.addLog("total \n\tserver_time: {}\n\tclients average total time: {}".format(total, total_average))
     log.writeLogs()
     fl_res[aggregator]['time'] = times
 
 def analyseP2PPerformance(aggregator, attack, nb_clients, nb_byz, p2p_res):
-    p2p_res[aggregator][attack] = accuracy("/localhome/shossein/DCL_semester_project/Gossip_res/" + aggregator + "/ncl_" + str(nb_clients) + "/nbyz_" + str(nb_byz) + "/Accuracy/" + attack + "/0.txt")
+    # p2p_res[aggregator][attack] = accuracy("/localhome/shossein/DCL_semester_project/Gossip_res/" + aggregator + "/ncl_" + str(nb_clients) + "/nbyz_" + str(nb_byz) + "/Accuracy/" + attack + "/0.txt")
     log = Log.Log("/localhome/shossein/DCL_semester_project/Gossip_res/" + aggregator + "/ncl_" + str(nb_clients) + "/nbyz_" + str(nb_byz) + "/Performance/performance.txt")
     lines_clients = []
     for i in range(nb_clients):
         lines_clients.append(readlines("/localhome/shossein/DCL_semester_project/Gossip_res/" + aggregator + "/ncl_" + str(nb_clients) + "/nbyz_" + str(nb_byz) + "/Performance/" + str(i)  + ".txt"))
     total_average = 0
     times = dict()
-    for r in range(1, nb_rounds + 1):
+    for r in range(2, nb_rounds + 1):
         #clients
         rounds_times = []
         for c in range(nb_clients):
+            # temp = lines_clients[c]['round_{}_end'.format(r)] - lines_clients[c]['round_{}_start'.format(r)]
             temp = lines_clients[c]['round_{}_received_params'.format(r)] - lines_clients[c]['round_{}_start'.format(r)] + lines_clients[c]['round_{}_end'.format(r)] - lines_clients[c]['round_{}_aggregation'.format(r)]
             rounds_times.append(temp.total_seconds())
         avg = sumOfTimes(rounds_times) / nb_clients
@@ -120,10 +123,10 @@ def analyseP2PPerformance(aggregator, attack, nb_clients, nb_byz, p2p_res):
     p2p_res[aggregator]['time'] = times
 
 def analyseConPerformance(aggregator, attack, nb_clients, nb_byz, con_res):
-    temp = []
-    for i in range(nb_clients - nb_byz):
-        temp.append(accuracy("/localhome/shossein/DCL_semester_project/Consensus_res/" + aggregator + "/ncl_" + str(nb_clients) + "/nbyz_" + str(nb_byz) + "/Accuracy/" + attack + "/" + str(i) + ".txt"))
-    con_res[aggregator][attack] = [sum(sub_list) / len(sub_list) for sub_list in zip(*temp)]
+    # temp = []
+    # for i in range(nb_clients - nb_byz):
+    #     temp.append(accuracy("/localhome/shossein/DCL_semester_project/Consensus_res/" + aggregator + "/ncl_" + str(nb_clients) + "/nbyz_" + str(nb_byz) + "/Accuracy/" + attack + "/" + str(i) + ".txt"))
+    # con_res[aggregator][attack] = [sum(sub_list) / len(sub_list) for sub_list in zip(*temp)]
     nb_replicas = 4
     log = Log.Log("/localhome/shossein/DCL_semester_project/Consensus_res/" + aggregator + "/ncl_" + str(nb_clients) + "/nbyz_" + str(nb_byz) + "/Performance/performance.txt")
     lines_replicas = []
@@ -136,17 +139,18 @@ def analyseConPerformance(aggregator, attack, nb_clients, nb_byz, con_res):
     total_average_clients = 0
     total_average_replicas = 0
     times = dict()
-    for r in range(1, nb_rounds + 1):
+    for r in range(2, nb_rounds + 1):
         #clients
         rounds_times_clients = []
         for c in range(nb_clients):
-            temp = lines_clients[c]['round_{}_end'.format(r)] - lines_clients[c]['round_{}_start'.format(r)]
+            temp = lines_clients[c]['round_{}_end'.format(r)] - lines_clients[c]['round_{}_start'.format(r)] - (lines_replicas[0]['round_{}_aggregation'.format(r)] - lines_replicas[0]['round_{}_received_params'.format(r)])
             rounds_times_clients.append(temp.total_seconds())
         avg_c = sumOfTimes(rounds_times_clients) / nb_clients
         #replicas
         rounds_times_replicas = []
         for s in range(nb_replicas):
-            temp = lines_replicas[s]['round_{}_received_params'.format(r)] - lines_replicas[s]['round_{}_start'.format(r)] + lines_replicas[s]['round_{}_end'.format(r)] - lines_replicas[s]['round_{}_aggregation'.format(r)]
+            temp = lines_replicas[s]['round_{}_end'.format(r)] - lines_replicas[s]['round_{}_start'.format(r)]
+            # temp = lines_replicas[s]['round_{}_received_params'.format(r)] - lines_replicas[s]['round_{}_start'.format(r)] + lines_replicas[s]['round_{}_end'.format(r)] - lines_replicas[s]['round_{}_aggregation'.format(r)]
             rounds_times_replicas.append(temp.total_seconds())
         avg_s = sumOfTimes(rounds_times_replicas) / nb_clients
 
@@ -157,7 +161,8 @@ def analyseConPerformance(aggregator, attack, nb_clients, nb_byz, con_res):
             total_average_replicas += avg_s
             total_average_clients += avg_c
         log.addLog("round {}\n\treplicas average time: {}\n\tclients average time: {}\n".format(r, avg_s, avg_c))
-        times[r] = rounds_times_replicas + rounds_times_clients
+        # times[r] = rounds_times_replicas + rounds_times_clients
+        times[r] = rounds_times_clients
     log.addLog("total \n\treplicas average total time: {}\n\tclients average total time: {}".format(total_average_replicas, total_average_clients))
     log.writeLogs()
     con_res[aggregator]['time'] = times
@@ -178,7 +183,7 @@ def boxplots_i(boxes, num, labels, boxes_tags, x_label, y_label,
     positions = 1
     xticklabels = []
     for i in range(len(labels)):
-        bp = boxplot([boxes[k][i] for k in range(num)], positions = [positions + k for k in range(num)], widths = 0.6, patch_artist=True)
+        bp = boxplot([boxes[k][i] for k in range(num)], positions = [positions + k for k in range(num)], widths = 0.6, patch_artist=True, showmeans=True, meanline=True)
         setBoxColors_i(bp, num)
         positions += (num + 1)
         for j in range(num):
@@ -243,28 +248,28 @@ def main():
     # print("fl:", fl)
     # print("p2p:", p2p)
     # print("con:", con)
-    for agg in aggregators:
-        for att in attacks:
-            fig, ax = plt.subplots()
-            ax.plot(range(nb_rounds), fl[agg][att], label="fl")
-            ax.plot(range(nb_rounds), p2p[agg][att], label="p2p")
-            ax.plot(range(nb_rounds), con[agg][att], label="consensus")
-            ax.set_xlabel('rounds')
-            ax.set_ylabel('accuracy')
-            ax.legend()
-            ax.set_title("n = " + str(nb_clients) + ", n byz = " + str(nb_byz) + "\naggregator: " + agg + "\nattack:" + att)
-            plt.xticks(range(nb_rounds))
-            plt.savefig("/localhome/shossein/DCL_semester_project/Plots/" + agg + "/" +  att + "/" + str(nb_clients) + "_"  + str(nb_byz) + ".png", bbox_inches='tight')
-            plt.close()
+    # for agg in aggregators:
+    #     for att in attacks:
+    #         fig, ax = plt.subplots()
+    #         ax.plot(range(nb_rounds), fl[agg][att], label="fl")
+    #         ax.plot(range(nb_rounds), p2p[agg][att], label="p2p")
+    #         ax.plot(range(nb_rounds), con[agg][att], label="consensus")
+    #         ax.set_xlabel('rounds')
+    #         ax.set_ylabel('accuracy')
+    #         ax.legend()
+    #         ax.set_title("n = " + str(nb_clients) + ", n byz = " + str(nb_byz) + "\naggregator: " + agg + "\nattack:" + att)
+    #         plt.xticks(range(nb_rounds))
+    #         plt.savefig("/localhome/shossein/DCL_semester_project/Plots/" + agg + "/" +  att + "/" + str(nb_clients) + "_"  + str(nb_byz) + ".png", bbox_inches='tight')
+    #         plt.close()
 
-    accuracy_attack_plot(fl, "fl", nb_clients, nb_byz)
-    accuracy_attack_plot(p2p, "p2p", nb_clients, nb_byz)
-    accuracy_attack_plot(con, "con", nb_clients, nb_byz)
+    # accuracy_attack_plot(fl, "fl", nb_clients, nb_byz)
+    # accuracy_attack_plot(p2p, "p2p", nb_clients, nb_byz)
+    # accuracy_attack_plot(con, "con", nb_clients, nb_byz)
 
     boxplots_i(boxes=[[[value for values in fl[agg]['time'].values() for value in values] for agg in aggregators], 
                       [[value for values in p2p[agg]['time'].values() for value in values] for agg in aggregators],
                       [[value for values in con[agg]['time'].values() for value in values] for agg in aggregators]],
-               num=3, labels=aggregators, boxes_tags=['fl', 'p2p', 'con'], x_label="aggregator", y_label="time", y_lim=20, filename="/localhome/shossein/DCL_semester_project/Plots/roundtime_" + str(nb_clients) + "_" + str(nb_byz) + ".png", 
+               num=3, labels=aggregators, boxes_tags=['fl', 'p2p', 'con'], x_label="aggregator", y_label="time", y_lim=5, filename="/localhome/shossein/DCL_semester_project/Plots/roundtime_" + str(nb_clients) + "_" + str(nb_byz) + ".png", 
                title="n = " + str(nb_clients) + "\n n byz = " + str(nb_byz))
 if __name__ == "__main__":
     main()
