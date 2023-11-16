@@ -46,6 +46,8 @@ class TraningClient:
             msg = jpysocket.jpydecode(connection.recv(1024))
             if msg == Message.NEW_PARAMETERS:
                 new_param = connectionHelper.getNewParameters(connection, connectionHelper.JAVA)
+                if test == Helper.accuracy_test and r == 1:
+                    evaluation(self.net.get_parameters(), 0, self.text_file)
                 self.net.apply_parameters(new_param)
                 addNewLog("round_{}_end: {}\n".format(r, datetime.now().strftime("%H:%M:%S:%f")))
                 if test == Helper.accuracy_test:

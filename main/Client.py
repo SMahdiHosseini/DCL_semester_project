@@ -43,6 +43,9 @@ class TraningClient:
 
     def runTheRound(self, r):
         addNewLog("round_{}_start: {}\n".format(r, datetime.now().strftime("%H:%M:%S:%f")))
+        if test == Helper.accuracy_test and r == 1:
+            evaluation(self.net.get_parameters(), 0, self.text_file)
+        
         self.net.fit(self.dataset)
         client_parameters = self.net.get_parameters()
             

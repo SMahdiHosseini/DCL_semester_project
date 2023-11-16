@@ -76,6 +76,9 @@ class TraningClient:
             connectionHelper.sendNewParameters(conn, client_parameters, connectionHelper.PYTHON, info={Message.ROUND: r, Message.SIZE: self.get_dataset_size(), Message.SRC: self.client_id})
 
     def runTheRound(self, r):
+        if test == Helper.accuracy_test and r == 1:
+            evaluation(self.net.get_parameters(), 0, self.text_file)
+            
         addNewLog("round_{}_start: {}\n".format(r, datetime.now().strftime("%H:%M:%S:%f")))
         self.net.fit(self.dataset)
         self.shareToNeighbors(r)
@@ -86,6 +89,7 @@ class TraningClient:
         recvd_params[(self.client_id, t)] = self.net.get_parameters().cpu()
         recvd_size[(self.client_id, t)] = self.get_dataset_size()
         if test == Helper.accuracy_test:
+            recvd_params = dict(sorted(recvd_params.items(), key=lambda x: x[0][1])[:nb_clients - nb_byz])
             byz_vectors = self.attacker.generate_byzantine_vectors(list(recvd_params.values()), None)
             id = -1
             for v in byz_vectors:

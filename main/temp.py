@@ -1,4 +1,5 @@
-from Utils import connectionHelper, Helper
+import random
+from Utils import connectionHelper, Helper, aggregator, attacks
 import torch 
 from torch.utils.data import Dataset, Subset, DataLoader
 
@@ -22,10 +23,10 @@ from torch.utils.data import Dataset, Subset, DataLoader
 # b = connectionHelper.stringToTensor(s)
 # print(b)
 
-my_dict = {('a', 2): 3, ('b', 1): 2, ('c', 3): 1, ('d', 2): 4}
-m = 2
-sorted_dict = dict(sorted(my_dict.items(), key=lambda x: x[0][1])[:m])
-print(sorted_dict)
+# my_dict = {('a', 2): 3, ('b', 1): 2, ('c', 3): 1, ('d', 2): 4}
+# m = 2
+# sorted_dict = dict(sorted(my_dict.items(), key=lambda x: x[0][1])[:m])
+# print(sorted_dict)
 # def replace_0_with_6(targets):
 #     """
 #     :param targets: Target class IDs
@@ -55,3 +56,22 @@ print(sorted_dict)
 #         counter += 1
 # print(counter)
 # print(d)
+
+a1 = torch.tensor([random.random() for _ in range(10)])
+# print(a1)
+a2 = torch.tensor([random.random() for _ in range(10)])
+# print(a2)
+a3 = torch.tensor([random.random() for _ in range(10)])
+# print(a3)
+a4 = torch.tensor([random.random() for _ in range(10)])
+# print(a4)
+
+byz_vec = attacks.ByzantineAttack("SF", 3).generate_byzantine_vectors([a1, a2, a3, a4], None)
+# print(byz_vec)
+final_vec = aggregator.RobustAggregator("average", "", 1, 1, Helper.device).aggregate([a1, a2, a3, a4, byz_vec[0], byz_vec[1], byz_vec[2]])
+print(connectionHelper.tensorToString(final_vec))
+
+
+t = [torch.mul(torch.stack([a1, a2, a3, a4]).mean(dim=0), -1) * 4/3] * 3
+f = torch.stack([a1, a2, a3, a4] + t).mean(dim=0)
+print(connectionHelper.tensorToString(f))

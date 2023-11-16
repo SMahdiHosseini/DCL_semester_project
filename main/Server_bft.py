@@ -57,10 +57,7 @@ def execute(connection):
             continue
         if msg == Message.AGGREGATE:
             addNewLog("round_{}_aggregation: {}\n".format(r, datetime.now().strftime("%H:%M:%S:%f")))
-            if test == Helper.accuracy_test:
-                finalizeTheRound(recvd_params, connection)
-            else:
-                finalizeTheRound(recvd_params[:nb_clients - nb_byz], connection)
+            finalizeTheRound(recvd_params[:nb_clients - nb_byz], connection)
             addNewLog("round_{}_end: {}\n".format(r, datetime.now().strftime("%H:%M:%S:%f")))
             r += 1
             recvd_params = []
