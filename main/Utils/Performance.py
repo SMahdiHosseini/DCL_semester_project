@@ -61,8 +61,8 @@ def accuracy(input_file_name):
     for line in input_file:
         line = line.strip()
         key_value = line.split("=")
-        if i != 0:
-            result.append(round(float(key_value[-1]), 4))
+        # if i != 0:
+        result.append(round(float(key_value[-1]), 4))
         i += 1
     return result
 
@@ -227,12 +227,12 @@ def accuracy_attack_plot(res, label, nb_clients, nb_byz):
     for agg in aggregators:
         fig, ax = plt.subplots()
         for att in attacks:
-            ax.plot(range(nb_rounds), res[agg][att], label=att)
+            ax.plot(range(nb_rounds + 1), res[agg][att], label=att)
         ax.set_xlabel('rounds')
         ax.set_ylabel('accuracy')
         ax.legend()
         ax.set_title("n = " + str(nb_clients) + ", n byz = " + str(nb_byz) + "\naggregator: " + agg)
-        plt.xticks(range(nb_rounds))
+        plt.xticks(range(nb_rounds + 1))
         plt.savefig("/localhome/shossein/DCL_semester_project/Plots/" + agg + "/" + label + "_" + str(nb_clients) + "_"  + str(nb_byz) + ".png", bbox_inches='tight')
         plt.close()
 
@@ -254,14 +254,14 @@ def main():
     for agg in aggregators:
         for att in attacks:
             fig, ax = plt.subplots()
-            ax.plot(range(nb_rounds), fl[agg][att], label="fl")
-            ax.plot(range(nb_rounds), p2p[agg][att], label="p2p")
-            ax.plot(range(nb_rounds), con[agg][att], label="consensus")
+            ax.plot(range(nb_rounds + 1), fl[agg][att], label="fl")
+            ax.plot(range(nb_rounds + 1), p2p[agg][att], label="p2p")
+            ax.plot(range(nb_rounds + 1), con[agg][att], label="consensus")
             ax.set_xlabel('rounds')
             ax.set_ylabel('accuracy')
             ax.legend()
             ax.set_title("n = " + str(nb_clients) + ", n byz = " + str(nb_byz) + "\naggregator: " + agg + "\nattack:" + att)
-            plt.xticks(range(nb_rounds))
+            plt.xticks(range(nb_rounds + 1))
             plt.savefig("/localhome/shossein/DCL_semester_project/Plots/" + agg + "/" +  att + "/" + str(nb_clients) + "_"  + str(nb_byz) + ".png", bbox_inches='tight')
             plt.close()
 

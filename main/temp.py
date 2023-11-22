@@ -1,7 +1,9 @@
-import random
-from Utils import connectionHelper, Helper, aggregator, attacks
+# import random
+from Utils import connectionHelper, Helper, aggregator, attacks, Model, evaluator
 import torch 
-from torch.utils.data import Dataset, Subset, DataLoader
+# from torch.utils.data import Dataset, Subset, DataLoader
+import torchvision.transforms as transforms
+from torchvision.datasets import MNIST
 
 # s1 = open("param_fl_r1.txt", "r")
 # s2 = open("param_go_r1.txt", "r")
@@ -57,21 +59,31 @@ from torch.utils.data import Dataset, Subset, DataLoader
 # print(counter)
 # print(d)
 
-a1 = torch.tensor([random.random() for _ in range(10)])
-# print(a1)
-a2 = torch.tensor([random.random() for _ in range(10)])
-# print(a2)
-a3 = torch.tensor([random.random() for _ in range(10)])
-# print(a3)
-a4 = torch.tensor([random.random() for _ in range(10)])
-# print(a4)
+# a1 = torch.tensor([random.random() for _ in range(10)])
+# # print(a1)
+# a2 = torch.tensor([random.random() for _ in range(10)])
+# # print(a2)
+# a3 = torch.tensor([random.random() for _ in range(10)])
+# # print(a3)
+# a4 = torch.tensor([random.random() for _ in range(10)])
+# # print(a4)
 
-byz_vec = attacks.ByzantineAttack("SF", 3).generate_byzantine_vectors([a1, a2, a3, a4], None)
-# print(byz_vec)
-final_vec = aggregator.RobustAggregator("average", "", 1, 1, Helper.device).aggregate([a1, a2, a3, a4, byz_vec[0], byz_vec[1], byz_vec[2]])
-print(connectionHelper.tensorToString(final_vec))
+# byz_vec = attacks.ByzantineAttack("SF", 3).generate_byzantine_vectors([a1, a2, a3, a4], None)
+# # print(byz_vec)
+# final_vec = aggregator.RobustAggregator("average", "", 1, 1, Helper.device).aggregate([a1, a2, a3, a4, byz_vec[0], byz_vec[1], byz_vec[2]])
+# print(connectionHelper.tensorToString(final_vec))
 
 
-t = [torch.mul(torch.stack([a1, a2, a3, a4]).mean(dim=0), -1) * 4/3] * 3
-f = torch.stack([a1, a2, a3, a4] + t).mean(dim=0)
-print(connectionHelper.tensorToString(f))
+# t = [torch.mul(torch.stack([a1, a2, a3, a4]).mean(dim=0), -1) * 4/3] * 3
+# f = torch.stack([a1, a2, a3, a4] + t).mean(dim=0)
+# print(connectionHelper.tensorToString(f))
+
+net = Helper.to_device(Model.FederatedNet(), Helper.device)
+train_dataset = torch.load("/localhome/shossein/DCL_semester_project/main/Data/trainDataset.pt")
+test_dataset = torch.load("/localhome/shossein/DCL_semester_project/main/Data/testDataset.pt")
+test_loss, test_acc = net.evaluate(test_dataset)
+print('After round {}, test_loss = {}, test_acc = {}\n'.format(0, round(test_loss, 4), round(test_acc, 4)))
+for r in range(5):
+        net.fit(train_dataset)
+        test_loss, test_acc = net.evaluate(test_dataset)
+        print('After round {}, test_loss = {}, test_acc = {}\n'.format(r, round(test_loss, 4), round(test_acc, 4)))

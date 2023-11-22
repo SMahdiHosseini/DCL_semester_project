@@ -17,7 +17,7 @@ aggregator = sys.argv[7]
 attack = sys.argv[8]
 test = sys.argv[9]
 
-log = Log.Log("/localhome/shossein/DCL_semester_project/FL_res/" + aggregator + "/ncl_" + str(nb_clients) + "/nbyz_" + str(nb_byz) + "/Performance/" + str(client_id) + ".txt")
+log = Log.Log("../FL_res/" + aggregator + "/ncl_" + str(nb_clients) + "/nbyz_" + str(nb_byz) + "/Performance/" + str(client_id) + ".txt")
 
 def addNewLog(new_log):
     if test == Helper.performance_test:
@@ -31,7 +31,7 @@ class TraningClient:
         self.net = Helper.to_device(Model.FederatedNet(), Helper.device)
         self.connection = None
         if test == Helper.accuracy_test:
-            self.text_file = open("/localhome/shossein/DCL_semester_project/FL_res/" + aggregator + "/ncl_" + str(nb_clients + nb_byz)  + "/nbyz_" + str(nb_byz) + "/Accuracy/"  + attack + "/" + str(client_id) + ".txt", "w")
+            self.text_file = open("../FL_res/" + aggregator + "/ncl_" + str(nb_clients + nb_byz)  + "/nbyz_" + str(nb_byz) + "/Accuracy/"  + attack + "/" + str(client_id) + ".txt", "w")
 
     def get_dataset_size(self):
         return len(self.dataset)
@@ -54,8 +54,6 @@ class TraningClient:
         self.net.apply_parameters(list(recvd_params.values())[0])
         addNewLog("round_{}_end: {}\n".format(r, datetime.now().strftime("%H:%M:%S:%f")))
         if test == Helper.accuracy_test:
-            # my_thread = threading.Thread(target=evaluation, args=(list(recvd_params.values())[0], r, self.text_file))
-            # my_thread.start()
             evaluation(list(recvd_params.values())[0], r, self.text_file)
 
     def execute(self):

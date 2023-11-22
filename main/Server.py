@@ -6,7 +6,7 @@ from multiprocessing.connection import Listener
 import sys
 from datetime import datetime
 
-#program input: nb_clients, server_address, server_port, nb_byz, nb_rounds aggregator_name, attack_name, test
+#program input: nb_clients, server_address, server_port, nb_byz, nb_rounds, aggregator_name, attack_name, test
 nb_clients = int(sys.argv[1])
 server_address = sys.argv[2]
 server_port = int(sys.argv[3])
@@ -17,7 +17,7 @@ attack_name = sys.argv[7]
 test = sys.argv[8]
 aggregator = RobustAggregator('nnm', aggregator_name, 1, nb_byz, Helper.device)
 attacker = ByzantineAttack(attack_name, nb_byz)
-log = Log("/localhome/shossein/DCL_semester_project/FL_res/" + aggregator_name + "/ncl_" + str(nb_clients) + "/nbyz_" + str(nb_byz) + "/Performance/server.txt")
+log = Log("../FL_res/" + aggregator_name + "/ncl_" + str(nb_clients) + "/nbyz_" + str(nb_byz) + "/Performance/server.txt")
 
 def addNewLog(new_log):
     if test == Helper.performance_test:
@@ -53,6 +53,7 @@ def runTheRound(r, connections):
     else:
         ordered_params = dict(sorted(recvd_params.items(), key=lambda x: x[0][1])[:nb_clients - nb_byz])
     print(ordered_params.keys())
+    addNewLog("round_{}_aggregation order: {}\n".format(r, [x[0] for x in ordered_params.keys()]))
     new_model_parameters = aggregator.aggregate(list(ordered_params.values()))
     
     for conn in connections:
