@@ -6,6 +6,8 @@ then
     exit
 fi
 
+cd main
+
 if [[ "$2" == "main" ]];
 then 
     . main.config
@@ -35,6 +37,8 @@ function f {
 
 trap f SIGINT
 
+. ips.config
+
 for agg in ${aggregator[@]}; do
     if [[ "$1" == "fl" || "$1" == "all" ]]
     then
@@ -42,13 +46,15 @@ for agg in ${aggregator[@]}; do
         mkdir -p "../FL_res/""$agg"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Accuracy
         if [[ "$3" == "server" ]]
         then
-            echo running FL serve with "$nb_byz" byzantine client. Performanace test phase! Aggregator: "$agg"
+            echo running FL server with "$nb_byz" byzantine client. Performanace test phase! Aggregator: "$agg"
             python3 Server.py "$nb_clients" "$localHost" "$server_port" "$nb_byz" "$rounds" "$agg" "att" "Performance" > "./Results/FL/server_res.txt"
         fi
         if [[ "$3" == "client" ]]
         then
-            echo running FL client with "$nb_byz" byzantine client. Performanace test phase! Aggregator: "$agg"
-            python3 Client.py "$nb_clients" "$4" "$server_address" "$server_port" "$rounds" "$nb_byz" "$agg" "att" "Performance" > "./Results/FL/res_$c.txt"
+            echo running FL client "$4" with "$nb_byz" byzantine client. Performanace test phase! Aggregator: "$agg"
+            # variablename=client_$4
+            # echo ${!variablename}
+            python3 Client.py "$nb_clients" "$4" "$server" "$server_port" "$rounds" "$nb_byz" "$agg" "att" "Performance" > "./Results/FL/res_$c.txt"
         fi
     fi
 
