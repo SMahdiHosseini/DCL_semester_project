@@ -6,7 +6,7 @@ then
     exit
 fi
 
-cd main
+cd DCL_semester_project/main
 
 if [[ "$2" == "main" ]];
 then 
@@ -47,14 +47,15 @@ for agg in ${aggregator[@]}; do
         if [[ "$3" == "server" ]]
         then
             echo running FL server with "$nb_byz" byzantine client. Performanace test phase! Aggregator: "$agg"
-            python3 Server.py "$nb_clients" "$localHost" "$server_port" "$nb_byz" "$rounds" "$agg" "att" "Performance" > "./Results/FL/server_res.txt"
+            # python3 Server.py "$nb_clients" "$localHost" "$server_port" "$nb_byz" "$rounds" "$agg" "att" "Performance" > "./Results/FL/server_res.txt"
         fi
         if [[ "$3" == "client" ]]
         then
             echo running FL client "$4" with "$nb_byz" byzantine client. Performanace test phase! Aggregator: "$agg"
             # variablename=client_$4
             # echo ${!variablename}
-            python3 Client.py "$nb_clients" "$4" "$server" "$server_port" "$rounds" "$nb_byz" "$agg" "att" "Performance" > "./Results/FL/res_$c.txt"
+            echo $server
+            # python3 Client.py "$nb_clients" "$4" "$server" "$server_port" "$rounds" "$nb_byz" "$agg" "att" "Performance" > "./Results/FL/res_$c.txt"
         fi
     fi
 
