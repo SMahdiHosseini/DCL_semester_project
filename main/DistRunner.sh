@@ -48,7 +48,7 @@ for agg in ${aggregator[@]}; do
         if [[ "$3" == "server" ]]
         then
             echo running FL server with "$nb_byz" byzantine client. Performanace test phase! Aggregator: "$agg"
-            python3 Server.py "$nb_clients" "$localHost" "$server_port" "$nb_byz" "$rounds" "$agg" "att" "Performance" > "./Results/FL/server_res.txt"
+            python3 Server.py "$nb_clients" "0.0.0.0" "$server_port" "$nb_byz" "$rounds" "$agg" "att" "Performance" > "./Results/FL/server_res.txt"
         fi
         if [[ "$3" == "client" ]]
         then

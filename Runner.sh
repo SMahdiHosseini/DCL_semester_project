@@ -27,7 +27,7 @@ fi
 i=0
 d=1
 ssh ubuntu@"$server" 'bash --login DCL_semester_project/main/DistRunner.sh '$1' '$2' server' &
-sleep 2s
+sleep 5s
 for client in "${clients[@]}"
 do
     ssh ubuntu@"$client" 'bash --login DCL_semester_project/main/DistRunner.sh '$1' '$2' client '$i' '&

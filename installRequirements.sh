@@ -1,6 +1,7 @@
 git clone https://github.com/SMahdiHosseini/DCL_semester_project.git
 cd DCL_semester_project
-. main/test.config
+. main/main.config
+# . main/test.config
 mkdir main/Data/
 mkdir main/Data/ClientsDatasets
 cd main/Utils
