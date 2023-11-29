@@ -40,7 +40,7 @@ for agg in ${aggregator[@]}; do
 
     echo "*********************"
     echo "*********************" 
-    echo "    '$agg' Done!     "
+    echo "     $agg Done!      "
     echo "*********************"
     echo "*********************"
 
@@ -55,8 +55,9 @@ echo "*********************"
 for agg in ${aggregator[@]}; do
     if [[ "$1" == "fl" || "$1" == "all" ]]
     then
-        mkdir -p "../FL_res/""$agg"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Performance
-        mkdir -p "../FL_res/""$agg"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Accuracy
+        mkdir -p "./FL_res/""$agg"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Performance
+        mkdir -p "./FL_res/""$agg"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Accuracy
+
         scp ubuntu@$server:/home/ubuntu/DCL_semester_project/FL_res/$agg/ncl_$nb_clients/nbyz_$nb_byz/Performance/server.txt  ./FL_res/$agg/ncl_$nb_clients/nbyz_$nb_byz/Performance &
         i=0
         d=1
