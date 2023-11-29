@@ -19,23 +19,40 @@ echo "*********************"
 echo "*********************"
 
 ## install reqs
+# scp -r pipReq.sh ubuntu@"$server":/home/ubuntu/ &
 
-ssh ubuntu@"$server"
+# for client in "${clients[@]}"
+# do
+#     scp -r pipReq.sh ubuntu@"$client":/home/ubuntu/ &
+# done
+
+# wait
+
+# ssh ubuntu@"$server"
+# for client in "${clients[@]}"
+# do
+#     ssh ubuntu@"$client"
+# done
+
+# echo "*********************"
+# echo "*********************" 
+# echo Python packages installed!
+# echo "*********************"
+# echo "*********************"
+
+scp -r installRequirements.sh ubuntu@"$server":/home/ubuntu/ &
+
 for client in "${clients[@]}"
 do
-    ssh ubuntu@"$client"
+    scp -r installRequirements.sh ubuntu@"$client":/home/ubuntu/ &
 done
 
-echo "*********************"
-echo "*********************" 
-echo Python packages installed!
-echo "*********************"
-echo "*********************"
+wait
 
-ssh ubuntu@"$server" 'bash -s' < installRequirements.sh &
+ssh ubuntu@"$server" 'bash installRequirements.sh' &
 for client in "${clients[@]}"
 do
-    ssh ubuntu@"$client" 'bash -s' < installRequirements.sh &
+    ssh ubuntu@"$client" 'bash installRequirements.sh' &
 done
 
 wait
