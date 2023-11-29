@@ -44,6 +44,7 @@ for agg in ${aggregator[@]}; do
     then
         mkdir -p "../FL_res/""$agg"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Performance
         mkdir -p "../FL_res/""$agg"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Accuracy
+        mkdir -p "./Results/FL"
         if [[ "$3" == "server" ]]
         then
             echo running FL server with "$nb_byz" byzantine client. Performanace test phase! Aggregator: "$agg"
