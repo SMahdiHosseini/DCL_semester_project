@@ -55,7 +55,7 @@ for agg in ${aggregator[@]}; do
             echo running FL client "$4" with "$nb_byz" byzantine client. Performanace test phase! Aggregator: "$agg"
             # variablename=client_$4
             # echo ${!variablename}
-            python3 Client.py "$nb_clients" "$4" "$server" "$server_port" "$rounds" "$nb_byz" "$agg" "att" "Performance" > "./Results/FL/res_$c.txt"
+            python3 Client.py "$nb_clients" "$4" "$server" "$server_port" "$rounds" "$nb_byz" "$agg" "att" "Performance" > "./Results/FL/res_$4.txt"
         fi
     fi
 
