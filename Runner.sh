@@ -24,18 +24,27 @@ fi
 
 . global.config
 
-i=0
-d=1
-ssh ubuntu@"$server" 'bash --login DCL_semester_project/main/DistRunner.sh '$1' '$2' server' &
-sleep 5s
-for client in "${clients[@]}"
-do
-    ssh ubuntu@"$client" 'bash --login DCL_semester_project/main/DistRunner.sh '$1' '$2' client '$i' '&
-    i=$(( $i + $d ))
-    sleep 2s
-done
+for agg in ${aggregator[@]}; do
+    i=0
+    d=1
+    ssh ubuntu@"$server" 'bash --login DCL_semester_project/main/DistRunner.sh '$1' '$2' '$agg' server' &
+    sleep 5s
+    for client in "${clients[@]}"
+    do
+        ssh ubuntu@"$client" 'bash --login DCL_semester_project/main/DistRunner.sh '$1' '$2' '$agg' client '$i' '&
+        i=$(( $i + $d ))
+        sleep 2s
+    done
 
-wait
+    wait
+
+    echo "*********************"
+    echo "*********************" 
+    echo "    '$agg' Done!     "
+    echo "*********************"
+    echo "*********************"
+
+done
 
 echo "*********************"
 echo "*********************" 
