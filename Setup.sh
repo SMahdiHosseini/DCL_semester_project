@@ -49,10 +49,10 @@ done
 
 wait
 
-ssh ubuntu@"$server" 'bash installRequirements.sh' &
+ssh ubuntu@"$server" 'bash --login installRequirements.sh' &
 for client in "${clients[@]}"
 do
-    ssh ubuntu@"$client" 'bash installRequirements.sh' &
+    ssh ubuntu@"$client" 'bash --login installRequirements.sh' &
 done
 
 wait
