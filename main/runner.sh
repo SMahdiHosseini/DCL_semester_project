@@ -50,15 +50,15 @@ for agg in ${aggregator[@]}; do
     then
         mkdir -p "../Gossip_res/""$agg"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Performance
         mkdir -p "../Gossip_res/""$agg"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Accuracy
-        # echo running p2p with "$nb_byz" byzantine client. Performanace test phase! Aggregator: "$agg"
-        # bash gossipRunner.sh "$nb_clients" "$localHost" "$server_port" "$nb_byz" "$rounds" "$agg" "att" "Performance"
+        echo running p2p with "$nb_byz" byzantine client. Performanace test phase! Aggregator: "$agg"
+        bash gossipRunner.sh "$nb_clients" "$localHost" "$server_port" "$nb_byz" "$rounds" "$agg" "att" "Performance"
 
-        for att in ${attack[@]}; do
-            mkdir -p "../Gossip_res/""$agg"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Accuracy/"$att"
-            echo running p2p with "$nb_byz" byzantine client. Accuracy test phase! Aggregator: "$agg" Attack: "$att"
-            ((new_nb_clients = nb_clients - nb_byz))
-            bash gossipRunner.sh "$new_nb_clients" "$localHost" "$server_port" "$nb_byz" "$rounds" "$agg" "$att" "accuracy"
-        done
+        # for att in ${attack[@]}; do
+        #     mkdir -p "../Gossip_res/""$agg"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Accuracy/"$att"
+        #     echo running p2p with "$nb_byz" byzantine client. Accuracy test phase! Aggregator: "$agg" Attack: "$att"
+        #     ((new_nb_clients = nb_clients - nb_byz))
+        #     bash gossipRunner.sh "$new_nb_clients" "$localHost" "$server_port" "$nb_byz" "$rounds" "$agg" "$att" "accuracy"
+        # done
     fi
 
     if [[ "$1" == "con" || "$1" == "all" ]]

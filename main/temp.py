@@ -78,12 +78,15 @@ from torchvision.datasets import MNIST
 # f = torch.stack([a1, a2, a3, a4] + t).mean(dim=0)
 # print(connectionHelper.tensorToString(f))
 
-net = Helper.to_device(Model.FederatedNet(), Helper.device)
-train_dataset = torch.load("/localhome/shossein/DCL_semester_project/main/Data/trainDataset.pt")
-test_dataset = torch.load("/localhome/shossein/DCL_semester_project/main/Data/testDataset.pt")
-test_loss, test_acc = net.evaluate(test_dataset)
-print('After round {}, test_loss = {}, test_acc = {}\n'.format(0, round(test_loss, 4), round(test_acc, 4)))
-for r in range(5):
-        net.fit(train_dataset)
-        test_loss, test_acc = net.evaluate(test_dataset)
-        print('After round {}, test_loss = {}, test_acc = {}\n'.format(r, round(test_loss, 4), round(test_acc, 4)))
+def readlines(input_file_name):
+    input_file = open(input_file_name, "r")
+    lines = dict()
+    for line in input_file:
+        line = line.strip()
+        key_value = line.split("=")
+        key = key_value[0]
+        lines[key] = key_value[1]
+    return lines
+
+for i in range(2):
+        print(readlines('ips.config')['client_' + str(i)])

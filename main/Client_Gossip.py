@@ -2,17 +2,17 @@ from Utils import Model, Helper, Message, connectionHelper, evaluator, Log
 from Utils.aggregator import RobustAggregator
 from Utils.attacks import ByzantineAttack
 from Utils.Message import Msg
-from Utils.ConnectionDistributer import generateGossipPorts
+from Utils.ConnectionDistributer import generateGossipPorts, readConfig
 from multiprocessing.connection import Client, Listener
 import sys
 import torch
 from datetime import datetime
 import threading
 
-#program input: client_id, nb_clients, server_address, server_port, nb_byz, nb_rounds, aggregator_name, attack_name, test
+#program input: client_id, nb_clients, listening_address, server_port, nb_byz, nb_rounds, aggregator_name, attack_name, test
 client_id = int(sys.argv[1])
 nb_clients = int(sys.argv[2])
-server_address = sys.argv[3]
+listening_address = sys.argv[3]
 server_port = int(sys.argv[4])
 nb_byz = int(sys.argv[5])
 nb_rounds = int(sys.argv[6])
@@ -20,7 +20,7 @@ aggregator_name = sys.argv[7]
 attack_name = sys.argv[8]
 test = sys.argv[9]
 
-log = Log.Log("/localhome/shossein/DCL_semester_project/Gossip_res/" + aggregator_name + "/ncl_" + str(nb_clients) + "/nbyz_" + str(nb_byz) + "/Performance/" + str(client_id) + ".txt")
+log = Log.Log("../Gossip_res/" + aggregator_name + "/ncl_" + str(nb_clients) + "/nbyz_" + str(nb_byz) + "/Performance/" + str(client_id) + ".txt")
 
 def addNewLog(new_log):
     if test == Helper.performance_test:
@@ -39,17 +39,19 @@ class TraningClient:
         self.aggregator = RobustAggregator('nnm', aggregator_name, 1, nb_byz, Helper.device)
         self.attacker = ByzantineAttack(attack_name, nb_byz)
         if test == Helper.accuracy_test:
-            self.text_file = open("/localhome/shossein/DCL_semester_project/Gossip_res/" + aggregator_name + "/ncl_" + str(nb_clients + nb_byz)  + "/nbyz_" + str(nb_byz) + "/Accuracy/"  + attack_name + "/" + str(client_id) + ".txt", "w")
+            self.text_file = open("../Gossip_res/" + aggregator_name + "/ncl_" + str(nb_clients + nb_byz)  + "/nbyz_" + str(nb_byz) + "/Accuracy/"  + attack_name + "/" + str(client_id) + ".txt", "w")
 
     def get_dataset_size(self):
         return len(self.dataset)
 
     def connectToNeighbors(self, ports):
+        config = readConfig('ips.config')
         for neighborId in self.neighbors:
-            address = (server_address, ports[neighborId])
             if neighborId < self.client_id:
+                address = (config['client_' + str(neighborId)], ports[neighborId])
                 self.connections[neighborId] = Client(address)
             else:
+                address = (listening_address, ports[neighborId])
                 listener = Listener(address)
                 self.connections[neighborId] = listener.accept()
                 self.listeners.append(listener)

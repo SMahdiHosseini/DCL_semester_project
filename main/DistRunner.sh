@@ -58,13 +58,13 @@ then
     fi
 fi
 
-# if [[ "$1" == "p2p" || "$1" == "all" ]]
-# then
-#     mkdir -p "../Gossip_res/""$agg"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Performance
-#     mkdir -p "../Gossip_res/""$agg"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Accuracy
-#     echo running p2p with "$nb_byz" byzantine client. Performanace test phase! Aggregator: "$agg"
-#     bash gossipRunner.sh "$nb_clients" "$localHost" "$server_port" "$nb_byz" "$rounds" "$agg" "att" "Performance"
-# fi
+if [[ "$1" == "p2p" || "$1" == "all" ]]
+then
+    mkdir -p "../Gossip_res/""$3"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Performance
+    mkdir -p "../Gossip_res/""$3"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Accuracy
+    echo running p2p client "$5" with "$nb_byz" byzantine client. Performanace test phase! Aggregator: "$3"
+    python3 Client_Gossip.py $5 $nb_clients "0.0.0.0" "$server_port" "$nb_byz" "$nb_rounds" "$3" "att "Performance > "./Results/gossip/res_$5.txt"
+fi
 
 # if [[ "$1" == "con" || "$1" == "all" ]]
 # then

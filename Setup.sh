@@ -1,7 +1,12 @@
 . global.config
 # set the addresses
-server_local=$(ssh ubuntu@"$server" 'hostname -i' )
-echo "server=$server_local" > main/ips.config
+if [[ ! -z "$server" ]]
+then
+    server_local=$(ssh ubuntu@"$server" 'hostname -i' ) 
+    echo "server=$server_local" > main/ips.config
+else
+    echo "server=0.0.0.0" > main/ips.config
+fi
 i=0
 d=1
 for client in "${clients[@]}"
@@ -18,29 +23,10 @@ echo Local IP addresses are set!
 echo "*********************"
 echo "*********************"
 
-## install reqs
-# scp -r pipReq.sh ubuntu@"$server":/home/ubuntu/ &
-
-# for client in "${clients[@]}"
-# do
-#     scp -r pipReq.sh ubuntu@"$client":/home/ubuntu/ &
-# done
-
-# wait
-
-# ssh ubuntu@"$server"
-# for client in "${clients[@]}"
-# do
-#     ssh ubuntu@"$client"
-# done
-
-# echo "*********************"
-# echo "*********************" 
-# echo Python packages installed!
-# echo "*********************"
-# echo "*********************"
-
-scp -r installRequirements.sh ubuntu@"$server":/home/ubuntu/ &
+if [[ ! -z "$server" ]]
+then
+    scp -r installRequirements.sh ubuntu@"$server":/home/ubuntu/ &
+fi
 
 for client in "${clients[@]}"
 do
@@ -49,7 +35,11 @@ done
 
 wait
 
-ssh ubuntu@"$server" 'bash --login installRequirements.sh' &
+if [[ ! -z "$server" ]]
+then
+    ssh ubuntu@"$server" 'bash --login installRequirements.sh' &
+fi
+
 for client in "${clients[@]}"
 do
     ssh ubuntu@"$client" 'bash --login installRequirements.sh' &
@@ -65,7 +55,10 @@ echo "*********************"
 
 ## send code to machines
 cd ../
-scp -r DCL_semester_project/main/ips.config ubuntu@"$server":/home/ubuntu/DCL_semester_project/main &
+if [[ ! -z "$server" ]]
+then
+    scp -r DCL_semester_project/main/ips.config ubuntu@"$server":/home/ubuntu/DCL_semester_project/main &
+fi
 
 for client in "${clients[@]}"
 do
@@ -85,14 +78,3 @@ echo "*********************"
 echo          Done! 
 echo "*********************"
 echo "*********************"
-
-# ./silk run --cwd=../../DCL_semester_project/main "$server":3200 bash DistRunnser.sh fl test server 0 &
-
-# i=0
-# d=1
-# for client in "${clients[@]}"
-# do
-#     ./silk run --cwd=../../DCL_semester_project/main "$client":3200 bash DistRunnser.sh fl test client $i &
-#     i=$(( $i + $d ))
-#     # echo $i
-# done

@@ -27,13 +27,16 @@ fi
 for agg in ${aggregator[@]}; do
     i=0
     d=1
-    ssh ubuntu@"$server" 'bash --login DCL_semester_project/main/DistRunner.sh '$1' '$2' '$agg' server' &
-    sleep 5s
+    if [[ ! -z "$server" ]]
+    then
+        ssh ubuntu@"$server" 'bash --login DCL_semester_project/main/DistRunner.sh '$1' '$2' '$agg' server' &
+        sleep 5s
+    fi
     for client in "${clients[@]}"
     do
         ssh ubuntu@"$client" 'bash --login DCL_semester_project/main/DistRunner.sh '$1' '$2' '$agg' client '$i' '&
         i=$(( $i + $d ))
-        sleep 2s
+        sleep 3s
     done
 
     wait
@@ -64,6 +67,19 @@ for agg in ${aggregator[@]}; do
         for client in "${clients[@]}"
         do
             scp ubuntu@$client:/home/ubuntu/DCL_semester_project/FL_res/$agg/ncl_$nb_clients/nbyz_$nb_byz/Performance/$i.txt  ./FL_res/$agg/ncl_$nb_clients/nbyz_$nb_byz/Performance &
+            i=$(( $i + $d ))
+        done  
+    fi
+
+    if [[ "$1" == "p2p" || "$1" == "all" ]]
+    then
+        mkdir -p "./Gossip_res/""$agg"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Performance
+        mkdir -p "./Gossip_res/""$agg"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Accuracy
+        i=0
+        d=1
+        for client in "${clients[@]}"
+        do
+            scp ubuntu@$client:/home/ubuntu/DCL_semester_project/Gossip_res/$agg/ncl_$nb_clients/nbyz_$nb_byz/Performance/$i.txt  ./Gossip_res/$agg/ncl_$nb_clients/nbyz_$nb_byz/Performance &
             i=$(( $i + $d ))
         done  
     fi

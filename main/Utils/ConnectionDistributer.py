@@ -2,6 +2,16 @@ import random
 
 random.seed(10)
 
+def readConfig(input_file_name):
+    input_file = open(input_file_name, "r")
+    lines = dict()
+    for line in input_file:
+        line = line.strip()
+        key_value = line.split("=")
+        key = key_value[0]
+        lines[key] = key_value[1]
+    return lines
+
 def generateFLPorts(server_port, nb_clients):
     return [server_port + i for i in random.sample(range(0, 100), nb_clients)]
 
