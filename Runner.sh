@@ -16,7 +16,7 @@ else
     exit
 fi
 
-if [[ "$1" != "con" && "$1" != "p2p" && "$1" != "fl" && "$1" != "all" ]]
+if [[ "$1" != "con" && "$1" != "p2p" && "$1" != "fl" ]]
 then
     echo "Wrong senario!"
     exit
@@ -25,18 +25,31 @@ fi
 . global.config
 
 for agg in ${aggregator[@]}; do
-    i=0
-    d=1
-    if [[ ! -z "$server" ]]
+    if [[ "$1" == "fl" ]]
     then
         ssh ubuntu@"$server" 'bash --login DCL_semester_project/main/DistRunner.sh '$1' '$2' '$agg' server' &
-        sleep 3s
     fi
+
+    if [[ "$1" == "con" ]]
+    then
+        i=0
+        d=1
+        for client in "${clients[@]}"
+        do
+            ssh ubuntu@"$client" 'bash --login DCL_semester_project/main/DistRunner.sh '$1' '$2' '$agg' server '$i' '&
+            i=$(( $i + $d ))
+        done
+        sleep 15s
+    fi
+
+    sleep 3s
+    i=0
+    d=1
     for client in "${clients[@]}"
     do
         ssh ubuntu@"$client" 'bash --login DCL_semester_project/main/DistRunner.sh '$1' '$2' '$agg' client '$i' '&
         i=$(( $i + $d ))
-        sleep 2s
+        sleep 3s
     done
 
     sleep 90s

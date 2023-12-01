@@ -69,9 +69,14 @@ then
     mkdir -p "../Consensus_res/""$3"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Performance
     mkdir -p "../Consensus_res/""$3"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Accuracy
     cd ../library/build/install/library
-    echo running con client "$5" with "$nb_byz" byzantine client. Performanace test phase! Aggregator: "$3"
-    ./smartrun.sh bftsmart.FL.FLServer "$5" "$nb_clients" "$rounds" "$localHost" "$nb_byz" "$3" "att" "Performance" > "./Results/res_$5.txt" &
-    sleep 10s
-    ./smartrun.sh bftsmart.FL.FLClientInterface "$5" "$localHost" "$nb_clients" "$nb_byz" "$3" "att" "Performance" &
-    wait
+    if [[ "$4" == "server" ]]
+    then
+        echo running con replica "$5" with "$nb_byz" byzantine client. Performanace test phase! Aggregator: "$3"
+        ./smartrun.sh bftsmart.FL.FLServer "$5" "$nb_clients" "$rounds" "$localHost" "$nb_byz" "$3" "att" "Performance" > "./Results/res_$5.txt"
+    fi
+    if [[ "$4" == "client" ]]
+    then
+        echo running con client "$5" with "$nb_byz" byzantine client. Performanace test phase! Aggregator: "$3"
+        ./smartrun.sh bftsmart.FL.FLClientInterface "$5" "$localHost" "$nb_clients" "$nb_byz" "$rounds" "$3" "att" "Performance" > "./Results/res_$5.txt"
+    fi
 fi
