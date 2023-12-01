@@ -83,6 +83,19 @@ for agg in ${aggregator[@]}; do
             i=$(( $i + $d ))
         done  
     fi
+
+    if [[ "$1" == "con" || "$1" == "all" ]]
+    then
+        mkdir -p "./Consensus_res/""$agg"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Performance
+        mkdir -p "./Consensus_res/""$agg"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Accuracy
+        i=0
+        d=1
+        for client in "${clients[@]}"
+        do
+            scp ubuntu@$client:/home/ubuntu/DCL_semester_project/Consensus_res/$agg/ncl_$nb_clients/nbyz_$nb_byz/Performance/$i.txt  ./Consensus_res/$agg/ncl_$nb_clients/nbyz_$nb_byz/Performance &
+            i=$(( $i + $d ))
+        done  
+    fi
 done
 echo "*********************"
 echo "*********************" 

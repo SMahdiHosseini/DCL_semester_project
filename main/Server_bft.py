@@ -18,7 +18,7 @@ attack_name = sys.argv[7]
 test = sys.argv[8]
 aggregator = RobustAggregator('nnm', aggregator_name, 1, nb_byz, Helper.device)
 attacker = ByzantineAttack(attack_name, nb_byz)
-log = Log("/localhome/shossein/DCL_semester_project/Consensus_res/" + aggregator_name + "/ncl_" + str(nb_clients) + "/nbyz_" + str(nb_byz) + "/Performance/server_" + str(server_id) + ".txt")
+log = Log("../../../../Consensus_res/" + aggregator_name + "/ncl_" + str(nb_clients) + "/nbyz_" + str(nb_byz) + "/Performance/server_" + str(server_id) + ".txt")
 
 def addNewLog(new_log):
     if test == Helper.performance_test:

@@ -15,7 +15,7 @@ aggregator_name = sys.argv[6]
 attack_name = sys.argv[7]
 test = sys.argv[8]
 
-log = Log.Log("/localhome/shossein/DCL_semester_project/Consensus_res/" + aggregator_name + "/ncl_" + str(nb_clients) + "/nbyz_" + str(nb_byz) + "/Performance/" + str(client_id) + ".txt")
+log = Log.Log("../../../../Consensus_res/" + aggregator_name + "/ncl_" + str(nb_clients) + "/nbyz_" + str(nb_byz) + "/Performance/" + str(client_id) + ".txt")
 
 def addNewLog(new_log):
     if test == Helper.performance_test:
@@ -28,7 +28,7 @@ class TraningClient:
         self.dataset = dataset
         self.net = Helper.to_device(Model.FederatedNet(), Helper.device)
         if test == Helper.accuracy_test:
-            self.text_file = open("/localhome/shossein/DCL_semester_project/Consensus_res/" + aggregator_name + "/ncl_" + str(nb_clients + nb_byz)  + "/nbyz_" + str(nb_byz) + "/Accuracy/"  + attack_name + "/" + str(client_id) + ".txt", "w")
+            self.text_file = open("../../../../Consensus_res/" + aggregator_name + "/ncl_" + str(nb_clients + nb_byz)  + "/nbyz_" + str(nb_byz) + "/Accuracy/"  + attack_name + "/" + str(client_id) + ".txt", "w")
 
     def get_dataset_size(self):
         return len(self.dataset)
@@ -78,7 +78,7 @@ def evaluation(params, r, text_file):
 def main():
     print("Client {} started! ... ".format(client_id))
     # training_client = TraningClient(client_id, load("F:/DCL/Semester Project 1/Codes/DCL_semester_project/main/Data/ClientsDatasets/" + str(client_id) + ".pt"))
-    training_client = TraningClient(client_id, load("/localhome/shossein/DCL_semester_project/main/Data/ClientsDatasets/" + str(client_id) + ".pt"))
+    training_client = TraningClient(client_id, load("../../../../main/Data/ClientsDatasets/" + str(client_id) + ".pt"))
     connection = connectionHelper.connect(server_address, server_port)
     training_client.execute(connection)
     connection.close()
