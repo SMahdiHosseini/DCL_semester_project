@@ -1,5 +1,5 @@
-. main/$1.config
-cd main/Utils
+. DCL_semester_project/main/$1.config
+cd DCL_semester_project/main/Utils
 python3 BFTConfig.py $nb_clients $nb_byz
 cd ../../library
 rm build/install/library/config/currentView

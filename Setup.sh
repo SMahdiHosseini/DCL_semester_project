@@ -83,7 +83,7 @@ echo "*********************"
 
 for client in "${clients[@]}"
 do
-    ssh ubuntu@"$client" "bash --login PrepBFT.sh '$1'" &
+    ssh ubuntu@"$client" "bash --login DCL_semester_project/PrepBFT.sh '$1'" &
 done
 
 echo "*********************"
