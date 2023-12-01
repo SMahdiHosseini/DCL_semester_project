@@ -73,7 +73,7 @@ then
     cd ../library/build/install/library
     echo running con client "$5" with "$nb_byz" byzantine client. Performanace test phase! Aggregator: "$3"
     ./smartrun.sh bftsmart.FL.FLServer "$5" "$nb_clients" "$rounds" "$localHost" "$nb_byz" "$3" "att" "Performance" > "./Results/res_$5.txt" &
-    sleep 5s
+    sleep 10s
     ./smartrun.sh bftsmart.FL.FLClientInterface "$5" "$localHost" "$nb_clients" "$nb_byz" "$3" "att" "Performance" &
     wait
 fi

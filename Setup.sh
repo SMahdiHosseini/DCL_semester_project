@@ -86,6 +86,8 @@ do
     ssh ubuntu@"$client" "bash --login DCL_semester_project/PrepBFT.sh '$1'" &
 done
 
+wait
+
 echo "*********************"
 echo "*********************" 
 echo "   BFT prepared!     "
