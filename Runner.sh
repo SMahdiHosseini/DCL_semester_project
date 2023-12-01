@@ -49,10 +49,15 @@ for agg in ${aggregator[@]}; do
     do
         ssh ubuntu@"$client" 'bash --login DCL_semester_project/main/DistRunner.sh '$1' '$2' '$agg' client '$i' '&
         i=$(( $i + $d ))
-        sleep 3s
+        if [[ "$1" == "con" ]]
+        then
+            sleep 0.5s
+        else
+            sleep 3s
+        fi
     done
 
-    sleep 90s
+    sleep 30s
     bash Terminate.sh
     # wait
 
