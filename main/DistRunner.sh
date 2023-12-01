@@ -52,8 +52,6 @@ then
     if [[ "$4" == "client" ]]
     then
         echo running FL client "$5" with "$nb_byz" byzantine client. Performanace test phase! Aggregator: "$3"
-        # variablename=client_$4
-        # echo ${!variablename}
         python3 Client.py "$nb_clients" "$5" "$server" "$server_port" "$rounds" "$nb_byz" "$3" "att" "Performance" > "./Results/FL/res_$5.txt"
     fi
 fi

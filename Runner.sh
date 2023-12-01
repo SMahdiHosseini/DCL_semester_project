@@ -30,16 +30,18 @@ for agg in ${aggregator[@]}; do
     if [[ ! -z "$server" ]]
     then
         ssh ubuntu@"$server" 'bash --login DCL_semester_project/main/DistRunner.sh '$1' '$2' '$agg' server' &
-        sleep 5s
+        sleep 3s
     fi
     for client in "${clients[@]}"
     do
         ssh ubuntu@"$client" 'bash --login DCL_semester_project/main/DistRunner.sh '$1' '$2' '$agg' client '$i' '&
         i=$(( $i + $d ))
-        sleep 3s
+        sleep 2s
     done
 
-    wait
+    sleep 90s
+    bash Terminate.sh
+    # wait
 
     echo "*********************"
     echo "*********************" 
@@ -93,6 +95,7 @@ for agg in ${aggregator[@]}; do
         for client in "${clients[@]}"
         do
             scp ubuntu@$client:/home/ubuntu/DCL_semester_project/Consensus_res/$agg/ncl_$nb_clients/nbyz_$nb_byz/Performance/$i.txt  ./Consensus_res/$agg/ncl_$nb_clients/nbyz_$nb_byz/Performance &
+            scp ubuntu@$client:/home/ubuntu/DCL_semester_project/Consensus_res/$agg/ncl_$nb_clients/nbyz_$nb_byz/Performance/server_$i.txt  ./Consensus_res/$agg/ncl_$nb_clients/nbyz_$nb_byz/Performance &
             i=$(( $i + $d ))
         done  
     fi
