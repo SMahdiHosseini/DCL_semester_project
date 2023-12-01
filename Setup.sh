@@ -1,5 +1,13 @@
+if [ $# -lt 1 ]
+then
+    echo "usage: $0 <config>"
+    exit
+fi
+
 . global.config
-# set the addresses
+. main/$1.config
+
+## set the addresses
 if [[ ! -z "$server" ]]
 then
     server_local=$(ssh ubuntu@"$server" 'hostname -i' ) 
@@ -37,12 +45,12 @@ wait
 
 if [[ ! -z "$server" ]]
 then
-    ssh ubuntu@"$server" 'bash --login installRequirements.sh' &
+    ssh ubuntu@"$server" 'bash --login installRequirements.sh '$1'' &
 fi
 
 for client in "${clients[@]}"
 do
-    ssh ubuntu@"$client" 'bash --login installRequirements.sh' &
+    ssh ubuntu@"$client" 'bash --login installRequirements.sh '$1'' &
 done
 
 wait
@@ -69,12 +77,23 @@ wait
 
 echo "*********************"
 echo "*********************" 
-echo   codes transferred!
+echo "  codes transferred!  "
+echo "*********************"
+echo "*********************"
+
+for client in "${clients[@]}"
+do
+    ssh ubuntu@"$client" "bash --login PrepBFT.sh '$1'" &
+done
+
+echo "*********************"
+echo "*********************" 
+echo "   BFT prepared!     "
 echo "*********************"
 echo "*********************"
 
 echo "*********************"
 echo "*********************" 
-echo          Done! 
+echo "        Done!        "
 echo "*********************"
 echo "*********************"
