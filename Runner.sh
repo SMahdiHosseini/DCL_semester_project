@@ -51,7 +51,7 @@ for agg in ${aggregator[@]}; do
         i=$(( $i + $d ))
         if [[ "$1" == "con" ]]
         then
-            sleep 0.5s
+            sleep 1s
         else
             sleep 3s
         fi
