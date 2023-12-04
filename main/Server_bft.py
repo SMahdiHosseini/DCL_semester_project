@@ -65,10 +65,10 @@ def execute(connection):
             addNewLog("round_{}_start: {}\n".format(r, datetime.now().strftime("%H:%M:%S:%f")))
             continue
         if msg == Message.TERMINATE:
-            connection.send(jpysocket.jpyencode("ACK"))
             addNewLog("end: {}\n".format(datetime.now().strftime("%H:%M:%S:%f")))
             if test == Helper.performance_test:
                 log.writeLogs()
+            connection.send(jpysocket.jpyencode("ACK"))
             return
 
 def main():

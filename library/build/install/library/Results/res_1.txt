@@ -1,0 +1,68 @@
+-- Using view stored on disk
+-- SSL/TLS handshake complete!, Id:0  ## CipherSuite: TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256.
+-- ID = 1
+-- N = 3
+-- F = 0
+-- Port (client <-> server) = 10010
+-- Port (server <-> server) = 10011
+-- requestTimeout = 2000
+-- maxBatch = 1024
+-- Binded replica to IP address 127.0.0.1
+-- SSL/TLS enabled, protocol version: TLSv1.2
+-- In current view: ID:0; F:0; Processes:0(/127.0.0.1:10000),1(/127.0.0.1:10010),2(/127.0.0.1:10020),
+-- Retrieving State
+-- Replica state is up to date
+-- 
+		###################################
+		    Ready to process operations    
+		###################################
+Server 1 Port: 37051
+-- Session Created, active clients=0
+-- Session Created, active clients=0
+-- Session Created, active clients=0
+Got new param from 0 Curretn Round: 1 Client round:1
+Send Params to Aggregator by client 0
+Got new param from 2 Curretn Round: 1 Client round:1
+Send Params to Aggregator by client 2
+Got new param from 1 Curretn Round: 1 Client round:1
+Send Params to Aggregator by client 1
+Send Aggregate to Aggregator by client 1
+Aggregating parameters of round 1
+**** Aggregated of round 1
+Got new param from 2 Curretn Round: 2 Client round:2
+Send Params to Aggregator by client 2
+Got new param from 0 Curretn Round: 2 Client round:2
+Send Params to Aggregator by client 0
+Got new param from 1 Curretn Round: 2 Client round:2
+Send Params to Aggregator by client 1
+Send Aggregate to Aggregator by client 1
+Aggregating parameters of round 2
+**** Aggregated of round 2
+Python process terminated
+-- 
+---------- DEBUG INFO ----------
+
+Current time: 11:16:42.352
+Current leader: 0
+Current regency: 0
+
+Last finished consensus: 147
+
+	 -- Consensus state: 
+
+		ETS=0 
+		WriteSet=[[0 :: iuTc61maw8riVkWoKp65CZSz2XvhjGdeyuULRSx9cz4=]] 
+		(VAL,TS)=[0 :: iuTc61maw8riVkWoKp65CZSz2XvhjGdeyuULRSx9cz4=]
+
+	 -- Epoch state: 
+
+		CID=147 
+		TS=0 
+		Propose=[iuTc61maw8riVkWoKp65CZSz2XvhjGdeyuULRSx9cz4=] 
+		Writes=([null], [iuTc61maw8riVkWoKp65CZSz2XvhjGdeyuULRSx9cz4=], [iuTc61maw8riVkWoKp65CZSz2XvhjGdeyuULRSx9cz4=]) 
+		Accepts=([null], [iuTc61maw8riVkWoKp65CZSz2XvhjGdeyuULRSx9cz4=], [iuTc61maw8riVkWoKp65CZSz2XvhjGdeyuULRSx9cz4=])
+
+Consensus in execution: None
+
+---------- ---------- ----------
+

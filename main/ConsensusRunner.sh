@@ -6,7 +6,8 @@ then
     exit
 fi
 
-cd /localhome/shossein/DCL_semester_project/library/build/install/library
+# cd /localhome/shossein/DCL_semester_project/library/build/install/library
+cd /home/mahdi/Documents/DCL_semester_project/library/build/install/library
 
 for ((r=0; r<$1; r++))
 do

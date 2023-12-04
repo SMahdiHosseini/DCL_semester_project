@@ -65,11 +65,10 @@ class TraningClient:
             if msg == Message.TERMINATE:
                 # for t in my_thread:
                 #     t.join()
-                connection.send(jpysocket.jpyencode("ACK"))
                 addNewLog("end: {}\n".format(datetime.now().strftime("%H:%M:%S:%f")))
                 if test == Helper.performance_test:
                     log.writeLogs()
-
+                connection.send(jpysocket.jpyencode("ACK"))
                 return
             
 def evaluation(params, r, text_file):
