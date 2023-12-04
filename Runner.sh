@@ -42,7 +42,7 @@ for agg in ${aggregator[@]}; do
         sleep 15s
     fi
 
-    sleep 3s
+    sleep 5s
     i=0
     d=1
     for client in "${clients[@]}"
@@ -57,7 +57,7 @@ for agg in ${aggregator[@]}; do
         fi
     done
 
-    sleep 30s
+    sleep 90s
     bash Terminate.sh
     # wait
 
@@ -66,16 +66,6 @@ for agg in ${aggregator[@]}; do
     echo "     $agg Done!      "
     echo "*********************"
     echo "*********************"
-
-done
-
-echo "*********************"
-echo "*********************" 
-echo "       Done!         "
-echo "*********************"
-echo "*********************"
-
-for agg in ${aggregator[@]}; do
     if [[ "$1" == "fl" || "$1" == "all" ]]
     then
         mkdir -p "./FL_res/""$agg"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Performance
@@ -117,9 +107,16 @@ for agg in ${aggregator[@]}; do
             i=$(( $i + $d ))
         done  
     fi
+    wait
+    echo "*********************"
+    echo "*********************" 
+    echo "   Files Tranfered!  "
+    echo "*********************"
+    echo "*********************"
 done
+
 echo "*********************"
 echo "*********************" 
-echo "   Files Tranfered!  "
+echo "       Done!         "
 echo "*********************"
 echo "*********************"

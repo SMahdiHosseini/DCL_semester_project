@@ -66,11 +66,13 @@ cd ../
 if [[ ! -z "$server" ]]
 then
     scp -r DCL_semester_project/main/ips.config ubuntu@"$server":/home/ubuntu/DCL_semester_project/main &
+    scp -r DCL_semester_project/main/$1.config ubuntu@"$server":/home/ubuntu/DCL_semester_project/main &
 fi
 
 for client in "${clients[@]}"
 do
     scp -r DCL_semester_project/main/ips.config ubuntu@"$client":/home/ubuntu/DCL_semester_project/main &
+    scp -r DCL_semester_project/main/$1.config ubuntu@"$client":/home/ubuntu/DCL_semester_project/main &
 done
 
 wait
