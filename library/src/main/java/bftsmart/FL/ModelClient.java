@@ -13,14 +13,14 @@ public class ModelClient {
     public String datasetSize;
     public ModelClient(String address, int id, int clientsNums, int byzNums, String aggregator, String attackName, String _test){
         try {
-//            ServerSocket serverSocket = new ServerSocket(6100);
-            ServerSocket serverSocket = new ServerSocket(0);
+           ServerSocket serverSocket = new ServerSocket(6100);
+            // ServerSocket serverSocket = new ServerSocket(0);
             int port = serverSocket.getLocalPort();
             System.out.println("Cleint " + id + " Port: " + port);
             //Windows
             //  Process modelProcess = Runtime.getRuntime().exec("python ../../../../main/Client_bft.py " + Integer.toString(id) + " " + address + " " + Integer.toString(port));
             //Linux
-            Process modelProcess = Runtime.getRuntime().exec("python3 ../../../../main/Client_bft.py " + Integer.toString(clientsNums) + " " + Integer.toString(id) + " " + address + " " + Integer.toString(port) + " " + Integer.toString(byzNums) + " " + aggregator + " " + attackName + " " + _test);
+            // Process modelProcess = Runtime.getRuntime().exec("python3 ../../../../main/Client_bft.py " + Integer.toString(clientsNums) + " " + Integer.toString(id) + " " + address + " " + Integer.toString(port) + " " + Integer.toString(byzNums) + " " + aggregator + " " + attackName + " " + _test);
             Socket socket = serverSocket.accept();
             in = new DataInputStream(socket.getInputStream());
             out = new DataOutputStream(socket.getOutputStream());
