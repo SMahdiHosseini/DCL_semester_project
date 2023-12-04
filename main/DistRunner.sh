@@ -74,9 +74,9 @@ then
         echo running con replica "$5" with "$nb_byz" byzantine client. Performanace test phase! Aggregator: "$3"
         ./smartrun.sh bftsmart.FL.FLServer "$5" "$nb_clients" "$rounds" "$localHost" "$nb_byz" "$3" "att" "Performance" > "./Results/res_$5.txt"
     fi
-    if [[ "$4" == "client" ]]
-    then
-        echo running con client "$5" with "$nb_byz" byzantine client. Performanace test phase! Aggregator: "$3"
-        ./smartrun.sh bftsmart.FL.FLClientInterface "$5" "$localHost" "$nb_clients" "$nb_byz" "$rounds" "$3" "att" "Performance" > "./Results/res_client_$5.txt"
-    fi
+    # if [[ "$4" == "client" ]]
+    # then
+    #     echo running con client "$5" with "$nb_byz" byzantine client. Performanace test phase! Aggregator: "$3"
+    #     ./smartrun.sh bftsmart.FL.FLClientInterface "$5" "$localHost" "$nb_clients" "$nb_byz" "$rounds" "$3" "att" "Performance" > "./Results/res_client_$5.txt"
+    # fi
 fi
