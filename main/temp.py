@@ -89,4 +89,4 @@ def readlines(input_file_name):
     return lines
 
 for i in range(2):
-        print(readlines('ips.config')['client_' + str(i)])
+        print(readlines('main/ips.config')['client_' + str(i)])

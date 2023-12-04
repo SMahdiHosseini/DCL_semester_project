@@ -20,7 +20,7 @@ public class ModelClient {
             //Windows
             //  Process modelProcess = Runtime.getRuntime().exec("python ../../../../main/Client_bft.py " + Integer.toString(id) + " " + address + " " + Integer.toString(port));
             //Linux
-            Process modelProcess = Runtime.getRuntime().exec("python3 ../../../../main/Client_bft.py " + Integer.toString(clientsNums) + " " + Integer.toString(id) + " " + address + " " + Integer.toString(port) + " " + Integer.toString(byzNums) + " " + aggregator + " " + attackName + " " + _test + " > ./Results/Client" + Integer.toString(id) + ".txt");
+            Process modelProcess = Runtime.getRuntime().exec("python3 ../../../../main/Client_bft.py " + Integer.toString(clientsNums) + " " + Integer.toString(id) + " " + address + " " + Integer.toString(port) + " " + Integer.toString(byzNums) + " " + aggregator + " " + attackName + " " + _test + " > Results/Client.txt");
             Socket socket = serverSocket.accept();
             in = new DataInputStream(socket.getInputStream());
             out = new DataOutputStream(socket.getOutputStream());
