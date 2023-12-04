@@ -66,9 +66,8 @@ class TraningClient:
                 # for t in my_thread:
                 #     t.join()
                 addNewLog("end: {}\n".format(datetime.now().strftime("%H:%M:%S:%f")))
-                # if test == Helper.performance_test:
-                log.addLog("ENDNDNDD")
-                log.writeLogs()
+                if test == Helper.performance_test:
+                    log.writeLogs()
                 connection.send(jpysocket.jpyencode("ACK"))
                 return
             
