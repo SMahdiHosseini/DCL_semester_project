@@ -1,8 +1,8 @@
 #!/bin/bash          
 
-if [ $# -lt 4 ]
+if [ $# -lt 6 ]
 then
-    echo "usage: $0 <senario> <config> <aggregator> <side> <optinal: id>"
+    echo "usage: $0 <senario> <config> <aggregator> <attack> <test> <side> <optinal: id>"
     exit
 fi
 
@@ -25,7 +25,7 @@ then
     exit
 fi
 
-if [[ "$4" != "server" && "$4" != "client" ]]
+if [[ "$6" != "server" && "$6" != "client" ]]
 then
     echo "Wrong side!"
     exit
@@ -44,15 +44,15 @@ then
     mkdir -p "../FL_res/""$3"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Performance
     mkdir -p "../FL_res/""$3"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Accuracy
     mkdir -p "./Results/FL"
-    if [[ "$4" == "server" ]]
+    if [[ "$6" == "server" ]]
     then
-        echo running FL server with "$nb_byz" byzantine client. Performanace test phase! Aggregator: "$3"
-        python3 Server.py "$nb_clients" "0.0.0.0" "$server_port" "$nb_byz" "$rounds" "$3" "att" "Performance" > "./Results/FL/server_res.txt"
+        echo running FL server with "$nb_byz" byzantine client. "$5" test phase! Aggregator: "$3" Attack: "$4"
+        python3 Server.py "$nb_clients" "0.0.0.0" "$server_port" "$nb_byz" "$rounds" "$3" "$4" "$5" > "./Results/FL/server_res.txt"
     fi
-    if [[ "$4" == "client" ]]
+    if [[ "$6" == "client" ]]
     then
-        echo running FL client "$5" with "$nb_byz" byzantine client. Performanace test phase! Aggregator: "$3"
-        python3 Client.py "$nb_clients" "$5" "$server" "$server_port" "$rounds" "$nb_byz" "$3" "att" "Performance" > "./Results/FL/res_$5.txt"
+        echo running FL client "$7" with "$nb_byz" byzantine client. "$5" test phase! Aggregator: "$3" Attack: "$4"
+        python3 Client.py "$nb_clients" "$7" "$server" "$server_port" "$rounds" "$nb_byz" "$3" "$4" "$5" > "./Results/FL/res_$7.txt"
     fi
 fi
 
@@ -60,8 +60,8 @@ if [[ "$1" == "p2p" || "$1" == "all" ]]
 then
     mkdir -p "../Gossip_res/""$3"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Performance
     mkdir -p "../Gossip_res/""$3"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Accuracy
-    echo running p2p client "$5" with "$nb_byz" byzantine client. Performanace test phase! Aggregator: "$3"
-    python3 Client_Gossip.py "$5" "$nb_clients" "0.0.0.0" "$server_port" "$nb_byz" "$rounds" "$3" "att" "Performance" > "./Results/gossip/res_$5.txt"
+    echo running p2p client "$7" with "$nb_byz" byzantine client. "$5" test phase! Aggregator: "$3" Attack: "$4"
+    python3 Client_Gossip.py "$7" "$nb_clients" "0.0.0.0" "$server_port" "$nb_byz" "$rounds" "$3" "$4" "$5" > "./Results/gossip/res_$7.txt"
 fi
 
 if [[ "$1" == "con" || "$1" == "all" ]]
@@ -69,14 +69,14 @@ then
     mkdir -p "../Consensus_res/""$3"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Performance
     mkdir -p "../Consensus_res/""$3"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Accuracy
     cd ../library/build/install/library
-    if [[ "$4" == "server" ]]
+    if [[ "$6" == "server" ]]
     then
-        echo running con replica "$5" with "$nb_byz" byzantine client. Performanace test phase! Aggregator: "$3"
-        ./smartrun.sh bftsmart.FL.FLServer "$5" "$nb_clients" "$rounds" "$localHost" "$nb_byz" "$3" "att" "Performance" > "./Results/res_$5.txt"
+        echo running con replica "$7" with "$nb_byz" byzantine client. "$5" test phase! Aggregator: "$3" Attack: "$4"
+        ./smartrun.sh bftsmart.FL.FLServer "$7" "$nb_clients" "$rounds" "$localHost" "$nb_byz" "$3" "$4" "$5" > "./Results/res_$7.txt"
     fi
-    if [[ "$4" == "client" ]]
+    if [[ "$6" == "client" ]]
     then
-        echo running con client "$5" with "$nb_byz" byzantine client. Performanace test phase! Aggregator: "$3"
-        ./smartrun.sh bftsmart.FL.FLClientInterface "$5" "$localHost" "$nb_clients" "$nb_byz" "$3" "att" "Performance" > "./Results/res_client_$5.txt"
+        echo running con client "$7" with "$nb_byz" byzantine client. Performanace test phase! Aggregator: "$3" Attack: "$4"
+        ./smartrun.sh bftsmart.FL.FLClientInterface "$7" "$localHost" "$nb_clients" "$nb_byz" "$3" "$4" "$5" > "./Results/res_client_$7.txt"
     fi
 fi
