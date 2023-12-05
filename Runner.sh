@@ -25,188 +25,188 @@ fi
 . global.config
 
 ## Performance Test
-# for agg in ${aggregator[@]}; do
-#     if [[ "$1" == "fl" ]]
-#     then
-#         ssh ubuntu@"$server" 'bash --login DCL_semester_project/main/DistRunner.sh '$1' '$2' '$agg' 'att' 'Performance' server' &
-#     fi
-
-#     if [[ "$1" == "con" ]]
-#     then
-#         i=0
-#         d=1
-#         for client in "${clients[@]}"
-#         do
-#             ssh ubuntu@"$client" 'bash --login DCL_semester_project/main/DistRunner.sh '$1' '$2' '$agg' 'att' 'Performance' server '$i' '&
-#             i=$(( $i + $d ))
-#         done
-#         sleep 15s
-#     fi
-
-#     sleep 5s
-#     i=0
-#     d=1
-#     for client in "${clients[@]}"
-#     do
-#         ssh ubuntu@"$client" 'bash --login DCL_semester_project/main/DistRunner.sh '$1' '$2' '$agg' 'att' 'Performance' client '$i' '&
-#         i=$(( $i + $d ))
-#         if [[ "$1" == "con" ]]
-#         then
-#             sleep 1s
-#         else
-#             sleep 3s
-#         fi
-#     done
-
-#     sleep 90s
-#     bash Terminate.sh
-#     # wait
-
-#     echo "*********************"
-#     echo "*********************" 
-#     echo "     $agg Done!      "
-#     echo "*********************"
-#     echo "*********************"
-#     if [[ "$1" == "fl" || "$1" == "all" ]]
-#     then
-#         mkdir -p "./FL_res/""$agg"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Performance
-#         mkdir -p "./FL_res/""$agg"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Accuracy
-
-#         scp ubuntu@$server:/home/ubuntu/DCL_semester_project/FL_res/$agg/ncl_$nb_clients/nbyz_$nb_byz/Performance/server.txt  ./FL_res/$agg/ncl_$nb_clients/nbyz_$nb_byz/Performance &
-#         i=0
-#         d=1
-#         for client in "${clients[@]}"
-#         do
-#             scp ubuntu@$client:/home/ubuntu/DCL_semester_project/FL_res/$agg/ncl_$nb_clients/nbyz_$nb_byz/Performance/$i.txt  ./FL_res/$agg/ncl_$nb_clients/nbyz_$nb_byz/Performance &
-#             i=$(( $i + $d ))
-#         done  
-#     fi
-
-#     if [[ "$1" == "p2p" || "$1" == "all" ]]
-#     then
-#         mkdir -p "./Gossip_res/""$agg"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Performance
-#         mkdir -p "./Gossip_res/""$agg"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Accuracy
-#         i=0
-#         d=1
-#         for client in "${clients[@]}"
-#         do
-#             scp ubuntu@$client:/home/ubuntu/DCL_semester_project/Gossip_res/$agg/ncl_$nb_clients/nbyz_$nb_byz/Performance/$i.txt  ./Gossip_res/$agg/ncl_$nb_clients/nbyz_$nb_byz/Performance &
-#             i=$(( $i + $d ))
-#         done  
-#     fi
-
-#     if [[ "$1" == "con" || "$1" == "all" ]]
-#     then
-#         mkdir -p "./Consensus_res/""$agg"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Performance
-#         mkdir -p "./Consensus_res/""$agg"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Accuracy
-#         i=0
-#         d=1
-#         for client in "${clients[@]}"
-#         do
-#             scp ubuntu@$client:/home/ubuntu/DCL_semester_project/Consensus_res/$agg/ncl_$nb_clients/nbyz_$nb_byz/Performance/$i.txt  ./Consensus_res/$agg/ncl_$nb_clients/nbyz_$nb_byz/Performance &
-#             scp ubuntu@$client:/home/ubuntu/DCL_semester_project/Consensus_res/$agg/ncl_$nb_clients/nbyz_$nb_byz/Performance/server_$i.txt  ./Consensus_res/$agg/ncl_$nb_clients/nbyz_$nb_byz/Performance &
-#             i=$(( $i + $d ))
-#         done  
-#     fi
-#     wait
-#     echo "*********************"
-#     echo "*********************" 
-#     echo "   Files Tranfered!  "
-#     echo "*********************"
-#     echo "*********************"
-# done
-
-## Accuracy Test
 for agg in ${aggregator[@]}; do
-    for att in ${attack[@]};do
-        if [[ "$1" == "fl" ]]
-        then
-            ssh ubuntu@"$server" 'bash --login DCL_semester_project/main/DistRunner.sh '$1' '$2' '$agg' '$att' 'Accuracy' server' &
-        fi
+    if [[ "$1" == "fl" ]]
+    then
+        ssh ubuntu@"$server" 'bash --login DCL_semester_project/main/DistRunner.sh '$1' '$2' '$agg' 'att' 'Performance' server' &
+    fi
 
-        if [[ "$1" == "con" ]]
-        then
-            i=0
-            d=1
-            for client in "${clients[@]}"
-            do
-                ssh ubuntu@"$client" 'bash --login DCL_semester_project/main/DistRunner.sh '$1' '$2' '$agg' '$att' 'Accuracy' server '$i' '&
-                i=$(( $i + $d ))
-            done
-            sleep 15s
-        fi
-
-        sleep 5s
+    if [[ "$1" == "con" ]]
+    then
         i=0
         d=1
         for client in "${clients[@]}"
         do
-            ssh ubuntu@"$client" 'bash --login DCL_semester_project/main/DistRunner.sh '$1' '$2' '$agg' '$att' 'Accuracy' client '$i' '&
+            ssh ubuntu@"$client" 'bash --login DCL_semester_project/main/DistRunner.sh '$1' '$2' '$agg' 'att' 'Performance' server '$i' '&
             i=$(( $i + $d ))
-            if [[ "$1" == "con" ]]
-            then
-                sleep 1s
-            else
-                sleep 3s
-            fi
         done
+        sleep 15s
+    fi
 
-        # sleep 90s
-        # bash Terminate.sh
-        wait
-
-        echo "*********************"
-        echo "*********************" 
-        echo "     $agg Done!      "
-        echo "*********************"
-        echo "*********************"
-        if [[ "$1" == "fl" || "$1" == "all" ]]
+    sleep 5s
+    i=0
+    d=1
+    for client in "${clients[@]}"
+    do
+        ssh ubuntu@"$client" 'bash --login DCL_semester_project/main/DistRunner.sh '$1' '$2' '$agg' 'att' 'Performance' client '$i' '&
+        i=$(( $i + $d ))
+        if [[ "$1" == "con" ]]
         then
-            mkdir -p "./FL_res/""$agg"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Performance
-            mkdir -p "./FL_res/""$agg"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Accuracy/"$att"
-
-            i=0
-            d=1
-            for client in "${clients[@]}"
-            do
-                scp ubuntu@$client:/home/ubuntu/DCL_semester_project/FL_res/$agg/ncl_$nb_clients/nbyz_$nb_byz/Accuracy/$att/$i.txt  ./FL_res/$agg/ncl_$nb_clients/nbyz_$nb_byz/Accuracy/$att &
-                i=$(( $i + $d ))
-            done  
+            sleep 1s
+        else
+            sleep 3s
         fi
-
-        if [[ "$1" == "p2p" || "$1" == "all" ]]
-        then
-            mkdir -p "./Gossip_res/""$agg"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Performance
-            mkdir -p "./Gossip_res/""$agg"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Accuracy/$att
-            i=0
-            d=1
-            for client in "${clients[@]}"
-            do
-                scp ubuntu@$client:/home/ubuntu/DCL_semester_project/Gossip_res/$agg/ncl_$nb_clients/nbyz_$nb_byz/Accuracy/$att/$i.txt  ./Gossip_res/$agg/ncl_$nb_clients/nbyz_$nb_byz/Accuracy/$att &
-                i=$(( $i + $d ))
-            done  
-        fi
-
-        if [[ "$1" == "con" || "$1" == "all" ]]
-        then
-            mkdir -p "./Consensus_res/""$agg"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Performance
-            mkdir -p "./Consensus_res/""$agg"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Accuracy/$att
-            i=0
-            d=1
-            for client in "${clients[@]}"
-            do
-                scp ubuntu@$client:/home/ubuntu/DCL_semester_project/Consensus_res/$agg/ncl_$nb_clients/nbyz_$nb_byz/Accuracy/$att/$i.txt  ./Consensus_res/$agg/ncl_$nb_clients/nbyz_$nb_byz/Accuracy/$att &
-                i=$(( $i + $d ))
-            done  
-        fi
-        wait
-        echo "*********************"
-        echo "*********************" 
-        echo "   Files Tranfered!  "
-        echo "*********************"
-        echo "*********************"
     done
+
+    sleep 90s
+    bash Terminate.sh
+    # wait
+
+    echo "*********************"
+    echo "*********************" 
+    echo "     $agg Done!      "
+    echo "*********************"
+    echo "*********************"
+    if [[ "$1" == "fl" || "$1" == "all" ]]
+    then
+        mkdir -p "./FL_res/""$agg"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Performance
+        mkdir -p "./FL_res/""$agg"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Accuracy
+
+        scp ubuntu@$server:/home/ubuntu/DCL_semester_project/FL_res/$agg/ncl_$nb_clients/nbyz_$nb_byz/Performance/server.txt  ./FL_res/$agg/ncl_$nb_clients/nbyz_$nb_byz/Performance &
+        i=0
+        d=1
+        for client in "${clients[@]}"
+        do
+            scp ubuntu@$client:/home/ubuntu/DCL_semester_project/FL_res/$agg/ncl_$nb_clients/nbyz_$nb_byz/Performance/$i.txt  ./FL_res/$agg/ncl_$nb_clients/nbyz_$nb_byz/Performance &
+            i=$(( $i + $d ))
+        done  
+    fi
+
+    if [[ "$1" == "p2p" || "$1" == "all" ]]
+    then
+        mkdir -p "./Gossip_res/""$agg"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Performance
+        mkdir -p "./Gossip_res/""$agg"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Accuracy
+        i=0
+        d=1
+        for client in "${clients[@]}"
+        do
+            scp ubuntu@$client:/home/ubuntu/DCL_semester_project/Gossip_res/$agg/ncl_$nb_clients/nbyz_$nb_byz/Performance/$i.txt  ./Gossip_res/$agg/ncl_$nb_clients/nbyz_$nb_byz/Performance &
+            i=$(( $i + $d ))
+        done  
+    fi
+
+    if [[ "$1" == "con" || "$1" == "all" ]]
+    then
+        mkdir -p "./Consensus_res/""$agg"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Performance
+        mkdir -p "./Consensus_res/""$agg"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Accuracy
+        i=0
+        d=1
+        for client in "${clients[@]}"
+        do
+            scp ubuntu@$client:/home/ubuntu/DCL_semester_project/Consensus_res/$agg/ncl_$nb_clients/nbyz_$nb_byz/Performance/$i.txt  ./Consensus_res/$agg/ncl_$nb_clients/nbyz_$nb_byz/Performance &
+            scp ubuntu@$client:/home/ubuntu/DCL_semester_project/Consensus_res/$agg/ncl_$nb_clients/nbyz_$nb_byz/Performance/server_$i.txt  ./Consensus_res/$agg/ncl_$nb_clients/nbyz_$nb_byz/Performance &
+            i=$(( $i + $d ))
+        done  
+    fi
+    wait
+    echo "*********************"
+    echo "*********************" 
+    echo "   Files Tranfered!  "
+    echo "*********************"
+    echo "*********************"
 done
+
+## Accuracy Test
+# for agg in ${aggregator[@]}; do
+#     for att in ${attack[@]};do
+#         if [[ "$1" == "fl" ]]
+#         then
+#             ssh ubuntu@"$server" 'bash --login DCL_semester_project/main/DistRunner.sh '$1' '$2' '$agg' '$att' 'Accuracy' server' &
+#         fi
+
+#         if [[ "$1" == "con" ]]
+#         then
+#             i=0
+#             d=1
+#             for client in "${clients[@]}"
+#             do
+#                 ssh ubuntu@"$client" 'bash --login DCL_semester_project/main/DistRunner.sh '$1' '$2' '$agg' '$att' 'Accuracy' server '$i' '&
+#                 i=$(( $i + $d ))
+#             done
+#             sleep 15s
+#         fi
+
+#         sleep 5s
+#         i=0
+#         d=1
+#         for client in "${clients[@]}"
+#         do
+#             ssh ubuntu@"$client" 'bash --login DCL_semester_project/main/DistRunner.sh '$1' '$2' '$agg' '$att' 'Accuracy' client '$i' '&
+#             i=$(( $i + $d ))
+#             if [[ "$1" == "con" ]]
+#             then
+#                 sleep 1s
+#             else
+#                 sleep 3s
+#             fi
+#         done
+
+#         # sleep 90s
+#         # bash Terminate.sh
+#         wait
+
+#         echo "*********************"
+#         echo "*********************" 
+#         echo "     $agg Done!      "
+#         echo "*********************"
+#         echo "*********************"
+#         if [[ "$1" == "fl" || "$1" == "all" ]]
+#         then
+#             mkdir -p "./FL_res/""$agg"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Performance
+#             mkdir -p "./FL_res/""$agg"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Accuracy/"$att"
+
+#             i=0
+#             d=1
+#             for client in "${clients[@]}"
+#             do
+#                 scp ubuntu@$client:/home/ubuntu/DCL_semester_project/FL_res/$agg/ncl_$nb_clients/nbyz_$nb_byz/Accuracy/$att/$i.txt  ./FL_res/$agg/ncl_$nb_clients/nbyz_$nb_byz/Accuracy/$att &
+#                 i=$(( $i + $d ))
+#             done  
+#         fi
+
+#         if [[ "$1" == "p2p" || "$1" == "all" ]]
+#         then
+#             mkdir -p "./Gossip_res/""$agg"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Performance
+#             mkdir -p "./Gossip_res/""$agg"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Accuracy/$att
+#             i=0
+#             d=1
+#             for client in "${clients[@]}"
+#             do
+#                 scp ubuntu@$client:/home/ubuntu/DCL_semester_project/Gossip_res/$agg/ncl_$nb_clients/nbyz_$nb_byz/Accuracy/$att/$i.txt  ./Gossip_res/$agg/ncl_$nb_clients/nbyz_$nb_byz/Accuracy/$att &
+#                 i=$(( $i + $d ))
+#             done  
+#         fi
+
+#         if [[ "$1" == "con" || "$1" == "all" ]]
+#         then
+#             mkdir -p "./Consensus_res/""$agg"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Performance
+#             mkdir -p "./Consensus_res/""$agg"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Accuracy/$att
+#             i=0
+#             d=1
+#             for client in "${clients[@]}"
+#             do
+#                 scp ubuntu@$client:/home/ubuntu/DCL_semester_project/Consensus_res/$agg/ncl_$nb_clients/nbyz_$nb_byz/Accuracy/$att/$i.txt  ./Consensus_res/$agg/ncl_$nb_clients/nbyz_$nb_byz/Accuracy/$att &
+#                 i=$(( $i + $d ))
+#             done  
+#         fi
+#         wait
+#         echo "*********************"
+#         echo "*********************" 
+#         echo "   Files Tranfered!  "
+#         echo "*********************"
+#         echo "*********************"
+#     done
+# done
 
 echo "*********************"
 echo "*********************" 
