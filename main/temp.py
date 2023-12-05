@@ -1,10 +1,10 @@
 # import random
-from Utils import connectionHelper, Helper, aggregator, attacks, Model, evaluator
-import torch 
-# from torch.utils.data import Dataset, Subset, DataLoader
-import torchvision.transforms as transforms
-from torchvision.datasets import MNIST
-
+# from Utils import connectionHelper, Helper, aggregator, attacks, Model, evaluator
+# import torch 
+# # from torch.utils.data import Dataset, Subset, DataLoader
+# import torchvision.transforms as transforms
+# from torchvision.datasets import MNIST
+import os
 # s1 = open("param_fl_r1.txt", "r")
 # s2 = open("param_go_r1.txt", "r")
 # ss1 = s1.readline()
@@ -77,16 +77,7 @@ from torchvision.datasets import MNIST
 # t = [torch.mul(torch.stack([a1, a2, a3, a4]).mean(dim=0), -1) * 4/3] * 3
 # f = torch.stack([a1, a2, a3, a4] + t).mean(dim=0)
 # print(connectionHelper.tensorToString(f))
-
-def readlines(input_file_name):
-    input_file = open(input_file_name, "r")
-    lines = dict()
-    for line in input_file:
-        line = line.strip()
-        key_value = line.split("=")
-        key = key_value[0]
-        lines[key] = key_value[1]
-    return lines
-
-for i in range(2):
-        print(readlines('main/ips.config')['client_' + str(i)])
+s = os.getcwd()
+sub_str = "DCL_semester_project"
+d = s[:s.index(sub_str) + len(sub_str)] + "/main/Data/testDataset.pt"
+print(d)

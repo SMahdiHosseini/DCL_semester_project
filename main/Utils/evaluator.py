@@ -1,13 +1,16 @@
 from torch import load
 from Utils import Helper, Model
-
+import os
 
 def evaluateTheRound(params, r, text_file):
     # train_dataset = load("F:/DCL/Semester Project 1/Codes/DCL_semester_project/main/Data/trainDataset.pt")
     # test_dataset = load("F:/DCL/Semester Project 1/Codes/DCL_semester_project/main/Data/testDataset.pt")
     # dev_dataset = load("F:/DCL/Semester Project 1/Codes/DCL_semester_project/main/Data/devDataset.pt")
+    s = os.getcwd()
+    sub_str = "DCL_semester_project"
+    dTest = s[:s.index(sub_str) + len(sub_str)] + "/main/Data/testDataset.pt"
     # train_dataset = load("Data/trainDataset.pt")
-    test_dataset = load("Data/testDataset.pt")
+    test_dataset = load(dTest)
     # dev_dataset = load("Data/devDataset.pt")
 
     global_net = Helper.to_device(Model.FederatedNet(), Helper.device)

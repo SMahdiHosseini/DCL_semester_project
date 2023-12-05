@@ -7,7 +7,11 @@ then
 fi
 
 # cd /localhome/shossein/DCL_semester_project/library/build/install/library
+cd ../library/
+./gradlew installDist
 cd ../library/build/install/library
+mkdir -p Results
+chmod +x ./smartrun.sh
 
 for ((r=0; r<$1; r++))
 do
