@@ -30,7 +30,7 @@ nb_clients = int(sys.argv[1])
 nb_byz = int(sys.argv[2])
 nb_rounds = int(sys.argv[3])
 attacks = ["SF", "FOE"]
-aggregators = ["average", "median", "krum", "geometric_median", "trmean"]
+aggregators = ["trmean"]
 # aggregators = ["average", "median", "geometric_median", "trmean"]
 colors = ['blue', 'red', 'green', 'brown', 'olive', 'cyan', 'lime', 'royalblue', 'pink']
 def readlines(input_file_name):
