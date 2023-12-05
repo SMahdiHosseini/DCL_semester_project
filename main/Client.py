@@ -17,7 +17,7 @@ aggregator = sys.argv[7]
 attack = sys.argv[8]
 test = sys.argv[9]
 
-log = Log.Log("../FL_res/" + aggregator + "/ncl_" + str(nb_clients + nb) + "/nbyz_" + str(nb_byz) + "/Performance/" + str(client_id) + ".txt")
+log = Log.Log("../FL_res/" + aggregator + "/ncl_" + str(nb_clients) + "/nbyz_" + str(nb_byz) + "/Performance/" + str(client_id) + ".txt")
 
 def addNewLog(new_log):
     if test == Helper.performance_test:
