@@ -1,61 +1,662 @@
-Starting: 17:45:54:482096
-round_1_start: 17:45:54:482128
-round_1_received_params: 17:45:54:520248
-received_params: 17:45:55:112984
-round_1_aggregation: 17:45:55:112995
-round_1_end: 17:45:55:190963
-round_2_start: 17:45:55:190997
-round_2_received_params: 17:45:55:857269
-received_params: 17:45:55:874292
-received_params: 17:45:55:878523
-round_2_aggregation: 17:45:55:878533
-round_2_end: 17:45:55:950905
-round_3_start: 17:45:55:950949
-round_3_received_params: 17:45:56:589402
-received_params: 17:45:56:601550
-received_params: 17:45:56:627838
-round_3_aggregation: 17:45:56:627847
-round_3_end: 17:45:56:696277
-round_4_start: 17:45:56:696336
-round_4_received_params: 17:45:57:350520
-received_params: 17:45:57:370097
-received_params: 17:45:57:375104
-round_4_aggregation: 17:45:57:375113
-round_4_end: 17:45:57:461199
-round_5_start: 17:45:57:461246
-round_5_received_params: 17:45:58:093657
-received_params: 17:45:58:097953
-received_params: 17:45:58:128935
-round_5_aggregation: 17:45:58:128944
-round_5_end: 17:45:58:215642
-round_6_start: 17:45:58:215689
-round_6_received_params: 17:45:58:841821
-received_params: 17:45:58:850183
-received_params: 17:45:58:870035
-round_6_aggregation: 17:45:58:870045
-round_6_end: 17:45:58:945595
-round_7_start: 17:45:58:945642
-round_7_received_params: 17:45:59:587282
-received_params: 17:45:59:605191
-received_params: 17:45:59:612483
-round_7_aggregation: 17:45:59:612492
-round_7_end: 17:45:59:669978
-round_8_start: 17:45:59:670014
-round_8_received_params: 17:46:00:328976
-received_params: 17:46:00:333227
-received_params: 17:46:00:337464
-round_8_aggregation: 17:46:00:337471
-round_8_end: 17:46:00:413637
-round_9_start: 17:46:00:413684
-round_9_received_params: 17:46:01:037613
-received_params: 17:46:01:045480
-received_params: 17:46:01:061428
-round_9_aggregation: 17:46:01:061438
-round_9_end: 17:46:01:121231
-round_10_start: 17:46:01:121268
-round_10_received_params: 17:46:01:774718
-received_params: 17:46:01:784926
-received_params: 17:46:01:789202
-round_10_aggregation: 17:46:01:789211
-round_10_end: 17:46:01:900182
-end: 17:46:01:900285
+Starting: 10:59:03:688280
+round_1_start: 10:59:03:688332
+round_1_received_params: 10:59:03:744449
+received_params: 10:59:04:249261
+round_1_aggregation: 10:59:04:249279
+round_1_aggregation order: [0, 1, 2, 3, 4, 5, 6, 7]
+round_1_end: 10:59:04:744134
+round_2_start: 10:59:04:744188
+round_2_received_params: 10:59:05:188504
+received_params: 10:59:05:194625
+round_2_aggregation: 10:59:05:194639
+round_2_aggregation order: [0, 1, 2, 4, 3, 6, 7, 5]
+round_2_end: 10:59:05:266547
+round_3_start: 10:59:05:266590
+round_3_received_params: 10:59:05:708299
+received_params: 10:59:05:714470
+round_3_aggregation: 10:59:05:714485
+round_3_aggregation order: [0, 1, 2, 3, 4, 6, 7, 5]
+round_3_end: 10:59:05:786444
+round_4_start: 10:59:05:786491
+round_4_received_params: 10:59:06:228267
+received_params: 10:59:06:234403
+round_4_aggregation: 10:59:06:234418
+round_4_aggregation order: [0, 2, 4, 1, 3, 6, 7, 5]
+round_4_end: 10:59:06:306117
+round_5_start: 10:59:06:306161
+round_5_received_params: 10:59:06:742793
+received_params: 10:59:06:748901
+received_params: 10:59:06:755029
+round_5_aggregation: 10:59:06:755042
+round_5_aggregation order: [0, 2, 1, 3, 4, 6, 7, 8]
+round_5_end: 10:59:06:826793
+round_6_start: 10:59:06:826837
+round_6_received_params: 10:59:07:268470
+received_params: 10:59:07:274581
+round_6_aggregation: 10:59:07:274595
+round_6_aggregation order: [0, 2, 1, 3, 4, 6, 7, 5]
+round_6_end: 10:59:07:346411
+round_7_start: 10:59:07:346453
+round_7_received_params: 10:59:07:781365
+received_params: 10:59:07:789636
+received_params: 10:59:07:795751
+round_7_aggregation: 10:59:07:795764
+round_7_aggregation order: [0, 2, 1, 3, 4, 6, 7, 8]
+round_7_end: 10:59:07:867491
+round_8_start: 10:59:07:867535
+round_8_received_params: 10:59:08:302114
+received_params: 10:59:08:308239
+received_params: 10:59:08:314359
+round_8_aggregation: 10:59:08:314372
+round_8_aggregation order: [0, 2, 1, 3, 4, 6, 7, 5]
+round_8_end: 10:59:08:386402
+round_9_start: 10:59:08:386446
+round_9_received_params: 10:59:08:820450
+received_params: 10:59:08:826567
+received_params: 10:59:08:832677
+round_9_aggregation: 10:59:08:832690
+round_9_aggregation order: [0, 2, 1, 3, 4, 6, 7, 5]
+round_9_end: 10:59:08:904511
+round_10_start: 10:59:08:904553
+round_10_received_params: 10:59:09:339373
+received_params: 10:59:09:345486
+received_params: 10:59:09:351583
+round_10_aggregation: 10:59:09:351606
+round_10_aggregation order: [0, 2, 1, 3, 4, 6, 7, 5]
+round_10_end: 10:59:09:423655
+round_11_start: 10:59:09:423708
+round_11_received_params: 10:59:09:867895
+received_params: 10:59:09:874004
+round_11_aggregation: 10:59:09:874019
+round_11_aggregation order: [0, 2, 1, 3, 4, 6, 7, 5]
+round_11_end: 10:59:09:945746
+round_12_start: 10:59:09:945793
+round_12_received_params: 10:59:10:381288
+received_params: 10:59:10:387430
+received_params: 10:59:10:393557
+round_12_aggregation: 10:59:10:393571
+round_12_aggregation order: [0, 2, 1, 3, 4, 6, 7, 5]
+round_12_end: 10:59:10:465415
+round_13_start: 10:59:10:465475
+round_13_received_params: 10:59:10:907400
+received_params: 10:59:10:913539
+round_13_aggregation: 10:59:10:913553
+round_13_aggregation order: [0, 2, 1, 3, 4, 6, 7, 5]
+round_13_end: 10:59:10:985429
+round_14_start: 10:59:10:985489
+round_14_received_params: 10:59:11:420019
+received_params: 10:59:11:426165
+received_params: 10:59:11:432314
+round_14_aggregation: 10:59:11:432329
+round_14_aggregation order: [0, 2, 4, 1, 3, 6, 7, 5]
+round_14_end: 10:59:11:504296
+round_15_start: 10:59:11:504339
+round_15_received_params: 10:59:11:937788
+received_params: 10:59:11:943921
+received_params: 10:59:11:950053
+round_15_aggregation: 10:59:11:950068
+round_15_aggregation order: [0, 1, 2, 4, 3, 6, 7, 5]
+round_15_end: 10:59:12:021964
+round_16_start: 10:59:12:022008
+round_16_received_params: 10:59:12:464100
+received_params: 10:59:12:470249
+round_16_aggregation: 10:59:12:470264
+round_16_aggregation order: [0, 1, 2, 4, 3, 6, 7, 5]
+round_16_end: 10:59:12:542191
+round_17_start: 10:59:12:542240
+round_17_received_params: 10:59:12:975527
+received_params: 10:59:12:981665
+received_params: 10:59:12:987788
+round_17_aggregation: 10:59:12:987803
+round_17_aggregation order: [0, 2, 4, 1, 3, 6, 7, 5]
+round_17_end: 10:59:13:059749
+round_18_start: 10:59:13:059800
+round_18_received_params: 10:59:13:493860
+received_params: 10:59:13:499976
+received_params: 10:59:13:506107
+round_18_aggregation: 10:59:13:506121
+round_18_aggregation order: [0, 2, 4, 1, 3, 6, 7, 5]
+round_18_end: 10:59:13:578116
+round_19_start: 10:59:13:578162
+round_19_received_params: 10:59:14:014862
+received_params: 10:59:14:020976
+received_params: 10:59:14:027104
+round_19_aggregation: 10:59:14:027117
+round_19_aggregation order: [0, 2, 4, 1, 3, 6, 7, 8]
+round_19_end: 10:59:14:099414
+round_20_start: 10:59:14:099466
+round_20_received_params: 10:59:14:534347
+received_params: 10:59:14:540450
+received_params: 10:59:14:546559
+round_20_aggregation: 10:59:14:546573
+round_20_aggregation order: [0, 2, 4, 1, 3, 6, 7, 5]
+round_20_end: 10:59:14:618777
+round_21_start: 10:59:14:618826
+round_21_received_params: 10:59:15:054959
+received_params: 10:59:15:061078
+received_params: 10:59:15:067213
+round_21_aggregation: 10:59:15:067227
+round_21_aggregation order: [0, 2, 4, 1, 3, 6, 7, 5]
+round_21_end: 10:59:15:139314
+round_22_start: 10:59:15:139354
+round_22_received_params: 10:59:15:582266
+received_params: 10:59:15:588398
+round_22_aggregation: 10:59:15:588413
+round_22_aggregation order: [0, 2, 4, 1, 3, 6, 7, 5]
+round_22_end: 10:59:15:660522
+round_23_start: 10:59:15:660567
+round_23_received_params: 10:59:16:096635
+received_params: 10:59:16:102783
+received_params: 10:59:16:108905
+round_23_aggregation: 10:59:16:108918
+round_23_aggregation order: [0, 4, 1, 2, 3, 6, 7, 5]
+round_23_end: 10:59:16:180932
+round_24_start: 10:59:16:180973
+round_24_received_params: 10:59:16:623636
+received_params: 10:59:16:629763
+round_24_aggregation: 10:59:16:629776
+round_24_aggregation order: [0, 2, 1, 3, 4, 6, 7, 5]
+round_24_end: 10:59:16:701893
+round_25_start: 10:59:16:701929
+round_25_received_params: 10:59:17:138284
+received_params: 10:59:17:144405
+received_params: 10:59:17:150532
+round_25_aggregation: 10:59:17:150546
+round_25_aggregation order: [0, 2, 1, 3, 4, 6, 7, 5]
+round_25_end: 10:59:17:225988
+round_26_start: 10:59:17:226029
+round_26_received_params: 10:59:17:663266
+received_params: 10:59:17:669396
+received_params: 10:59:17:675542
+round_26_aggregation: 10:59:17:675555
+round_26_aggregation order: [0, 1, 2, 3, 4, 6, 5, 7]
+round_26_end: 10:59:17:747864
+round_27_start: 10:59:17:747912
+round_27_received_params: 10:59:18:191371
+received_params: 10:59:18:197533
+round_27_aggregation: 10:59:18:197548
+round_27_aggregation order: [0, 2, 1, 3, 4, 6, 7, 5]
+round_27_end: 10:59:18:269748
+round_28_start: 10:59:18:269794
+round_28_received_params: 10:59:18:709071
+received_params: 10:59:18:721320
+round_28_aggregation: 10:59:18:721334
+round_28_aggregation order: [0, 2, 1, 3, 4, 6, 5, 7]
+round_28_end: 10:59:18:793606
+round_29_start: 10:59:18:793653
+round_29_received_params: 10:59:19:233777
+received_params: 10:59:19:245960
+round_29_aggregation: 10:59:19:245974
+round_29_aggregation order: [0, 2, 1, 3, 4, 6, 5, 7]
+round_29_end: 10:59:19:318247
+round_30_start: 10:59:19:318293
+round_30_received_params: 10:59:19:761317
+received_params: 10:59:19:767453
+round_30_aggregation: 10:59:19:767468
+round_30_aggregation order: [0, 2, 1, 3, 4, 6, 7, 5]
+round_30_end: 10:59:19:839767
+round_31_start: 10:59:19:839814
+round_31_received_params: 10:59:20:286434
+received_params: 10:59:20:292578
+round_31_aggregation: 10:59:20:292594
+round_31_aggregation order: [0, 2, 1, 3, 4, 6, 5, 7]
+round_31_end: 10:59:20:364968
+round_32_start: 10:59:20:365015
+round_32_received_params: 10:59:20:808288
+received_params: 10:59:20:814432
+round_32_aggregation: 10:59:20:814447
+round_32_aggregation order: [0, 2, 1, 3, 4, 6, 7, 5]
+round_32_end: 10:59:20:886759
+round_33_start: 10:59:20:886806
+round_33_received_params: 10:59:21:327627
+received_params: 10:59:21:333791
+round_33_aggregation: 10:59:21:333807
+round_33_aggregation order: [0, 2, 1, 3, 4, 6, 7, 5]
+round_33_end: 10:59:21:406182
+round_34_start: 10:59:21:406234
+round_34_received_params: 10:59:21:841226
+received_params: 10:59:21:847356
+received_params: 10:59:21:853491
+round_34_aggregation: 10:59:21:853506
+round_34_aggregation order: [0, 2, 1, 3, 4, 6, 7, 8]
+round_34_end: 10:59:21:925897
+round_35_start: 10:59:21:925939
+round_35_received_params: 10:59:22:366576
+received_params: 10:59:22:372733
+round_35_aggregation: 10:59:22:372749
+round_35_aggregation order: [0, 1, 2, 3, 4, 6, 7, 5]
+round_35_end: 10:59:22:445167
+round_36_start: 10:59:22:445219
+round_36_received_params: 10:59:22:880164
+received_params: 10:59:22:886323
+received_params: 10:59:22:892471
+round_36_aggregation: 10:59:22:892486
+round_36_aggregation order: [0, 2, 3, 4, 1, 6, 7, 5]
+round_36_end: 10:59:22:964833
+round_37_start: 10:59:22:964872
+round_37_received_params: 10:59:23:400220
+received_params: 10:59:23:406351
+received_params: 10:59:23:412455
+round_37_aggregation: 10:59:23:412470
+round_37_aggregation order: [0, 2, 3, 4, 1, 6, 7, 5]
+round_37_end: 10:59:23:484688
+round_38_start: 10:59:23:484728
+round_38_received_params: 10:59:23:919701
+received_params: 10:59:23:925839
+received_params: 10:59:23:931985
+round_38_aggregation: 10:59:23:931999
+round_38_aggregation order: [0, 2, 1, 3, 4, 6, 7, 8]
+round_38_end: 10:59:24:004217
+round_39_start: 10:59:24:004257
+round_39_received_params: 10:59:24:439551
+received_params: 10:59:24:445701
+received_params: 10:59:24:451869
+round_39_aggregation: 10:59:24:451884
+round_39_aggregation order: [0, 2, 1, 3, 4, 6, 7, 8]
+round_39_end: 10:59:24:524153
+round_40_start: 10:59:24:524193
+round_40_received_params: 10:59:24:966543
+received_params: 10:59:24:972679
+round_40_aggregation: 10:59:24:972695
+round_40_aggregation order: [0, 2, 1, 3, 4, 6, 5, 7]
+round_40_end: 10:59:25:044960
+round_41_start: 10:59:25:045003
+round_41_received_params: 10:59:25:487723
+received_params: 10:59:25:493879
+round_41_aggregation: 10:59:25:493894
+round_41_aggregation order: [0, 1, 2, 4, 3, 6, 7, 5]
+round_41_end: 10:59:25:566254
+round_42_start: 10:59:25:566295
+round_42_received_params: 10:59:26:009171
+received_params: 10:59:26:015318
+round_42_aggregation: 10:59:26:015332
+round_42_aggregation order: [0, 2, 1, 3, 4, 6, 7, 5]
+round_42_end: 10:59:26:087628
+round_43_start: 10:59:26:087671
+round_43_received_params: 10:59:26:530136
+received_params: 10:59:26:536277
+round_43_aggregation: 10:59:26:536292
+round_43_aggregation order: [0, 2, 1, 3, 4, 6, 7, 5]
+round_43_end: 10:59:26:608466
+round_44_start: 10:59:26:608513
+round_44_received_params: 10:59:27:044094
+received_params: 10:59:27:050244
+received_params: 10:59:27:056384
+round_44_aggregation: 10:59:27:056398
+round_44_aggregation order: [0, 2, 1, 3, 4, 6, 7, 8]
+round_44_end: 10:59:27:128694
+round_45_start: 10:59:27:128734
+round_45_received_params: 10:59:27:564872
+received_params: 10:59:27:571013
+received_params: 10:59:27:577160
+round_45_aggregation: 10:59:27:577174
+round_45_aggregation order: [0, 1, 2, 3, 4, 6, 7, 5]
+round_45_end: 10:59:27:649480
+round_46_start: 10:59:27:649523
+round_46_received_params: 10:59:28:091231
+received_params: 10:59:28:097374
+round_46_aggregation: 10:59:28:097390
+round_46_aggregation order: [0, 1, 2, 3, 4, 6, 7, 5]
+round_46_end: 10:59:28:169838
+round_47_start: 10:59:28:169879
+round_47_received_params: 10:59:28:605785
+received_params: 10:59:28:611929
+received_params: 10:59:28:618092
+round_47_aggregation: 10:59:28:618108
+round_47_aggregation order: [0, 1, 2, 3, 4, 6, 7, 5]
+round_47_end: 10:59:28:690420
+round_48_start: 10:59:28:690461
+round_48_received_params: 10:59:29:132086
+received_params: 10:59:29:138239
+round_48_aggregation: 10:59:29:138254
+round_48_aggregation order: [0, 2, 1, 3, 4, 6, 7, 5]
+round_48_end: 10:59:29:213857
+round_49_start: 10:59:29:213898
+round_49_received_params: 10:59:29:653834
+received_params: 10:59:29:659973
+round_49_aggregation: 10:59:29:659989
+round_49_aggregation order: [0, 2, 1, 3, 4, 6, 7, 5]
+round_49_end: 10:59:29:732231
+round_50_start: 10:59:29:732272
+round_50_received_params: 10:59:30:175512
+received_params: 10:59:30:181685
+round_50_aggregation: 10:59:30:181700
+round_50_aggregation order: [0, 2, 1, 3, 4, 6, 7, 5]
+round_50_end: 10:59:30:254087
+round_51_start: 10:59:30:254127
+round_51_received_params: 10:59:30:696819
+received_params: 10:59:30:702951
+round_51_aggregation: 10:59:30:702966
+round_51_aggregation order: [0, 2, 1, 3, 4, 6, 7, 5]
+round_51_end: 10:59:30:778737
+round_52_start: 10:59:30:778779
+round_52_received_params: 10:59:31:221435
+received_params: 10:59:31:227583
+round_52_aggregation: 10:59:31:227597
+round_52_aggregation order: [0, 2, 1, 3, 4, 6, 7, 5]
+round_52_end: 10:59:31:300048
+round_53_start: 10:59:31:300087
+round_53_received_params: 10:59:31:735892
+received_params: 10:59:31:742038
+received_params: 10:59:31:748191
+round_53_aggregation: 10:59:31:748207
+round_53_aggregation order: [0, 4, 1, 2, 3, 6, 7, 8]
+round_53_end: 10:59:31:820421
+round_54_start: 10:59:31:820460
+round_54_received_params: 10:59:32:262393
+received_params: 10:59:32:268543
+round_54_aggregation: 10:59:32:268559
+round_54_aggregation order: [0, 4, 1, 2, 3, 6, 7, 5]
+round_54_end: 10:59:32:340937
+round_55_start: 10:59:32:340975
+round_55_received_params: 10:59:32:782943
+received_params: 10:59:32:789075
+round_55_aggregation: 10:59:32:789089
+round_55_aggregation order: [0, 1, 2, 4, 3, 6, 7, 5]
+round_55_end: 10:59:32:861464
+round_56_start: 10:59:32:861505
+round_56_received_params: 10:59:33:296502
+received_params: 10:59:33:302670
+received_params: 10:59:33:308818
+round_56_aggregation: 10:59:33:308833
+round_56_aggregation order: [0, 1, 2, 3, 4, 6, 7, 5]
+round_56_end: 10:59:33:381159
+round_57_start: 10:59:33:381207
+round_57_received_params: 10:59:33:816675
+received_params: 10:59:33:822809
+received_params: 10:59:33:828947
+round_57_aggregation: 10:59:33:828962
+round_57_aggregation order: [0, 1, 2, 3, 4, 6, 7, 5]
+round_57_end: 10:59:33:901644
+round_58_start: 10:59:33:901695
+round_58_received_params: 10:59:34:336694
+received_params: 10:59:34:342838
+received_params: 10:59:34:348986
+round_58_aggregation: 10:59:34:349000
+round_58_aggregation order: [0, 1, 2, 3, 4, 6, 7, 5]
+round_58_end: 10:59:34:421507
+round_59_start: 10:59:34:421553
+round_59_received_params: 10:59:34:865944
+received_params: 10:59:34:872001
+round_59_aggregation: 10:59:34:872016
+round_59_aggregation order: [0, 1, 2, 3, 4, 6, 5, 7]
+round_59_end: 10:59:34:943011
+round_60_start: 10:59:34:943050
+round_60_received_params: 10:59:35:385881
+received_params: 10:59:35:391841
+round_60_aggregation: 10:59:35:391856
+round_60_aggregation order: [0, 1, 2, 3, 4, 6, 7, 5]
+round_60_end: 10:59:35:462305
+round_61_start: 10:59:35:462347
+round_61_received_params: 10:59:35:897330
+received_params: 10:59:35:903277
+received_params: 10:59:35:909237
+round_61_aggregation: 10:59:35:909251
+round_61_aggregation order: [0, 1, 2, 3, 4, 6, 7, 5]
+round_61_end: 10:59:35:979880
+round_62_start: 10:59:35:979921
+round_62_received_params: 10:59:36:415995
+received_params: 10:59:36:421973
+received_params: 10:59:36:427936
+round_62_aggregation: 10:59:36:427950
+round_62_aggregation order: [0, 4, 1, 2, 3, 6, 7, 5]
+round_62_end: 10:59:36:498265
+round_63_start: 10:59:36:498302
+round_63_received_params: 10:59:36:935014
+received_params: 10:59:36:940984
+received_params: 10:59:36:946945
+round_63_aggregation: 10:59:36:946960
+round_63_aggregation order: [0, 4, 1, 2, 3, 6, 7, 5]
+round_63_end: 10:59:37:017440
+round_64_start: 10:59:37:017494
+round_64_received_params: 10:59:37:451639
+received_params: 10:59:37:457617
+received_params: 10:59:37:463585
+round_64_aggregation: 10:59:37:463600
+round_64_aggregation order: [0, 1, 4, 2, 3, 6, 7, 8]
+round_64_end: 10:59:37:533891
+round_65_start: 10:59:37:533932
+round_65_received_params: 10:59:37:967501
+received_params: 10:59:37:973479
+received_params: 10:59:37:979438
+round_65_aggregation: 10:59:37:979453
+round_65_aggregation order: [0, 4, 1, 2, 3, 6, 7, 5]
+round_65_end: 10:59:38:050524
+round_66_start: 10:59:38:050562
+round_66_received_params: 10:59:38:485379
+received_params: 10:59:38:491325
+received_params: 10:59:38:497337
+round_66_aggregation: 10:59:38:497351
+round_66_aggregation order: [0, 4, 1, 2, 3, 6, 7, 5]
+round_66_end: 10:59:38:567783
+round_67_start: 10:59:38:567826
+round_67_received_params: 10:59:39:001249
+received_params: 10:59:39:007398
+received_params: 10:59:39:013558
+round_67_aggregation: 10:59:39:013574
+round_67_aggregation order: [0, 4, 1, 2, 3, 6, 7, 5]
+round_67_end: 10:59:39:085017
+round_68_start: 10:59:39:085055
+round_68_received_params: 10:59:39:518462
+received_params: 10:59:39:524482
+received_params: 10:59:39:530432
+round_68_aggregation: 10:59:39:530446
+round_68_aggregation order: [0, 1, 2, 3, 4, 6, 7, 5]
+round_68_end: 10:59:39:600873
+round_69_start: 10:59:39:600912
+round_69_received_params: 10:59:40:036668
+received_params: 10:59:40:042657
+received_params: 10:59:40:048617
+round_69_aggregation: 10:59:40:048632
+round_69_aggregation order: [0, 4, 1, 2, 3, 6, 7, 5]
+round_69_end: 10:59:40:119093
+round_70_start: 10:59:40:119129
+round_70_received_params: 10:59:40:552680
+received_params: 10:59:40:559440
+received_params: 10:59:40:565400
+round_70_aggregation: 10:59:40:565413
+round_70_aggregation order: [0, 4, 1, 2, 3, 6, 7, 5]
+round_70_end: 10:59:40:635861
+round_71_start: 10:59:40:635898
+round_71_received_params: 10:59:41:070687
+received_params: 10:59:41:076656
+received_params: 10:59:41:082672
+round_71_aggregation: 10:59:41:082686
+round_71_aggregation order: [0, 1, 4, 2, 3, 6, 7, 5]
+round_71_end: 10:59:41:153064
+round_72_start: 10:59:41:153100
+round_72_received_params: 10:59:41:589067
+received_params: 10:59:41:600977
+round_72_aggregation: 10:59:41:600992
+round_72_aggregation order: [0, 4, 1, 2, 3, 6, 7, 5]
+round_72_end: 10:59:41:671361
+round_73_start: 10:59:41:671401
+round_73_received_params: 10:59:42:104738
+received_params: 10:59:42:110712
+received_params: 10:59:42:116670
+round_73_aggregation: 10:59:42:116684
+round_73_aggregation order: [0, 4, 1, 2, 3, 6, 7, 5]
+round_73_end: 10:59:42:187502
+round_74_start: 10:59:42:187540
+round_74_received_params: 10:59:42:620310
+received_params: 10:59:42:626301
+received_params: 10:59:42:632240
+round_74_aggregation: 10:59:42:632254
+round_74_aggregation order: [0, 1, 2, 3, 4, 6, 7, 5]
+round_74_end: 10:59:42:702751
+round_75_start: 10:59:42:702791
+round_75_received_params: 10:59:43:135979
+received_params: 10:59:43:142110
+received_params: 10:59:43:148074
+round_75_aggregation: 10:59:43:148089
+round_75_aggregation order: [0, 2, 1, 3, 4, 6, 7, 5]
+round_75_end: 10:59:43:218631
+round_76_start: 10:59:43:218668
+round_76_received_params: 10:59:43:653037
+received_params: 10:59:43:660898
+received_params: 10:59:43:666862
+round_76_aggregation: 10:59:43:666876
+round_76_aggregation order: [0, 2, 1, 3, 4, 6, 7, 5]
+round_76_end: 10:59:43:737441
+round_77_start: 10:59:43:737498
+round_77_received_params: 10:59:44:173934
+received_params: 10:59:44:179907
+received_params: 10:59:44:185873
+round_77_aggregation: 10:59:44:185888
+round_77_aggregation order: [0, 2, 1, 3, 4, 6, 7, 5]
+round_77_end: 10:59:44:256326
+round_78_start: 10:59:44:256365
+round_78_received_params: 10:59:44:691134
+received_params: 10:59:44:697160
+received_params: 10:59:44:703102
+round_78_aggregation: 10:59:44:703116
+round_78_aggregation order: [0, 2, 1, 3, 4, 6, 7, 5]
+round_78_end: 10:59:44:773521
+round_79_start: 10:59:44:773560
+round_79_received_params: 10:59:45:211196
+received_params: 10:59:45:223096
+round_79_aggregation: 10:59:45:223110
+round_79_aggregation order: [0, 2, 1, 3, 4, 6, 7, 5]
+round_79_end: 10:59:45:293731
+round_80_start: 10:59:45:293770
+round_80_received_params: 10:59:45:730774
+received_params: 10:59:45:736741
+received_params: 10:59:45:742709
+round_80_aggregation: 10:59:45:742724
+round_80_aggregation order: [0, 2, 1, 3, 4, 6, 7, 5]
+round_80_end: 10:59:45:816440
+round_81_start: 10:59:45:816479
+round_81_received_params: 10:59:46:256808
+received_params: 10:59:46:262771
+round_81_aggregation: 10:59:46:262786
+round_81_aggregation order: [0, 2, 4, 1, 3, 6, 7, 5]
+round_81_end: 10:59:46:333116
+round_82_start: 10:59:46:333154
+round_82_received_params: 10:59:46:768390
+received_params: 10:59:46:774332
+received_params: 10:59:46:780251
+round_82_aggregation: 10:59:46:780265
+round_82_aggregation order: [0, 2, 1, 3, 4, 6, 7, 8]
+round_82_end: 10:59:46:850885
+round_83_start: 10:59:46:850923
+round_83_received_params: 10:59:47:286167
+received_params: 10:59:47:292229
+received_params: 10:59:47:298218
+round_83_aggregation: 10:59:47:298234
+round_83_aggregation order: [0, 1, 2, 3, 4, 6, 7, 8]
+round_83_end: 10:59:47:368685
+round_84_start: 10:59:47:368721
+round_84_received_params: 10:59:47:803652
+received_params: 10:59:47:809601
+received_params: 10:59:47:815550
+round_84_aggregation: 10:59:47:815566
+round_84_aggregation order: [0, 1, 2, 4, 3, 6, 7, 8]
+round_84_end: 10:59:47:885991
+round_85_start: 10:59:47:886030
+round_85_received_params: 10:59:48:326961
+received_params: 10:59:48:332921
+round_85_aggregation: 10:59:48:332936
+round_85_aggregation order: [0, 2, 1, 3, 4, 6, 7, 5]
+round_85_end: 10:59:48:403474
+round_86_start: 10:59:48:403512
+round_86_received_params: 10:59:48:838220
+received_params: 10:59:48:844179
+received_params: 10:59:48:850168
+round_86_aggregation: 10:59:48:850183
+round_86_aggregation order: [0, 2, 4, 1, 3, 6, 7, 5]
+round_86_end: 10:59:48:920731
+round_87_start: 10:59:48:920769
+round_87_received_params: 10:59:49:356058
+received_params: 10:59:49:362017
+received_params: 10:59:49:367973
+round_87_aggregation: 10:59:49:367988
+round_87_aggregation order: [0, 2, 4, 1, 3, 6, 7, 8]
+round_87_end: 10:59:49:438469
+round_88_start: 10:59:49:438506
+round_88_received_params: 10:59:49:874465
+received_params: 10:59:49:880434
+received_params: 10:59:49:886398
+round_88_aggregation: 10:59:49:886412
+round_88_aggregation order: [0, 2, 4, 1, 3, 6, 7, 8]
+round_88_end: 10:59:49:957023
+round_89_start: 10:59:49:957059
+round_89_received_params: 10:59:50:392288
+received_params: 10:59:50:398238
+received_params: 10:59:50:404199
+round_89_aggregation: 10:59:50:404214
+round_89_aggregation order: [0, 2, 1, 3, 4, 6, 7, 8]
+round_89_end: 10:59:50:474750
+round_90_start: 10:59:50:474789
+round_90_received_params: 10:59:50:909649
+received_params: 10:59:50:917190
+received_params: 10:59:50:923164
+round_90_aggregation: 10:59:50:923179
+round_90_aggregation order: [0, 2, 4, 1, 3, 6, 7, 8]
+round_90_end: 10:59:50:993612
+round_91_start: 10:59:50:993649
+round_91_received_params: 10:59:51:429064
+received_params: 10:59:51:435029
+received_params: 10:59:51:440991
+round_91_aggregation: 10:59:51:441005
+round_91_aggregation order: [0, 1, 2, 4, 3, 6, 7, 8]
+round_91_end: 10:59:51:511512
+round_92_start: 10:59:51:511550
+round_92_received_params: 10:59:51:946913
+received_params: 10:59:51:952890
+received_params: 10:59:51:958887
+round_92_aggregation: 10:59:51:958903
+round_92_aggregation order: [0, 2, 4, 1, 3, 6, 7, 8]
+round_92_end: 10:59:52:029355
+round_93_start: 10:59:52:029392
+round_93_received_params: 10:59:52:470450
+received_params: 10:59:52:476404
+round_93_aggregation: 10:59:52:476419
+round_93_aggregation order: [0, 4, 1, 3, 2, 6, 7, 5]
+round_93_end: 10:59:52:546968
+round_94_start: 10:59:52:547006
+round_94_received_params: 10:59:52:981473
+received_params: 10:59:52:987421
+received_params: 10:59:52:993383
+round_94_aggregation: 10:59:52:993397
+round_94_aggregation order: [0, 4, 1, 2, 3, 6, 7, 8]
+round_94_end: 10:59:53:063774
+round_95_start: 10:59:53:063813
+round_95_received_params: 10:59:53:499326
+received_params: 10:59:53:505266
+received_params: 10:59:53:511230
+round_95_aggregation: 10:59:53:511245
+round_95_aggregation order: [0, 4, 1, 2, 3, 6, 7, 5]
+round_95_end: 10:59:53:581796
+round_96_start: 10:59:53:581833
+round_96_received_params: 10:59:54:016951
+received_params: 10:59:54:022919
+received_params: 10:59:54:028947
+round_96_aggregation: 10:59:54:028962
+round_96_aggregation order: [0, 4, 1, 3, 2, 6, 7, 8]
+round_96_end: 10:59:54:099677
+round_97_start: 10:59:54:099714
+round_97_received_params: 10:59:54:541076
+received_params: 10:59:54:547052
+round_97_aggregation: 10:59:54:547068
+round_97_aggregation order: [0, 4, 1, 2, 3, 6, 7, 5]
+round_97_end: 10:59:54:617522
+round_98_start: 10:59:54:617560
+round_98_received_params: 10:59:55:058730
+received_params: 10:59:55:064691
+round_98_aggregation: 10:59:55:064707
+round_98_aggregation order: [0, 2, 4, 1, 3, 6, 7, 5]
+round_98_end: 10:59:55:135243
+round_99_start: 10:59:55:135281
+round_99_received_params: 10:59:55:576317
+received_params: 10:59:55:582271
+round_99_aggregation: 10:59:55:582286
+round_99_aggregation order: [0, 4, 1, 3, 2, 6, 7, 5]
+round_99_end: 10:59:55:652902
+round_100_start: 10:59:55:652943
+round_100_received_params: 10:59:56:088054
+received_params: 10:59:56:093992
+received_params: 10:59:56:099945
+round_100_aggregation: 10:59:56:099960
+round_100_aggregation order: [0, 4, 1, 2, 3, 6, 7, 8]
+round_100_end: 10:59:56:170683
+end: 10:59:56:170723
