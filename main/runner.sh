@@ -30,43 +30,52 @@ function f {
 
 trap f SIGINT
 
-for agg in ${aggregator[@]}; do
-    if [[ "$1" == "fl" || "$1" == "all" ]]
-    then
-        mkdir -p "../FL_res/""$agg"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Performance
-        mkdir -p "../FL_res/""$agg"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Accuracy
+for i in {1..3}
+do
+    for agg in ${aggregator[@]}; do
+        if [[ "$1" == "fl" || "$1" == "all" ]]
+        then
+            mkdir -p "../FL_res/""$agg"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Performance
+            mkdir -p "../FL_res/""$agg"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Accuracy
+            mkdir -p "../FL_res/""$agg"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Accuracy_$i
 
-        for att in ${attack[@]}; do
-            mkdir -p "../FL_res/""$agg"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Accuracy/"$att"
-            echo running FL with "$nb_byz" byzantine client. Accuracy test phase! Aggregator: "$agg" Attack: "$att"
-            ((new_nb_clients = nb_clients - nb_byz))
-            bash FLRunner.sh "$new_nb_clients" "$localHost" "$server_port" "$nb_byz" "$rounds" "$agg" "$att" "Accuracy"
-        done
-    fi
+            for att in ${attack[@]}; do
+                mkdir -p "../FL_res/""$agg"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Accuracy/"$att"
+                echo running FL with "$nb_byz" byzantine client. Accuracy test phase! Aggregator: "$agg" Attack: "$att"
+                ((new_nb_clients = nb_clients - nb_byz))
+                bash FLRunner.sh "$new_nb_clients" "$localHost" "$server_port" "$nb_byz" "$rounds" "$agg" "$att" "Accuracy"
+                mv "../FL_res/""$agg"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Accuracy/"$att" "../FL_res/""$agg"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Accuracy_$i/
+            done
+        fi
 
-    if [[ "$1" == "p2p" || "$1" == "all" ]]
-    then
-        mkdir -p "../Gossip_res/""$agg"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Performance
-        mkdir -p "../Gossip_res/""$agg"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Accuracy
+        if [[ "$1" == "p2p" || "$1" == "all" ]]
+        then
+            mkdir -p "../Gossip_res/""$agg"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Performance
+            mkdir -p "../Gossip_res/""$agg"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Accuracy
+            mkdir -p "../Gossip_res/""$agg"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Accuracy_$i
 
-        for att in ${attack[@]}; do
-            mkdir -p "../Gossip_res/""$agg"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Accuracy/"$att"
-            echo running p2p with "$nb_byz" byzantine client. Accuracy test phase! Aggregator: "$agg" Attack: "$att"
-            ((new_nb_clients = nb_clients - nb_byz))
-            bash gossipRunner.sh "$new_nb_clients" "$localHost" "$server_port" "$nb_byz" "$rounds" "$agg" "$att" "Accuracy"
-        done
-    fi
+            for att in ${attack[@]}; do
+                mkdir -p "../Gossip_res/""$agg"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Accuracy/"$att"
+                echo running p2p with "$nb_byz" byzantine client. Accuracy test phase! Aggregator: "$agg" Attack: "$att"
+                ((new_nb_clients = nb_clients - nb_byz))
+                bash gossipRunner.sh "$new_nb_clients" "$localHost" "$server_port" "$nb_byz" "$rounds" "$agg" "$att" "Accuracy"
+                mv "../Gossip_res/""$agg"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Accuracy/"$att" "../Gossip_res/""$agg"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Accuracy_$i/
+            done
+        fi
 
-    if [[ "$1" == "con" || "$1" == "all" ]]
-    then
-        mkdir -p "../Consensus_res/""$agg"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Performance
-        mkdir -p "../Consensus_res/""$agg"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Accuracy
+        if [[ "$1" == "con" || "$1" == "all" ]]
+        then
+            mkdir -p "../Consensus_res/""$agg"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Performance
+            mkdir -p "../Consensus_res/""$agg"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Accuracy
+            mkdir -p "../Consensus_res/""$agg"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Accuracy_$i
 
-        for att in ${attack[@]}; do
-            mkdir -p "../Consensus_res/""$agg"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Accuracy/"$att"
-            echo running con with "$nb_byz" byzantine client. Accuracy test phase! Aggregator: "$agg" Attack: "$att"
-            ((new_nb_clients = nb_clients - nb_byz))
-            bash ConsensusRunner.sh "$nb_replicas" "$new_nb_clients" "$rounds" "$localHost" "$nb_byz" "$agg" "$att" "Accuracy"
-        done
-    fi
+            for att in ${attack[@]}; do
+                mkdir -p "../Consensus_res/""$agg"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Accuracy/"$att"
+                echo running con with "$nb_byz" byzantine client. Accuracy test phase! Aggregator: "$agg" Attack: "$att"
+                ((new_nb_clients = nb_clients - nb_byz))
+                bash ConsensusRunner.sh "$nb_replicas" "$new_nb_clients" "$rounds" "$localHost" "$nb_byz" "$agg" "$att" "Accuracy"
+                mv "../Consensus_res/""$agg"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Accuracy/"$att" "../Consensus_res/""$agg"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Accuracy_$i/
+            done
+        fi
+    done
 done
