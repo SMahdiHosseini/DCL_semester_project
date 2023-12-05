@@ -31,7 +31,7 @@ class TraningClient:
         self.net = Helper.to_device(Model.FederatedNet(), Helper.device)
         self.connection = None
         if test == Helper.accuracy_test:
-            self.text_file = open("../FL_res/" + aggregator + "/ncl_" + str(nb_clients + nb_byz)  + "/nbyz_" + str(nb_byz) + "/Accuracy/"  + attack + "/" + str(client_id) + ".txt", "w")
+            self.text_file = open("../FL_res/" + aggregator + "/ncl_" + str(nb_clients)  + "/nbyz_" + str(nb_byz) + "/Accuracy/"  + attack + "/" + str(client_id) + ".txt", "w")
 
     def get_dataset_size(self):
         return len(self.dataset)

@@ -42,14 +42,14 @@ def runTheRound(r, connections):
     recvd_params, recvd_size = connectionHelper.getAllParams(connections, nb_clients, None, None, None, r, nb_clients - nb_byz, log, test)
     addNewLog("round_{}_aggregation: {}\n".format(r, datetime.now().strftime("%H:%M:%S:%f")))
     if test == Helper.accuracy_test:
-        recvd_params = dict(sorted(recvd_params.items(), key=lambda x: x[0][1])[:nb_clients - nb_byz])
+        recvd_params = dict(sorted(recvd_params.items(), key=lambda x: x[0][1])[:nb_clients - 2 * nb_byz])
         print(recvd_params.keys())
         byz_vectors = attacker.generate_byzantine_vectors(list(recvd_params.values()), None)
         id = -1
         for v in byz_vectors:
             recvd_params[(id, t)] = v
             id -= 1
-        ordered_params = dict(sorted(recvd_params.items(), key=lambda x: x[0][1])[:nb_clients])
+        ordered_params = dict(sorted(recvd_params.items(), key=lambda x: x[0][1])[:nb_clients - nb_byz])
     else:
         ordered_params = dict(sorted(recvd_params.items(), key=lambda x: x[0][1])[:nb_clients - nb_byz])
     print(ordered_params.keys())

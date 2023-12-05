@@ -163,14 +163,13 @@ for agg in ${aggregator[@]}; do
         if [[ "$1" == "fl" || "$1" == "all" ]]
         then
             mkdir -p "./FL_res/""$agg"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Performance
-            mkdir -p "./FL_res/""$agg"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Accuracy
+            mkdir -p "./FL_res/""$agg"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Accuracy/"$att"
 
-            scp ubuntu@$server:/home/ubuntu/DCL_semester_project/FL_res/$agg/ncl_$nb_clients/nbyz_$nb_byz/Accuracy/server.txt  ./FL_res/$agg/ncl_$nb_clients/nbyz_$nb_byz/Accuracy &
             i=0
             d=1
             for client in "${clients[@]}"
             do
-                scp ubuntu@$client:/home/ubuntu/DCL_semester_project/FL_res/$agg/ncl_$nb_clients/nbyz_$nb_byz/Accuracy/$i.txt  ./FL_res/$agg/ncl_$nb_clients/nbyz_$nb_byz/Accuracy &
+                scp ubuntu@$client:/home/ubuntu/DCL_semester_project/FL_res/$agg/ncl_$nb_clients/nbyz_$nb_byz/Accuracy/$att/$i.txt  ./FL_res/$agg/ncl_$nb_clients/nbyz_$nb_byz/Accuracy/$att &
                 i=$(( $i + $d ))
             done  
         fi
@@ -178,12 +177,12 @@ for agg in ${aggregator[@]}; do
         if [[ "$1" == "p2p" || "$1" == "all" ]]
         then
             mkdir -p "./Gossip_res/""$agg"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Performance
-            mkdir -p "./Gossip_res/""$agg"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Accuracy
+            mkdir -p "./Gossip_res/""$agg"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Accuracy/$att
             i=0
             d=1
             for client in "${clients[@]}"
             do
-                scp ubuntu@$client:/home/ubuntu/DCL_semester_project/Gossip_res/$agg/ncl_$nb_clients/nbyz_$nb_byz/Accuracy/$i.txt  ./Gossip_res/$agg/ncl_$nb_clients/nbyz_$nb_byz/Accuracy &
+                scp ubuntu@$client:/home/ubuntu/DCL_semester_project/Gossip_res/$agg/ncl_$nb_clients/nbyz_$nb_byz/Accuracy/$att/$i.txt  ./Gossip_res/$agg/ncl_$nb_clients/nbyz_$nb_byz/Accuracy/$att &
                 i=$(( $i + $d ))
             done  
         fi
@@ -191,13 +190,12 @@ for agg in ${aggregator[@]}; do
         if [[ "$1" == "con" || "$1" == "all" ]]
         then
             mkdir -p "./Consensus_res/""$agg"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Performance
-            mkdir -p "./Consensus_res/""$agg"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Accuracy
+            mkdir -p "./Consensus_res/""$agg"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Accuracy/$att
             i=0
             d=1
             for client in "${clients[@]}"
             do
-                scp ubuntu@$client:/home/ubuntu/DCL_semester_project/Consensus_res/$agg/ncl_$nb_clients/nbyz_$nb_byz/Accuracy/$i.txt  ./Consensus_res/$agg/ncl_$nb_clients/nbyz_$nb_byz/Accuracy &
-                scp ubuntu@$client:/home/ubuntu/DCL_semester_project/Consensus_res/$agg/ncl_$nb_clients/nbyz_$nb_byz/Accuracy/server_$i.txt  ./Consensus_res/$agg/ncl_$nb_clients/nbyz_$nb_byz/Accuracy &
+                scp ubuntu@$client:/home/ubuntu/DCL_semester_project/Consensus_res/$agg/ncl_$nb_clients/nbyz_$nb_byz/Accuracy/$att/$i.txt  ./Consensus_res/$agg/ncl_$nb_clients/nbyz_$nb_byz/Accuracy/$att &
                 i=$(( $i + $d ))
             done  
         fi

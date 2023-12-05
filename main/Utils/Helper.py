@@ -9,7 +9,7 @@ batch_size = 128
 epochs_per_client = 1
 learning_rate = 2e-2
 performance_test = "Performance"
-accuracy_test = "accuracy"
+accuracy_test = "Accuracy"
 
 ## Define utilities for GPU support
 def get_device():
