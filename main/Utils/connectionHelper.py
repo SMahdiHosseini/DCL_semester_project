@@ -81,6 +81,6 @@ def getAllParams(connections, num_of_connections, client_parameters, dataset_siz
         recvd_params.update(new_params)
         recvd_size.update(new_sizes)
         if test == Helper.performance_test and len(list(recvd_size.values())) >= num_of_params:
-            log.addLog("received_params: {}\n".format(datetime.now().strftime("%H:%M:%S:%f")))
+            log.addLog("received_params_{}: {}\n".format(str(num_of_params), datetime.now().strftime("%H:%M:%S:%f")))
 
     return recvd_params, recvd_size
