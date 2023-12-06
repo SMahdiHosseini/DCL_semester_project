@@ -3,8 +3,8 @@ from Utils import evaluator
 from multiprocessing.connection import Client
 import sys
 import torch
-import threading
 from datetime import datetime
+from Utils.Message import Msg
 
 #program input: nb_clients, client_id, server_address, server_port, nb_rounds, nb_byz, aggregator, attack, test
 nb_clients = int(sys.argv[1])
@@ -66,7 +66,10 @@ class TraningClient:
         addNewLog("end: {}\n".format(datetime.now().strftime("%H:%M:%S:%f")))
 
     def terminate(self):
-        self.connection.close()
+        self.connection.send(Msg(header=Message.TERMINATE))
+        msg = self.connection.recv()
+        if msg.header == Message.ACK:
+            self.connection.close()
 
 def evaluation(params, r, text_file):
     evaluator.evaluateTheRound(params, r, text_file)

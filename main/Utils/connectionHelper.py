@@ -43,6 +43,8 @@ def getNewParametersFromPython(connections, info):
     ready_to_read, _, _ = select.select(connections, [], [])
     for sock in ready_to_read:
         msg = sock.recv()
+        if msg.header == Message.TERMINATE:
+            print("GOT HERE@@@")
         if msg.header == Message.NEW_PARAMETERS:
             if int(msg.content[Message.ROUND]) == info[Message.ROUND]:
                 t = datetime.now().strftime("%H:%M:%S:%f")

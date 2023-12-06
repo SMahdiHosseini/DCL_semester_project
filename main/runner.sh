@@ -39,17 +39,17 @@ do
             mkdir -p "../FL_res/""$agg"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Accuracy
             mkdir -p "../FL_res/""$agg"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Accuracy_$i
 
-            echo running FL with "$nb_byz" byzantine client. Performance test phase! Aggregator: "$agg"
-            bash FLRunner.sh "$nb_clients" "$localHost" "$server_port" "$nb_byz" "$rounds" "$agg" "att" "Performance"
+            # echo running FL with "$nb_byz" byzantine client. Performance test phase! Aggregator: "$agg"
+            # bash FLRunner.sh "$nb_clients" "$localHost" "$server_port" "$nb_byz" "$rounds" "$agg" "att" "Performance"
 
-            # for att in ${attack[@]}; do
-            #     mkdir -p "../FL_res/""$agg"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Accuracy/"$att"
-            #     echo running FL with "$nb_byz" byzantine client. Accuracy test phase! Aggregator: "$agg" Attack: "$att"
-            #     ((new_nb_clients = nb_clients - nb_byz))
-            #     bash FLRunner.sh "$new_nb_clients" "$localHost" "$server_port" "$nb_byz" "$rounds" "$agg" "$att" "Accuracy"
-            #     rm -rf "../FL_res/""$agg"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Accuracy_$i/"$att"
-            #     mv -f "../FL_res/""$agg"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Accuracy/"$att" "../FL_res/""$agg"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Accuracy_$i/
-            # done
+            for att in ${attack[@]}; do
+                mkdir -p "../FL_res/""$agg"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Accuracy/"$att"
+                echo running FL with "$nb_byz" byzantine client. Accuracy test phase! Aggregator: "$agg" Attack: "$att"
+                ((new_nb_clients = nb_clients - nb_byz))
+                bash FLRunner.sh "$new_nb_clients" "$localHost" "$server_port" "$nb_byz" "$rounds" "$agg" "$att" "Accuracy"
+                rm -rf "../FL_res/""$agg"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Accuracy_$i/"$att"
+                mv -f "../FL_res/""$agg"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Accuracy/"$att" "../FL_res/""$agg"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Accuracy_$i/
+            done
         fi
 
         if [[ "$1" == "p2p" || "$1" == "all" ]]
