@@ -86,7 +86,7 @@ class TraningClient:
         self.shareToNeighbors(r)
         addNewLog("round_{}_".format(r))
         t = datetime.now().strftime("%H:%M:%S:%f")
-        recvd_params, recvd_size = connectionHelper.getAllParams(list(self.connections.values()), len(self.neighbors), self.net.get_parameters(), self.get_dataset_size(), self.client_id, r, nb_clients - nb_byz - 1, log, test)
+        recvd_params, recvd_size = connectionHelper.getAllParams(list(self.connections.values()), nb_clients - nb_byz - 1, self.net.get_parameters(), self.get_dataset_size(), self.client_id, r, nb_clients - nb_byz - 1, log, test)
         addNewLog("round_{}_aggregation: {}\n".format(r, datetime.now().strftime("%H:%M:%S:%f")))
         recvd_params[(self.client_id, t)] = self.net.get_parameters().cpu()
         recvd_size[(self.client_id, t)] = self.get_dataset_size()
@@ -104,14 +104,21 @@ class TraningClient:
         new_model_parameters = self.aggregator.aggregate(list(ordered_params.values()))
         self.net.apply_parameters(new_model_parameters)
         addNewLog("round_{}_end: {}\n".format(r, datetime.now().strftime("%H:%M:%S:%f")))
+        unrecvd_connections = [self.connections[s] for s in list(self.connections.keys()) if s not in [k[0] for k in ordered_params.keys()]]
+        t1 = threading.Thread(target=handleRemainedClients, args=(unrecvd_connections, new_model_parameters, r))
+        t1.start()
         if test == Helper.accuracy_test:
             evaluation(new_model_parameters, r, self.text_file)
+        t1.join()
 
     def execute(self):
         addNewLog("Starting: {}\n".format(datetime.now().strftime("%H:%M:%S:%f")))
         for r in range(1, nb_rounds + 1):
             self.runTheRound(r)
         addNewLog("end: {}\n".format(datetime.now().strftime("%H:%M:%S:%f")))
+        
+def handleRemainedClients(connections, params, r):
+    connectionHelper.getAllParams(connections, len(connections), None, None, None, r, len(connections), log, test)
 
 def evaluation(params, r, text_file):
     evaluator.evaluateTheRound(params, r, text_file)
