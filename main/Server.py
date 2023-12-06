@@ -47,7 +47,8 @@ def runTheRound(r, connections):
     addNewLog("round_{}_".format(r))
     t = datetime.now().strftime("%H:%M:%S:%f")
     recvd_params, recvd_size = connectionHelper.getAllParams(list(connections.values()), nb_clients - nb_byz, None, None, None, r, nb_clients - nb_byz, log, test)
-    # recvd_params, recvd_size = connectionHelper.getAllParams(connections, nb_clients, None, None, None, r, nb_clients - nb_byz, log, test)
+    recvd_connections = [connections[s] for s in list(connections.keys()) if s in [k[0] for k in recvd_params.keys()]]
+    unrecvd_connections = [connections[s] for s in list(connections.keys()) if s not in [k[0] for k in recvd_params.keys()]]
     addNewLog("round_{}_aggregation: {}\n".format(r, datetime.now().strftime("%H:%M:%S:%f")))
     if test == Helper.accuracy_test:
         recvd_params = dict(sorted(recvd_params.items(), key=lambda x: x[0][1])[:nb_clients - nb_byz])
@@ -63,8 +64,6 @@ def runTheRound(r, connections):
     print(ordered_params.keys())
     addNewLog("round_{}_aggregation order: {}\n".format(r, [x[0] for x in ordered_params.keys()]))
     new_model_parameters = aggregator.aggregate(list(ordered_params.values()))
-    recvd_connections = [connections[s] for s in list(connections.keys()) if s in [k[0] for k in ordered_params.keys()]]
-    unrecvd_connections = [connections[s] for s in list(connections.keys()) if s not in [k[0] for k in ordered_params.keys()]]
 
     t1 = threading.Thread(target=handleRemainedClients, args=(unrecvd_connections, new_model_parameters, r))
     t1.start()

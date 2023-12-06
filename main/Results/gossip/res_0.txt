@@ -1,9 +1,11 @@
 Client 0 started! ... 
 Client 0 connected to client 1 !
 Client 0 connected to client 2 !
+Client 0 connected to client 3 !
+Client 0 connected to client 4 !
 client connected to neighbors!
 Loss = 1.9876, Accuracy = 0.5063
-dict_keys([(0, '14:33:16:688149'), (2, '14:33:16:688680'), (1, '14:33:16:698659')])
-Loss = 1.4978, Accuracy = 0.744
-dict_keys([(0, '14:33:18:283576'), (1, '14:33:18:391037'), (2, '14:33:18:407541')])
+dict_keys([(0, '15:12:07:833403'), (1, '15:12:07:833841'), (2, '15:12:07:847221'), (4, '15:12:07:863802')])
+Loss = 1.4994, Accuracy = 0.7418
+dict_keys([(0, '15:12:11:268302'), (1, '15:12:11:268731'), (2, '15:12:11:280022'), (4, '15:12:11:291483')])
 Client 0 terminated! ...

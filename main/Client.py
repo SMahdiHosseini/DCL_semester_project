@@ -47,10 +47,13 @@ class TraningClient:
             evaluation(self.net.get_parameters(), 0, self.text_file)
         
         self.net.fit(self.dataset)
+        addNewLog("round_{}_model_trained: {}\n".format(r, datetime.now().strftime("%H:%M:%S:%f")))
         client_parameters = self.net.get_parameters()
-            
+        
         connectionHelper.sendNewParameters(self.connection, client_parameters, connectionHelper.PYTHON, info={Message.ROUND: r, Message.SIZE: self.get_dataset_size(), Message.SRC: self.client_id})
-        recvd_params, recvd_size = connectionHelper.getAllParams([self.connection], 1, client_parameters, self.get_dataset_size(), self.client_id, r, 1, None, Helper.accuracy_test)
+        addNewLog("round_{}_model_shared: {}\n".format(r, datetime.now().strftime("%H:%M:%S:%f")))
+        addNewLog("round_{}_".format(r))
+        recvd_params, recvd_size = connectionHelper.getAllParams([self.connection], 1, client_parameters, self.get_dataset_size(), self.client_id, r, 1, log, test)
         self.net.apply_parameters(list(recvd_params.values())[0])
         addNewLog("round_{}_end: {}\n".format(r, datetime.now().strftime("%H:%M:%S:%f")))
         if test == Helper.accuracy_test:
