@@ -98,6 +98,7 @@ def execute(connections):
                 round_params[r] = runTheRound(r, connections, recvd_params)
                 print("round {} finished".format(r))
                 r += 1
+                addNewLog("round_{}_start: {}\n".format(r, datetime.now().strftime("%H:%M:%S:%f")))
                 recvd_params = dict()
                 recvd_size = dict()
 

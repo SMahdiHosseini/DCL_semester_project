@@ -82,19 +82,19 @@ def analyseFLPerformance(aggregator, attack, nb_clients, nb_byz, fl_res):
         #clients
         rounds_times = []
         for c in range(nb_clients):
-            temp = lines_clients[c]['round_{}_end'.format(r)] - lines_clients[c]['round_{}_start'.format(r)] - (lines_server['round_{}_aggregation'.format(r)] - lines_server['round_{}_received_params'.format(r)])
+            temp = lines_clients[c]['round_{}_end'.format(r)] - lines_clients[c]['round_{}_start'.format(r)]
             rounds_times.append(temp.total_seconds())
         avg = sumOfTimes(rounds_times) / nb_clients
         #server
-        t = (lines_server['round_{}_end'.format(r)] - lines_server['round_{}_start'.format(r)]).total_seconds()
-        t = (lines_server['round_{}_received_params'.format(r)] - lines_server['round_{}_start'.format(r)] + lines_server['round_{}_end'.format(r)] - lines_server['round_{}_aggregation'.format(r)]).total_seconds()
+        # t = (lines_server['round_{}_end'.format(r)] - lines_server['round_{}_start'.format(r)]).total_seconds()
+        # t = (lines_server['round_{}_received_params'.format(r)] - lines_server['round_{}_start'.format(r)] + lines_server['round_{}_end'.format(r)] - lines_server['round_{}_aggregation'.format(r)]).total_seconds()
         if r == 2:
-            total = t
+            # total = t
             total_average = avg
         else:
-            total += t
+            # total += t
             total_average += avg
-        log.addLog("round {}\n\tserver time: {}\n\tclients average time: {}\n".format(r, t, avg))
+        # log.addLog("round {}\n\tserver time: {}\n\tclients average time: {}\n".format(r, t, avg))
         # times[r] = [t] + rounds_times
         times[r] = rounds_times
     log.addLog("total \n\tserver_time: {}\n\tclients average total time: {}".format(total, total_average))
@@ -113,8 +113,8 @@ def analyseP2PPerformance(aggregator, attack, nb_clients, nb_byz, p2p_res):
         #clients
         rounds_times = []
         for c in range(nb_clients):
-            # temp = lines_clients[c]['round_{}_end'.format(r)] - lines_clients[c]['round_{}_start'.format(r)]
-            temp = lines_clients[c]['round_{}_received_params'.format(r)] - lines_clients[c]['round_{}_start'.format(r)] + lines_clients[c]['round_{}_end'.format(r)] - lines_clients[c]['round_{}_aggregation'.format(r)]
+            temp = lines_clients[c]['round_{}_end'.format(r)] - lines_clients[c]['round_{}_start'.format(r)]
+            # temp = lines_clients[c]['round_{}_received_params'.format(r)] - lines_clients[c]['round_{}_start'.format(r)] + lines_clients[c]['round_{}_end'.format(r)] - lines_clients[c]['round_{}_aggregation'.format(r)]
             rounds_times.append(temp.total_seconds())
         avg = sumOfTimes(rounds_times) / nb_clients
         if r == 2:
@@ -148,7 +148,7 @@ def analyseConPerformance(aggregator, attack, nb_clients, nb_byz, con_res):
         #clients
         rounds_times_clients = []
         for c in range(nb_clients):
-            temp = lines_clients[c]['round_{}_end'.format(r)] - lines_clients[c]['round_{}_start'.format(r)] - (lines_replicas[0]['round_{}_aggregation'.format(r)] - lines_replicas[0]['round_{}_received_params'.format(r)])
+            temp = lines_clients[c]['round_{}_end'.format(r)] - lines_clients[c]['round_{}_start'.format(r)]
             rounds_times_clients.append(temp.total_seconds())
         avg_c = sumOfTimes(rounds_times_clients) / nb_clients
         #replicas
