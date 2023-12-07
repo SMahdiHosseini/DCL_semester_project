@@ -33,10 +33,13 @@ class TraningClient:
     def get_dataset_size(self):
         return len(self.dataset)
     
-    def handleTrainCmd(self, connection):
+    def handleTrainCmd(self, connection, r):
         self.net.fit(self.dataset)
+        addNewLog("round_{}_model_trained: {}\n".format(r, datetime.now().strftime("%H:%M:%S:%f")))
         connection.send(jpysocket.jpyencode(str(self.get_dataset_size())))
         connectionHelper.sendNewParameters(connection, self.net.get_parameters(), connectionHelper.JAVA)
+        addNewLog("round_{}_model_shared: {}\n".format(r, datetime.now().strftime("%H:%M:%S:%f")))
+
 
     def execute(self, connection):
         addNewLog("Starting: {}\n".format(datetime.now().strftime("%H:%M:%S:%f")))
@@ -60,7 +63,7 @@ class TraningClient:
                 addNewLog("round_{}_start: {}\n".format(r, datetime.now().strftime("%H:%M:%S:%f")))
                 if test == Helper.accuracy_test and r == 1:
                     evaluation(self.net.get_parameters(), 0, self.text_file)
-                self.handleTrainCmd(connection)
+                self.handleTrainCmd(connection, r)
                 continue
             if msg == Message.TERMINATE:
                 # for t in my_thread:

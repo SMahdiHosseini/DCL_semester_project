@@ -90,6 +90,11 @@ done
 
 wait
 
+# for client in "${clients[@]}"
+# do
+#     scp -r main/Client_bft.py ubuntu@"$client":/home/ubuntu/DCL_semester_project/main &
+# done
+
 echo "*********************"
 echo "*********************" 
 echo "   BFT prepared!     "
