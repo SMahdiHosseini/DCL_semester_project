@@ -24,7 +24,7 @@ public class FLClientInterface {
         } else if (msg.getType().equals(MessageType.END)){
             return true;
         } else if (msg.getType().equals(MessageType.AGGPARAM)){
-            System.out.println("GOt AGGPARAM Message for round " + msg.getRound());
+            // System.out.println("GOt AGGPARAM Message for round " + msg.getRound());
             modelClient.setParameters(msg.getContent());
         }
         return false;
@@ -32,7 +32,7 @@ public class FLClientInterface {
     }
     private static boolean runTheRound(int round, int clientId, ServiceProxy serviceProxy) throws IOException, ClassNotFoundException, InterruptedException {
         String newParams = modelClient.train();
-        System.out.println("Got New Params");
+        // System.out.println("Got New Params");
 
         FLMessage message = new FLMessage(MessageType.NEWPARAM, newParams, round, clientId, modelClient.datasetSize);
         byte[] reply = serviceProxy.invokeOrdered(FLMessage.toBytes(message));
