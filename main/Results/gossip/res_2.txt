@@ -2,10 +2,20 @@ Client 2 started! ...
 Client 2 connected to client 0 !
 Client 2 connected to client 1 !
 Client 2 connected to client 3 !
-Client 2 connected to client 4 !
 client connected to neighbors!
-Loss = 1.9882, Accuracy = 0.5261
-dict_keys([(2, '15:12:07:736287'), (1, '15:12:07:757298'), (4, '15:12:07:788457'), (0, '15:12:07:802094')])
-Loss = 1.4954, Accuracy = 0.7674
-dict_keys([(2, '15:12:11:242548'), (0, '15:12:11:243019'), (4, '15:12:11:255483'), (1, '15:12:11:282018')])
+Loss = 1.9875, Accuracy = 0.5365
+round 1 finished 15:48:32:353828
+Loss = 1.4921, Accuracy = 0.766
+round 2 finished 15:48:37:865137
+Loss = 1.2104, Accuracy = 0.8005
+round 3 finished 15:48:43:626697
+Loss = 1.0384, Accuracy = 0.8205
+round 4 finished 15:48:49:244303
+Loss = 0.9254, Accuracy = 0.8282
+round 5 finished 15:48:55:373363
+Loss = 0.8447, Accuracy = 0.8407
+round 6 finished 15:49:01:623639
+Loss = 0.7846, Accuracy = 0.8469
+round 7 finished 15:49:06:786477
+Client Iteration Finished!
 Client 2 terminated! ...

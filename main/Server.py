@@ -59,7 +59,7 @@ def runTheRound(r, connections, recvd_params):
         ordered_params = dict(sorted(recvd_params.items(), key=lambda x: x[0][1])[:nb_clients])
     else:
         ordered_params = dict(sorted(recvd_params.items(), key=lambda x: x[0][1])[:nb_clients - nb_byz])
-    print(ordered_params.keys())
+    # print(ordered_params.keys())
     addNewLog("round_{}_aggregation order: {}\n".format(r, [x[0] for x in ordered_params.keys()]))
     new_model_parameters = aggregator.aggregate(list(ordered_params.values()))
 
@@ -88,8 +88,8 @@ def execute(connections):
                     t = datetime.now().strftime("%H:%M:%S:%f")
                     recvd_params[(msg.src_id, t)] = connectionHelper.stringToTensor(msg.content[Message.PARAMS])
                     recvd_size[(msg.src_id, t)] = msg.content[Message.SIZE]
-                elif int(msg.content[Message.ROUND]) > r:
-                    sock.send(Msg(header=Message.WAIT))
+                # elif int(msg.content[Message.ROUND]) > r:
+                #     sock.send(Msg(header=Message.WAIT))
                 elif int(msg.content[Message.ROUND]) < r:
                     connectionHelper.sendNewParameters(sock, round_params[int(msg.content[Message.ROUND])], connectionHelper.PYTHON, info={Message.ROUND: msg.content[Message.ROUND], Message.SIZE: None, Message.SRC: None})
                     
