@@ -3,6 +3,9 @@ from datetime import datetime
 import Log
 import matplotlib.pyplot as plt
 from pylab import plot, show, savefig, xlim, figure, ylim, legend, boxplot, setp, axes
+import seaborn as sns
+import pandas as pd
+import numpy as np
 
 plt.style.use('ggplot')
 plt.rcParams['figure.figsize'] = (40, 20)
@@ -82,7 +85,8 @@ def analyseFLPerformance(aggregator, attack, nb_clients, nb_byz, fl_res):
         #clients
         rounds_times = []
         for c in range(nb_clients):
-            temp = lines_clients[c]['round_{}_end'.format(r)] - lines_clients[c]['round_{}_start'.format(r)]
+            # temp = lines_clients[c]['round_{}_end'.format(r)] - lines_clients[c]['round_{}_start'.format(r)]
+            temp = lines_clients[c]['round_{}_model_shared'.format(r)] - lines_clients[c]['round_{}_model_trained'.format(r)]
             rounds_times.append(temp.total_seconds())
         avg = sumOfTimes(rounds_times) / nb_clients
         #server
@@ -113,7 +117,8 @@ def analyseP2PPerformance(aggregator, attack, nb_clients, nb_byz, p2p_res):
         #clients
         rounds_times = []
         for c in range(nb_clients):
-            temp = lines_clients[c]['round_{}_end'.format(r)] - lines_clients[c]['round_{}_start'.format(r)]
+            # temp = lines_clients[c]['round_{}_end'.format(r)] - lines_clients[c]['round_{}_start'.format(r)]
+            temp = lines_clients[c]['round_{}_model_shared'.format(r)] - lines_clients[c]['round_{}_model_trained'.format(r)]
             # temp = lines_clients[c]['round_{}_received_params'.format(r)] - lines_clients[c]['round_{}_start'.format(r)] + lines_clients[c]['round_{}_end'.format(r)] - lines_clients[c]['round_{}_aggregation'.format(r)]
             rounds_times.append(temp.total_seconds())
         avg = sumOfTimes(rounds_times) / nb_clients
@@ -148,7 +153,8 @@ def analyseConPerformance(aggregator, attack, nb_clients, nb_byz, con_res):
         #clients
         rounds_times_clients = []
         for c in range(nb_clients):
-            temp = lines_clients[c]['round_{}_end'.format(r)] - lines_clients[c]['round_{}_start'.format(r)]
+            # temp = lines_clients[c]['round_{}_end'.format(r)] - lines_clients[c]['round_{}_start'.format(r)]
+            temp = lines_clients[c]['round_{}_model_shared'.format(r)] - lines_clients[c]['round_{}_model_trained'.format(r)]
             rounds_times_clients.append(temp.total_seconds())
         avg_c = sumOfTimes(rounds_times_clients) / nb_clients
         #replicas
@@ -239,6 +245,65 @@ def accuracy_attack_plot(res, label, nb_clients, nb_byz):
         plt.savefig("../../Plots/" + agg + "/" + label + "_" + str(nb_clients) + "_"  + str(nb_byz) + ".png", bbox_inches='tight')
         plt.close()
 
+def find_fastest_slowest(senario, aggregator):
+    if senario == 'fl':
+        senario = "FL_res"
+    if senario == 'p2p':
+        senario = 'Gossip_res'
+    if senario == 'con':
+        senario = 'Consensus_res'
+    
+    clients_times = dict()
+    lines_clients = dict()
+    for i in range(nb_clients):
+        clients_times[i] = []
+        lines_clients[i] = readlines("../../" + senario + "/" + aggregator + "/ncl_" + str(nb_clients) + "/nbyz_" + str(nb_byz) + "/Performance/" + str(i)  + ".txt")
+        
+    for r in range(2, nb_rounds + 1):
+        for i in range(nb_clients):
+            clients_times[i].append((lines_clients[i]['round_{}_end'.format(r)] - lines_clients[i]['round_{}_start'.format(r)]).total_seconds())
+            
+    total_times = {key: sum(value) for key, value in clients_times.items()}
+    slowest_key = max(total_times, key=total_times.get)
+    fastest_key = min(total_times, key=total_times.get)
+
+    return clients_times[slowest_key], clients_times[fastest_key]
+
+def violin_plot(fl, p2p, con):
+    all_times = {'fl': {'trmean': [value for values in fl['trmean']['time'].values() for value in values]}, 
+             'p2p': {'trmean': [value for values in p2p['trmean']['time'].values() for value in values]}, 
+             'con': {'trmean': [value for values in con['trmean']['time'].values() for value in values]}}
+    df = pd.DataFrame(columns = ['senario', 'trmean'])
+    for key, value in all_times.items():
+        times_df = pd.DataFrame({'senario': key, 'trmean': value['trmean']})
+        df = pd.concat([df, times_df], ignore_index=True)
+    
+    df = pd.melt(frame = df, id_vars = 'senario', value_vars = ['trmean'],var_name = 'aggregator', value_name = 'time')
+    df['time'] = df['time'].astype(float)
+    ax = sns.violinplot(data = df,x = 'senario', y = 'time', fill=False)
+    # ax.axhline(np.mean(all_times['fl']['trmean']), color='red')
+    plt.grid(True)
+    plt.show()
+
+def violin_plot_slowest_fastest(fl, p2p, con):
+    all_times = {'fl': {'slowest': [value for value in fl['slowest']], 'fastest': [value for value in fl['fastest']]},
+                 'p2p': {'slowest': [value for value in p2p['slowest']], 'fastest': [value for value in p2p['fastest']]},
+                 'con': {'slowest': [value for value in con['slowest']], 'fastest': [value for value in con['fastest']]}}
+    
+    df = pd.DataFrame(columns = ['senario', 'slowest', 'fastest'])
+    for key, value in all_times.items():
+        times_df = pd.DataFrame({'senario': key, 'slowest': value['slowest'], 'fastest': value['fastest']})
+        df = pd.concat([df, times_df], ignore_index=True)
+
+
+    df = pd.melt(frame = df, id_vars = 'senario', value_vars = ['slowest', 'fastest'], var_name = 'type', value_name = 'time')
+    df['time'] = df['time'].astype(float)
+    print(df)
+    ax = sns.violinplot(data = df,x = 'senario', y = 'time', fill=False, split=True, hue='type')
+    # # ax.axhline(mean_est, color='')
+
+    plt.show()
+
 def main():
     fl = dict()
     p2p = dict()
@@ -272,10 +337,17 @@ def main():
     # accuracy_attack_plot(p2p, "p2p", nb_clients, nb_byz)
     # accuracy_attack_plot(con, "con", nb_clients, nb_byz)
 
-    boxplots_i(boxes=[[[value for values in fl[agg]['time'].values() for value in values] for agg in aggregators], 
-                      [[value for values in p2p[agg]['time'].values() for value in values] for agg in aggregators],
-                      [[value for values in con[agg]['time'].values() for value in values] for agg in aggregators]],
-               num=3, labels=aggregators, boxes_tags=['fl', 'p2p', 'con'], x_label="aggregator", y_label="time", y_lim=0.7, filename="../../Plots/roundtime_" + str(nb_clients) + "_" + str(nb_byz) + ".png", 
-               title="n = " + str(nb_clients) + "\n n byz = " + str(nb_byz))
+    # boxplots_i(boxes=[[[value for values in fl[agg]['time'].values() for value in values] for agg in aggregators], 
+    #                   [[value for values in p2p[agg]['time'].values() for value in values] for agg in aggregators],
+    #                   [[value for values in con[agg]['time'].values() for value in values] for agg in aggregators]],
+    #            num=3, labels=aggregators, boxes_tags=['fl', 'p2p', 'con'], x_label="aggregator", y_label="time", y_lim=0.7, filename="../../Plots/roundtime_" + str(nb_clients) + "_" + str(nb_byz) + ".png", 
+    #            title="n = " + str(nb_clients) + "\n n byz = " + str(nb_byz))
+    
+
+    violin_plot(fl, p2p, con)
+    slowest_fl, fastest_fl = find_fastest_slowest('fl', 'trmean')
+    slowest_p2p, fastest_p2p = find_fastest_slowest('p2p', 'trmean')
+    slowest_con, fastest_con = find_fastest_slowest('con', 'trmean')
+    violin_plot_slowest_fastest({'slowest': slowest_fl, 'fastest': fastest_fl}, {'slowest': slowest_p2p, 'fastest': fastest_p2p}, {'slowest': slowest_con, 'fastest': fastest_con})
 if __name__ == "__main__":
     main()

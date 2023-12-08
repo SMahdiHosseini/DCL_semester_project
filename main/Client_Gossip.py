@@ -22,6 +22,7 @@ attack_name = sys.argv[8]
 test = sys.argv[9]
 
 log = Log.Log("../Gossip_res/" + aggregator_name + "/ncl_" + str(nb_clients) + "/nbyz_" + str(nb_byz) + "/Performance/" + str(client_id) + ".txt")
+threads = []
 
 def addNewLog(new_log):
     if test == Helper.performance_test:
@@ -60,7 +61,6 @@ class TraningClient:
             print("Client {} connected to client {} !".format(self.client_id, neighborId))
 
     def terminate(self):
-        print("got here " + datetime.now().strftime("%H:%M:%S:%f"))
         for neighborId in self.neighbors:
             if self.client_id < neighborId :
                 self.connections[neighborId].send(Msg(header=Message.TERMINATE))
@@ -82,8 +82,11 @@ class TraningClient:
     
     def shareToNeighbors(self, r):
         client_parameters = self.net.get_parameters()
+        info={Message.ROUND: r, Message.SIZE: self.get_dataset_size(), Message.SRC: self.client_id}
         for conn in self.connections.values():
-            connectionHelper.sendNewParameters(conn, client_parameters, connectionHelper.PYTHON, info={Message.ROUND: r, Message.SIZE: self.get_dataset_size(), Message.SRC: self.client_id})
+            t = threading.Thread(target=connectionHelper.sendNewParameters, args=(conn, client_parameters, connectionHelper.PYTHON, info))
+            threads.append(t)
+            t.start()
 
     def runTheRound(self, r):
         if test == Helper.accuracy_test and r == 1:
@@ -117,6 +120,8 @@ class TraningClient:
     def checkForTermination(self, r, termination):
         if r > nb_rounds and termination == False:
             termination = True
+            for t in threads:
+                t.join()
             for conn in self.connections.values():
                 conn.send(Msg(header=Message.FINISHED))
         return termination
@@ -136,7 +141,7 @@ class TraningClient:
         recvd_params[r][(self.client_id, t)] = self.net.get_parameters().cpu()
         finished = 0
         while(r <= nb_rounds or finished < nb_clients - 1):
-            termination = self.checkForTermination(r, termination)
+            # termination = self.checkForTermination(r, termination)
             ready_to_read, _, _ = select.select(list(self.connections.values()), [], [])
             for sock in ready_to_read:
                 msg = sock.recv()
@@ -181,7 +186,7 @@ def main():
     traning_client.execute()
     if test == Helper.performance_test:
         log.writeLogs()
-    # traning_client.terminate()
+    traning_client.terminate()
     print("Client {} terminated! ...".format(client_id))
 if __name__ == "__main__":
     main()
