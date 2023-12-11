@@ -85,9 +85,9 @@ def analyseFLPerformance(aggregator, attack, nb_clients, nb_byz, fl_res):
         #clients
         rounds_times = []
         for c in range(nb_clients):
-            # temp = lines_clients[c]['round_{}_end'.format(r)] - lines_clients[c]['round_{}_start'.format(r)]
+            temp = lines_clients[c]['round_{}_end'.format(r)] - lines_clients[c]['round_{}_start'.format(r)]
             # temp = lines_clients[c]['round_{}_model_shared'.format(r)] - lines_clients[c]['round_{}_model_trained'.format(r)]
-            temp = lines_clients[c]['round_{}_model_trained'.format(r)] - lines_clients[c]['round_{}_start'.format(r)]
+            # temp = lines_clients[c]['round_{}_model_trained'.format(r)] - lines_clients[c]['round_{}_start'.format(r)]
             rounds_times.append(temp.total_seconds())
         avg = sumOfTimes(rounds_times) / nb_clients
         #server
@@ -118,9 +118,9 @@ def analyseP2PPerformance(aggregator, attack, nb_clients, nb_byz, p2p_res):
         #clients
         rounds_times = []
         for c in range(nb_clients):
-            # temp = lines_clients[c]['round_{}_end'.format(r)] - lines_clients[c]['round_{}_start'.format(r)]
+            temp = lines_clients[c]['round_{}_end'.format(r)] - lines_clients[c]['round_{}_start'.format(r)]
             # temp = lines_clients[c]['round_{}_model_shared'.format(r)] - lines_clients[c]['round_{}_model_trained'.format(r)]
-            temp = lines_clients[c]['round_{}_model_trained'.format(r)] - lines_clients[c]['round_{}_start'.format(r)]
+            # temp = lines_clients[c]['round_{}_model_trained'.format(r)] - lines_clients[c]['round_{}_start'.format(r)]
             # temp = lines_clients[c]['round_{}_received_params'.format(r)] - lines_clients[c]['round_{}_start'.format(r)] + lines_clients[c]['round_{}_end'.format(r)] - lines_clients[c]['round_{}_aggregation'.format(r)]
             rounds_times.append(temp.total_seconds())
         avg = sumOfTimes(rounds_times) / nb_clients
@@ -155,9 +155,9 @@ def analyseConPerformance(aggregator, attack, nb_clients, nb_byz, con_res):
         #clients
         rounds_times_clients = []
         for c in range(nb_clients):
-            # temp = lines_clients[c]['round_{}_end'.format(r)] - lines_clients[c]['round_{}_start'.format(r)]
+            temp = lines_clients[c]['round_{}_end'.format(r)] - lines_clients[c]['round_{}_start'.format(r)]
             # temp = lines_clients[c]['round_{}_model_shared'.format(r)] - lines_clients[c]['round_{}_model_trained'.format(r)]
-            temp = lines_clients[c]['round_{}_model_trained'.format(r)] - lines_clients[c]['round_{}_start'.format(r)]
+            # temp = lines_clients[c]['round_{}_model_trained'.format(r)] - lines_clients[c]['round_{}_start'.format(r)]
             rounds_times_clients.append(temp.total_seconds())
         avg_c = sumOfTimes(rounds_times_clients) / nb_clients
         #replicas
@@ -284,7 +284,9 @@ def violin_plot(fl, p2p, con):
     df = pd.melt(frame = df, id_vars = 'senario', value_vars = ['trmean'],var_name = 'aggregator', value_name = 'time')
     df['time'] = df['time'].astype(float)
     ax = sns.violinplot(data = df,x = 'senario', y = 'time', fill=False)
-    # ax.axhline(np.mean(all_times['fl']['trmean']), color='red')
+    ax.axhline(np.median(all_times['fl']['trmean']), color='blue', linewidth=1)
+    ax.axhline(np.median(all_times['p2p']['trmean']), color='red', linewidth=1)
+    ax.axhline(np.median(all_times['con']['trmean']), color='green', linewidth=1)
     plt.grid(True)
     plt.show()
 
@@ -340,11 +342,11 @@ def main():
     # accuracy_attack_plot(p2p, "p2p", nb_clients, nb_byz)
     # accuracy_attack_plot(con, "con", nb_clients, nb_byz)
 
-    # boxplots_i(boxes=[[[value for values in fl[agg]['time'].values() for value in values] for agg in aggregators], 
-    #                   [[value for values in p2p[agg]['time'].values() for value in values] for agg in aggregators],
-    #                   [[value for values in con[agg]['time'].values() for value in values] for agg in aggregators]],
-    #            num=3, labels=aggregators, boxes_tags=['fl', 'p2p', 'con'], x_label="aggregator", y_label="time", y_lim=0.7, filename="../../Plots/roundtime_" + str(nb_clients) + "_" + str(nb_byz) + ".png", 
-    #            title="n = " + str(nb_clients) + "\n n byz = " + str(nb_byz))
+    boxplots_i(boxes=[[[value for values in fl[agg]['time'].values() for value in values] for agg in aggregators], 
+                      [[value for values in p2p[agg]['time'].values() for value in values] for agg in aggregators],
+                      [[value for values in con[agg]['time'].values() for value in values] for agg in aggregators]],
+               num=3, labels=aggregators, boxes_tags=['fl', 'p2p', 'con'], x_label="aggregator", y_label="time", y_lim=0.7, filename="../../Plots/roundtime_" + str(nb_clients) + "_" + str(nb_byz) + ".png", 
+               title="n = " + str(nb_clients) + "\n n byz = " + str(nb_byz))
     
 
     violin_plot(fl, p2p, con)
