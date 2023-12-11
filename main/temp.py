@@ -13,11 +13,11 @@ def subProcess(q , i):
         if q.empty():
             continue
         else:
-            a = q.get()
+            a, b = q.get()
             if a == 0:
                 print("GOT HERE")
                 return
-            print(f"Process {i}:  {a}")
+            print(f"Process {i}:  {a, b}")
 
 
 manager = mp.Manager()
@@ -36,10 +36,10 @@ i = 1
 terminate = False
 while terminate == False:
     for j in range(4):
-        shared_dict[j].put(i)
+        shared_dict[j].put((i, i+1))
     if i == 10:
         for j in range(4):
-            shared_dict[j].put(0)
+            shared_dict[j].put((0, 0))
         terminate = True
     else:
         i += 1

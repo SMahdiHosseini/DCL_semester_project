@@ -9,6 +9,7 @@ import torch
 from datetime import datetime
 import select
 import threading
+import multiprocessing as mp
 
 #program input: client_id, nb_clients, listening_address, server_port, nb_byz, nb_rounds, aggregator_name, attack_name, test
 client_id = int(sys.argv[1])
@@ -23,6 +24,8 @@ test = sys.argv[9]
 
 log = Log.Log("../Gossip_res/" + aggregator_name + "/ncl_" + str(nb_clients) + "/nbyz_" + str(nb_byz) + "/Performance/" + str(client_id) + ".txt")
 threads = []
+manager = mp.Manager()
+shared_dict = manager.dict()
 
 def addNewLog(new_log):
     if test == Helper.performance_test:
@@ -40,6 +43,10 @@ class TraningClient:
         self.listeners = []
         self.aggregator = RobustAggregator('nnm', aggregator_name, 1, nb_byz, Helper.device)
         self.attacker = ByzantineAttack(attack_name, nb_byz)
+        self.current_round = manager
+        self.clients_parameters_queus = dict()
+        for i in self.neighbors:
+            shared_dict[i] = manager.Queue()
         if test == Helper.accuracy_test:
             self.text_file = open("../Gossip_res/" + aggregator_name + "/ncl_" + str(nb_clients + nb_byz)  + "/nbyz_" + str(nb_byz) + "/Accuracy/"  + attack_name + "/" + str(client_id) + ".txt", "w")
 
@@ -57,7 +64,9 @@ class TraningClient:
                 listener = Listener(address)
                 self.connections[neighborId] = listener.accept()
                 self.listeners.append(listener)
-
+            t = threading.Thread(target=self.sendingThread, args=(self.connections[neighborId], shared_dict[neighborId]))
+            threads.append(t)
+            t.start()
             print("Client {} connected to client {} !".format(self.client_id, neighborId))
 
     def terminate(self):
@@ -80,25 +89,39 @@ class TraningClient:
         for listener in self.listeners:
             listener.close()
     
-    def shareToNeighbors(self, r):
+    def shareToNeighbors(self):
         client_parameters = self.net.get_parameters()
-        info={Message.ROUND: r, Message.SIZE: self.get_dataset_size(), Message.SRC: self.client_id}
-        for conn in self.connections.values():
-            t = threading.Thread(target=connectionHelper.sendNewParameters, args=(conn, client_parameters, connectionHelper.PYTHON, info))
-            threads.append(t)
-            t.start()
+        for neighborId in self.neighbors:
+            shared_dict[neighborId].put((client_parameters, self.current_round))
+        # info={Message.ROUND: self.current_round, Message.SIZE: self.get_dataset_size(), Message.SRC: self.client_id}
+        # for conn in self.connections.values():
+        #     t = threading.Thread(target=connectionHelper.sendNewParameters, args=(conn, client_parameters, connectionHelper.PYTHON, info))
+        #     threads.append(t)
+        #     t.start()
 
-    def runTheRound(self, r):
-        if test == Helper.accuracy_test and r == 1:
+    def sendingThread(self, conn, client_parameters_queue):
+        while True:
+            if client_parameters_queue.empty():
+                continue
+            else:
+                client_parameters, r = client_parameters_queue.get()
+                if client_parameters == None:
+                    return
+                info={Message.ROUND: r, Message.SIZE: self.get_dataset_size(), Message.SRC: self.client_id}
+                connectionHelper.sendNewParameters(conn, client_parameters, connectionHelper.PYTHON, info)
+                
+            
+    def runTheRound(self):
+        if test == Helper.accuracy_test and self.current_round == 1:
             evaluation(self.net.get_parameters(), 0, self.text_file)
             
         self.net.fit(self.dataset)
-        addNewLog("round_{}_model_trained: {}\n".format(r, datetime.now().strftime("%H:%M:%S:%f")))
-        self.shareToNeighbors(r)
-        addNewLog("round_{}_model_shared: {}\n".format(r, datetime.now().strftime("%H:%M:%S:%f")))
+        addNewLog("round_{}_model_trained: {}\n".format(self.current_round, datetime.now().strftime("%H:%M:%S:%f")))
+        self.shareToNeighbors()
+        addNewLog("round_{}_model_shared: {}\n".format(self.current_round, datetime.now().strftime("%H:%M:%S:%f")))
 
-    def aggregate(self, r, recvd_params, t):
-        addNewLog("round_{}_aggregation: {}\n".format(r, datetime.now().strftime("%H:%M:%S:%f")))
+    def aggregate(self, recvd_params, t):
+        addNewLog("round_{}_aggregation: {}\n".format(self.current_round, datetime.now().strftime("%H:%M:%S:%f")))
         if test == Helper.accuracy_test:
             recvd_params = dict(sorted(recvd_params.items(), key=lambda x: x[0][1])[:nb_clients - nb_byz])
             byz_vectors = self.attacker.generate_byzantine_vectors(list(recvd_params.values()), None)
@@ -110,16 +133,18 @@ class TraningClient:
         else:
             ordered_params = dict(sorted(recvd_params.items(), key=lambda x: x[0][1])[:nb_clients - nb_byz])
         # print(ordered_params.keys())
-        addNewLog("round_{}_aggregation order: {}\n".format(r, [x[0] for x in ordered_params.keys()]))
+        addNewLog("round_{}_aggregation order: {}\n".format(self.current_round, [x[0] for x in ordered_params.keys()]))
         new_model_parameters = self.aggregator.aggregate(list(ordered_params.values()))
         self.net.apply_parameters(new_model_parameters)
         if test == Helper.accuracy_test:
-            evaluation(new_model_parameters, r, self.text_file)
+            evaluation(new_model_parameters, self.current_round, self.text_file)
         return new_model_parameters
     
-    def checkForTermination(self, r, termination):
-        if r > nb_rounds and termination == False:
+    def checkForTermination(self, termination):
+        if self.current_round > nb_rounds and termination == False:
             termination = True
+            for neighborId in self.neighbors:
+                shared_dict[neighborId].put((None, 0))
             for t in threads:
                 t.join()
             for conn in self.connections.values():
@@ -130,46 +155,46 @@ class TraningClient:
         addNewLog("Starting: {}\n".format(datetime.now().strftime("%H:%M:%S:%f")))
         
         termination = False
-        r = 1
+        self.current_round = 1
         round_params = dict()
         recvd_params = dict()
         for i in range(1, nb_rounds + 1):
             recvd_params[i] = dict()
-        addNewLog("round_{}_start: {}\n".format(r, datetime.now().strftime("%H:%M:%S:%f")))
+        addNewLog("round_{}_start: {}\n".format(self.current_round, datetime.now().strftime("%H:%M:%S:%f")))
         t = datetime.now().strftime("%H:%M:%S:%f")
-        self.runTheRound(r)
-        recvd_params[r][(self.client_id, t)] = self.net.get_parameters().cpu()
+        self.runTheRound()
+        recvd_params[self.current_round][(self.client_id, t)] = self.net.get_parameters().cpu()
         finished = 0
-        while(r <= nb_rounds or finished < nb_clients - 1):
-            # termination = self.checkForTermination(r, termination)
+        while(self.current_round <= nb_rounds or finished < nb_clients - 1):
+            # termination = self.checkForTermination(termination)
             ready_to_read, _, _ = select.select(list(self.connections.values()), [], [])
             for sock in ready_to_read:
                 msg = sock.recv()
                 if msg.header == Message.FINISHED:
                     finished += 1
                 if msg.header == Message.NEW_PARAMETERS:
-                    if int(msg.content[Message.ROUND]) == r:
+                    if int(msg.content[Message.ROUND]) == self.current_round:
                         t = datetime.now().strftime("%H:%M:%S:%f")
-                        recvd_params[r][(msg.src_id, t)] = connectionHelper.stringToTensor(msg.content[Message.PARAMS])
-                    elif int(msg.content[Message.ROUND]) > r:
+                        recvd_params[self.current_round][(msg.src_id, t)] = connectionHelper.stringToTensor(msg.content[Message.PARAMS])
+                    elif int(msg.content[Message.ROUND]) > self.current_round:
                         recvd_params[int(msg.content[Message.ROUND])][(msg.src_id, t)] = connectionHelper.stringToTensor(msg.content[Message.PARAMS])
                         # sock.send(Msg(header=Message.WAIT))
-                    # elif int(msg.content[Message.ROUND]) < r:
+                    # elif int(msg.content[Message.ROUND]) < self.current_round:
                     #     connectionHelper.sendNewParameters(sock, round_params[int(msg.content[Message.ROUND])], connectionHelper.PYTHON, info={Message.ROUND: msg.content[Message.ROUND], Message.SIZE: None, Message.SRC: None})
                     # if msg.header == Message.WAIT:
-                    #     connectionHelper.sendNewParameters(sock, round_params[r], connectionHelper.PYTHON, info={Message.ROUND: r, Message.SIZE: None, Message.SRC: self.client_id})
-                if termination == False and len(list(recvd_params[r].values())) >= nb_clients - nb_byz:
-                    addNewLog("round_{}_received_params_{}: {}\n".format(r, str(nb_clients - nb_byz), datetime.now().strftime("%H:%M:%S:%f")))
-                    round_params[r] = self.aggregate(r, recvd_params[r], t)
-                    print("round {} finished {}".format(r, datetime.now().strftime("%H:%M:%S:%f")))
-                    addNewLog("round_{}_end: {}\n".format(r, datetime.now().strftime("%H:%M:%S:%f")))
-                    r += 1
-                    if r <= nb_rounds:
-                        addNewLog("round_{}_start: {}\n".format(r, datetime.now().strftime("%H:%M:%S:%f")))
+                    #     connectionHelper.sendNewParameters(sock, round_params[self.current_round], connectionHelper.PYTHON, info={Message.ROUND: self.current_round, Message.SIZE: None, Message.SRC: self.client_id})
+                if termination == False and len(list(recvd_params[self.current_round].values())) >= nb_clients - nb_byz:
+                    addNewLog("round_{}_received_params_{}: {}\n".format(self.current_round, str(nb_clients - nb_byz), datetime.now().strftime("%H:%M:%S:%f")))
+                    round_params[self.current_round] = self.aggregate(recvd_params[self.current_round], t)
+                    print("round {} finished {}".format(self.current_round, datetime.now().strftime("%H:%M:%S:%f")))
+                    addNewLog("round_{}_end: {}\n".format(self.current_round, datetime.now().strftime("%H:%M:%S:%f")))
+                    self.current_round += 1
+                    if self.current_round <= nb_rounds:
+                        addNewLog("round_{}_start: {}\n".format(self.current_round, datetime.now().strftime("%H:%M:%S:%f")))
                         t = datetime.now().strftime("%H:%M:%S:%f")
-                        self.runTheRound(r)
-                        recvd_params[r][(self.client_id, t)] = self.net.get_parameters().cpu()
-                termination = self.checkForTermination(r, termination)
+                        self.runTheRound()
+                        recvd_params[self.current_round][(self.client_id, t)] = self.net.get_parameters().cpu()
+                termination = self.checkForTermination(termination)
 
         addNewLog("end: {}\n".format(datetime.now().strftime("%H:%M:%S:%f")))
         print("Client Iteration Finished!")
