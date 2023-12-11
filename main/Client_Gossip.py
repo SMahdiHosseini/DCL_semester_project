@@ -26,6 +26,7 @@ log = Log.Log("../Gossip_res/" + aggregator_name + "/ncl_" + str(nb_clients) + "
 threads = []
 manager = mp.Manager()
 shared_dict = manager.dict()
+events = manager.dict()
 
 def addNewLog(new_log):
     if test == Helper.performance_test:
@@ -36,22 +37,28 @@ class TraningClient:
     def __init__(self, client_id, dataset, neighbors):
         self.client_id = client_id
         self.dataset = dataset
-        self.net = Helper.to_device(Model.FederatedNet(), Helper.device)
+        # self.net = Helper.to_device(Model.FederatedNet(), Helper.device)
+        self.net = None
         self.neighbors = neighbors
         self.neighbors.sort()
         self.connections = dict()
         self.listeners = []
         self.aggregator = RobustAggregator('nnm', aggregator_name, 1, nb_byz, Helper.device)
         self.attacker = ByzantineAttack(attack_name, nb_byz)
-        self.current_round = manager
+        self.current_round = 0
         self.clients_parameters_queus = dict()
         for i in self.neighbors:
+            events[i] = manager.Event()
             shared_dict[i] = manager.Queue()
         if test == Helper.accuracy_test:
             self.text_file = open("../Gossip_res/" + aggregator_name + "/ncl_" + str(nb_clients + nb_byz)  + "/nbyz_" + str(nb_byz) + "/Accuracy/"  + attack_name + "/" + str(client_id) + ".txt", "w")
 
     def get_dataset_size(self):
         return len(self.dataset)
+
+    def initialize(self):
+        print("Client {} initialized! ...".format(self.client_id))
+        self.net = Helper.to_device(Model.FederatedNet(), Helper.device)
 
     def connectToNeighbors(self, ports):
         config = readConfig('ips.config')
@@ -64,7 +71,7 @@ class TraningClient:
                 listener = Listener(address)
                 self.connections[neighborId] = listener.accept()
                 self.listeners.append(listener)
-            t = threading.Thread(target=self.sendingThread, args=(self.connections[neighborId], shared_dict[neighborId]))
+            t = threading.Thread(target=self.sendingThread, args=(self.connections[neighborId], shared_dict[neighborId], events[neighborId]))
             threads.append(t)
             t.start()
             print("Client {} connected to client {} !".format(self.client_id, neighborId))
@@ -90,17 +97,20 @@ class TraningClient:
             listener.close()
     
     def shareToNeighbors(self):
-        client_parameters = self.net.get_parameters()
+        client_parameters = connectionHelper.tensorToString(self.net.get_parameters())
+        # client_parameters = self.net.get_parameters()
         for neighborId in self.neighbors:
             shared_dict[neighborId].put((client_parameters, self.current_round))
+            events[neighborId].set()
         # info={Message.ROUND: self.current_round, Message.SIZE: self.get_dataset_size(), Message.SRC: self.client_id}
         # for conn in self.connections.values():
         #     t = threading.Thread(target=connectionHelper.sendNewParameters, args=(conn, client_parameters, connectionHelper.PYTHON, info))
         #     threads.append(t)
         #     t.start()
 
-    def sendingThread(self, conn, client_parameters_queue):
+    def sendingThread(self, conn, client_parameters_queue, e):
         while True:
+            e.wait()
             if client_parameters_queue.empty():
                 continue
             else:
@@ -108,7 +118,9 @@ class TraningClient:
                 if client_parameters == None:
                     return
                 info={Message.ROUND: r, Message.SIZE: self.get_dataset_size(), Message.SRC: self.client_id}
-                connectionHelper.sendNewParameters(conn, client_parameters, connectionHelper.PYTHON, info)
+                # connectionHelper.sendNewParameters(conn, client_parameters, connectionHelper.PYTHON, info)
+                connectionHelper.sendNewParametersToPython(conn, client_parameters, info)
+            e.clear()
                 
             
     def runTheRound(self):
@@ -145,6 +157,7 @@ class TraningClient:
             termination = True
             for neighborId in self.neighbors:
                 shared_dict[neighborId].put((None, 0))
+                events[neighborId].set()
             for t in threads:
                 t.join()
             for conn in self.connections.values():
@@ -208,6 +221,7 @@ def main():
     traning_client = TraningClient(client_id, torch.load("./Data/ClientsDatasets/" + str(client_id) + ".pt"), adjMat[client_id])
     traning_client.connectToNeighbors(ports[client_id])
     print("client connected to neighbors!")
+    traning_client.initialize()
     traning_client.execute()
     if test == Helper.performance_test:
         log.writeLogs()
