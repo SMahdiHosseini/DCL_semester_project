@@ -86,8 +86,8 @@ def analyseFLPerformance(aggregator, attack, nb_clients, nb_byz, fl_res):
         rounds_times = []
         for c in range(nb_clients):
             # temp = lines_clients[c]['round_{}_end'.format(r)] - lines_clients[c]['round_{}_start'.format(r)]
-            temp = lines_clients[c]['round_{}_model_shared'.format(r)] - lines_clients[c]['round_{}_model_trained'.format(r)]
-            # temp = lines_clients[c]['round_{}_model_trained'.format(r)] - lines_clients[c]['round_{}_start'.format(r)]
+            # temp = lines_clients[c]['round_{}_model_shared'.format(r)] - lines_clients[c]['round_{}_model_trained'.format(r)]
+            temp = lines_clients[c]['round_{}_model_trained'.format(r)] - lines_clients[c]['round_{}_start'.format(r)]
             rounds_times.append(temp.total_seconds())
         avg = sumOfTimes(rounds_times) / nb_clients
         #server
@@ -119,8 +119,8 @@ def analyseP2PPerformance(aggregator, attack, nb_clients, nb_byz, p2p_res):
         rounds_times = []
         for c in range(nb_clients):
             # temp = lines_clients[c]['round_{}_end'.format(r)] - lines_clients[c]['round_{}_start'.format(r)]
-            temp = lines_clients[c]['round_{}_model_shared'.format(r)] - lines_clients[c]['round_{}_model_trained'.format(r)]
-            # temp = lines_clients[c]['round_{}_model_trained'.format(r)] - lines_clients[c]['round_{}_start'.format(r)]
+            # temp = lines_clients[c]['round_{}_model_shared'.format(r)] - lines_clients[c]['round_{}_model_trained'.format(r)]
+            temp = lines_clients[c]['round_{}_model_trained'.format(r)] - lines_clients[c]['round_{}_start'.format(r)]
             # temp = lines_clients[c]['round_{}_received_params'.format(r)] - lines_clients[c]['round_{}_start'.format(r)] + lines_clients[c]['round_{}_end'.format(r)] - lines_clients[c]['round_{}_aggregation'.format(r)]
             rounds_times.append(temp.total_seconds())
         avg = sumOfTimes(rounds_times) / nb_clients
@@ -156,8 +156,8 @@ def analyseConPerformance(aggregator, attack, nb_clients, nb_byz, con_res):
         rounds_times_clients = []
         for c in range(nb_clients):
             # temp = lines_clients[c]['round_{}_end'.format(r)] - lines_clients[c]['round_{}_start'.format(r)]
-            temp = lines_clients[c]['round_{}_model_shared'.format(r)] - lines_clients[c]['round_{}_model_trained'.format(r)]
-            # temp = lines_clients[c]['round_{}_model_trained'.format(r)] - lines_clients[c]['round_{}_start'.format(r)]
+            # temp = lines_clients[c]['round_{}_model_shared'.format(r)] - lines_clients[c]['round_{}_model_trained'.format(r)]
+            temp = lines_clients[c]['round_{}_model_trained'.format(r)] - lines_clients[c]['round_{}_start'.format(r)]
             rounds_times_clients.append(temp.total_seconds())
         avg_c = sumOfTimes(rounds_times_clients) / nb_clients
         #replicas

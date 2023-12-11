@@ -37,7 +37,6 @@ class TraningClient:
     def __init__(self, client_id, dataset, neighbors):
         self.client_id = client_id
         self.dataset = dataset
-        # self.net = Helper.to_device(Model.FederatedNet(), Helper.device)
         self.net = None
         self.neighbors = neighbors
         self.neighbors.sort()
@@ -98,22 +97,13 @@ class TraningClient:
     
     def shareToNeighbors(self):
         client_parameters = connectionHelper.tensorToString(self.net.get_parameters())
-        # client_parameters = self.net.get_parameters()
         for neighborId in self.neighbors:
             shared_dict[neighborId].put((client_parameters, self.current_round))
             events[neighborId].set()
-        # info={Message.ROUND: self.current_round, Message.SIZE: self.get_dataset_size(), Message.SRC: self.client_id}
-        # for conn in self.connections.values():
-        #     t = threading.Thread(target=connectionHelper.sendNewParameters, args=(conn, client_parameters, connectionHelper.PYTHON, info))
-        #     threads.append(t)
-        #     t.start()
 
     def sendingThread(self, conn, client_parameters_queue, e):
         while True:
             e.wait()
-            # if client_parameters_queue.empty():
-            #     continue
-            # else:
             while not client_parameters_queue.empty():
                 client_parameters, r = client_parameters_queue.get()
                 if client_parameters == None:
@@ -180,7 +170,6 @@ class TraningClient:
         recvd_params[self.current_round][(self.client_id, t)] = self.net.get_parameters().cpu()
         finished = 0
         while(self.current_round <= nb_rounds or finished < nb_clients - 1):
-            # termination = self.checkForTermination(termination)
             ready_to_read, _, _ = select.select(list(self.connections.values()), [], [])
             for sock in ready_to_read:
                 msg = sock.recv()
@@ -192,11 +181,6 @@ class TraningClient:
                         recvd_params[self.current_round][(msg.src_id, t)] = connectionHelper.stringToTensor(msg.content[Message.PARAMS])
                     elif int(msg.content[Message.ROUND]) > self.current_round:
                         recvd_params[int(msg.content[Message.ROUND])][(msg.src_id, t)] = connectionHelper.stringToTensor(msg.content[Message.PARAMS])
-                        # sock.send(Msg(header=Message.WAIT))
-                    # elif int(msg.content[Message.ROUND]) < self.current_round:
-                    #     connectionHelper.sendNewParameters(sock, round_params[int(msg.content[Message.ROUND])], connectionHelper.PYTHON, info={Message.ROUND: msg.content[Message.ROUND], Message.SIZE: None, Message.SRC: None})
-                    # if msg.header == Message.WAIT:
-                    #     connectionHelper.sendNewParameters(sock, round_params[self.current_round], connectionHelper.PYTHON, info={Message.ROUND: self.current_round, Message.SIZE: None, Message.SRC: self.client_id})
                 if termination == False and len(list(recvd_params[self.current_round].values())) >= nb_clients - nb_byz:
                     addNewLog("round_{}_received_params_{}: {}\n".format(self.current_round, str(nb_clients - nb_byz), datetime.now().strftime("%H:%M:%S:%f")))
                     round_params[self.current_round] = self.aggregate(recvd_params[self.current_round], t)

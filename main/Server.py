@@ -8,6 +8,7 @@ import sys
 from datetime import datetime
 import threading
 import select
+import multiprocessing as mp
 
 #program input: nb_clients, server_address, server_port, nb_byz, nb_rounds, aggregator_name, attack_name, test
 nb_clients = int(sys.argv[1])
@@ -22,9 +23,24 @@ aggregator = RobustAggregator('nnm', aggregator_name, 1, nb_byz, Helper.device)
 attacker = ByzantineAttack(attack_name, nb_byz)
 log = Log("../FL_res/" + aggregator_name + "/ncl_" + str(nb_clients) + "/nbyz_" + str(nb_byz) + "/Performance/server.txt")
 threads = []
+manager = mp.Manager()
+shared_dict = manager.dict()
+events = manager.dict()
+
 def addNewLog(new_log):
     if test == Helper.performance_test:
         log.addLog(new_log)
+
+def sendingThread(conn, client_parameters_queue, e):
+    while True:
+        e.wait()
+        while not client_parameters_queue.empty():
+            client_parameters, r = client_parameters_queue.get()
+            if client_parameters == None:
+                return
+            info={Message.ROUND: r, Message.SIZE: None, Message.SRC: None}
+            connectionHelper.sendNewParametersToPython(conn, client_parameters, info)
+        e.clear()
 
 def connectToClients(ports):
     Listeners = []
@@ -34,19 +50,22 @@ def connectToClients(ports):
         listener = Listener(address)
         connections[client] = listener.accept()
         Listeners.append(listener)
+
+    for client in range(nb_clients):
+        events[client] = manager.Event()
+        shared_dict[client] = manager.Queue()
+        t = threading.Thread(target=sendingThread, args=(connections[client], shared_dict[client], events[client]))
+        threads.append(t)
+        t.start()
         
     print("Server connected to clients!")
     return Listeners, connections
 
-def handleRemainedClients(connections, params, r):
-    connectionHelper.getAllParams(connections, len(connections), None, None, None, r, len(connections), log, test)
-    for conn in connections:
-        connectionHelper.sendNewParameters(conn, params, connectionHelper.PYTHON, info={Message.ROUND: r, Message.SIZE: None, Message.SRC: None})
-    
 
 def runTheRound(r, connections, recvd_params):
     t = datetime.now().strftime("%H:%M:%S:%f")
-    recvd_connections = [connections[s] for s in list(connections.keys()) if s in [k[0] for k in recvd_params.keys()]]
+    # recvd_connections = [connections[s] for s in list(connections.keys()) if s in [k[0] for k in recvd_params.keys()]]
+    recvd_connections_ids = [s for s in list(connections.keys()) if s in [k[0] for k in recvd_params.keys()]]
     addNewLog("round_{}_aggregation: {}\n".format(r, datetime.now().strftime("%H:%M:%S:%f")))
     if test == Helper.accuracy_test:
         recvd_params = dict(sorted(recvd_params.items(), key=lambda x: x[0][1])[:nb_clients - nb_byz])
@@ -63,9 +82,10 @@ def runTheRound(r, connections, recvd_params):
     addNewLog("round_{}_aggregation order: {}\n".format(r, [x[0] for x in ordered_params.keys()]))
     new_model_parameters = aggregator.aggregate(list(ordered_params.values()))
 
-    t = threading.Thread(target=sendNewParameters, args=(recvd_connections, new_model_parameters, r))
-    threads.append(t)
-    t.start()
+    sendNewParameters(recvd_connections_ids, connectionHelper.tensorToString(new_model_parameters), r)
+    # t = threading.Thread(target=sendNewParameters, args=(recvd_connections, new_model_parameters, r))
+    # threads.append(t)
+    # t.start()
     addNewLog("round_{}_end: {}\n".format(r, datetime.now().strftime("%H:%M:%S:%f")))
     return new_model_parameters
 
@@ -88,8 +108,6 @@ def execute(connections):
                     t = datetime.now().strftime("%H:%M:%S:%f")
                     recvd_params[(msg.src_id, t)] = connectionHelper.stringToTensor(msg.content[Message.PARAMS])
                     recvd_size[(msg.src_id, t)] = msg.content[Message.SIZE]
-                # elif int(msg.content[Message.ROUND]) > r:
-                #     sock.send(Msg(header=Message.WAIT))
                 elif int(msg.content[Message.ROUND]) < r:
                     connectionHelper.sendNewParameters(sock, round_params[int(msg.content[Message.ROUND])], connectionHelper.PYTHON, info={Message.ROUND: msg.content[Message.ROUND], Message.SIZE: None, Message.SRC: None})
                     
@@ -103,10 +121,14 @@ def execute(connections):
                 recvd_size = dict()
 
     addNewLog("end: {}\n".format(datetime.now().strftime("%H:%M:%S:%f")))
+    sendNewParameters(list(connections.keys()), None, r)
 
 def sendNewParameters(recvd_connections, new_model_parameters, r):
-    for conn in recvd_connections:
-        connectionHelper.sendNewParameters(conn, new_model_parameters, connectionHelper.PYTHON, info={Message.ROUND: r, Message.SIZE: None, Message.SRC: None})
+    for id in recvd_connections:
+        shared_dict[id].put((new_model_parameters, r))
+        events[id].set()
+    # for conn in recvd_connections:
+    #     connectionHelper.sendNewParameters(conn, new_model_parameters, connectionHelper.PYTHON, info={Message.ROUND: r, Message.SIZE: None, Message.SRC: None})
 
 def terminate(connections, listeners):
     for conn in connections:

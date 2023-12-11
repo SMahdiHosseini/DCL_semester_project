@@ -58,7 +58,7 @@ for agg in ${aggregator[@]}; do
         fi
     done
 
-    sleep 140s
+    sleep 200s
     bash Terminate.sh
     # wait
 
