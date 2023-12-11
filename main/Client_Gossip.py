@@ -111,9 +111,10 @@ class TraningClient:
     def sendingThread(self, conn, client_parameters_queue, e):
         while True:
             e.wait()
-            if client_parameters_queue.empty():
-                continue
-            else:
+            # if client_parameters_queue.empty():
+            #     continue
+            # else:
+            while not client_parameters_queue.empty():
                 client_parameters, r = client_parameters_queue.get()
                 if client_parameters == None:
                     return
