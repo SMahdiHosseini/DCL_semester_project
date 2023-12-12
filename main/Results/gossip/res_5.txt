@@ -5,30 +5,407 @@ Client 5 connected to client 2 !
 Client 5 connected to client 3 !
 Client 5 connected to client 4 !
 Client 5 connected to client 6 !
-Client 5 connected to client 7 !
-Client 5 connected to client 8 !
-Client 5 connected to client 9 !
 client connected to neighbors!
 Client 5 initialized! ...
-Loss = 1.9939, Accuracy = 0.5155
-round 1 finished 14:31:33:298255
-Loss = 1.5055, Accuracy = 0.7598
-round 2 finished 14:31:38:919392
-Loss = 1.2238, Accuracy = 0.7927
-round 3 finished 14:31:44:581235
-Loss = 1.0516, Accuracy = 0.8117
-round 4 finished 14:31:50:006972
-Loss = 0.9374, Accuracy = 0.8214
-round 5 finished 14:31:55:340323
-Loss = 0.8557, Accuracy = 0.8332
-round 6 finished 14:32:01:055211
-Loss = 0.7948, Accuracy = 0.8391
-round 7 finished 14:32:06:683729
-Loss = 0.7474, Accuracy = 0.8429
-round 8 finished 14:32:12:496589
-Loss = 0.7098, Accuracy = 0.8494
-round 9 finished 14:32:18:168854
-Loss = 0.6776, Accuracy = 0.8516
-round 10 finished 14:32:24:069693
+Loss = 1.9942, Accuracy = 0.5057
+round 1 finished 08:50:17:649159
+Loss = 1.5024, Accuracy = 0.7505
+round 2 finished 08:50:18:928064
+Loss = 1.2228, Accuracy = 0.7922
+round 3 finished 08:50:20:258194
+Loss = 1.0511, Accuracy = 0.8123
+round 4 finished 08:50:21:368866
+Loss = 0.9363, Accuracy = 0.8244
+round 5 finished 08:50:22:615158
+Loss = 0.8545, Accuracy = 0.8336
+round 6 finished 08:50:24:081148
+Loss = 0.793, Accuracy = 0.8399
+round 7 finished 08:50:25:393760
+Loss = 0.7453, Accuracy = 0.8442
+round 8 finished 08:50:26:677275
+Loss = 0.707, Accuracy = 0.8486
+round 9 finished 08:50:27:953903
+Loss = 0.676, Accuracy = 0.8508
+round 10 finished 08:50:29:265254
+Loss = 0.6498, Accuracy = 0.8544
+round 11 finished 08:50:30:544746
+Loss = 0.6272, Accuracy = 0.8568
+round 12 finished 08:50:31:831877
+Loss = 0.6079, Accuracy = 0.8613
+round 13 finished 08:50:33:110171
+Loss = 0.5905, Accuracy = 0.8644
+round 14 finished 08:50:34:321499
+Loss = 0.5757, Accuracy = 0.8652
+round 15 finished 08:50:35:580902
+Loss = 0.5629, Accuracy = 0.8668
+round 16 finished 08:50:36:793987
+Loss = 0.5507, Accuracy = 0.8677
+round 17 finished 08:50:38:073484
+Loss = 0.5404, Accuracy = 0.8703
+round 18 finished 08:50:39:365340
+Loss = 0.5303, Accuracy = 0.8715
+round 19 finished 08:50:40:635478
+Loss = 0.5215, Accuracy = 0.8711
+round 20 finished 08:50:41:923456
+Loss = 0.5133, Accuracy = 0.8727
+round 21 finished 08:50:43:190448
+Loss = 0.5058, Accuracy = 0.8739
+round 22 finished 08:50:44:553117
+Loss = 0.4985, Accuracy = 0.8739
+round 23 finished 08:50:45:818926
+Loss = 0.4917, Accuracy = 0.8742
+round 24 finished 08:50:47:124427
+Loss = 0.4852, Accuracy = 0.8757
+round 25 finished 08:50:48:434777
+Loss = 0.4795, Accuracy = 0.8756
+round 26 finished 08:50:49:790333
+Loss = 0.4735, Accuracy = 0.8763
+round 27 finished 08:50:51:075586
+Loss = 0.4678, Accuracy = 0.8787
+round 28 finished 08:50:52:311287
+Loss = 0.463, Accuracy = 0.8792
+round 29 finished 08:50:53:420491
+Loss = 0.4586, Accuracy = 0.8795
+round 30 finished 08:50:54:805730
+Loss = 0.4546, Accuracy = 0.8801
+round 31 finished 08:50:56:091904
+Loss = 0.4506, Accuracy = 0.8803
+round 32 finished 08:50:57:395276
+Loss = 0.4465, Accuracy = 0.8806
+round 33 finished 08:50:58:483896
+Loss = 0.4424, Accuracy = 0.8819
+round 34 finished 08:50:59:530876
+Loss = 0.4392, Accuracy = 0.8813
+round 35 finished 08:51:00:922571
+Loss = 0.436, Accuracy = 0.8833
+round 36 finished 08:51:02:204689
+Loss = 0.4326, Accuracy = 0.8834
+round 37 finished 08:51:03:481031
+Loss = 0.4294, Accuracy = 0.8843
+round 38 finished 08:51:04:798821
+Loss = 0.4262, Accuracy = 0.8859
+round 39 finished 08:51:06:156393
+Loss = 0.4233, Accuracy = 0.8851
+round 40 finished 08:51:07:469776
+Loss = 0.4209, Accuracy = 0.8849
+round 41 finished 08:51:08:740646
+Loss = 0.4181, Accuracy = 0.8865
+round 42 finished 08:51:10:047442
+Loss = 0.4158, Accuracy = 0.8869
+round 43 finished 08:51:11:328592
+Loss = 0.4136, Accuracy = 0.8874
+round 44 finished 08:51:12:465466
+Loss = 0.4114, Accuracy = 0.8878
+round 45 finished 08:51:13:909149
+Loss = 0.4094, Accuracy = 0.8879
+round 46 finished 08:51:15:057256
+Loss = 0.4065, Accuracy = 0.888
+round 47 finished 08:51:16:461892
+Loss = 0.4042, Accuracy = 0.8888
+round 48 finished 08:51:17:655547
+Loss = 0.4023, Accuracy = 0.8898
+round 49 finished 08:51:18:879241
+Loss = 0.4001, Accuracy = 0.8899
+round 50 finished 08:51:20:185380
+Loss = 0.3977, Accuracy = 0.8907
+round 51 finished 08:51:21:279098
+Loss = 0.3961, Accuracy = 0.8906
+round 52 finished 08:51:22:706239
+Loss = 0.3946, Accuracy = 0.892
+round 53 finished 08:51:24:030339
+Loss = 0.3924, Accuracy = 0.8931
+round 54 finished 08:51:25:226367
+Loss = 0.3907, Accuracy = 0.8927
+round 55 finished 08:51:26:208830
+Loss = 0.3892, Accuracy = 0.8914
+round 56 finished 08:51:27:205829
+Loss = 0.3879, Accuracy = 0.8926
+round 57 finished 08:51:28:396106
+Loss = 0.3861, Accuracy = 0.8922
+round 58 finished 08:51:29:689644
+Loss = 0.3845, Accuracy = 0.893
+round 59 finished 08:51:30:854444
+Loss = 0.3826, Accuracy = 0.8945
+round 60 finished 08:51:32:154223
+Loss = 0.3811, Accuracy = 0.8933
+round 61 finished 08:51:33:444167
+Loss = 0.3798, Accuracy = 0.8939
+round 62 finished 08:51:34:570707
+Loss = 0.3783, Accuracy = 0.8955
+round 63 finished 08:51:35:853109
+Loss = 0.3767, Accuracy = 0.8951
+round 64 finished 08:51:37:136180
+Loss = 0.3754, Accuracy = 0.8942
+round 65 finished 08:51:38:453467
+Loss = 0.3743, Accuracy = 0.8949
+round 66 finished 08:51:39:747209
+Loss = 0.3732, Accuracy = 0.8945
+round 67 finished 08:51:41:053822
+Loss = 0.3719, Accuracy = 0.8956
+round 68 finished 08:51:42:169140
+Loss = 0.3707, Accuracy = 0.8956
+round 69 finished 08:51:43:440327
+Loss = 0.3697, Accuracy = 0.8956
+round 70 finished 08:51:44:564766
+Loss = 0.3689, Accuracy = 0.8965
+round 71 finished 08:51:45:660138
+Loss = 0.3674, Accuracy = 0.8964
+round 72 finished 08:51:46:947066
+Loss = 0.3663, Accuracy = 0.8965
+round 73 finished 08:51:48:379504
+Loss = 0.365, Accuracy = 0.8977
+round 74 finished 08:51:49:666223
+Loss = 0.3639, Accuracy = 0.8963
+round 75 finished 08:51:50:961236
+Loss = 0.3626, Accuracy = 0.8983
+round 76 finished 08:51:52:226245
+Loss = 0.3613, Accuracy = 0.8987
+round 77 finished 08:51:53:289767
+Loss = 0.3603, Accuracy = 0.8993
+round 78 finished 08:51:54:559746
+Loss = 0.3593, Accuracy = 0.899
+round 79 finished 08:51:55:853514
+Loss = 0.3583, Accuracy = 0.9
+round 80 finished 08:51:57:127120
+Loss = 0.3574, Accuracy = 0.9
+round 81 finished 08:51:58:402069
+Loss = 0.3566, Accuracy = 0.8996
+round 82 finished 08:51:59:671409
+Loss = 0.3559, Accuracy = 0.9003
+round 83 finished 08:52:00:679012
+Loss = 0.3552, Accuracy = 0.9004
+round 84 finished 08:52:02:127941
+Loss = 0.3543, Accuracy = 0.9012
+round 85 finished 08:52:03:467349
+Loss = 0.3529, Accuracy = 0.9015
+round 86 finished 08:52:04:794673
+Loss = 0.3522, Accuracy = 0.9004
+round 87 finished 08:52:06:074139
+Loss = 0.3517, Accuracy = 0.901
+round 88 finished 08:52:07:383307
+Loss = 0.3509, Accuracy = 0.8999
+round 89 finished 08:52:08:696648
+Loss = 0.3496, Accuracy = 0.9017
+round 90 finished 08:52:09:984522
+Loss = 0.3488, Accuracy = 0.901
+round 91 finished 08:52:11:281430
+Loss = 0.348, Accuracy = 0.9012
+round 92 finished 08:52:12:662639
+Loss = 0.3471, Accuracy = 0.9014
+round 93 finished 08:52:14:048274
+Loss = 0.3461, Accuracy = 0.9026
+round 94 finished 08:52:15:338586
+Loss = 0.3458, Accuracy = 0.9016
+round 95 finished 08:52:16:542381
+Loss = 0.3448, Accuracy = 0.9027
+round 96 finished 08:52:17:859177
+Loss = 0.3437, Accuracy = 0.9023
+round 97 finished 08:52:19:184809
+Loss = 0.343, Accuracy = 0.9036
+round 98 finished 08:52:20:479222
+Loss = 0.3423, Accuracy = 0.9034
+round 99 finished 08:52:21:893809
+Loss = 0.3422, Accuracy = 0.9035
+round 100 finished 08:52:23:212581
+Loss = 0.3411, Accuracy = 0.9043
+round 101 finished 08:52:24:549147
+Loss = 0.3406, Accuracy = 0.9037
+round 102 finished 08:52:25:847460
+Loss = 0.3397, Accuracy = 0.9037
+round 103 finished 08:52:26:887508
+Loss = 0.3391, Accuracy = 0.9037
+round 104 finished 08:52:28:085821
+Loss = 0.339, Accuracy = 0.9034
+round 105 finished 08:52:29:191780
+Loss = 0.3383, Accuracy = 0.9042
+round 106 finished 08:52:30:587870
+Loss = 0.3374, Accuracy = 0.9045
+round 107 finished 08:52:31:871661
+Loss = 0.3372, Accuracy = 0.9047
+round 108 finished 08:52:33:157613
+Loss = 0.3361, Accuracy = 0.9043
+round 109 finished 08:52:34:252667
+Loss = 0.3353, Accuracy = 0.9045
+round 110 finished 08:52:35:577957
+Loss = 0.3351, Accuracy = 0.9043
+round 111 finished 08:52:36:868183
+Loss = 0.3345, Accuracy = 0.9051
+round 112 finished 08:52:38:115215
+Loss = 0.3342, Accuracy = 0.9054
+round 113 finished 08:52:39:206658
+Loss = 0.3338, Accuracy = 0.9066
+round 114 finished 08:52:40:605208
+Loss = 0.3334, Accuracy = 0.905
+round 115 finished 08:52:41:891840
+Loss = 0.3329, Accuracy = 0.9056
+round 116 finished 08:52:43:103218
+Loss = 0.332, Accuracy = 0.9061
+round 117 finished 08:52:44:201228
+Loss = 0.3312, Accuracy = 0.9068
+round 118 finished 08:52:45:552701
+Loss = 0.331, Accuracy = 0.9068
+round 119 finished 08:52:46:870621
+Loss = 0.33, Accuracy = 0.9071
+round 120 finished 08:52:48:190444
+Loss = 0.3298, Accuracy = 0.907
+round 121 finished 08:52:49:462224
+Loss = 0.3293, Accuracy = 0.9074
+round 122 finished 08:52:50:732932
+Loss = 0.3289, Accuracy = 0.9076
+round 123 finished 08:52:52:006572
+Loss = 0.3285, Accuracy = 0.9084
+round 124 finished 08:52:53:293750
+Loss = 0.3279, Accuracy = 0.9071
+round 125 finished 08:52:54:569134
+Loss = 0.3277, Accuracy = 0.9083
+round 126 finished 08:52:55:852282
+Loss = 0.3274, Accuracy = 0.9081
+round 127 finished 08:52:57:118516
+Loss = 0.3269, Accuracy = 0.9078
+round 128 finished 08:52:58:412346
+Loss = 0.3264, Accuracy = 0.9089
+round 129 finished 08:52:59:688800
+Loss = 0.326, Accuracy = 0.9077
+round 130 finished 08:53:00:971290
+Loss = 0.326, Accuracy = 0.9078
+round 131 finished 08:53:02:248596
+Loss = 0.3255, Accuracy = 0.9087
+round 132 finished 08:53:03:538334
+Loss = 0.3252, Accuracy = 0.9087
+round 133 finished 08:53:04:825199
+Loss = 0.325, Accuracy = 0.9092
+round 134 finished 08:53:05:903608
+Loss = 0.3245, Accuracy = 0.9087
+round 135 finished 08:53:07:086363
+Loss = 0.3241, Accuracy = 0.9077
+round 136 finished 08:53:08:357843
+Loss = 0.3237, Accuracy = 0.909
+round 137 finished 08:53:09:619739
+Loss = 0.3235, Accuracy = 0.9104
+round 138 finished 08:53:10:806556
+Loss = 0.3231, Accuracy = 0.9092
+round 139 finished 08:53:12:078463
+Loss = 0.3225, Accuracy = 0.9093
+round 140 finished 08:53:13:385489
+Loss = 0.3223, Accuracy = 0.9087
+round 141 finished 08:53:14:507619
+Loss = 0.322, Accuracy = 0.9094
+round 142 finished 08:53:16:010729
+Loss = 0.3217, Accuracy = 0.9099
+round 143 finished 08:53:17:289565
+Loss = 0.3213, Accuracy = 0.9096
+round 144 finished 08:53:18:588181
+Loss = 0.3213, Accuracy = 0.9099
+round 145 finished 08:53:19:871661
+Loss = 0.3206, Accuracy = 0.9105
+round 146 finished 08:53:21:207633
+Loss = 0.3201, Accuracy = 0.9102
+round 147 finished 08:53:22:516608
+Loss = 0.32, Accuracy = 0.9106
+round 148 finished 08:53:23:779928
+Loss = 0.3191, Accuracy = 0.9103
+round 149 finished 08:53:24:871193
+Loss = 0.3189, Accuracy = 0.9106
+round 150 finished 08:53:26:346775
+Loss = 0.3189, Accuracy = 0.9107
+round 151 finished 08:53:27:649395
+Loss = 0.3179, Accuracy = 0.9101
+round 152 finished 08:53:28:947988
+Loss = 0.3176, Accuracy = 0.9109
+round 153 finished 08:53:30:251846
+Loss = 0.3173, Accuracy = 0.9119
+round 154 finished 08:53:31:553423
+Loss = 0.3168, Accuracy = 0.9121
+round 155 finished 08:53:32:832031
+Loss = 0.3166, Accuracy = 0.9115
+round 156 finished 08:53:34:112581
+Loss = 0.3162, Accuracy = 0.9113
+round 157 finished 08:53:35:416553
+Loss = 0.316, Accuracy = 0.9119
+round 158 finished 08:53:36:537405
+Loss = 0.3163, Accuracy = 0.9114
+round 159 finished 08:53:37:959859
+Loss = 0.3156, Accuracy = 0.9122
+round 160 finished 08:53:39:252161
+Loss = 0.3148, Accuracy = 0.9113
+round 161 finished 08:53:40:559209
+Loss = 0.3145, Accuracy = 0.9124
+round 162 finished 08:53:41:800219
+Loss = 0.314, Accuracy = 0.9125
+round 163 finished 08:53:42:914697
+Loss = 0.3135, Accuracy = 0.9141
+round 164 finished 08:53:44:361985
+Loss = 0.3133, Accuracy = 0.9126
+round 165 finished 08:53:45:624033
+Loss = 0.3128, Accuracy = 0.9133
+round 166 finished 08:53:46:969258
+Loss = 0.3128, Accuracy = 0.9138
+round 167 finished 08:53:48:254515
+Loss = 0.3121, Accuracy = 0.913
+round 168 finished 08:53:49:544890
+Loss = 0.312, Accuracy = 0.913
+round 169 finished 08:53:50:840687
+Loss = 0.3116, Accuracy = 0.914
+round 170 finished 08:53:52:124179
+Loss = 0.3117, Accuracy = 0.914
+round 171 finished 08:53:53:397040
+Loss = 0.3113, Accuracy = 0.9134
+round 172 finished 08:53:54:649232
+Loss = 0.3112, Accuracy = 0.9149
+round 173 finished 08:53:55:917585
+Loss = 0.3109, Accuracy = 0.9142
+round 174 finished 08:53:57:127902
+Loss = 0.3103, Accuracy = 0.9135
+round 175 finished 08:53:58:360672
+Loss = 0.3102, Accuracy = 0.9132
+round 176 finished 08:53:59:558616
+Loss = 0.3098, Accuracy = 0.9136
+round 177 finished 08:54:00:841432
+Loss = 0.3096, Accuracy = 0.9142
+round 178 finished 08:54:02:146859
+Loss = 0.3093, Accuracy = 0.9135
+round 179 finished 08:54:03:438738
+Loss = 0.3089, Accuracy = 0.9137
+round 180 finished 08:54:04:681397
+Loss = 0.3085, Accuracy = 0.9138
+round 181 finished 08:54:05:965715
+Loss = 0.308, Accuracy = 0.9142
+round 182 finished 08:54:07:322022
+Loss = 0.3078, Accuracy = 0.9135
+round 183 finished 08:54:08:598568
+Loss = 0.3078, Accuracy = 0.9134
+round 184 finished 08:54:09:884323
+Loss = 0.3077, Accuracy = 0.9139
+round 185 finished 08:54:11:152533
+Loss = 0.3073, Accuracy = 0.9139
+round 186 finished 08:54:12:183654
+Loss = 0.3072, Accuracy = 0.9139
+round 187 finished 08:54:13:365556
+Loss = 0.3072, Accuracy = 0.9144
+round 188 finished 08:54:14:610460
+Loss = 0.3068, Accuracy = 0.9143
+round 189 finished 08:54:15:893479
+Loss = 0.3063, Accuracy = 0.9137
+round 190 finished 08:54:17:205317
+Loss = 0.3062, Accuracy = 0.9142
+round 191 finished 08:54:18:496707
+Loss = 0.306, Accuracy = 0.9145
+round 192 finished 08:54:19:785446
+Loss = 0.3054, Accuracy = 0.9148
+round 193 finished 08:54:21:081357
+Loss = 0.3046, Accuracy = 0.9156
+round 194 finished 08:54:22:362305
+Loss = 0.3046, Accuracy = 0.9153
+round 195 finished 08:54:23:646801
+Loss = 0.3043, Accuracy = 0.9149
+round 196 finished 08:54:24:663520
+Loss = 0.3042, Accuracy = 0.9143
+round 197 finished 08:54:26:101862
+Loss = 0.3041, Accuracy = 0.9153
+round 198 finished 08:54:27:201895
+Loss = 0.3039, Accuracy = 0.9147
+round 199 finished 08:54:28:644544
+Loss = 0.3035, Accuracy = 0.9143
+round 200 finished 08:54:29:746414
 Client Iteration Finished!
 Client 5 terminated! ...
