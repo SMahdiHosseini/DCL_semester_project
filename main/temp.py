@@ -61,10 +61,14 @@
 # plt.errorbar(x=range(len(data)), y=mean, yerr=std, fmt='o')
 # plt.show()
 
-from Utils import Model, Helper
-import torch
+# from Utils import Model, Helper, connectionHelper
+# import torch
 
-dataset = torch.load("./Data/trainDataset.pt")
-net = Helper.to_device(Model.FederatedNet(), Helper.device)
-for i in range(30):
-    net.fit(dataset)
+# dataset = torch.load("./Data/trainDataset.pt")
+# net = Helper.to_device(Model.FederatedNet(), Helper.device)
+# for i in range(2):
+#     net.fit(dataset)
+# print(len(bytes(connectionHelper.tensorToString(net.get_parameters()), 'utf-8')))
+
+x = [1, 2, 3, 4, 5]
+print(x[:2])

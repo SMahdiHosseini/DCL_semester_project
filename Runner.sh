@@ -26,6 +26,19 @@ fi
 
 ## Performance Test
 for agg in ${aggregator[@]}; do
+    recvd=$(ssh ubuntu@"$server" 'cat /sys/class/net/ens5/statistics/rx_bytes')
+    send=$(ssh ubuntu@"$server" 'cat /sys/class/net/ens5/statistics/tx_bytes')
+    echo "server=$recvd, $send" > main/net_$1.txt
+    i=0
+    d=1
+    for client in "${clients[@]}"
+    do
+        recvd=$(ssh ubuntu@"$client" 'cat /sys/class/net/ens5/statistics/rx_bytes')
+        send=$(ssh ubuntu@"$client" 'cat /sys/class/net/ens5/statistics/tx_bytes')
+        echo "client_$i=$recvd, $send" >> main/net_$1.txt
+        i=$(( $i + $d ))
+    done
+
     if [[ "$1" == "fl" ]]
     then
         ssh ubuntu@"$server" 'bash --login DCL_semester_project/main/DistRunner.sh '$1' '$2' '$agg' 'att' 'Performance' server' &
@@ -59,6 +72,20 @@ for agg in ${aggregator[@]}; do
     done
 
     sleep 140s
+
+    recvd=$(ssh ubuntu@"$server" 'cat /sys/class/net/ens5/statistics/rx_bytes')
+    send=$(ssh ubuntu@"$server" 'cat /sys/class/net/ens5/statistics/tx_bytes')
+    echo "server=$recvd, $send" >> main/net_$1.txt
+    i=0
+    d=1
+    for client in "${clients[@]}"
+    do
+        recvd=$(ssh ubuntu@"$client" 'cat /sys/class/net/ens5/statistics/rx_bytes')
+        send=$(ssh ubuntu@"$client" 'cat /sys/class/net/ens5/statistics/tx_bytes')
+        echo "client_$i=$recvd, $send" >> main/net_$1.txt
+        i=$(( $i + $d ))
+    done
+
     bash Terminate.sh
     # wait
 
