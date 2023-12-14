@@ -1,4 +1,4 @@
-from Utils import Model, Helper, Message, connectionHelper, evaluator, Log
+from Utils import Model, Helper, Message, connectionHelper, evaluator, Log, DataDistributer
 import sys
 import jpysocket
 from torch import load
@@ -79,8 +79,11 @@ def evaluation(params, r, text_file):
 
 def main():
     print("Client {} started! ... ".format(client_id))
-    # training_client = TraningClient(client_id, load("F:/DCL/Semester Project 1/Codes/DCL_semester_project/main/Data/ClientsDatasets/" + str(client_id) + ".pt"))
-    training_client = TraningClient(client_id, load("../../../../main/Data/ClientsDatasets/" + str(client_id) + ".pt"))
+    
+    # training_client = TraningClient(client_id, load("../../../../main/Data/ClientsDatasets/" + str(client_id) + ".pt"))
+    dataset = DataDistributer.idx_to_dataset_bft(client_id, nb_clients)
+    training_client = TraningClient(client_id, dataset)
+
     connection = connectionHelper.connect(server_address, server_port)
     training_client.execute(connection)
     connection.close()

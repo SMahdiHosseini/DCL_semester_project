@@ -1,4 +1,4 @@
-from Utils import Model, Helper, Message, connectionHelper, evaluator, Log
+from Utils import Model, Helper, Message, connectionHelper, evaluator, Log, DataDistributer
 from Utils.aggregator import RobustAggregator
 from Utils.attacks import ByzantineAttack
 from Utils.Message import Msg
@@ -203,7 +203,11 @@ def evaluation(params, r, text_file):
 def main():
     print("Client {} started! ... ".format(client_id))
     ports, adjMat = generateGossipPorts(server_port, nb_clients)
-    traning_client = TraningClient(client_id, torch.load("./Data/ClientsDatasets/" + str(client_id) + ".pt"), adjMat[client_id])
+
+    # traning_client = TraningClient(client_id, torch.load("./Data/ClientsDatasets/" + str(client_id) + ".pt"), adjMat[client_id])
+    dataset = DataDistributer.idx_to_dataset(client_id, nb_clients)
+    traning_client = TraningClient(client_id, dataset, adjMat[client_id])
+
     traning_client.connectToNeighbors(ports[client_id])
     print("client connected to neighbors!")
     traning_client.initialize()

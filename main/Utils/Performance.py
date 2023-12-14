@@ -34,6 +34,9 @@ nb_byz = int(sys.argv[2])
 nb_rounds = int(sys.argv[3])
 nb_experiments = 3
 
+heterogeneity = "Homogeneous"
+# heterogeneity = "Heterogeneous"
+
 attacks = ["SF"]
 aggregators = ["trmean"]
 
@@ -361,7 +364,7 @@ def find_fastest_slowest_trsh(senario, aggregator, attack, trsh):
         clients_accs[i] = []
         exps = []
         for exp in range(1, nb_experiments + 1):
-            exps.append(accuracy("../../" + senario +"/" + aggregator + "/ncl_" + str(nb_clients) + "/nbyz_" + str(nb_byz) + "/Accuracy_" + str(exp) + "/" + attack + "/" + str(i) + ".txt"))
+            exps.append(accuracy("../../" + senario +"/" + aggregator + "/ncl_" + str(nb_clients) + "/nbyz_" + str(nb_byz) + "/Accuracy_" + str(exp) + "/" + heterogeneity + "/" + attack + "/" + str(i) + ".txt"))
         
         clients_accs[i] = [list(sub_list) for sub_list in zip(*exps)]
         exps = [round(sum(sub_list) / len(sub_list), 4) for sub_list in zip(*exps)]
@@ -432,7 +435,7 @@ def main():
     p2p_slowest_fastest = {'trmean': {'SF': find_fastest_slowest_trsh('p2p', 'trmean', 'SF', trsh)}}
     con_slowest_fastest = {'trmean': {'SF': find_fastest_slowest_trsh('con', 'trmean', 'SF', trsh)}}
     # print(fl_slowest_fastest['trmean']['SF']['slowest']['end_time'])
-    all_accuracy_per_time_per_pace(fl_slowest_fastest, p2p_slowest_fastest, con_slowest_fastest, 'fastest', trsh)
-    all_accuracy_per_time_per_pace(fl_slowest_fastest, p2p_slowest_fastest, con_slowest_fastest, 'slowest', trsh)
+    all_accuracy_per_time_per_pace(fl_slowest_fastest, p2p_slowest_fastest, con_slowest_fastest, 'fastest')
+    all_accuracy_per_time_per_pace(fl_slowest_fastest, p2p_slowest_fastest, con_slowest_fastest, 'slowest')
 if __name__ == "__main__":
     main()
