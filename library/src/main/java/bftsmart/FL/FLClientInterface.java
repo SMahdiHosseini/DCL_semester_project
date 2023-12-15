@@ -45,6 +45,20 @@ public class FLClientInterface {
     }
     private static void execute(int clientId) throws IOException, ClassNotFoundException, InterruptedException {
         ServiceProxy serviceProxy = new ServiceProxy(clientId);
+        boolean start = false;
+        while (start == false){
+            byte[] reply = serviceProxy.invokeOrdered(FLMessage.toBytes(new FLMessage(MessageType.GETSTATUS, "", 0, clientId, "non")));
+            if (reply == null){
+                System.out.println(" ERROR! Exiting.");
+                return;
+            }
+            FLMessage message = FLMessage.fromBytes(reply);
+            if (message.getType().equals(MessageType.START)){
+                start = true;
+            }
+        }
+
+
         boolean exit = false;
         int round = 1;
         while(!exit){

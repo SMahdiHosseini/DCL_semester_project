@@ -5,8 +5,10 @@ import bftsmart.tom.ServiceReplica;
 import bftsmart.tom.server.defaultservices.DefaultSingleRecoverable;
 
 import java.io.*;
+import java.lang.reflect.Array;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.concurrent.locks.ReentrantLock;
 
@@ -21,14 +23,25 @@ public final class FLServer extends DefaultSingleRecoverable {
     private ReentrantLock lock;
     private DataInputStream in;
     private DataOutputStream out;
+    private HashMap<Integer, ArrayList<Integer>> recevdParamIds;
+    private String test;
+    private String fileName;
+    private ArrayList<Integer> connectedClients;
     public FLServer(int id, int _clientNums, int _numOfRounds, String address, int byzNums, String aggregatorName, String attackName, String _test){
         this.numOfRounds = _numOfRounds;
         this.clientNums = _clientNums;
         this.receivedParams = 0;
+        this.connectedClients = new ArrayList<Integer>();
         this.currentRound = 1;
         this.byzNums = byzNums;
         this.lock = new ReentrantLock();
         this.aggregatedParams = new HashMap<Integer, String>();
+        this.recevdParamIds = new HashMap<Integer, ArrayList<Integer>>();
+        this.fileName = "../../../../Consensus_res/" + aggregatorName + "/ncl_" + Integer.toString(_clientNums) + "/nbyz_" + Integer.toString(byzNums) + "/Performance/recevdParamIds.txt";
+        for (int i = 1; i <= numOfRounds; i++){
+            recevdParamIds.put(i, new ArrayList<Integer>());
+        }
+        this.test = _test;
         new ServiceReplica(id, this, this);
 
         try {
@@ -98,6 +111,20 @@ public final class FLServer extends DefaultSingleRecoverable {
         out.flush();
         String ack = in.readUTF();
         System.out.println("Python process terminated");
+
+        //write recvdParamIds to file
+        if (this.test.equals("Performance")){
+            FileWriter fw = new FileWriter(this.fileName);
+            BufferedWriter bw = new BufferedWriter(fw);
+            for (int i = 1; i <= numOfRounds; i++){
+                bw.write("Round " + i + ": ");
+                for (int j = 0; j < recevdParamIds.get(i).size(); j++){
+                    bw.write(recevdParamIds.get(i).get(j) + ",");
+                }
+                bw.write("\n");
+            }
+            bw.close();
+        }
     }
 
     public void sendParametersToAggregator(String parameters, String datasetSize) throws IOException {
@@ -120,6 +147,7 @@ public final class FLServer extends DefaultSingleRecoverable {
 
         if (msg.getRound() == currentRound){
             receivedParams++;
+            recevdParamIds.get(currentRound).add(msg.getClientId());
             sendParametersToAggregator(msg.getContent(), msg.getExtension());
             if ((receivedParams >= clientNums - byzNums)){
                 System.out.println("Send Aggregate to Aggregator by client " + msg.getClientId());
@@ -161,6 +189,16 @@ public final class FLServer extends DefaultSingleRecoverable {
                 return FLMessage.toBytes(handleNewParam(message));
             } else if (message.getType().equals(MessageType.CHECK)){
                 return FLMessage.toBytes(handleCheckMsg(message));
+            } else if (message.getType().equals(MessageType.GETSTATUS)){
+                if (connectedClients.size() == clientNums){
+                    return FLMessage.toBytes(new FLMessage(MessageType.START, "", 0, message.getClientId(), "non"));
+                }
+                else{
+                    if (!connectedClients.contains(message.getClientId())){
+                        connectedClients.add(message.getClientId());
+                    }
+                    return FLMessage.toBytes(new FLMessage(MessageType.WAITTHIS, "", 0, message.getClientId(), "non"));
+                }
             }
             System.err.println("Not valid message type!");
             terminateTheAggregator();
