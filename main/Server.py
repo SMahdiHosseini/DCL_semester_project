@@ -21,6 +21,9 @@ attack_name = sys.argv[7]
 test = sys.argv[8]
 aggregator = RobustAggregator('nnm', aggregator_name, 1, nb_byz, Helper.device)
 attacker = ByzantineAttack(attack_name, nb_byz)
+if test == Helper.accuracy_test:
+    orders = aggregator.readOrders(None, nb_clients, nb_byz, nb_rounds, attack_name, 'fl')
+
 log = Log("../FL_res/" + aggregator_name + "/ncl_" + str(nb_clients) + "/nbyz_" + str(nb_byz) + "/Performance/server.txt")
 threads = []
 manager = mp.Manager()
@@ -38,6 +41,8 @@ def sendingThread(conn, client_parameters_queue, e):
             client_parameters, r = client_parameters_queue.get()
             if client_parameters == None:
                 return
+            if client_parameters == Message.TRAIN:
+                conn.send(Msg(header=Message.TRAIN))
             info={Message.ROUND: r, Message.SIZE: None, Message.SRC: None}
             connectionHelper.sendNewParametersToPython(conn, client_parameters, info)
         e.clear()
@@ -68,14 +73,15 @@ def runTheRound(r, connections, recvd_params):
     recvd_connections_ids = [s for s in list(connections.keys()) if s in [k[0] for k in recvd_params.keys()]]
     addNewLog("round_{}_aggregation: {}\n".format(r, datetime.now().strftime("%H:%M:%S:%f")))
     if test == Helper.accuracy_test:
-        recvd_params = dict(sorted(recvd_params.items(), key=lambda x: x[0][1])[:nb_clients - nb_byz])
-        print(recvd_params.keys())
-        byz_vectors = attacker.generate_byzantine_vectors(list(recvd_params.values()), None)
+        ordered_params = {k: v for k, v in recvd_params.items() if k[0] in orders[r]}
+        # recvd_params = dict(sorted(recvd_params.items(), key=lambda x: x[0][1])[:nb_clients - nb_byz])
+        byz_vectors = attacker.generate_byzantine_vectors(list(ordered_params.values()), None)
         id = -1
         for v in byz_vectors:
-            recvd_params[(id, t)] = v
+            ordered_params[(id, t)] = v
             id -= 1
-        ordered_params = dict(sorted(recvd_params.items(), key=lambda x: x[0][1])[:nb_clients])
+        print(ordered_params.keys())
+        # ordered_params = dict(sorted(recvd_params.items(), key=lambda x: x[0][1])[:nb_clients])
     else:
         ordered_params = dict(sorted(recvd_params.items(), key=lambda x: x[0][1])[:nb_clients - nb_byz])
     # print(ordered_params.keys())
@@ -111,7 +117,8 @@ def execute(connections):
                 elif int(msg.content[Message.ROUND]) < r:
                     connectionHelper.sendNewParameters(sock, round_params[int(msg.content[Message.ROUND])], connectionHelper.PYTHON, info={Message.ROUND: msg.content[Message.ROUND], Message.SIZE: None, Message.SRC: None})
                     
-            if len(list(recvd_params.values())) >= nb_clients - nb_byz:
+            if (test == Helper.performance_test and len(list(recvd_params.values())) >= nb_clients - nb_byz) or (test == Helper.accuracy_test and len(list(recvd_params.values())) >= nb_clients):
+            # if len(list(recvd_params.values())) >= nb_clients - nb_byz:
                 addNewLog("round_{}_received_params_{}: {}\n".format(r, str(nb_clients - nb_byz), datetime.now().strftime("%H:%M:%S:%f")))
                 round_params[r] = runTheRound(r, connections, recvd_params)
                 print("round {} finished".format(r))
@@ -130,6 +137,11 @@ def sendNewParameters(recvd_connections, new_model_parameters, r):
     # for conn in recvd_connections:
     #     connectionHelper.sendNewParameters(conn, new_model_parameters, connectionHelper.PYTHON, info={Message.ROUND: r, Message.SIZE: None, Message.SRC: None})
 
+def sendTrainMessage(connections):
+    for id in list(connections.keys()):
+        shared_dict[id].put((Message.TRAIN, 0))
+        events[id].set()
+
 def terminate(connections, listeners):
     for conn in connections:
         conn.send(Msg(header=Message.ACK))
@@ -141,6 +153,7 @@ def terminate(connections, listeners):
 def main():
     print("Server started! ... ")
     listeners, connections = connectToClients(ConnectionDistributer.generateFLPorts(server_port, nb_clients))
+    sendTrainMessage(connections)
     execute(connections)
     for t in threads:
         t.join()

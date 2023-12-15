@@ -1,6 +1,16 @@
 import torch
 from Utils import misc
 
+def readlines(input_file_name):
+    input_file = open(input_file_name, "r")
+    lines = dict()
+    for line in input_file:
+        line = line.strip()
+        key_value = line.split(":")
+        if "order" in key_value[0]:
+            lines[key_value[0]] = key_value[1]
+    return lines
+
 def average(aggreagator, vectors):
     return torch.stack(vectors).mean(dim=0)
 
@@ -48,3 +58,20 @@ class RobustAggregator(object):
         #JS: Update the value of the previous momentum (e.g., for Centered Clipping aggregator)
         self.prev_momentum = aggregate_vector
         return aggregate_vector
+    
+    def readOrders(self, client_id, nb_clients, nb_byz, nb_rounds, attack, senario):
+        if senario == 'fl':
+            logFile = "../FL_res/" + self.second_aggregator + "/ncl_" + str(nb_clients + nb_byz) + "/nbyz_" + str(nb_byz) + "/Performance/server.txt"
+        if senario == 'p2p':
+            logFile = "../Gossip_res/" + self.second_aggregator + "/ncl_" + str(nb_clients + nb_byz) + "/nbyz_" + str(nb_byz) + "/Performance/" + str(client_id) + ".txt"
+        if senario == 'con':
+            logFile = "../../../../Consensus_res/" + self.second_aggregator + "/ncl_" + str(nb_clients + nb_byz) + "/nbyz_" + str(nb_byz) + "/Performance/orders.txt"
+
+        byz_ids = [i for i in range(nb_clients + nb_byz) if i >= nb_clients]
+        lines = readlines(logFile)
+        orders = dict()
+        for r in range(1, nb_rounds + 1):
+            temp = [int(i) for i in lines["round_{}_aggregation order".format(r)][2:-1].split(',')]
+            orders[r] = [i for i in temp if i not in byz_ids][:nb_clients - nb_byz]
+            print("round_{}_aggregation order: {}".format(r, orders[r]))
+        return orders

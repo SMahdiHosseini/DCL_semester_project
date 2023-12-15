@@ -343,7 +343,7 @@ def all_accuracy_per_time_per_pace(fl, p2p, con, rank):
             ax.set_ylabel('accuracy')
             ax.legend(['fl', 'p2p', 'con'])
             ax.set_title("average accuracy per " + rank + " time for n = " + str(nb_clients) + ", n byz = " + str(nb_byz) + "\naggregator: " + agg + "\nattack:" + att)
-            plt.savefig("../../Plots/" + agg + "/" +  att + "/" + str(nb_clients) + "_"  + str(nb_byz) + "_trsh_" + rank + "_time.png", bbox_inches='tight')
+            plt.savefig("../../Plots/" + agg + "/" +  att + "/" + str(nb_clients) + "_"  + str(nb_byz) + "_trsh_" + rank + "_" + heterogeneity + "_time.png", bbox_inches='tight')
             plt.close()
 
 def find_fastest_slowest_trsh(senario, aggregator, attack, trsh):
@@ -385,6 +385,7 @@ def find_fastest_slowest_trsh(senario, aggregator, attack, trsh):
     min_key = min(clients_reached_trsh_time, key=clients_reached_trsh_time.get)
     max_key = max(clients_reached_trsh_time, key=clients_reached_trsh_time.get)
     # print(len(clients_accs[max_key]), len(clients_times[max_key]))
+    print(senario, clients_reached_trsh_round[min_key], min_key)
     res = {'slowest': {'end_time': clients_times[max_key][:clients_reached_trsh_round[max_key] - 1], 'acc': clients_accs[max_key][1:clients_reached_trsh_round[max_key]]},
            'fastest': {'end_time': clients_times[min_key][:clients_reached_trsh_round[min_key] - 1], 'acc': clients_accs[min_key][1:clients_reached_trsh_round[min_key]]}}
     # print(max_key, min_key)
@@ -430,7 +431,7 @@ def main():
     # violin_plot_slowest_fastest({'slowest': slowest_fl, 'fastest': fastest_fl}, {'slowest': slowest_p2p, 'fastest': fastest_p2p}, {'slowest': slowest_con, 'fastest': fastest_con})
 
 #### finding the fastest node that reached the trsh first
-    trsh = 0.85
+    trsh = 0.89
     fl_slowest_fastest = {'trmean': {'SF': find_fastest_slowest_trsh('fl', 'trmean', 'SF', trsh)}}
     p2p_slowest_fastest = {'trmean': {'SF': find_fastest_slowest_trsh('p2p', 'trmean', 'SF', trsh)}}
     con_slowest_fastest = {'trmean': {'SF': find_fastest_slowest_trsh('con', 'trmean', 'SF', trsh)}}
