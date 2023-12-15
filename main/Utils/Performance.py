@@ -392,6 +392,32 @@ def find_fastest_slowest_trsh(senario, aggregator, attack, trsh):
     # print(clients_reached_trsh_time, clients_reached_trsh_time[max_key], clients_reached_trsh_time[min_key])
     return res
 
+def readOrders(client_id, nb_clients, nb_byz, nb_rounds, aggreagator, attack, senario):
+    if senario == 'fl':
+        logFile = "../../FL_res/" + aggreagator + "/ncl_" + str(nb_clients) + "/nbyz_" + str(nb_byz) + "/Performance/server.txt"
+    if senario == 'p2p':
+        logFile = "../../Gossip_res/" + aggreagator + "/ncl_" + str(nb_clients) + "/nbyz_" + str(nb_byz) + "/Performance/" + str(client_id) + ".txt"
+    if senario == 'con':
+        logFile = "../../Consensus_res/" + aggreagator + "/ncl_" + str(nb_clients) + "/nbyz_" + str(nb_byz) + "/Performance/orders.txt"
+
+    input_file = open(logFile, "r")
+    lines = dict()
+    for line in input_file:
+        line = line.strip()
+        key_value = line.split(":")
+        if "order" in key_value[0]:
+            lines[key_value[0]] = key_value[1]
+
+    orders = dict()
+    for i in range(nb_clients):
+        orders[i] = 0
+
+    for r in range(1, nb_rounds + 1):
+        temp = [int(i) for i in lines["round_{}_aggregation order".format(r)][2:-1].split(',')]
+        for t in temp:
+            orders[t] += 1
+    return orders
+
 def main():
     # fl = dict()
     # p2p = dict()
@@ -436,7 +462,12 @@ def main():
     p2p_slowest_fastest = {'trmean': {'SF': find_fastest_slowest_trsh('p2p', 'trmean', 'SF', trsh)}}
     con_slowest_fastest = {'trmean': {'SF': find_fastest_slowest_trsh('con', 'trmean', 'SF', trsh)}}
     # print(fl_slowest_fastest['trmean']['SF']['slowest']['end_time'])
-    all_accuracy_per_time_per_pace(fl_slowest_fastest, p2p_slowest_fastest, con_slowest_fastest, 'fastest')
-    all_accuracy_per_time_per_pace(fl_slowest_fastest, p2p_slowest_fastest, con_slowest_fastest, 'slowest')
+    # all_accuracy_per_time_per_pace(fl_slowest_fastest, p2p_slowest_fastest, con_slowest_fastest, 'fastest')
+    # all_accuracy_per_time_per_pace(fl_slowest_fastest, p2p_slowest_fastest, con_slowest_fastest, 'slowest')
+
+### finding the orders of clients
+    print(readOrders(0, nb_clients, nb_byz, nb_rounds, 'trmean', 'SF', 'fl'))
+    for i in range(nb_clients):
+        print(i, readOrders(i, nb_clients, nb_byz, nb_rounds, 'trmean', 'SF', 'p2p'))
 if __name__ == "__main__":
     main()

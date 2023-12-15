@@ -50,6 +50,7 @@ class TraningClient:
             events[i] = manager.Event()
             shared_dict[i] = manager.Queue()
         if test == Helper.accuracy_test:
+            self.orders = self.aggregator.readOrders(self.client_id, nb_clients, nb_byz, nb_rounds, attack_name, 'p2p')
             self.text_file = open("../Gossip_res/" + aggregator_name + "/ncl_" + str(nb_clients + nb_byz)  + "/nbyz_" + str(nb_byz) + "/Accuracy/"  + attack_name + "/" + str(client_id) + ".txt", "w")
 
     def get_dataset_size(self):
@@ -108,6 +109,8 @@ class TraningClient:
                 client_parameters, r = client_parameters_queue.get()
                 if client_parameters == None:
                     return
+                if client_parameters == Message.TRAIN:
+                    conn.send(Msg(header=Message.TRAIN))
                 info={Message.ROUND: r, Message.SIZE: self.get_dataset_size(), Message.SRC: self.client_id}
                 # connectionHelper.sendNewParameters(conn, client_parameters, connectionHelper.PYTHON, info)
                 connectionHelper.sendNewParametersToPython(conn, client_parameters, info)
@@ -126,13 +129,15 @@ class TraningClient:
     def aggregate(self, recvd_params, t):
         addNewLog("round_{}_aggregation: {}\n".format(self.current_round, datetime.now().strftime("%H:%M:%S:%f")))
         if test == Helper.accuracy_test:
-            recvd_params = dict(sorted(recvd_params.items(), key=lambda x: x[0][1])[:nb_clients - nb_byz])
-            byz_vectors = self.attacker.generate_byzantine_vectors(list(recvd_params.values()), None)
+            ordered_params = {k: v for k, v in recvd_params.items() if k[0] in self.orders[self.current_round]}
+            # recvd_params = dict(sorted(recvd_params.items(), key=lambda x: x[0][1])[:nb_clients - nb_byz])
+            byz_vectors = self.attacker.generate_byzantine_vectors(list(ordered_params.values()), None)
             id = -1
             for v in byz_vectors:
-                recvd_params[(id, t)] = v
+                ordered_params[(id, t)] = v
                 id -= 1
-            ordered_params = dict(sorted(recvd_params.items(), key=lambda x: x[0][1])[:nb_clients])
+            print(ordered_params.keys())
+            # ordered_params = dict(sorted(recvd_params.items(), key=lambda x: x[0][1])[:nb_clients])
         else:
             ordered_params = dict(sorted(recvd_params.items(), key=lambda x: x[0][1])[:nb_clients - nb_byz])
         # print(ordered_params.keys())
@@ -181,7 +186,7 @@ class TraningClient:
                         recvd_params[self.current_round][(msg.src_id, t)] = connectionHelper.stringToTensor(msg.content[Message.PARAMS])
                     elif int(msg.content[Message.ROUND]) > self.current_round:
                         recvd_params[int(msg.content[Message.ROUND])][(msg.src_id, t)] = connectionHelper.stringToTensor(msg.content[Message.PARAMS])
-                if termination == False and len(list(recvd_params[self.current_round].values())) >= nb_clients - nb_byz:
+                if termination == False and ((test == Helper.performance_test and len(list(recvd_params[self.current_round].values())) >= nb_clients - nb_byz) or (test == Helper.accuracy_test and len(list(recvd_params[self.current_round].values())) >= nb_clients)):
                     addNewLog("round_{}_received_params_{}: {}\n".format(self.current_round, str(nb_clients - nb_byz), datetime.now().strftime("%H:%M:%S:%f")))
                     round_params[self.current_round] = self.aggregate(recvd_params[self.current_round], t)
                     print("round {} finished {}".format(self.current_round, datetime.now().strftime("%H:%M:%S:%f")))
@@ -197,6 +202,19 @@ class TraningClient:
         addNewLog("end: {}\n".format(datetime.now().strftime("%H:%M:%S:%f")))
         print("Client Iteration Finished!")
 
+    def start(self):
+        for neighborId in self.neighbors:
+            shared_dict[neighborId].put((Message.TRAIN, self.current_round))
+            events[neighborId].set()
+        recvd_train = 0
+        while recvd_train < len(self.neighbors):
+            ready_to_read, _, _ = select.select(list(self.connections.values()), [], [])
+            for sock in ready_to_read:
+                msg = sock.recv()
+                if msg.header == Message.TRAIN:
+                    recvd_train += 1
+        print("Client {} started Training! ... ".format(self.client_id))
+
 def evaluation(params, r, text_file):
     evaluator.evaluateTheRound(params, r, text_file)
 
@@ -204,13 +222,14 @@ def main():
     print("Client {} started! ... ".format(client_id))
     ports, adjMat = generateGossipPorts(server_port, nb_clients)
 
-    # traning_client = TraningClient(client_id, torch.load("./Data/ClientsDatasets/" + str(client_id) + ".pt"), adjMat[client_id])
-    dataset = DataDistributer.idx_to_dataset(client_id, nb_clients)
-    traning_client = TraningClient(client_id, dataset, adjMat[client_id])
+    traning_client = TraningClient(client_id, torch.load("./Data/ClientsDatasets/" + str(client_id) + ".pt"), adjMat[client_id])
+    # dataset = DataDistributer.idx_to_dataset(client_id, nb_clients)
+    # traning_client = TraningClient(client_id, dataset, adjMat[client_id])
 
     traning_client.connectToNeighbors(ports[client_id])
     print("client connected to neighbors!")
     traning_client.initialize()
+    traning_client.start()
     traning_client.execute()
     if test == Helper.performance_test:
         log.writeLogs()
