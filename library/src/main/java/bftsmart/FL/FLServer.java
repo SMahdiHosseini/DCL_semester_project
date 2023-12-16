@@ -37,11 +37,13 @@ public final class FLServer extends DefaultSingleRecoverable {
         this.lock = new ReentrantLock();
         this.aggregatedParams = new HashMap<Integer, String>();
         this.recevdParamIds = new HashMap<Integer, ArrayList<Integer>>();
-        this.fileName = "../../../../Consensus_res/" + aggregatorName + "/ncl_" + Integer.toString(_clientNums) + "/nbyz_" + Integer.toString(byzNums) + "/Performance/recevdParamIds.txt";
-        for (int i = 1; i <= numOfRounds; i++){
-            recevdParamIds.put(i, new ArrayList<Integer>());
-        }
         this.test = _test;
+        if (this.test.equals("Accuracy"))
+            this.fileName = "../../../../Consensus_res/" + aggregatorName + "/ncl_" + Integer.toString(_clientNums + byzNums) + "/nbyz_" + Integer.toString(byzNums) + "/Performance/recevdParamIds.txt";
+        else if (this.test.equals("Performance"))
+            this.fileName = "../../../../Consensus_res/" + aggregatorName + "/ncl_" + Integer.toString(_clientNums) + "/nbyz_" + Integer.toString(byzNums) + "/Performance/recevdParamIds.txt";
+        
+        createRecvdParamIds();
         new ServiceReplica(id, this, this);
 
         try {
@@ -62,6 +64,37 @@ public final class FLServer extends DefaultSingleRecoverable {
         }
     }
 
+    public void createRecvdParamIds() {
+        if (this.test.equals("Accuracy")){
+            ArrayList<Integer> byzClients = new ArrayList<Integer>();
+            for (int i = clientNums; i < clientNums + byzNums; i++){
+                byzClients.add(i);
+            }
+            try {
+                FileReader fr = new FileReader(this.fileName);
+                BufferedReader br = new BufferedReader(fr);
+                for (int i = 1; i <= numOfRounds; i++){
+                    recevdParamIds.put(i, new ArrayList<Integer>());
+                    String[] ids = br.readLine().split(":")[1].split(",");
+                    for (int j = 0; j < ids.length; j++){
+                        int id = Integer.parseInt(ids[j].trim());
+                        if (!byzClients.contains(id))
+                            recevdParamIds.get(i).add(id);
+                    }
+                    //TODO: remove
+                    System.out.println("Round " + i + ": " + recevdParamIds.get(i));
+                }
+                br.close();
+            } catch (NumberFormatException | IOException e) {
+                throw new RuntimeException(e);
+            }
+            
+        } else if (this.test.equals("Performance")){
+            for (int i = 1; i <= numOfRounds; i++){
+                recevdParamIds.put(i, new ArrayList<Integer>());
+           }
+        }
+    }
     public void aggregateParams() throws IOException {
         String aggregate = "AGGREGATE";
         out.writeUTF(aggregate);
@@ -144,13 +177,17 @@ public final class FLServer extends DefaultSingleRecoverable {
     }
     public FLMessage handleNewParam(FLMessage msg) throws IOException {
        System.out.println("Got new param from " + msg.getClientId() + " Curretn Round: " + currentRound + " Client round:" + msg.getRound());
-
+        if (test.equals("Accuracy") && !recevdParamIds.get(currentRound).contains(msg.getClientId())){
+            return new FLMessage(MessageType.WAITTHIS, "", currentRound, msg.getClientId(), "non");
+        }
+        else
         if (msg.getRound() == currentRound){
             receivedParams++;
             recevdParamIds.get(currentRound).add(msg.getClientId());
             sendParametersToAggregator(msg.getContent(), msg.getExtension());
             if ((receivedParams >= clientNums - byzNums)){
                 System.out.println("Send Aggregate to Aggregator by client " + msg.getClientId());
+                System.out.println("Received params: " + recevdParamIds.get(currentRound));
                 aggregateParams();
                 return sendAggParams(msg.getClientId(), msg.getRound());
             }

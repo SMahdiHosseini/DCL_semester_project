@@ -95,23 +95,23 @@ do
             mkdir -p "../Consensus_res/""$agg"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Accuracy_$i/Heterogeneous
             mkdir -p "../Consensus_res/""$agg"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Accuracy_$i/Homogeneous
 
-            echo running con with "$nb_byz" byzantine client. Performance test phase! Aggregator: "$agg"
-            bash ConsensusRunner.sh "$nb_replicas" "$nb_clients" "$rounds" "$localHost" "$nb_byz" "$agg" "att" "Performance"
+            # echo running con with "$nb_byz" byzantine client. Performance test phase! Aggregator: "$agg"
+            # bash ConsensusRunner.sh "$nb_replicas" "$nb_clients" "$rounds" "$localHost" "$nb_byz" "$agg" "att" "Performance"
 
-            # for att in ${attack[@]}; do
-            #     mkdir -p "../Consensus_res/""$agg"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Accuracy/"$att"
-            #     echo running con with "$nb_byz" byzantine client. Accuracy test phase! Aggregator: "$agg" Attack: "$att"
-            #     ((new_nb_clients = nb_clients - nb_byz))
-            #     bash ConsensusRunner.sh "$nb_replicas" "$new_nb_clients" "$rounds" "$localHost" "$nb_byz" "$agg" "$att" "Accuracy"
-            #     if [[ "$Heterogeneity" == "1" ]]
-            #     then
-            #         rm -rf "../Consensus_res/""$agg"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Accuracy_$i/Heterogeneous/"$att"
-            #         mv -f "../Consensus_res/""$agg"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Accuracy/"$att" "../Consensus_res/""$agg"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Accuracy_$i/Heterogeneous/
-            #     else
-            #         rm -rf "../Consensus_res/""$agg"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Accuracy_$i/Homogeneous/"$att"
-            #         mv -f "../Consensus_res/""$agg"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Accuracy/"$att" "../Consensus_res/""$agg"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Accuracy_$i/Homogeneous/
-            #     fi
-            # done
+            for att in ${attack[@]}; do
+                mkdir -p "../Consensus_res/""$agg"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Accuracy/"$att"
+                echo running con with "$nb_byz" byzantine client. Accuracy test phase! Aggregator: "$agg" Attack: "$att"
+                ((new_nb_clients = nb_clients - nb_byz))
+                bash ConsensusRunner.sh "$nb_replicas" "$new_nb_clients" "$rounds" "$localHost" "$nb_byz" "$agg" "$att" "Accuracy"
+                if [[ "$Heterogeneity" == "1" ]]
+                then
+                    rm -rf "../Consensus_res/""$agg"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Accuracy_$i/Heterogeneous/"$att"
+                    mv -f "../Consensus_res/""$agg"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Accuracy/"$att" "../Consensus_res/""$agg"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Accuracy_$i/Heterogeneous/
+                else
+                    rm -rf "../Consensus_res/""$agg"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Accuracy_$i/Homogeneous/"$att"
+                    mv -f "../Consensus_res/""$agg"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Accuracy/"$att" "../Consensus_res/""$agg"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Accuracy_$i/Homogeneous/
+                fi
+            done
         fi
     done
 done
