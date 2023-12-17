@@ -1,10 +1,4 @@
-Round 1: [1, 0, 2]
-Round 2: [0, 1, 3]
-Round 3: [3, 1, 0]
-Round 4: [3, 2, 0]
-Round 5: [2, 3, 0]
-Round 6: [2, 3, 0]
--- Using view stored on disk
+-- Creating current view from configuration file
 -- SSL/TLS handshake complete!, Id:0  ## CipherSuite: TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256.
 -- ID = 1
 -- N = 5
@@ -22,82 +16,62 @@ Round 6: [2, 3, 0]
 		###################################
 		    Ready to process operations    
 		###################################
-Server 1 Port: 40477
+Server 1 Port: 35509
 -- Session Created, active clients=0
--- Session Created, active clients=0
--- Session Created, active clients=2
--- Session Created, active clients=3
-Got new param from 1 Curretn Round: 1 Client round:1
+-- Session Created, active clients=1
+-- Session Created, active clients=1
+-- Session Created, active clients=1
+-- Session Created, active clients=4
 Got new param from 2 Curretn Round: 1 Client round:1
+Got new param from 1 Curretn Round: 1 Client round:1
 Got new param from 0 Curretn Round: 1 Client round:1
-Send Aggregate to Aggregator by client 0
-Received params: [1, 0, 2, 1, 2, 0]
+Got new param from 3 Curretn Round: 1 Client round:1
+Send Aggregate to Aggregator by client 3
+Received params: [2, 1, 0, 3]
 Aggregating parameters of round 1
 **** Aggregated of round 1
-Got new param from 3 Curretn Round: 2 Client round:1
+Got new param from 4 Curretn Round: 2 Client round:1
 Got new param from 1 Curretn Round: 2 Client round:2
-Got new param from 2 Curretn Round: 2 Client round:2
 Got new param from 0 Curretn Round: 2 Client round:2
-Got new param from 3 Curretn Round: 2 Client round:2
-Send Aggregate to Aggregator by client 3
-Received params: [0, 1, 3, 1, 0, 3]
+Got new param from 4 Curretn Round: 2 Client round:2
+Got new param from 2 Curretn Round: 2 Client round:2
+Send Aggregate to Aggregator by client 2
+Received params: [1, 0, 4, 2]
 Aggregating parameters of round 2
 **** Aggregated of round 2
+Got new param from 3 Curretn Round: 3 Client round:2
 Got new param from 1 Curretn Round: 3 Client round:3
-Got new param from 0 Curretn Round: 3 Client round:3
 Got new param from 3 Curretn Round: 3 Client round:3
-Send Aggregate to Aggregator by client 3
-Received params: [3, 1, 0, 1, 0, 3]
+Got new param from 4 Curretn Round: 3 Client round:3
+Got new param from 0 Curretn Round: 3 Client round:3
+Send Aggregate to Aggregator by client 0
+Received params: [1, 3, 4, 0]
 Aggregating parameters of round 3
 **** Aggregated of round 3
-Got new param from 2 Curretn Round: 4 Client round:3
-Got new param from 1 Curretn Round: 4 Client round:4
-Got new param from 3 Curretn Round: 4 Client round:4
-Got new param from 0 Curretn Round: 4 Client round:4
-Got new param from 2 Curretn Round: 4 Client round:4
-Send Aggregate to Aggregator by client 2
-Received params: [3, 2, 0, 3, 0, 2]
-Aggregating parameters of round 4
-**** Aggregated of round 4
-Got new param from 1 Curretn Round: 5 Client round:5
-Got new param from 2 Curretn Round: 5 Client round:5
-Got new param from 0 Curretn Round: 5 Client round:5
-Got new param from 3 Curretn Round: 5 Client round:5
-Send Aggregate to Aggregator by client 3
-Received params: [2, 3, 0, 2, 0, 3]
-Aggregating parameters of round 5
-**** Aggregated of round 5
-Got new param from 2 Curretn Round: 6 Client round:6
-Got new param from 1 Curretn Round: 6 Client round:6
-Got new param from 3 Curretn Round: 6 Client round:6
-Got new param from 0 Curretn Round: 6 Client round:6
-Send Aggregate to Aggregator by client 0
-Received params: [2, 3, 0, 2, 3, 0]
-Aggregating parameters of round 6
-**** Aggregated of round 6
 Python process terminated
+Got new param from 2 Curretn Round: 4 Client round:3
 -- 
 ---------- DEBUG INFO ----------
 
-Current time: 13:07:32.527
+Current time: 13:14:02.338
 Current leader: 0
 Current regency: 0
 
-Last finished consensus: 3794
+Last finished consensus: 742
 
 	 -- Consensus state: 
 
 		ETS=0 
-		WriteSet=[[0 :: SKXhnuTanfTzb3rSKbvLtoddpuV43hJB24yeTYMFsI8=]] 
-		(VAL,TS)=[0 :: SKXhnuTanfTzb3rSKbvLtoddpuV43hJB24yeTYMFsI8=]
+		WriteSet=[[0 :: VkABnkWxPgaJLTeTeSa8lvVTw05WuIbiPiwndW4TMM0=]] 
+		(VAL,TS)=[0 :: VkABnkWxPgaJLTeTeSa8lvVTw05WuIbiPiwndW4TMM0=]
 
 	 -- Epoch state: 
 
-		CID=3794 
+		CID=742 
 		TS=0 
-		Propose=[SKXhnuTanfTzb3rSKbvLtoddpuV43hJB24yeTYMFsI8=] 
-		Writes=([SKXhnuTanfTzb3rSKbvLtoddpuV43hJB24yeTYMFsI8=], [SKXhnuTanfTzb3rSKbvLtoddpuV43hJB24yeTYMFsI8=], [SKXhnuTanfTzb3rSKbvLtoddpuV43hJB24yeTYMFsI8=], [SKXhnuTanfTzb3rSKbvLtoddpuV43hJB24yeTYMFsI8=], [SKXhnuTanfTzb3rSKbvLtoddpuV43hJB24yeTYMFsI8=]) 
-		Accepts=([SKXhnuTanfTzb3rSKbvLtoddpuV43hJB24yeTYMFsI8=], [SKXhnuTanfTzb3rSKbvLtoddpuV43hJB24yeTYMFsI8=], [null], [SKXhnuTanfTzb3rSKbvLtoddpuV43hJB24yeTYMFsI8=], [SKXhnuTanfTzb3rSKbvLtoddpuV43hJB24yeTYMFsI8=])
+		Propose=[VkABnkWxPgaJLTeTeSa8lvVTw05WuIbiPiwndW4TMM0=] 
+		Writes=([VkABnkWxPgaJLTeTeSa8lvVTw05WuIbiPiwndW4TMM0=], [VkABnkWxPgaJLTeTeSa8lvVTw05WuIbiPiwndW4TMM0=], [VkABnkWxPgaJLTeTeSa8lvVTw05WuIbiPiwndW4TMM0=], [VkABnkWxPgaJLTeTeSa8lvVTw05WuIbiPiwndW4TMM0=], [null]) 
+		Accepts=([VkABnkWxPgaJLTeTeSa8lvVTw05WuIbiPiwndW4TMM0=], [VkABnkWxPgaJLTeTeSa8lvVTw05WuIbiPiwndW4TMM0=], [VkABnkWxPgaJLTeTeSa8lvVTw05WuIbiPiwndW4TMM0=], [VkABnkWxPgaJLTeTeSa8lvVTw05WuIbiPiwndW4TMM0=], [null])
 
 Consensus in execution: None
 

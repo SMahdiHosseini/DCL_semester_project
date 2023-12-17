@@ -61,19 +61,27 @@
 # plt.errorbar(x=range(len(data)), y=mean, yerr=std, fmt='o')
 # plt.show()
 
-from Utils import Model, Helper, connectionHelper, DataDistributer
-import torch
-import torchvision.transforms as transforms
-from torchvision.datasets import MNIST
+# from Utils import Model, Helper
+# import torch
+# import torchvision.transforms as transforms
+# from torchvision.datasets import MNIST
 
-test_dataset = MNIST('../Data', train=False, download=True, transform=transforms.ToTensor())
+# test_dataset = MNIST('../Data', train=False, download=True, transform=transforms.ToTensor())
 # dataset = MNIST('../Data', train=True, download=True, transform=transforms.ToTensor())
-dataset = DataDistributer.idx_to_dataset(0, 10)
+# dataset = DataDistributer.idx_to_dataset(0, 10)
 # dataset = torch.load("./Data/ClientsDatasets/0.pt")
+# net = Helper.to_device(Model.FederatedNet(), Helper.device)
+# for i in range(3):
+#     net.fit(dataset)
+
+# test_loss, test_acc = net.evaluate(test_dataset)
+# print('After round {}, test_loss = {}, test_acc = {}\n'.format(3, round(test_loss, 4), round(test_acc, 4)))
+# print(len(bytes(connectionHelper.tensorToString(net.get_parameters()), 'utf-8')))
+
+from Utils import Model, Helper
+import torch
+dataset = torch.load("./Data/ClientsDatasets/0.pt")
 net = Helper.to_device(Model.FederatedNet(), Helper.device)
 for i in range(3):
     net.fit(dataset)
-
-test_loss, test_acc = net.evaluate(test_dataset)
-print('After round {}, test_loss = {}, test_acc = {}\n'.format(3, round(test_loss, 4), round(test_acc, 4)))
-# print(len(bytes(connectionHelper.tensorToString(net.get_parameters()), 'utf-8')))
+print(len(net.get_parameters()))

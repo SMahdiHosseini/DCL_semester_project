@@ -4,4 +4,5 @@ cd DCL_semester_project
 mkdir main/Data/
 mkdir main/Data/ClientsDatasets
 cd main/Utils
-python3 DataDistributer.py $nb_clients
+# python3 DataDistributer.py $nb_clients
+python3 Setup.py $nb_clients

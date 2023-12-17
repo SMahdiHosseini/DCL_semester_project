@@ -1,33 +1,16 @@
 Client 0 started! ... 
-round_1_aggregation order: [0, 1, 2]
-round_2_aggregation order: [0, 1, 2]
-round_3_aggregation order: [0, 1, 2]
-round_4_aggregation order: [0, 1, 2]
-round_5_aggregation order: [0, 1, 2]
-round_6_aggregation order: [0, 2, 1]
 Client 0 connected to client 1 !
 Client 0 connected to client 2 !
 Client 0 connected to client 3 !
+Client 0 connected to client 4 !
 client connected to neighbors!
 Client 0 initialized! ...
 Client 0 started Training! ... 
-Loss = 1.9872, Accuracy = 0.5167
-dict_keys([(0, '18:14:21:119223'), (1, '18:14:28:534629'), (2, '18:14:28:548762'), (-1, '18:14:28:569282')])
-round 1 finished 18:14:34:241933
-Loss = 1.4981, Accuracy = 0.7467
-dict_keys([(0, '18:14:34:242033'), (1, '18:14:37:791876'), (2, '18:14:37:805975'), (-1, '18:14:37:835407')])
-round 2 finished 18:14:43:675002
-Loss = 1.2233, Accuracy = 0.7857
-dict_keys([(0, '18:14:43:675111'), (1, '18:14:46:458535'), (2, '18:14:46:489507'), (-1, '18:14:46:551283')])
-round 3 finished 18:14:51:454017
-Loss = 1.0565, Accuracy = 0.8026
-dict_keys([(0, '18:14:51:454140'), (1, '18:14:55:794294'), (2, '18:14:55:872496'), (-1, '18:14:55:872496')])
-round 4 finished 18:15:01:669102
-Loss = 0.9467, Accuracy = 0.8135
-dict_keys([(0, '18:15:01:669203'), (1, '18:15:03:895616'), (2, '18:15:03:976788'), (-1, '18:15:03:976788')])
-round 5 finished 18:15:08:179579
-Loss = 0.8684, Accuracy = 0.8202
-dict_keys([(0, '18:15:08:179674'), (1, '18:15:10:627770'), (2, '18:15:10:846124'), (-1, '18:15:10:846124')])
-round 6 finished 18:15:15:087571
+Loss = 2.2905, Accuracy = 0.1395
+round 1 finished 13:02:27:096622
+Loss = 2.061, Accuracy = 0.2293
+round 2 finished 13:03:41:835762
+Loss = 1.8609, Accuracy = 0.3056
+round 3 finished 13:04:55:327153
 Client Iteration Finished!
 Client 0 terminated! ...
