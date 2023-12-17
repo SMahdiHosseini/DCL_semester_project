@@ -73,7 +73,8 @@ do
             fi
         done
 
-        sleep 140s
+        sleep 1050s
+        # wait
 
         recvd=$(ssh ubuntu@"$server" 'cat /sys/class/net/ens5/statistics/rx_bytes')
         send=$(ssh ubuntu@"$server" 'cat /sys/class/net/ens5/statistics/tx_bytes')
@@ -89,7 +90,6 @@ do
         done
 
         bash Terminate.sh
-        # wait
 
         echo "*********************"
         echo "*********************" 
@@ -114,8 +114,8 @@ do
 
         if [[ "$1" == "p2p" || "$1" == "all" ]]
         then
-            mkdir -p "./Gossip_res/""$agg"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Performance
-            rm -rf "./Gossip_res/""$agg"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Performance/*
+            mkdir -p "./Gossip_res/""$agg"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Performance_$j
+            rm -rf "./Gossip_res/""$agg"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Performance_$j/*
             # mkdir -p "./Gossip_res/""$agg"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Accuracy
             i=0
             d=1
@@ -128,8 +128,8 @@ do
 
         if [[ "$1" == "con" || "$1" == "all" ]]
         then
-            mkdir -p "./Consensus_res/""$agg"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Performance
-            rm -rf "./Consensus_res/""$agg"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Performance/*
+            mkdir -p "./Consensus_res/""$agg"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Performance_$j
+            rm -rf "./Consensus_res/""$agg"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Performance_$j/*
             # mkdir -p "./Consensus_res/""$agg"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Accuracy
             i=0
             d=1
@@ -137,6 +137,7 @@ do
             do
                 scp ubuntu@$client:/home/ubuntu/DCL_semester_project/Consensus_res/$agg/ncl_$nb_clients/nbyz_$nb_byz/Performance/$i.txt  ./Consensus_res/$agg/ncl_$nb_clients/nbyz_$nb_byz/Performance_$j &
                 scp ubuntu@$client:/home/ubuntu/DCL_semester_project/Consensus_res/$agg/ncl_$nb_clients/nbyz_$nb_byz/Performance/server_$i.txt  ./Consensus_res/$agg/ncl_$nb_clients/nbyz_$nb_byz/Performance_$j &
+                scp ubuntu@$client:/home/ubuntu/DCL_semester_project/Consensus_res/$agg/ncl_$nb_clients/nbyz_$nb_byz/Performance/recevdParamIds.txt  ./Consensus_res/$agg/ncl_$nb_clients/nbyz_$nb_byz/Performance_$j &
                 i=$(( $i + $d ))
             done  
         fi
