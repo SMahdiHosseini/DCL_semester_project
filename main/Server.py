@@ -118,6 +118,7 @@ def execute(connections):
                     connectionHelper.sendNewParameters(sock, round_params[int(msg.content[Message.ROUND])], connectionHelper.PYTHON, info={Message.ROUND: msg.content[Message.ROUND], Message.SIZE: None, Message.SRC: None})
                     
             if (test == Helper.performance_test and len(list(recvd_params.values())) >= nb_clients - nb_byz) or (test == Helper.accuracy_test and len(list(recvd_params.values())) >= nb_clients):
+            # if (test == Helper.performance_test and len(list(recvd_params.values())) >= nb_clients) or (test == Helper.accuracy_test and len(list(recvd_params.values())) >= nb_clients):
             # if len(list(recvd_params.values())) >= nb_clients - nb_byz:
                 addNewLog("round_{}_received_params_{}: {}\n".format(r, str(nb_clients - nb_byz), datetime.now().strftime("%H:%M:%S:%f")))
                 round_params[r] = runTheRound(r, connections, recvd_params)

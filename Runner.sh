@@ -73,7 +73,7 @@ do
             fi
         done
 
-        sleep 1050s
+        sleep 105s
         # wait
 
         recvd=$(ssh ubuntu@"$server" 'cat /sys/class/net/ens5/statistics/rx_bytes')
@@ -103,11 +103,13 @@ do
             # mkdir -p "./FL_res/""$agg"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Accuracy
 
             scp ubuntu@$server:/home/ubuntu/DCL_semester_project/FL_res/$agg/ncl_$nb_clients/nbyz_$nb_byz/Performance/server.txt  ./FL_res/$agg/ncl_$nb_clients/nbyz_$nb_byz/Performance_$j &
+            scp ubuntu@$server:/home/ubuntu/DCL_semester_project/main/Results/FL/server_res.txt  ./main/Results/FL &
             i=0
             d=1
             for client in "${clients[@]}"
             do
                 scp ubuntu@$client:/home/ubuntu/DCL_semester_project/FL_res/$agg/ncl_$nb_clients/nbyz_$nb_byz/Performance/$i.txt  ./FL_res/$agg/ncl_$nb_clients/nbyz_$nb_byz/Performance_$j &
+                scp ubuntu@$client:/home/ubuntu/DCL_semester_project/main/Results/FL/res_$i.txt  ./main/Results/FL &
                 i=$(( $i + $d ))
             done  
         fi
@@ -122,6 +124,7 @@ do
             for client in "${clients[@]}"
             do
                 scp ubuntu@$client:/home/ubuntu/DCL_semester_project/Gossip_res/$agg/ncl_$nb_clients/nbyz_$nb_byz/Performance/$i.txt  ./Gossip_res/$agg/ncl_$nb_clients/nbyz_$nb_byz/Performance_$j &
+                scp ubuntu@$client:/home/ubuntu/DCL_semester_project/main/Results/gossip/res_$i.txt  ./main/Results/gossip &
                 i=$(( $i + $d ))
             done  
         fi
