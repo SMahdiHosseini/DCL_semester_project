@@ -61,11 +61,11 @@ class RobustAggregator(object):
     
     def readOrders(self, client_id, nb_clients, nb_byz, nb_rounds, attack, senario):
         if senario == 'fl':
-            logFile = "../FL_res/" + self.second_aggregator + "/ncl_" + str(nb_clients + nb_byz) + "/nbyz_" + str(nb_byz) + "/Performance/server.txt"
+            logFile = "../FL_res/" + self.second_aggregator + "/ncl_" + str(nb_clients + nb_byz) + "/nbyz_" + str(nb_byz) + "/Performance_1/server.txt"
         if senario == 'p2p':
-            logFile = "../Gossip_res/" + self.second_aggregator + "/ncl_" + str(nb_clients + nb_byz) + "/nbyz_" + str(nb_byz) + "/Performance/" + str(client_id) + ".txt"
+            logFile = "../Gossip_res/" + self.second_aggregator + "/ncl_" + str(nb_clients + nb_byz) + "/nbyz_" + str(nb_byz) + "/Performance_1/" + str(client_id) + ".txt"
         if senario == 'con':
-            logFile = "../../../../Consensus_res/" + self.second_aggregator + "/ncl_" + str(nb_clients + nb_byz) + "/nbyz_" + str(nb_byz) + "/Performance/orders.txt"
+            logFile = "../../../../Consensus_res/" + self.second_aggregator + "/ncl_" + str(nb_clients + nb_byz) + "/nbyz_" + str(nb_byz) + "/Performance_1/orders.txt"
 
         byz_ids = [i for i in range(nb_clients + nb_byz) if i >= nb_clients]
         lines = readlines(logFile)

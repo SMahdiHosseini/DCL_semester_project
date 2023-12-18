@@ -79,9 +79,11 @@
 # print(len(bytes(connectionHelper.tensorToString(net.get_parameters()), 'utf-8')))
 
 from Utils import Model, Helper
+from torch.utils.data import DataLoader
 import torch
 dataset = torch.load("./Data/ClientsDatasets/0.pt")
-net = Helper.to_device(Model.FederatedNet(), Helper.device)
-for i in range(3):
-    net.fit(dataset)
-print(len(net.get_parameters()))
+net = Helper.to_device(Model.FederatedNet(dataset), Helper.device)
+for i in range(100):
+    net.fit()
+
+# print(len(net.get_parameters()))

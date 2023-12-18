@@ -58,7 +58,7 @@ class TraningClient:
 
     def initialize(self):
         print("Client {} initialized! ...".format(self.client_id))
-        self.net = Helper.to_device(Model.FederatedNet(), Helper.device)
+        self.net = Helper.to_device(Model.FederatedNet(self.dataset), Helper.device)
 
     def connectToNeighbors(self, ports):
         config = readConfig('ips.config')
@@ -121,7 +121,7 @@ class TraningClient:
         if test == Helper.accuracy_test and self.current_round == 1:
             evaluation(self.net.get_parameters(), 0, self.text_file)
             
-        self.net.fit(self.dataset)
+        self.net.fit()
         addNewLog("round_{}_model_trained: {}\n".format(self.current_round, datetime.now().strftime("%H:%M:%S:%f")))
         self.shareToNeighbors()
         addNewLog("round_{}_model_shared: {}\n".format(self.current_round, datetime.now().strftime("%H:%M:%S:%f")))

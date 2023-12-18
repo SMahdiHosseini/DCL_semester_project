@@ -26,7 +26,7 @@ class TraningClient:
     def __init__(self, client_id, dataset):
         self.client_id = client_id
         self.dataset = dataset
-        self.net = Helper.to_device(Model.FederatedNet(), Helper.device)
+        self.net = Helper.to_device(Model.FederatedNet(dataset), Helper.device)
         if test == Helper.accuracy_test:
             self.text_file = open("../../../../Consensus_res/" + aggregator_name + "/ncl_" + str(nb_clients + nb_byz)  + "/nbyz_" + str(nb_byz) + "/Accuracy/"  + attack_name + "/" + str(client_id) + ".txt", "w")
 
@@ -34,7 +34,7 @@ class TraningClient:
         return len(self.dataset)
     
     def handleTrainCmd(self, connection, r):
-        self.net.fit(self.dataset)
+        self.net.fit()
         addNewLog("round_{}_model_trained: {}\n".format(r, datetime.now().strftime("%H:%M:%S:%f")))
         connection.send(jpysocket.jpyencode(str(self.get_dataset_size())))
         connectionHelper.sendNewParameters(connection, self.net.get_parameters(), connectionHelper.JAVA)

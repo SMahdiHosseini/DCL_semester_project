@@ -18,7 +18,7 @@ do
     ./smartrun.sh bftsmart.FL.FLServer $r $2 $3 $4 $5 $6 $7 $8 > "./Results/res_$r.txt" &
 done
 
-sleep 5s
+sleep 10s
 
 for ((c=0; c<$2; c++))
 do

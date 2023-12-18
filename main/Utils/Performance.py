@@ -33,7 +33,7 @@ nb_clients = int(sys.argv[1])
 nb_byz = int(sys.argv[2])
 nb_rounds = int(sys.argv[3])
 nb_experiments = 3
-
+experiment = 1
 heterogeneity = "Homogeneous"
 # heterogeneity = "Heterogeneous"
 
@@ -102,11 +102,11 @@ def analysePerformance(aggregator, nb_clients, nb_byz, res, senario):
     if senario == 'con':
         senario = 'Consensus_res'
     
-    log = Log.Log("../../" + senario + "/" + aggregator + "/ncl_" + str(nb_clients) + "/nbyz_" + str(nb_byz) + "/Performance/performance.txt")
+    log = Log.Log("../../" + senario + "/" + aggregator + "/ncl_" + str(nb_clients) + "/nbyz_" + str(nb_byz) + "/Performance_" + str(experiment) + "/performance.txt")
     
     lines_clients = []
     for i in range(nb_clients):
-        lines_clients.append(readlines("../../" + senario + "/" + aggregator + "/ncl_" + str(nb_clients) + "/nbyz_" + str(nb_byz) + "/Performance/" + str(i)  + ".txt"))
+        lines_clients.append(readlines("../../" + senario + "/" + aggregator + "/ncl_" + str(nb_clients) + "/nbyz_" + str(nb_byz) + "/Performance_" + str(experiment) + "/" + str(i)  + ".txt"))
     total_average = 0
     times = dict()
     end_times = dict()
@@ -213,7 +213,7 @@ def find_fastest_slowest(senario, aggregator):
     lines_clients = dict()
     for i in range(nb_clients):
         clients_times[i] = []
-        lines_clients[i] = readlines("../../" + senario + "/" + aggregator + "/ncl_" + str(nb_clients) + "/nbyz_" + str(nb_byz) + "/Performance/" + str(i)  + ".txt")
+        lines_clients[i] = readlines("../../" + senario + "/" + aggregator + "/ncl_" + str(nb_clients) + "/nbyz_" + str(nb_byz) + "/Performance_" + str(experiment) + "/" + str(i)  + ".txt")
         
     for r in range(2, nb_rounds + 1):
         for i in range(nb_clients):
@@ -394,9 +394,9 @@ def find_fastest_slowest_trsh(senario, aggregator, attack, trsh):
 
 def readOrders(client_id, nb_clients, nb_byz, nb_rounds, aggreagator, attack, senario):
     if senario == 'fl':
-        logFile = "../../FL_res/" + aggreagator + "/ncl_" + str(nb_clients) + "/nbyz_" + str(nb_byz) + "/Performance/server.txt"
+        logFile = "../../FL_res/" + aggreagator + "/ncl_" + str(nb_clients) + "/nbyz_" + str(nb_byz) + "/Performance_" + str(experiment) + "/server.txt"
     if senario == 'p2p':
-        logFile = "../../Gossip_res/" + aggreagator + "/ncl_" + str(nb_clients) + "/nbyz_" + str(nb_byz) + "/Performance/" + str(client_id) + ".txt"
+        logFile = "../../Gossip_res/" + aggreagator + "/ncl_" + str(nb_clients) + "/nbyz_" + str(nb_byz) + "/Performance_" + str(experiment) + "/" + str(client_id) + ".txt"
     if senario == 'con':
         logFile = "../../Consensus_res/" + aggreagator + "/ncl_" + str(nb_clients) + "/nbyz_" + str(nb_byz) + "/Performance/orders.txt"
 
@@ -446,7 +446,7 @@ def main():
     # boxplots_i(boxes=[[[value for values in fl[agg]['time'].values() for value in values] for agg in aggregators], 
     #                   [[value for values in p2p[agg]['time'].values() for value in values] for agg in aggregators],
     #                   [[value for values in con[agg]['time'].values() for value in values] for agg in aggregators]],
-    #            num=3, labels=aggregators, boxes_tags=['fl', 'p2p', 'con'], x_label="aggregator", y_label="time", y_lim=0.7, filename="../../Plots/roundtime_" + str(nb_clients) + "_" + str(nb_byz) + ".png", 
+    #            num=3, labels=aggregators, boxes_tags=['fl', 'p2p', 'con'], x_label="aggregator", y_label="time", y_lim=6.7, filename="../../Plots/roundtime_" + str(nb_clients) + "_" + str(nb_byz) + ".png", 
     #            title="n = " + str(nb_clients) + "\n n byz = " + str(nb_byz))
     
 
@@ -457,10 +457,10 @@ def main():
     # violin_plot_slowest_fastest({'slowest': slowest_fl, 'fastest': fastest_fl}, {'slowest': slowest_p2p, 'fastest': fastest_p2p}, {'slowest': slowest_con, 'fastest': fastest_con})
 
 #### finding the fastest node that reached the trsh first
-    trsh = 0.89
-    fl_slowest_fastest = {'trmean': {'SF': find_fastest_slowest_trsh('fl', 'trmean', 'SF', trsh)}}
-    p2p_slowest_fastest = {'trmean': {'SF': find_fastest_slowest_trsh('p2p', 'trmean', 'SF', trsh)}}
-    con_slowest_fastest = {'trmean': {'SF': find_fastest_slowest_trsh('con', 'trmean', 'SF', trsh)}}
+    # trsh = 0.89
+    # fl_slowest_fastest = {'trmean': {'SF': find_fastest_slowest_trsh('fl', 'trmean', 'SF', trsh)}}
+    # p2p_slowest_fastest = {'trmean': {'SF': find_fastest_slowest_trsh('p2p', 'trmean', 'SF', trsh)}}
+    # con_slowest_fastest = {'trmean': {'SF': find_fastest_slowest_trsh('con', 'trmean', 'SF', trsh)}}
     # print(fl_slowest_fastest['trmean']['SF']['slowest']['end_time'])
     # all_accuracy_per_time_per_pace(fl_slowest_fastest, p2p_slowest_fastest, con_slowest_fastest, 'fastest')
     # all_accuracy_per_time_per_pace(fl_slowest_fastest, p2p_slowest_fastest, con_slowest_fastest, 'slowest')

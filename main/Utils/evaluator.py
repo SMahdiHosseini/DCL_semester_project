@@ -13,7 +13,7 @@ def evaluateTheRound(params, r, text_file):
     test_dataset = load(dTest)
     # dev_dataset = load("Data/devDataset.pt")
 
-    global_net = Helper.to_device(Model.FederatedNet(), Helper.device)
+    global_net = Helper.to_device(Model.FederatedNet(test_dataset), Helper.device)
     global_net.apply_parameters(params)
     # train_loss, train_acc = global_net.evaluate(train_dataset)
     # dev_loss, dev_acc = global_net.evaluate(dev_dataset)

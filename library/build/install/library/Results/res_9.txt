@@ -202,11 +202,17 @@ Round 200: [5, 4, 3, 0]
 -- SSL/TLS handshake complete!, Id:0  ## CipherSuite: TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256.
 -- SSL/TLS handshake complete!, Id:1  ## CipherSuite: TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256.
 -- SSL/TLS handshake complete!, Id:2  ## CipherSuite: TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256.
--- ID = 3
+-- SSL/TLS handshake complete!, Id:3  ## CipherSuite: TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256.
+-- SSL/TLS handshake complete!, Id:4  ## CipherSuite: TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256.
+-- SSL/TLS handshake complete!, Id:5  ## CipherSuite: TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256.
+-- SSL/TLS handshake complete!, Id:6  ## CipherSuite: TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256.
+-- SSL/TLS handshake complete!, Id:7  ## CipherSuite: TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256.
+-- SSL/TLS handshake complete!, Id:8  ## CipherSuite: TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256.
+-- ID = 9
 -- N = 10
 -- F = 3
--- Port (client <-> server) = 10030
--- Port (server <-> server) = 10031
+-- Port (client <-> server) = 10090
+-- Port (server <-> server) = 10091
 -- requestTimeout = 2000
 -- maxBatch = 1024
 -- Binded replica to IP address 127.0.0.1
@@ -218,14 +224,14 @@ Round 200: [5, 4, 3, 0]
 		###################################
 		    Ready to process operations    
 		###################################
-Server 3 Port: 44675
+Server 9 Port: 37945
 -- Session Created, active clients=0
 -- Session Created, active clients=1
 -- Session Created, active clients=2
 -- Session Created, active clients=2
--- Session Created, active clients=2
 -- Session Created, active clients=3
--- Session Created, active clients=3
+-- Session Created, active clients=4
+-- Session Created, active clients=5
 Got new param from 1 Curretn Round: 1 Client round:1
 Got new param from 0 Curretn Round: 1 Client round:1
 Got new param from 4 Curretn Round: 1 Client round:1
