@@ -33,7 +33,7 @@ nb_clients = int(sys.argv[1])
 nb_byz = int(sys.argv[2])
 nb_rounds = int(sys.argv[3])
 nb_experiments = 3
-experiment = 1
+experiment = 2
 heterogeneity = "Homogeneous"
 # heterogeneity = "Heterogeneous"
 
@@ -115,9 +115,9 @@ def analysePerformance(aggregator, nb_clients, nb_byz, res, senario):
         rounds_times = []
         end_rounds_times = []
         for c in range(nb_clients):
-            temp = lines_clients[c]['round_{}_end'.format(r)] - lines_clients[c]['round_{}_start'.format(r)]
+            # temp = lines_clients[c]['round_{}_end'.format(r)] - lines_clients[c]['round_{}_start'.format(r)]
             # temp = lines_clients[c]['round_{}_model_shared'.format(r)] - lines_clients[c]['round_{}_model_trained'.format(r)]
-            # temp = lines_clients[c]['round_{}_model_trained'.format(r)] - lines_clients[c]['round_{}_start'.format(r)]
+            temp = lines_clients[c]['round_{}_model_trained'.format(r)] - lines_clients[c]['round_{}_start'.format(r)]
             rounds_times.append(temp.total_seconds())
             end_rounds_times.append((lines_clients[c]['round_{}_end'.format(r)] - lines_clients[c]['round_2_start'.format(r)]).total_seconds())
         avg = sumOfTimes(rounds_times) / nb_clients
@@ -160,8 +160,8 @@ def boxplots_i(boxes, num, labels, boxes_tags, x_label, y_label,
                 xticklabels.append(" ")
 
     xlim(0, positions + 1)
-    # ylim(- y_lim * 0.008, y_lim)
-    ylim(0.4, y_lim)
+    ylim(- y_lim * 0.008, y_lim)
+    # ylim(0.4, y_lim)
     ax.set_xticklabels(xticklabels, fontsize=60)
 
     
@@ -419,16 +419,16 @@ def readOrders(client_id, nb_clients, nb_byz, nb_rounds, aggreagator, attack, se
     return orders
 
 def main():
-    # fl = dict()
-    # p2p = dict()
-    # con = dict()
-    # for agg in aggregators:
-    #     fl[agg] = dict()
-    #     p2p[agg] = dict()
-    #     con[agg] = dict()
-    #     analysePerformance(aggregator=agg, nb_clients=nb_clients, nb_byz=nb_byz, res=fl, senario='fl')
-    #     analysePerformance(aggregator=agg, nb_clients=nb_clients, nb_byz=nb_byz, res=p2p, senario='p2p')
-    #     analysePerformance(aggregator=agg, nb_clients=nb_clients, nb_byz=nb_byz, res=con, senario='con')
+    fl = dict()
+    p2p = dict()
+    con = dict()
+    for agg in aggregators:
+        fl[agg] = dict()
+        p2p[agg] = dict()
+        con[agg] = dict()
+        analysePerformance(aggregator=agg, nb_clients=nb_clients, nb_byz=nb_byz, res=fl, senario='fl')
+        analysePerformance(aggregator=agg, nb_clients=nb_clients, nb_byz=nb_byz, res=p2p, senario='p2p')
+        analysePerformance(aggregator=agg, nb_clients=nb_clients, nb_byz=nb_byz, res=con, senario='con')
 
     #     for att in attacks:
     #         analyseAccuracy(aggregator=agg, attack=att, nb_clients=nb_clients, nb_byz=nb_byz, res=fl, senario='fl')
@@ -446,15 +446,15 @@ def main():
     # boxplots_i(boxes=[[[value for values in fl[agg]['time'].values() for value in values] for agg in aggregators], 
     #                   [[value for values in p2p[agg]['time'].values() for value in values] for agg in aggregators],
     #                   [[value for values in con[agg]['time'].values() for value in values] for agg in aggregators]],
-    #            num=3, labels=aggregators, boxes_tags=['fl', 'p2p', 'con'], x_label="aggregator", y_label="time", y_lim=6.7, filename="../../Plots/roundtime_" + str(nb_clients) + "_" + str(nb_byz) + ".png", 
+    #            num=3, labels=aggregators, boxes_tags=['fl', 'p2p', 'con'], x_label="aggregator", y_label="time", y_lim=0.15, filename="../../Plots/roundtime_" + str(nb_clients) + "_" + str(nb_byz) + ".png", 
     #            title="n = " + str(nb_clients) + "\n n byz = " + str(nb_byz))
     
 
-    # violin_plot(fl, p2p, con)
-    # slowest_fl, fastest_fl = find_fastest_slowest('fl', 'trmean')
-    # slowest_p2p, fastest_p2p = find_fastest_slowest('p2p', 'trmean')
-    # slowest_con, fastest_con = find_fastest_slowest('con', 'trmean')
-    # violin_plot_slowest_fastest({'slowest': slowest_fl, 'fastest': fastest_fl}, {'slowest': slowest_p2p, 'fastest': fastest_p2p}, {'slowest': slowest_con, 'fastest': fastest_con})
+    violin_plot(fl, p2p, con)
+    slowest_fl, fastest_fl = find_fastest_slowest('fl', 'trmean')
+    slowest_p2p, fastest_p2p = find_fastest_slowest('p2p', 'trmean')
+    slowest_con, fastest_con = find_fastest_slowest('con', 'trmean')
+    violin_plot_slowest_fastest({'slowest': slowest_fl, 'fastest': fastest_fl}, {'slowest': slowest_p2p, 'fastest': fastest_p2p}, {'slowest': slowest_con, 'fastest': fastest_con})
 
 #### finding the fastest node that reached the trsh first
     # trsh = 0.89
@@ -466,8 +466,8 @@ def main():
     # all_accuracy_per_time_per_pace(fl_slowest_fastest, p2p_slowest_fastest, con_slowest_fastest, 'slowest')
 
 ### finding the orders of clients
-    print(readOrders(0, nb_clients, nb_byz, nb_rounds, 'trmean', 'SF', 'fl'))
-    for i in range(nb_clients):
-        print(i, readOrders(i, nb_clients, nb_byz, nb_rounds, 'trmean', 'SF', 'p2p'))
+    # print(readOrders(0, nb_clients, nb_byz, nb_rounds, 'trmean', 'SF', 'fl'))
+    # for i in range(nb_clients):
+    #     print(i, readOrders(i, nb_clients, nb_byz, nb_rounds, 'trmean', 'SF', 'p2p'))
 if __name__ == "__main__":
     main()

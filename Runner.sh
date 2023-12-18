@@ -25,7 +25,7 @@ fi
 . global.config
 
 ## Performance Test
-for j in {1..1}
+for j in {3..3}
 do
     for agg in ${aggregator[@]}; do
         recvd=$(ssh ubuntu@"$server" 'cat /sys/class/net/ens5/statistics/rx_bytes')
@@ -73,7 +73,7 @@ do
             fi
         done
 
-        sleep 105s
+        sleep 40s
         # wait
 
         recvd=$(ssh ubuntu@"$server" 'cat /sys/class/net/ens5/statistics/rx_bytes')
