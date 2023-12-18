@@ -75,12 +75,21 @@ public final class FLServer extends DefaultSingleRecoverable {
                 BufferedReader br = new BufferedReader(fr);
                 for (int i = 1; i <= numOfRounds; i++){
                     recevdParamIds.put(i, new ArrayList<Integer>());
-                    String[] ids = br.readLine().split(":")[1].split(",");
-                    for (int j = 0; j < ids.length; j++){
-                        int id = Integer.parseInt(ids[j].trim());
-                        if (!byzClients.contains(id))
-                            recevdParamIds.get(i).add(id);
+                    for (int j = 0; j < 4; j++){
+                        recevdParamIds.get(i).add(j);
                     }
+                    // String[] ids = br.readLine().split(":")[1].split(",");
+                    // int last = 0;
+                    // for (int j = 0; j < ids.length; j++){
+                    //     int id = Integer.parseInt(ids[j].trim());
+                    //     if (!byzClients.contains(id))
+                    //     {
+                    //         recevdParamIds.get(i).add(id);
+                    //         last++;
+                    //     }
+                    //     if (last == clientNums - byzNums)
+                    //         break;
+                    // }
                     //TODO: remove
                     System.out.println("Round " + i + ": " + recevdParamIds.get(i));
                 }
@@ -178,33 +187,35 @@ public final class FLServer extends DefaultSingleRecoverable {
     public FLMessage handleNewParam(FLMessage msg) throws IOException {
        System.out.println("Got new param from " + msg.getClientId() + " Curretn Round: " + currentRound + " Client round:" + msg.getRound());
         if (test.equals("Accuracy") && !recevdParamIds.get(currentRound).contains(msg.getClientId())){
-            return new FLMessage(MessageType.WAITTHIS, "", currentRound, msg.getClientId(), "non");
+            return new FLMessage(MessageType.WAITTHIS, "", msg.getRound(), msg.getClientId(), "non");
         }
-        else
-        if (msg.getRound() == currentRound){
-            receivedParams++;
-            recevdParamIds.get(currentRound).add(msg.getClientId());
-            sendParametersToAggregator(msg.getContent(), msg.getExtension());
-            if ((receivedParams >= clientNums - byzNums)){
-                System.out.println("Send Aggregate to Aggregator by client " + msg.getClientId());
-                System.out.println("Received params: " + recevdParamIds.get(currentRound));
-                aggregateParams();
-                return sendAggParams(msg.getClientId(), msg.getRound());
+        else{
+            if (msg.getRound() == currentRound){
+                receivedParams++;
+                recevdParamIds.get(currentRound).add(msg.getClientId());
+                sendParametersToAggregator(msg.getContent(), msg.getExtension());
+                if ((receivedParams >= clientNums - byzNums)){
+                    System.out.println("Send Aggregate to Aggregator by client " + msg.getClientId());
+                    System.out.println("Received params: " + recevdParamIds.get(currentRound));
+                    aggregateParams();
+                    return sendAggParams(msg.getClientId(), msg.getRound());
+                }
+                else{
+                    return new FLMessage(MessageType.WAITTHIS, "", currentRound, msg.getClientId(), "non");
+                }
             }
             else{
-                return new FLMessage(MessageType.WAITTHIS, "", currentRound, msg.getClientId(), "non");
+                return sendAggParams(msg.getClientId(), msg.getRound());
             }
         }
-        else{
-            return sendAggParams(msg.getClientId(), msg.getRound());
-        }
     }
-
+ 
     public FLMessage handleCheckMsg(FLMessage msg) throws IOException {
         if (msg.getRound() >= currentRound){
-            return new FLMessage(MessageType.WAITTHIS, "", currentRound, msg.getClientId(), "non");
+            return new FLMessage(MessageType.WAITTHIS, "", msg.getRound(), msg.getClientId(), "non");
         }
         else{
+            System.out.println("Got Check from " + msg.getClientId() + " Curretn Round: " + currentRound + " Client round:" + msg.getRound());
             return sendAggParams(msg.getClientId(), msg.getRound());
         }
     }

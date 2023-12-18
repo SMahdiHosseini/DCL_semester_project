@@ -81,9 +81,10 @@
 from Utils import Model, Helper
 from torch.utils.data import DataLoader
 import torch
-dataset = torch.load("./Data/ClientsDatasets/0.pt")
-net = Helper.to_device(Model.FederatedNet(dataset), Helper.device)
-for i in range(100):
-    net.fit()
+dataset = torch.load("./Data/testDataset.pt")
+print(len(dataset))
+# net = Helper.to_device(Model.FederatedNet(dataset), Helper.device)
+# for i in range(100):
+#     net.fit()
 
 # print(len(net.get_parameters()))
