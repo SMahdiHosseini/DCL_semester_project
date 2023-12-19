@@ -1,6 +1,13 @@
 from torch import load
+import torch
 from Utils import Helper, Model
 import os
+
+random_seed = 10
+torch.manual_seed(random_seed)
+torch.cuda.manual_seed(random_seed)
+torch.backends.cudnn.deterministic = True
+torch.backends.cudnn.benchmark = False
 
 def evaluateTheRound(params, r, text_file):
     # train_dataset = load("F:/DCL/Semester Project 1/Codes/DCL_semester_project/main/Data/trainDataset.pt")

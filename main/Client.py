@@ -6,6 +6,12 @@ import torch
 from datetime import datetime
 from Utils.Message import Msg
 
+random_seed = 10
+torch.manual_seed(random_seed)
+torch.cuda.manual_seed(random_seed)
+torch.backends.cudnn.deterministic = True
+torch.backends.cudnn.benchmark = False
+
 #program input: nb_clients, client_id, server_address, server_port, nb_rounds, nb_byz, aggregator, attack, test
 nb_clients = int(sys.argv[1])
 client_id = int(sys.argv[2])
@@ -84,9 +90,9 @@ def evaluation(params, r, text_file):
 def main():
     print("Client {} started! ... ".format(client_id))
 
-    traning_client = TraningClient(client_id, torch.load("./Data/ClientsDatasets/" + str(client_id) + ".pt"))
-    # dataset = DataDistributer.idx_to_dataset(client_id, nb_clients)
-    # traning_client = TraningClient(client_id, dataset)
+    # traning_client = TraningClient(client_id, torch.load("./Data/ClientsDatasets/" + str(client_id) + ".pt"))
+    dataset = DataDistributer.idx_to_dataset(client_id, nb_clients)
+    traning_client = TraningClient(client_id, dataset)
 
     traning_client.connectToServer(ConnectionDistributer.generateFLPorts(server_port, nb_clients)[client_id])
     traning_client.initialize()

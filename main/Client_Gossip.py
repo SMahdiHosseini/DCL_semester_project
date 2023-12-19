@@ -11,6 +11,12 @@ import select
 import threading
 import multiprocessing as mp
 
+random_seed = 10
+torch.manual_seed(random_seed)
+torch.cuda.manual_seed(random_seed)
+torch.backends.cudnn.deterministic = True
+torch.backends.cudnn.benchmark = False
+
 #program input: client_id, nb_clients, listening_address, server_port, nb_byz, nb_rounds, aggregator_name, attack_name, test
 client_id = int(sys.argv[1])
 nb_clients = int(sys.argv[2])
@@ -59,6 +65,10 @@ class TraningClient:
     def initialize(self):
         print("Client {} initialized! ...".format(self.client_id))
         self.net = Helper.to_device(Model.FederatedNet(self.dataset), Helper.device)
+        # print(Helper.device, len(self.dataset), self.client_id, nb_clients, nb_byz)
+        # p = [self.dataset[i][1] for i in range(len(self.dataset))]
+        # print(p)
+        # self.net.fit()
 
     def connectToNeighbors(self, ports):
         config = readConfig('ips.config')
@@ -222,9 +232,9 @@ def main():
     print("Client {} started! ... ".format(client_id))
     ports, adjMat = generateGossipPorts(server_port, nb_clients)
 
-    traning_client = TraningClient(client_id, torch.load("./Data/ClientsDatasets/" + str(client_id) + ".pt"), adjMat[client_id])
-    # dataset = DataDistributer.idx_to_dataset(client_id, nb_clients)
-    # traning_client = TraningClient(client_id, dataset, adjMat[client_id])
+    # traning_client = TraningClient(client_id, torch.load("./Data/ClientsDatasets/" + str(client_id) + ".pt"), adjMat[client_id])
+    dataset = DataDistributer.idx_to_dataset(client_id, nb_clients)
+    traning_client = TraningClient(client_id, dataset, adjMat[client_id])
 
     traning_client.connectToNeighbors(ports[client_id])
     print("client connected to neighbors!")

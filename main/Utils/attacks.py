@@ -1,6 +1,12 @@
 import torch, math
 from Utils import misc
 
+random_seed = 10
+torch.manual_seed(random_seed)
+torch.cuda.manual_seed(random_seed)
+torch.backends.cudnn.deterministic = True
+torch.backends.cudnn.benchmark = False
+
 def labelflipping(attack, flipped_vectors, **kwargs):
     #TODO
     avg_flipped_vector = torch.stack(flipped_vectors).mean(dim=0)

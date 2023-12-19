@@ -21,12 +21,20 @@ def extreme_niid_idx(targets, idx, nb_honest):
     return split_idx
 
 def idx_to_dataset(id, nb_clients):
+    # transform = transforms.Compose(
+    #     [transforms.ToTensor(),
+    #     transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))])
     dataset = MNIST('./Data', train=True, download=False, transform=transforms.ToTensor())
+    # dataset = CIFAR10(root='../Data', train=True, download=False, transform=transform)
     split_idx = extreme_niid_idx(dataset.targets, range(len(dataset.targets)), nb_clients)
     return Subset(dataset, split_idx[id])
 
 def idx_to_dataset_bft(id, nb_clients):
+    # transform = transforms.Compose(
+    #     [transforms.ToTensor(),
+    #     transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))])
     dataset = MNIST('../../../../main/Data', train=True, download=False, transform=transforms.ToTensor())
+    # dataset = CIFAR10(root='../../../../main/Data', train=True, download=False, transform=transform)
     split_idx = extreme_niid_idx(dataset.targets, range(len(dataset.targets)), nb_clients)
     return Subset(dataset, split_idx[id])
 
