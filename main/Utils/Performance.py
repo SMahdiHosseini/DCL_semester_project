@@ -34,8 +34,8 @@ nb_byz = int(sys.argv[2])
 nb_rounds = int(sys.argv[3])
 nb_experiments = 3
 experiment = 1
-# heterogeneity = "Homogeneous"
-heterogeneity = "Heterogeneous"
+heterogeneity = "Homogeneous"
+# heterogeneity = "Heterogeneous"
 
 attacks = ["SF"]
 aggregators = ["trmean"]
@@ -339,20 +339,37 @@ def all_accuracy_per_time(fl, p2p, con):
             # plt.savefig("../../Plots/" + agg + "/" +  att + "/" + str(nb_clients) + "_"  + str(nb_byz) + "_slowest_time.png", bbox_inches='tight')
             # plt.close()
 
-def all_accuracy_per_time_per_pace(fl, p2p, con, rank):
+def all_accuracy_per_time_per_pace(fl, p2p, con, rank, trsh):
     for agg in aggregators:
         for att in attacks:
             fig, ax = plt.subplots()
-            # connect data points
+            # connect data points with thicker line
 
-            ax.errorbar(x=fl[agg][att][rank]['end_time'], y=[np.mean(t) for t in fl[agg][att][rank]['acc']], yerr=[np.std(t) for t in fl[agg][att][rank]['acc']], fmt='o-', markersize=1)
-            ax.errorbar(x=p2p[agg][att][rank]['end_time'], y=[np.mean(t) for t in p2p[agg][att][rank]['acc']], yerr=[np.std(t) for t in p2p[agg][att][rank]['acc']], fmt='o-', markersize=1)
-            ax.errorbar(x=con[agg][att][rank]['end_time'], y=[np.mean(t) for t in con[agg][att][rank]['acc']], yerr=[np.std(t) for t in con[agg][att][rank]['acc']], fmt='o-', markersize=1)
+            ax.errorbar(x=[np.mean(t) for t in fl[agg][att][rank]['end_time']], xerr=[np.std(t) for t in fl[agg][att][rank]['end_time']], y=[np.mean(t) for t in fl[agg][att][rank]['acc']], yerr=[np.std(t) for t in fl[agg][att][rank]['acc']], fmt='o-', markersize=1, linewidth=3)
+            ax.errorbar(x=[np.mean(t) for t in p2p[agg][att][rank]['end_time']], xerr=[np.std(t) for t in p2p[agg][att][rank]['end_time']], y=[np.mean(t) for t in p2p[agg][att][rank]['acc']], yerr=[np.std(t) for t in p2p[agg][att][rank]['acc']], fmt='o-', markersize=1, linewidth=3)
+            ax.errorbar(x=[np.mean(t) for t in con[agg][att][rank]['end_time']], xerr=[np.std(t) for t in con[agg][att][rank]['end_time']], y=[np.mean(t) for t in con[agg][att][rank]['acc']], yerr=[np.std(t) for t in con[agg][att][rank]['acc']], fmt='o-', markersize=1, linewidth=3)
+            ax.legend(['fl', 'p2p', 'con'])
+            # draw horizontal line from 0 to 1 and add a text on the line
+            print(np.mean(con[agg][att][rank]['end_time'][con[agg][att][rank]['round'] - 2]))
+            ax.axhline(y = trsh, color = 'black', linestyle = 'dotted', linewidth=2, xmax=np.mean(con[agg][att][rank]['end_time'][con[agg][att][rank]['round'] - 2]) / np.max([np.mean(t) for t in p2p[agg][att][rank]['end_time']]))
+            ax.text(0, trsh, trsh, horizontalalignment='left', verticalalignment='bottom', fontsize=30)
 
+            # vertical line from the point that accuracy reaches the threshold to the x-axis
+            ax.vlines(x=np.mean(fl[agg][att][rank]['end_time'][fl[agg][att][rank]['round'] - 2]), ymin = 0, ymax = trsh, color = 'black', linestyle = 'dotted', linewidth=2)
+            ax.text(np.mean(fl[agg][att][rank]['end_time'][fl[agg][att][rank]['round'] - 2]), -0.005, str(round(np.mean(fl[agg][att][rank]['end_time'][fl[agg][att][rank]['round'] - 2]), 2)), horizontalalignment='center', verticalalignment='top', fontsize=20)
+
+            ax.vlines(x=np.mean(p2p[agg][att][rank]['end_time'][p2p[agg][att][rank]['round'] - 2]), ymin = 0, ymax = trsh, color = 'black', linestyle = 'dotted', linewidth=2)
+            ax.text(np.mean(p2p[agg][att][rank]['end_time'][p2p[agg][att][rank]['round'] - 2]), -0.005, str(round(np.mean(p2p[agg][att][rank]['end_time'][p2p[agg][att][rank]['round'] - 2]), 2)), horizontalalignment='center', verticalalignment='top', fontsize=20)
+
+            ax.vlines(x=np.mean(con[agg][att][rank]['end_time'][con[agg][att][rank]['round'] - 2]), ymin = 0, ymax = trsh, color = 'black', linestyle = 'dotted', linewidth=2)
+            ax.text(np.mean(con[agg][att][rank]['end_time'][con[agg][att][rank]['round'] - 2]), -0.005, str(round(np.mean(con[agg][att][rank]['end_time'][con[agg][att][rank]['round'] - 2]), 2)), horizontalalignment='center', verticalalignment='top', fontsize=20)
+
+            ax.set_xlim([0, np.max([np.mean(t) for t in p2p[agg][att][rank]['end_time']])])
+            ax.set_ylim([0, np.max([np.mean(t) for t in p2p[agg][att][rank]['acc']]) + 0.1])
             ax.set_xlabel('time(s)')
             ax.set_ylabel('accuracy')
-            ax.legend(['fl', 'p2p', 'con'])
-            ax.set_title("average accuracy per " + rank + " time for n = " + str(nb_clients) + ", n byz = " + str(nb_byz) + "\naggregator: " + agg + "\nattack:" + att)
+
+            ax.set_title("average accuracy for the " + rank + " client for n = " + str(nb_clients) + ", f = " + str(nb_byz) + "\naggregator: " + agg + "\nattack:" + att)
             plt.savefig("../../Plots/" + agg + "/" +  att + "/" + str(nb_clients) + "_"  + str(nb_byz) + "_trsh_" + rank + "_" + heterogeneity + "_time.png", bbox_inches='tight')
             plt.close()
 
@@ -380,30 +397,38 @@ def find_fastest_slowest_trsh(senario, aggregator, attack, trsh):
             exps.append(accuracy("../../" + fake_senario +"/" + aggregator + "/ncl_" + str(nb_clients) + "/nbyz_" + str(nb_byz) + "/Accuracy_" + str(exp) + "/" + heterogeneity + "/" + attack + "/" + str(i) + ".txt"))
         
         clients_accs[i] = [list(sub_list) for sub_list in zip(*exps)]
+        # print(clients_accs[i])
         exps = [round(sum(sub_list) / len(sub_list), 4) for sub_list in zip(*exps)]
         index = next((i for i, x in enumerate(exps) if x > trsh), None)
         if index == None or index == nb_rounds - 1:
             clients_reached_trsh_round[i] = nb_rounds
         else:
             clients_reached_trsh_round[i] = index + 1
-            
         
-        lines_clients[i] = readlines("../../" + senario + "/" + aggregator + "/ncl_" + str(nb_clients) + "/nbyz_" + str(nb_byz) + "/Performance_" + str(experiment) + "/" + str(i)  + ".txt")
-        for r in range(2, nb_rounds + 1):
-            clients_times[i].append((lines_clients[i]['round_{}_end'.format(r)] - lines_clients[i]['round_2_start'.format(r)]).total_seconds())
-
-        clients_reached_trsh_time[i] = (lines_clients[i]['round_{}_end'.format(clients_reached_trsh_round[i])] - lines_clients[i]['round_2_start']).total_seconds()
-
+        exps = []
+        for exp in range(1, nb_experiments + 1):
+            temp = []
+            lines_clients[i] = readlines("../../" + senario + "/" + aggregator + "/ncl_" + str(nb_clients) + "/nbyz_" + str(nb_byz) + "/Performance_" + str(exp) + "/" + str(i)  + ".txt")
+            for r in range(2, nb_rounds + 1):
+                temp.append((lines_clients[i]['round_{}_end'.format(r)] - lines_clients[i]['round_2_start'.format(r)]).total_seconds())
+            exps.append(temp)
+        clients_times[i] = [list(sub_list) for sub_list in zip(*exps)]
+        
+        clients_reached_trsh_time[i] = np.mean(clients_times[i][clients_reached_trsh_round[i] - 2])
+        # print(clients_reached_trsh_time[i])
     # find the key of reached trsh time that has teh minimum value
     min_key = min(clients_reached_trsh_time, key=clients_reached_trsh_time.get)
     max_key = max(clients_reached_trsh_time, key=clients_reached_trsh_time.get)
     # print(len(clients_accs[max_key]), len(clients_times[max_key]))
-    print(senario, clients_reached_trsh_round[min_key], min_key)
-    res = {'slowest': {'end_time': clients_times[max_key][:clients_reached_trsh_round[max_key] - 1], 'acc': clients_accs[max_key][1:clients_reached_trsh_round[max_key]]},
-           'fastest': {'end_time': clients_times[min_key][:clients_reached_trsh_round[min_key] - 1], 'acc': clients_accs[min_key][1:clients_reached_trsh_round[min_key]]}}
+    # print(len(clients_times[min_key]), len(clients_accs[min_key]))
+    # print(senario, min_key)
+    res = {'slowest': {'end_time': clients_times[max_key], 'acc': clients_accs[max_key][1:], 'round': clients_reached_trsh_round[max_key]},
+           'fastest': {'end_time': clients_times[min_key], 'acc': clients_accs[min_key][1:], 'round': clients_reached_trsh_round[min_key]}}
     # print(max_key, min_key)
     # print(clients_reached_trsh_time, clients_reached_trsh_time[max_key], clients_reached_trsh_time[min_key])
+    # print(res)
     return res
+    # print(clients_accs)
 
 def readOrders(client_id, nb_clients, nb_byz, nb_rounds, aggreagator, attack, senario):
     if senario == 'fl':
@@ -507,13 +532,14 @@ def main():
     # violin_plot_slowest_fastest({'slowest': slowest_fl, 'fastest': fastest_fl}, {'slowest': slowest_p2p, 'fastest': fastest_p2p}, {'slowest': slowest_con, 'fastest': fastest_con})
 
 # #### finding the fastest node that reached the trsh first
-    trsh = 0.60
+    # trsh = 0.50
+    trsh = 0.75
     fl_slowest_fastest = {'trmean': {'SF': find_fastest_slowest_trsh('fl', 'trmean', 'SF', trsh)}}
     p2p_slowest_fastest = {'trmean': {'SF': find_fastest_slowest_trsh('p2p', 'trmean', 'SF', trsh)}}
     con_slowest_fastest = {'trmean': {'SF': find_fastest_slowest_trsh('con', 'trmean', 'SF', trsh)}}
-    # print(fl_slowest_fastest['trmean']['SF']['slowest']['end_time'])
-    all_accuracy_per_time_per_pace(fl_slowest_fastest, p2p_slowest_fastest, con_slowest_fastest, 'fastest')
-    all_accuracy_per_time_per_pace(fl_slowest_fastest, p2p_slowest_fastest, con_slowest_fastest, 'slowest')
+    # print(p2p_slowest_fastest['trmean']['SF']['fastest']['acc'])
+    all_accuracy_per_time_per_pace(fl_slowest_fastest, p2p_slowest_fastest, con_slowest_fastest, 'fastest', trsh)
+    # all_accuracy_per_time_per_pace(fl_slowest_fastest, p2p_slowest_fastest, con_slowest_fastest, 'slowest')
 
 ## accuracy per time per client
     # all_clients_acccs('p2p', 'trmean', 'SF')
