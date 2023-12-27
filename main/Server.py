@@ -1,3 +1,4 @@
+import random
 from Utils import Helper, Message, connectionHelper, ConnectionDistributer
 from Utils.Log import Log
 from Utils.aggregator import RobustAggregator
@@ -132,6 +133,7 @@ def execute(connections):
     sendNewParameters(list(connections.keys()), None, r)
 
 def sendNewParameters(recvd_connections, new_model_parameters, r):
+    random.shuffle(recvd_connections)
     for id in recvd_connections:
         shared_dict[id].put((new_model_parameters, r))
         events[id].set()

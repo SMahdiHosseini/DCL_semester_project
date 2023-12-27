@@ -78,38 +78,38 @@
 # print('After round {}, test_loss = {}, test_acc = {}\n'.format(3, round(test_loss, 4), round(test_acc, 4)))
 # print(len(bytes(connectionHelper.tensorToString(net.get_parameters()), 'utf-8')))
 
-from Utils import Model, Helper, DataDistributer
-from Utils.aggregator import RobustAggregator
-from Utils.attacks import ByzantineAttack
-import torch
+# from Utils import Model, Helper, DataDistributer
+# from Utils.aggregator import RobustAggregator
+# from Utils.attacks import ByzantineAttack
+# import torch
 
-random_seed = 10
-torch.manual_seed(random_seed)
-torch.cuda.manual_seed(random_seed)
-torch.backends.cudnn.deterministic = True
-torch.backends.cudnn.benchmark = False
+# random_seed = 10
+# torch.manual_seed(random_seed)
+# torch.cuda.manual_seed(random_seed)
+# torch.backends.cudnn.deterministic = True
+# torch.backends.cudnn.benchmark = False
 
 # dataset = torch.load("./Data/testDataset.pt")
-test_dataset = torch.load("./Data/testDataset.pt")
-dataset_0 = DataDistributer.idx_to_dataset(0, 7)
-dataset_1 = DataDistributer.idx_to_dataset(1, 7)
+# test_dataset = torch.load("./Data/testDataset.pt")
+# dataset_0 = DataDistributer.idx_to_dataset(0, 7)
+# dataset_1 = DataDistributer.idx_to_dataset(1, 7)
 # dataset_2 = DataDistributer.idx_to_dataset(2, 7)
 # dataset_3 = DataDistributer.idx_to_dataset(3, 7)
-aggregator = RobustAggregator('nnm', 'trmean', 1, 3, Helper.device)
-attacker = ByzantineAttack('SF', 3)
+# aggregator = RobustAggregator('nnm', 'trmean', 1, 3, Helper.device)
+# attacker = ByzantineAttack('SF', 3)
 
-net_0 = Helper.to_device(Model.FederatedNet(dataset_0), Helper.device)
-net_1 = Helper.to_device(Model.FederatedNet(dataset_1), Helper.device)
+# net_0 = Helper.to_device(Model.FederatedNet(dataset_0), Helper.device)
+# net_1 = Helper.to_device(Model.FederatedNet(dataset_1), Helper.device)
 # net_2 = Helper.to_device(Model.FederatedNet(dataset_2), Helper.device)
 # net_3 = Helper.to_device(Model.FederatedNet(dataset_3), Helper.device)
 
-print(Helper.device)
+# print(Helper.device)
 # p = [dataset_0[i][1] for i in range(len(dataset_0))]
 # print(p)
 # print(dataset_1[0][1], dataset_1[1][1], dataset_1[2][1], dataset_1[3][1])
 # print(dataset_2[0][1], dataset_2[1][1], dataset_2[2][1], dataset_2[3][1])
 # print(dataset_3[0][1], dataset_3[1][1], dataset_3[2][1], dataset_3[3][1])
-net_0.fit()
+# net_0.fit()
 # net_1.fit()
 # net_2.fit()
 # net_3.fit()
@@ -135,3 +135,8 @@ net_0.fit()
 #     print('After round {}, test_loss = {}, test_acc = {}\n'.format(i, round(test_loss, 4), round(test_acc, 4)))
 
 # print(len(net.get_parameters()))
+
+import random
+s = [i for i in range(10)]
+random.shuffle(s)
+print(s)

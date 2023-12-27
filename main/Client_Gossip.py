@@ -1,3 +1,4 @@
+import random
 from Utils import Model, Helper, Message, connectionHelper, evaluator, Log, DataDistributer
 from Utils.aggregator import RobustAggregator
 from Utils.attacks import ByzantineAttack
@@ -108,6 +109,7 @@ class TraningClient:
     
     def shareToNeighbors(self):
         client_parameters = connectionHelper.tensorToString(self.net.get_parameters())
+        random.shuffle(self.neighbors)
         for neighborId in self.neighbors:
             shared_dict[neighborId].put((client_parameters, self.current_round))
             events[neighborId].set()
@@ -232,9 +234,9 @@ def main():
     print("Client {} started! ... ".format(client_id))
     ports, adjMat = generateGossipPorts(server_port, nb_clients)
 
-    # traning_client = TraningClient(client_id, torch.load("./Data/ClientsDatasets/" + str(client_id) + ".pt"), adjMat[client_id])
-    dataset = DataDistributer.idx_to_dataset(client_id, nb_clients)
-    traning_client = TraningClient(client_id, dataset, adjMat[client_id])
+    traning_client = TraningClient(client_id, torch.load("./Data/ClientsDatasets/" + str(client_id) + ".pt"), adjMat[client_id])
+    # dataset = DataDistributer.idx_to_dataset(client_id, nb_clients)
+    # traning_client = TraningClient(client_id, dataset, adjMat[client_id])
 
     traning_client.connectToNeighbors(ports[client_id])
     print("client connected to neighbors!")

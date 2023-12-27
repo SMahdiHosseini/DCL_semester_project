@@ -20,7 +20,7 @@ public final class FLServer extends DefaultSingleRecoverable {
     private HashMap<Integer, String> aggregatedParams;
     private int receivedParams;
     private int byzNums;
-    private ReentrantLock lock;
+    private ReentrantLock lock, lock2;
     private DataInputStream in;
     private DataOutputStream out;
     private HashMap<Integer, ArrayList<Integer>> recevdParamIds;
@@ -35,6 +35,7 @@ public final class FLServer extends DefaultSingleRecoverable {
         this.currentRound = 1;
         this.byzNums = byzNums;
         this.lock = new ReentrantLock();
+        this.lock2 = new ReentrantLock();
         this.aggregatedParams = new HashMap<Integer, String>();
         this.recevdParamIds = new HashMap<Integer, ArrayList<Integer>>();
         this.test = _test;
@@ -75,21 +76,21 @@ public final class FLServer extends DefaultSingleRecoverable {
                 BufferedReader br = new BufferedReader(fr);
                 for (int i = 1; i <= numOfRounds; i++){
                     recevdParamIds.put(i, new ArrayList<Integer>());
-                    for (int j = 0; j < 4; j++){
-                        recevdParamIds.get(i).add(j);
-                    }
-                    // String[] ids = br.readLine().split(":")[1].split(",");
-                    // int last = 0;
-                    // for (int j = 0; j < ids.length; j++){
-                    //     int id = Integer.parseInt(ids[j].trim());
-                    //     if (!byzClients.contains(id))
-                    //     {
-                    //         recevdParamIds.get(i).add(id);
-                    //         last++;
-                    //     }
-                    //     if (last == clientNums - byzNums)
-                    //         break;
+                    // for (int j = 0; j < 4; j++){
+                    //     recevdParamIds.get(i).add(j);
                     // }
+                    String[] ids = br.readLine().split(":")[1].split(",");
+                    int last = 0;
+                    for (int j = 0; j < ids.length; j++){
+                        int id = Integer.parseInt(ids[j].trim());
+                        if (!byzClients.contains(id))
+                        {
+                            recevdParamIds.get(i).add(id);
+                            last++;
+                        }
+                        if (last == clientNums - byzNums)
+                            break;
+                    }
                     //TODO: remove
                     System.out.println("Round " + i + ": " + recevdParamIds.get(i));
                 }
@@ -191,6 +192,7 @@ public final class FLServer extends DefaultSingleRecoverable {
         }
         else{
             if (msg.getRound() == currentRound){
+                lock2.lock();
                 receivedParams++;
                 recevdParamIds.get(currentRound).add(msg.getClientId());
                 sendParametersToAggregator(msg.getContent(), msg.getExtension());
@@ -198,9 +200,11 @@ public final class FLServer extends DefaultSingleRecoverable {
                     System.out.println("Send Aggregate to Aggregator by client " + msg.getClientId());
                     System.out.println("Received params: " + recevdParamIds.get(currentRound));
                     aggregateParams();
+                    lock2.unlock();
                     return sendAggParams(msg.getClientId(), msg.getRound());
                 }
                 else{
+                    lock2.unlock();
                     return new FLMessage(MessageType.WAITTHIS, "", currentRound, msg.getClientId(), "non");
                 }
             }

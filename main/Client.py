@@ -90,9 +90,9 @@ def evaluation(params, r, text_file):
 def main():
     print("Client {} started! ... ".format(client_id))
 
-    # traning_client = TraningClient(client_id, torch.load("./Data/ClientsDatasets/" + str(client_id) + ".pt"))
-    dataset = DataDistributer.idx_to_dataset(client_id, nb_clients)
-    traning_client = TraningClient(client_id, dataset)
+    traning_client = TraningClient(client_id, torch.load("./Data/ClientsDatasets/" + str(client_id) + ".pt"))
+    # dataset = DataDistributer.idx_to_dataset(client_id, nb_clients)
+    # traning_client = TraningClient(client_id, dataset)
 
     traning_client.connectToServer(ConnectionDistributer.generateFLPorts(server_port, nb_clients)[client_id])
     traning_client.initialize()
