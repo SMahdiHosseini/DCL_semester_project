@@ -153,7 +153,7 @@ do
             fi
         done
 
-        sleep 40s
+        sleep 150s
         # wait
 
         remove_latency

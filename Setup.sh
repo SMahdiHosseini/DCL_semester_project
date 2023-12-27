@@ -31,62 +31,62 @@ echo Local IP addresses are set!
 echo "*********************"
 echo "*********************"
 
-# if [[ ! -z "$server" ]]
-# then
-#     scp -r installRequirements.sh ubuntu@"$server":/home/ubuntu/ &
-# fi
+if [[ ! -z "$server" ]]
+then
+    scp -r installRequirements.sh ubuntu@"$server":/home/ubuntu/ &
+fi
 
-# for client in "${clients[@]}"
-# do
-#     scp -r installRequirements.sh ubuntu@"$client":/home/ubuntu/ &
-# done
+for client in "${clients[@]}"
+do
+    scp -r installRequirements.sh ubuntu@"$client":/home/ubuntu/ &
+done
 
-# wait
+wait
 
-# if [[ ! -z "$server" ]]
-# then
-#     ssh ubuntu@"$server" 'bash --login installRequirements.sh '$1'' &
-# fi
+if [[ ! -z "$server" ]]
+then
+    ssh ubuntu@"$server" 'bash --login installRequirements.sh '$1'' &
+fi
 
-# for client in "${clients[@]}"
-# do
-#     ssh ubuntu@"$client" 'bash --login installRequirements.sh '$1'' &
-# done
+for client in "${clients[@]}"
+do
+    ssh ubuntu@"$client" 'bash --login installRequirements.sh '$1'' &
+done
 
-# wait
+wait
 
-# echo "*********************"
-# echo "*********************" 
-# echo Requirements Installed!
-# echo "*********************"
-# echo "*********************"
+echo "*********************"
+echo "*********************" 
+echo Requirements Installed!
+echo "*********************"
+echo "*********************"
 
-# ## send code to machines
-# cd ../
-# if [[ ! -z "$server" ]]
-# then
-#     scp -r DCL_semester_project/main/ips.config ubuntu@"$server":/home/ubuntu/DCL_semester_project/main &
-#     scp -r DCL_semester_project/main/$1.config ubuntu@"$server":/home/ubuntu/DCL_semester_project/main &
-# fi
+## send code to machines
+cd ../
+if [[ ! -z "$server" ]]
+then
+    scp -r DCL_semester_project/main/ips.config ubuntu@"$server":/home/ubuntu/DCL_semester_project/main &
+    scp -r DCL_semester_project/main/$1.config ubuntu@"$server":/home/ubuntu/DCL_semester_project/main &
+fi
 
-# for client in "${clients[@]}"
-# do
-#     scp -r DCL_semester_project/main/ips.config ubuntu@"$client":/home/ubuntu/DCL_semester_project/main &
-#     scp -r DCL_semester_project/main/$1.config ubuntu@"$client":/home/ubuntu/DCL_semester_project/main &
-# done
+for client in "${clients[@]}"
+do
+    scp -r DCL_semester_project/main/ips.config ubuntu@"$client":/home/ubuntu/DCL_semester_project/main &
+    scp -r DCL_semester_project/main/$1.config ubuntu@"$client":/home/ubuntu/DCL_semester_project/main &
+done
 
-# wait
+wait
 
-# echo "*********************"
-# echo "*********************" 
-# echo "  codes transferred!  "
-# echo "*********************"
-# echo "*********************"
+echo "*********************"
+echo "*********************" 
+echo "  codes transferred!  "
+echo "*********************"
+echo "*********************"
 
-# for client in "${clients[@]}"
-# do
-#     ssh ubuntu@"$client" "bash --login DCL_semester_project/PrepBFT.sh '$1'" &
-# done
+for client in "${clients[@]}"
+do
+    ssh ubuntu@"$client" "bash --login DCL_semester_project/PrepBFT.sh '$1'" &
+done
 
 wait
 
@@ -105,13 +105,10 @@ echo "*********************"
 
 echo "Introducing latencies for the network..."
 echo  "server=0" > latency.txt
-i=0
-d=1
-for client in "${clients[@]}"
+for i in `seq 0 $(( $nb_clients - 1 ))`
 do
-    r=$(( $RANDOM % 50 ))
+    r=$(( $RANDOM % 40 ))
     echo "client_$i=$r" >> latency.txt
-    i=$(( $i + $d ))
 done
 
 echo "*********************"
