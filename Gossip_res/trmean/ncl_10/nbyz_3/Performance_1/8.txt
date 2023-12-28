@@ -1,2102 +1,1752 @@
-Starting: 13:37:19:428483
-round_1_start: 13:37:19:428558
-round_1_model_trained: 13:37:19:543294
-round_1_model_shared: 13:37:19:579107
-round_1_received_params_7: 13:37:19:616065
-round_1_aggregation: 13:37:19:616081
+Starting: 13:03:57:838984
+round_1_start: 13:03:57:839061
+round_1_model_trained: 13:03:57:967883
+round_1_model_shared: 13:03:58:006758
+round_1_received_params_7: 13:03:58:045388
+round_1_aggregation: 13:03:58:045407
 round_1_aggregation order: [8, 0, 1, 2, 3, 4, 5]
-round_1_end: 13:37:20:022588
-round_2_start: 13:37:20:022596
-round_2_model_trained: 13:37:20:034055
-round_2_model_shared: 13:37:20:059126
-round_2_received_params_7: 13:37:20:095559
-round_2_aggregation: 13:37:20:095573
-round_2_aggregation order: [8, 0, 1, 2, 4, 5, 7]
-round_2_end: 13:37:20:097504
-round_3_start: 13:37:20:097511
-round_3_model_trained: 13:37:20:108613
-round_3_model_shared: 13:37:20:133637
-round_3_received_params_7: 13:37:20:170115
-round_3_aggregation: 13:37:20:170128
-round_3_aggregation order: [8, 0, 1, 2, 4, 5, 3]
-round_3_end: 13:37:20:171918
-round_4_start: 13:37:20:171925
-round_4_model_trained: 13:37:20:182891
-round_4_model_shared: 13:37:20:207836
-round_4_received_params_7: 13:37:20:244252
-round_4_aggregation: 13:37:20:244267
-round_4_aggregation order: [8, 0, 4, 5, 1, 2, 3]
-round_4_end: 13:37:20:246062
-round_5_start: 13:37:20:246069
-round_5_model_trained: 13:37:20:257045
-round_5_model_shared: 13:37:20:281673
-round_5_received_params_7: 13:37:20:318056
-round_5_aggregation: 13:37:20:318071
-round_5_aggregation order: [8, 4, 5, 0, 1, 7, 2]
-round_5_end: 13:37:20:319848
-round_6_start: 13:37:20:319855
-round_6_model_trained: 13:37:20:330751
-round_6_model_shared: 13:37:20:355358
-round_6_received_params_7: 13:37:20:392694
-round_6_aggregation: 13:37:20:392708
-round_6_aggregation order: [8, 5, 0, 4, 1, 7, 2]
-round_6_end: 13:37:20:394507
-round_7_start: 13:37:20:394514
-round_7_model_trained: 13:37:20:405394
-round_7_model_shared: 13:37:20:430229
-round_7_received_params_7: 13:37:20:470485
-round_7_aggregation: 13:37:20:470499
-round_7_aggregation order: [8, 5, 0, 4, 7, 1, 9]
-round_7_end: 13:37:20:472451
-round_8_start: 13:37:20:472459
-round_8_model_trained: 13:37:20:483899
-round_8_model_shared: 13:37:20:508494
-round_8_received_params_7: 13:37:20:547032
-round_8_aggregation: 13:37:20:547047
-round_8_aggregation order: [8, 5, 0, 4, 7, 1, 2]
-round_8_end: 13:37:20:548818
-round_9_start: 13:37:20:548825
-round_9_model_trained: 13:37:20:559664
-round_9_model_shared: 13:37:20:583973
-round_9_received_params_7: 13:37:20:629420
-round_9_aggregation: 13:37:20:629435
-round_9_aggregation order: [8, 5, 0, 4, 7, 9, 1]
-round_9_end: 13:37:20:631221
-round_10_start: 13:37:20:631228
-round_10_model_trained: 13:37:20:642131
-round_10_model_shared: 13:37:20:666892
-round_10_received_params_7: 13:37:20:708382
-round_10_aggregation: 13:37:20:708396
-round_10_aggregation order: [8, 5, 0, 4, 7, 9, 1]
-round_10_end: 13:37:20:710384
-round_11_start: 13:37:20:710392
-round_11_model_trained: 13:37:20:721620
-round_11_model_shared: 13:37:20:746513
-round_11_received_params_7: 13:37:20:786573
-round_11_aggregation: 13:37:20:786588
-round_11_aggregation order: [8, 5, 0, 4, 7, 6, 1]
-round_11_end: 13:37:20:788279
-round_12_start: 13:37:20:788286
-round_12_model_trained: 13:37:20:799179
-round_12_model_shared: 13:37:20:823686
-round_12_received_params_7: 13:37:20:864963
-round_12_aggregation: 13:37:20:864978
-round_12_aggregation order: [8, 5, 0, 4, 7, 6, 9]
-round_12_end: 13:37:20:866687
-round_13_start: 13:37:20:866694
-round_13_model_trained: 13:37:20:877729
-round_13_model_shared: 13:37:20:902256
-round_13_received_params_7: 13:37:20:943166
-round_13_aggregation: 13:37:20:943181
-round_13_aggregation order: [8, 0, 5, 4, 7, 6, 9]
-round_13_end: 13:37:20:944950
-round_14_start: 13:37:20:944957
-round_14_model_trained: 13:37:20:956090
-round_14_model_shared: 13:37:20:980835
-round_14_received_params_7: 13:37:21:021220
-round_14_aggregation: 13:37:21:021235
-round_14_aggregation order: [8, 0, 5, 4, 7, 6, 9]
-round_14_end: 13:37:21:022984
-round_15_start: 13:37:21:022992
-round_15_model_trained: 13:37:21:033926
-round_15_model_shared: 13:37:21:058615
-round_15_received_params_7: 13:37:21:100874
-round_15_aggregation: 13:37:21:100888
-round_15_aggregation order: [8, 0, 5, 4, 7, 6, 9]
-round_15_end: 13:37:21:102664
-round_16_start: 13:37:21:102671
-round_16_model_trained: 13:37:21:113460
-round_16_model_shared: 13:37:21:137926
-round_16_received_params_7: 13:37:21:180418
-round_16_aggregation: 13:37:21:180432
-round_16_aggregation order: [8, 0, 5, 4, 7, 6, 9]
-round_16_end: 13:37:21:182192
-round_17_start: 13:37:21:182199
-round_17_model_trained: 13:37:21:193015
-round_17_model_shared: 13:37:21:217468
-round_17_received_params_7: 13:37:21:260117
-round_17_aggregation: 13:37:21:260131
-round_17_aggregation order: [8, 0, 5, 4, 7, 6, 9]
-round_17_end: 13:37:21:261851
-round_18_start: 13:37:21:261858
-round_18_model_trained: 13:37:21:272821
-round_18_model_shared: 13:37:21:297438
-round_18_received_params_7: 13:37:21:340206
-round_18_aggregation: 13:37:21:340220
-round_18_aggregation order: [8, 0, 5, 4, 7, 6, 9]
-round_18_end: 13:37:21:341943
-round_19_start: 13:37:21:341951
-round_19_model_trained: 13:37:21:352724
-round_19_model_shared: 13:37:21:377494
-round_19_received_params_7: 13:37:21:420518
-round_19_aggregation: 13:37:21:420533
-round_19_aggregation order: [8, 0, 5, 4, 7, 6, 9]
-round_19_end: 13:37:21:422250
-round_20_start: 13:37:21:422256
-round_20_model_trained: 13:37:21:433396
-round_20_model_shared: 13:37:21:458312
-round_20_received_params_7: 13:37:21:501674
-round_20_aggregation: 13:37:21:501688
-round_20_aggregation order: [8, 0, 5, 4, 7, 6, 9]
-round_20_end: 13:37:21:503506
-round_21_start: 13:37:21:503514
-round_21_model_trained: 13:37:21:514624
-round_21_model_shared: 13:37:21:539546
-round_21_received_params_7: 13:37:21:581538
-round_21_aggregation: 13:37:21:581553
-round_21_aggregation order: [8, 0, 5, 4, 7, 6, 9]
-round_21_end: 13:37:21:583306
-round_22_start: 13:37:21:583314
-round_22_model_trained: 13:37:21:594262
-round_22_model_shared: 13:37:21:618535
-round_22_received_params_7: 13:37:21:660816
-round_22_aggregation: 13:37:21:660831
-round_22_aggregation order: [8, 0, 5, 4, 7, 6, 9]
-round_22_end: 13:37:21:662495
-round_23_start: 13:37:21:662502
-round_23_model_trained: 13:37:21:673419
-round_23_model_shared: 13:37:21:698141
-round_23_received_params_7: 13:37:21:740270
-round_23_aggregation: 13:37:21:740284
-round_23_aggregation order: [8, 0, 5, 7, 4, 6, 9]
-round_23_end: 13:37:21:742071
-round_24_start: 13:37:21:742078
-round_24_model_trained: 13:37:21:753002
-round_24_model_shared: 13:37:21:777444
-round_24_received_params_7: 13:37:21:819318
-round_24_aggregation: 13:37:21:819332
-round_24_aggregation order: [8, 0, 5, 7, 4, 6, 9]
-round_24_end: 13:37:21:821134
-round_25_start: 13:37:21:821141
-round_25_model_trained: 13:37:21:832195
-round_25_model_shared: 13:37:21:856951
-round_25_received_params_7: 13:37:21:898300
-round_25_aggregation: 13:37:21:898315
-round_25_aggregation order: [8, 0, 5, 7, 4, 6, 9]
-round_25_end: 13:37:21:900357
-round_26_start: 13:37:21:900366
-round_26_model_trained: 13:37:21:911772
-round_26_model_shared: 13:37:21:936421
-round_26_received_params_7: 13:37:21:977296
-round_26_aggregation: 13:37:21:977311
-round_26_aggregation order: [8, 0, 5, 7, 4, 6, 9]
-round_26_end: 13:37:21:979110
-round_27_start: 13:37:21:979117
-round_27_model_trained: 13:37:21:989957
-round_27_model_shared: 13:37:22:014833
-round_27_received_params_7: 13:37:22:056798
-round_27_aggregation: 13:37:22:056814
-round_27_aggregation order: [8, 0, 5, 7, 4, 6, 9]
-round_27_end: 13:37:22:058582
-round_28_start: 13:37:22:058590
-round_28_model_trained: 13:37:22:069486
-round_28_model_shared: 13:37:22:094325
-round_28_received_params_7: 13:37:22:137292
-round_28_aggregation: 13:37:22:137308
-round_28_aggregation order: [8, 0, 5, 7, 4, 6, 9]
-round_28_end: 13:37:22:139429
-round_29_start: 13:37:22:139438
-round_29_model_trained: 13:37:22:151101
-round_29_model_shared: 13:37:22:175883
-round_29_received_params_7: 13:37:22:219284
-round_29_aggregation: 13:37:22:219301
-round_29_aggregation order: [8, 0, 5, 7, 4, 6, 9]
-round_29_end: 13:37:22:221474
-round_30_start: 13:37:22:221483
-round_30_model_trained: 13:37:22:232963
-round_30_model_shared: 13:37:22:258252
-round_30_received_params_7: 13:37:22:300519
-round_30_aggregation: 13:37:22:300537
-round_30_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_30_end: 13:37:22:302434
-round_31_start: 13:37:22:302442
-round_31_model_trained: 13:37:22:313922
-round_31_model_shared: 13:37:22:339236
-round_31_received_params_7: 13:37:22:379866
-round_31_aggregation: 13:37:22:379882
-round_31_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_31_end: 13:37:22:381832
-round_32_start: 13:37:22:381840
-round_32_model_trained: 13:37:22:392978
-round_32_model_shared: 13:37:22:417696
-round_32_received_params_7: 13:37:22:459800
-round_32_aggregation: 13:37:22:459815
-round_32_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_32_end: 13:37:22:461718
-round_33_start: 13:37:22:461726
-round_33_model_trained: 13:37:22:472810
-round_33_model_shared: 13:37:22:498023
-round_33_received_params_7: 13:37:22:539114
-round_33_aggregation: 13:37:22:539129
-round_33_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_33_end: 13:37:22:541125
-round_34_start: 13:37:22:541132
-round_34_model_trained: 13:37:22:552171
-round_34_model_shared: 13:37:22:576610
-round_34_received_params_7: 13:37:22:618548
-round_34_aggregation: 13:37:22:618563
-round_34_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_34_end: 13:37:22:620626
-round_35_start: 13:37:22:620635
-round_35_model_trained: 13:37:22:631900
-round_35_model_shared: 13:37:22:656038
-round_35_received_params_7: 13:37:22:698568
-round_35_aggregation: 13:37:22:698582
-round_35_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_35_end: 13:37:22:700280
-round_36_start: 13:37:22:700288
-round_36_model_trained: 13:37:22:711312
-round_36_model_shared: 13:37:22:735901
-round_36_received_params_7: 13:37:22:779451
-round_36_aggregation: 13:37:22:779466
-round_36_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_36_end: 13:37:22:781321
-round_37_start: 13:37:22:781329
-round_37_model_trained: 13:37:22:792192
-round_37_model_shared: 13:37:22:816953
-round_37_received_params_7: 13:37:22:859860
-round_37_aggregation: 13:37:22:859874
-round_37_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_37_end: 13:37:22:861861
-round_38_start: 13:37:22:861869
-round_38_model_trained: 13:37:22:873248
-round_38_model_shared: 13:37:22:898049
-round_38_received_params_7: 13:37:22:940314
-round_38_aggregation: 13:37:22:940329
-round_38_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_38_end: 13:37:22:942201
-round_39_start: 13:37:22:942210
-round_39_model_trained: 13:37:22:953474
-round_39_model_shared: 13:37:22:978038
-round_39_received_params_7: 13:37:23:020496
-round_39_aggregation: 13:37:23:020511
-round_39_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_39_end: 13:37:23:022509
-round_40_start: 13:37:23:022518
-round_40_model_trained: 13:37:23:033888
-round_40_model_shared: 13:37:23:058683
-round_40_received_params_7: 13:37:23:101463
-round_40_aggregation: 13:37:23:101478
-round_40_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_40_end: 13:37:23:103543
-round_41_start: 13:37:23:103552
-round_41_model_trained: 13:37:23:114965
-round_41_model_shared: 13:37:23:139492
-round_41_received_params_7: 13:37:23:181816
-round_41_aggregation: 13:37:23:181831
-round_41_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_41_end: 13:37:23:183620
-round_42_start: 13:37:23:183628
-round_42_model_trained: 13:37:23:194762
-round_42_model_shared: 13:37:23:219451
-round_42_received_params_7: 13:37:23:261845
-round_42_aggregation: 13:37:23:261859
-round_42_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_42_end: 13:37:23:263625
-round_43_start: 13:37:23:263632
-round_43_model_trained: 13:37:23:274518
-round_43_model_shared: 13:37:23:299102
-round_43_received_params_7: 13:37:23:342403
-round_43_aggregation: 13:37:23:342418
-round_43_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_43_end: 13:37:23:344081
-round_44_start: 13:37:23:344088
-round_44_model_trained: 13:37:23:355092
-round_44_model_shared: 13:37:23:379922
-round_44_received_params_7: 13:37:23:423945
-round_44_aggregation: 13:37:23:423960
-round_44_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_44_end: 13:37:23:425932
-round_45_start: 13:37:23:425941
-round_45_model_trained: 13:37:23:437278
-round_45_model_shared: 13:37:23:461733
-round_45_received_params_7: 13:37:23:503508
-round_45_aggregation: 13:37:23:503523
-round_45_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_45_end: 13:37:23:505467
-round_46_start: 13:37:23:505475
-round_46_model_trained: 13:37:23:516687
-round_46_model_shared: 13:37:23:541263
-round_46_received_params_7: 13:37:23:582636
-round_46_aggregation: 13:37:23:582651
-round_46_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_46_end: 13:37:23:584723
-round_47_start: 13:37:23:584732
-round_47_model_trained: 13:37:23:595128
-round_47_model_shared: 13:37:23:619671
-round_47_received_params_7: 13:37:23:660772
-round_47_aggregation: 13:37:23:660788
-round_47_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_47_end: 13:37:23:662579
-round_48_start: 13:37:23:662587
-round_48_model_trained: 13:37:23:674025
-round_48_model_shared: 13:37:23:698969
-round_48_received_params_7: 13:37:23:740077
-round_48_aggregation: 13:37:23:740093
-round_48_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_48_end: 13:37:23:741840
-round_49_start: 13:37:23:741847
-round_49_model_trained: 13:37:23:752766
-round_49_model_shared: 13:37:23:777440
-round_49_received_params_7: 13:37:23:819510
-round_49_aggregation: 13:37:23:819525
-round_49_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_49_end: 13:37:23:821586
-round_50_start: 13:37:23:821596
-round_50_model_trained: 13:37:23:832891
-round_50_model_shared: 13:37:23:857369
-round_50_received_params_7: 13:37:23:898569
-round_50_aggregation: 13:37:23:898585
-round_50_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_50_end: 13:37:23:900359
-round_51_start: 13:37:23:900367
-round_51_model_trained: 13:37:23:911153
-round_51_model_shared: 13:37:23:935551
-round_51_received_params_7: 13:37:23:978050
-round_51_aggregation: 13:37:23:978066
-round_51_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_51_end: 13:37:23:979863
-round_52_start: 13:37:23:979871
-round_52_model_trained: 13:37:23:990824
-round_52_model_shared: 13:37:24:015374
-round_52_received_params_7: 13:37:24:057824
-round_52_aggregation: 13:37:24:057840
-round_52_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_52_end: 13:37:24:059521
-round_53_start: 13:37:24:059541
-round_53_model_trained: 13:37:24:070529
-round_53_model_shared: 13:37:24:095248
-round_53_received_params_7: 13:37:24:138768
-round_53_aggregation: 13:37:24:138783
-round_53_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_53_end: 13:37:24:140779
-round_54_start: 13:37:24:140788
-round_54_model_trained: 13:37:24:152153
-round_54_model_shared: 13:37:24:176533
-round_54_received_params_7: 13:37:24:219839
-round_54_aggregation: 13:37:24:219854
-round_54_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_54_end: 13:37:24:221897
-round_55_start: 13:37:24:221906
-round_55_model_trained: 13:37:24:233187
-round_55_model_shared: 13:37:24:257972
-round_55_received_params_7: 13:37:24:300263
-round_55_aggregation: 13:37:24:300278
-round_55_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_55_end: 13:37:24:302331
-round_56_start: 13:37:24:302340
-round_56_model_trained: 13:37:24:313669
-round_56_model_shared: 13:37:24:338270
-round_56_received_params_7: 13:37:24:380718
-round_56_aggregation: 13:37:24:380732
-round_56_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_56_end: 13:37:24:382484
-round_57_start: 13:37:24:382492
-round_57_model_trained: 13:37:24:393357
-round_57_model_shared: 13:37:24:417823
-round_57_received_params_7: 13:37:24:460760
-round_57_aggregation: 13:37:24:460776
-round_57_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_57_end: 13:37:24:462578
-round_58_start: 13:37:24:462586
-round_58_model_trained: 13:37:24:473481
-round_58_model_shared: 13:37:24:497988
-round_58_received_params_7: 13:37:24:540827
-round_58_aggregation: 13:37:24:540842
-round_58_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_58_end: 13:37:24:542594
-round_59_start: 13:37:24:542602
-round_59_model_trained: 13:37:24:553450
-round_59_model_shared: 13:37:24:577601
-round_59_received_params_7: 13:37:24:620382
-round_59_aggregation: 13:37:24:620397
-round_59_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_59_end: 13:37:24:622170
-round_60_start: 13:37:24:622177
-round_60_model_trained: 13:37:24:633329
-round_60_model_shared: 13:37:24:657811
-round_60_received_params_7: 13:37:24:700457
-round_60_aggregation: 13:37:24:700472
-round_60_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_60_end: 13:37:24:702244
-round_61_start: 13:37:24:702252
-round_61_model_trained: 13:37:24:713183
-round_61_model_shared: 13:37:24:737680
-round_61_received_params_7: 13:37:24:780515
-round_61_aggregation: 13:37:24:780531
-round_61_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_61_end: 13:37:24:782153
-round_62_start: 13:37:24:782161
-round_62_model_trained: 13:37:24:793209
-round_62_model_shared: 13:37:24:817911
-round_62_received_params_7: 13:37:24:860492
-round_62_aggregation: 13:37:24:860507
-round_62_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_62_end: 13:37:24:862215
-round_63_start: 13:37:24:862223
-round_63_model_trained: 13:37:24:873454
-round_63_model_shared: 13:37:24:898144
-round_63_received_params_7: 13:37:24:939722
-round_63_aggregation: 13:37:24:939738
-round_63_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_63_end: 13:37:24:941486
-round_64_start: 13:37:24:941494
-round_64_model_trained: 13:37:24:952443
-round_64_model_shared: 13:37:24:977133
-round_64_received_params_7: 13:37:25:019229
-round_64_aggregation: 13:37:25:019245
-round_64_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_64_end: 13:37:25:021398
-round_65_start: 13:37:25:021408
-round_65_model_trained: 13:37:25:032712
-round_65_model_shared: 13:37:25:056945
-round_65_received_params_7: 13:37:25:098940
-round_65_aggregation: 13:37:25:098956
-round_65_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_65_end: 13:37:25:100768
-round_66_start: 13:37:25:100776
-round_66_model_trained: 13:37:25:111770
-round_66_model_shared: 13:37:25:136605
-round_66_received_params_7: 13:37:25:179275
-round_66_aggregation: 13:37:25:179290
-round_66_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_66_end: 13:37:25:181168
-round_67_start: 13:37:25:181178
-round_67_model_trained: 13:37:25:192558
-round_67_model_shared: 13:37:25:217323
-round_67_received_params_7: 13:37:25:259372
-round_67_aggregation: 13:37:25:259388
-round_67_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_67_end: 13:37:25:261078
-round_68_start: 13:37:25:261086
-round_68_model_trained: 13:37:25:271965
-round_68_model_shared: 13:37:25:296480
-round_68_received_params_7: 13:37:25:338929
-round_68_aggregation: 13:37:25:338944
-round_68_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_68_end: 13:37:25:340990
-round_69_start: 13:37:25:340999
-round_69_model_trained: 13:37:25:352362
-round_69_model_shared: 13:37:25:376821
-round_69_received_params_7: 13:37:25:418832
-round_69_aggregation: 13:37:25:418848
-round_69_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_69_end: 13:37:25:420599
-round_70_start: 13:37:25:420607
-round_70_model_trained: 13:37:25:431554
-round_70_model_shared: 13:37:25:455296
-round_70_received_params_7: 13:37:25:498921
-round_70_aggregation: 13:37:25:498938
-round_70_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_70_end: 13:37:25:500760
-round_71_start: 13:37:25:500769
-round_71_model_trained: 13:37:25:511650
-round_71_model_shared: 13:37:25:536259
-round_71_received_params_7: 13:37:25:578247
-round_71_aggregation: 13:37:25:578263
-round_71_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_71_end: 13:37:25:580050
-round_72_start: 13:37:25:580059
-round_72_model_trained: 13:37:25:590910
-round_72_model_shared: 13:37:25:615242
-round_72_received_params_7: 13:37:25:657082
-round_72_aggregation: 13:37:25:657098
-round_72_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_72_end: 13:37:25:659149
-round_73_start: 13:37:25:659159
-round_73_model_trained: 13:37:25:670546
-round_73_model_shared: 13:37:25:694920
-round_73_received_params_7: 13:37:25:737071
-round_73_aggregation: 13:37:25:737088
-round_73_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_73_end: 13:37:25:738786
-round_74_start: 13:37:25:738794
-round_74_model_trained: 13:37:25:749656
-round_74_model_shared: 13:37:25:773792
-round_74_received_params_7: 13:37:25:816094
-round_74_aggregation: 13:37:25:816110
-round_74_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_74_end: 13:37:25:817792
-round_75_start: 13:37:25:817800
-round_75_model_trained: 13:37:25:828752
-round_75_model_shared: 13:37:25:853241
-round_75_received_params_7: 13:37:25:896520
-round_75_aggregation: 13:37:25:896537
-round_75_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_75_end: 13:37:25:898584
-round_76_start: 13:37:25:898593
-round_76_model_trained: 13:37:25:909993
-round_76_model_shared: 13:37:25:934498
-round_76_received_params_7: 13:37:25:976769
-round_76_aggregation: 13:37:25:976785
-round_76_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_76_end: 13:37:25:978557
-round_77_start: 13:37:25:978566
-round_77_model_trained: 13:37:25:989536
-round_77_model_shared: 13:37:26:013881
-round_77_received_params_7: 13:37:26:057304
-round_77_aggregation: 13:37:26:057321
-round_77_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_77_end: 13:37:26:059106
-round_78_start: 13:37:26:059115
-round_78_model_trained: 13:37:26:070021
-round_78_model_shared: 13:37:26:094745
-round_78_received_params_7: 13:37:26:138092
-round_78_aggregation: 13:37:26:138108
-round_78_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_78_end: 13:37:26:139857
-round_79_start: 13:37:26:139866
-round_79_model_trained: 13:37:26:150713
-round_79_model_shared: 13:37:26:174862
-round_79_received_params_7: 13:37:26:218445
-round_79_aggregation: 13:37:26:218461
-round_79_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_79_end: 13:37:26:220111
-round_80_start: 13:37:26:220119
-round_80_model_trained: 13:37:26:231018
-round_80_model_shared: 13:37:26:255516
-round_80_received_params_7: 13:37:26:297206
-round_80_aggregation: 13:37:26:297222
-round_80_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_80_end: 13:37:26:299027
-round_81_start: 13:37:26:299037
-round_81_model_trained: 13:37:26:309896
-round_81_model_shared: 13:37:26:334217
-round_81_received_params_7: 13:37:26:376246
-round_81_aggregation: 13:37:26:376262
-round_81_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_81_end: 13:37:26:378030
-round_82_start: 13:37:26:378039
-round_82_model_trained: 13:37:26:388948
-round_82_model_shared: 13:37:26:413576
-round_82_received_params_7: 13:37:26:456283
-round_82_aggregation: 13:37:26:456299
-round_82_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_82_end: 13:37:26:457975
-round_83_start: 13:37:26:457983
-round_83_model_trained: 13:37:26:468919
-round_83_model_shared: 13:37:26:493389
-round_83_received_params_7: 13:37:26:537006
-round_83_aggregation: 13:37:26:537022
-round_83_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_83_end: 13:37:26:538989
-round_84_start: 13:37:26:539000
-round_84_model_trained: 13:37:26:550338
-round_84_model_shared: 13:37:26:574397
-round_84_received_params_7: 13:37:26:617842
-round_84_aggregation: 13:37:26:617858
-round_84_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_84_end: 13:37:26:619806
-round_85_start: 13:37:26:619816
-round_85_model_trained: 13:37:26:631108
-round_85_model_shared: 13:37:26:655381
-round_85_received_params_7: 13:37:26:699120
-round_85_aggregation: 13:37:26:699136
-round_85_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_85_end: 13:37:26:700979
-round_86_start: 13:37:26:700988
-round_86_model_trained: 13:37:26:711844
-round_86_model_shared: 13:37:26:736672
-round_86_received_params_7: 13:37:26:781014
-round_86_aggregation: 13:37:26:781030
-round_86_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_86_end: 13:37:26:782855
-round_87_start: 13:37:26:782863
-round_87_model_trained: 13:37:26:793717
-round_87_model_shared: 13:37:26:818172
-round_87_received_params_7: 13:37:26:861592
-round_87_aggregation: 13:37:26:861608
-round_87_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_87_end: 13:37:26:863441
-round_88_start: 13:37:26:863450
-round_88_model_trained: 13:37:26:874383
-round_88_model_shared: 13:37:26:899098
-round_88_received_params_7: 13:37:26:942037
-round_88_aggregation: 13:37:26:942055
-round_88_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_88_end: 13:37:26:943730
-round_89_start: 13:37:26:943742
-round_89_model_trained: 13:37:26:954784
-round_89_model_shared: 13:37:26:979289
-round_89_received_params_7: 13:37:27:021866
-round_89_aggregation: 13:37:27:021884
-round_89_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_89_end: 13:37:27:023679
-round_90_start: 13:37:27:023689
-round_90_model_trained: 13:37:27:034520
-round_90_model_shared: 13:37:27:059390
-round_90_received_params_7: 13:37:27:102628
-round_90_aggregation: 13:37:27:102645
-round_90_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_90_end: 13:37:27:104709
-round_91_start: 13:37:27:104721
-round_91_model_trained: 13:37:27:116152
-round_91_model_shared: 13:37:27:141447
-round_91_received_params_7: 13:37:27:181674
-round_91_aggregation: 13:37:27:181693
-round_91_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_91_end: 13:37:27:183627
-round_92_start: 13:37:27:183638
-round_92_model_trained: 13:37:27:195062
-round_92_model_shared: 13:37:27:220267
-round_92_received_params_7: 13:37:27:260779
-round_92_aggregation: 13:37:27:260801
-round_92_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_92_end: 13:37:27:262975
-round_93_start: 13:37:27:262987
-round_93_model_trained: 13:37:27:274692
-round_93_model_shared: 13:37:27:299997
-round_93_received_params_7: 13:37:27:340652
-round_93_aggregation: 13:37:27:340673
-round_93_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_93_end: 13:37:27:342656
-round_94_start: 13:37:27:342666
-round_94_model_trained: 13:37:27:353345
-round_94_model_shared: 13:37:27:378188
-round_94_received_params_7: 13:37:27:418998
-round_94_aggregation: 13:37:27:419016
-round_94_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_94_end: 13:37:27:420993
-round_95_start: 13:37:27:421006
-round_95_model_trained: 13:37:27:432953
-round_95_model_shared: 13:37:27:457851
-round_95_received_params_7: 13:37:27:499600
-round_95_aggregation: 13:37:27:499617
-round_95_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_95_end: 13:37:27:501599
-round_96_start: 13:37:27:501611
-round_96_model_trained: 13:37:27:513068
-round_96_model_shared: 13:37:27:538460
-round_96_received_params_7: 13:37:27:578721
-round_96_aggregation: 13:37:27:578738
-round_96_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_96_end: 13:37:27:580522
-round_97_start: 13:37:27:580532
-round_97_model_trained: 13:37:27:591751
-round_97_model_shared: 13:37:27:616539
-round_97_received_params_7: 13:37:27:659215
-round_97_aggregation: 13:37:27:659233
-round_97_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_97_end: 13:37:27:661271
-round_98_start: 13:37:27:661282
-round_98_model_trained: 13:37:27:672710
-round_98_model_shared: 13:37:27:697425
-round_98_received_params_7: 13:37:27:738480
-round_98_aggregation: 13:37:27:738497
-round_98_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_98_end: 13:37:27:740287
-round_99_start: 13:37:27:740296
-round_99_model_trained: 13:37:27:751229
-round_99_model_shared: 13:37:27:775845
-round_99_received_params_7: 13:37:27:817936
-round_99_aggregation: 13:37:27:817953
-round_99_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_99_end: 13:37:27:819787
-round_100_start: 13:37:27:819799
-round_100_model_trained: 13:37:27:830831
-round_100_model_shared: 13:37:27:855584
-round_100_received_params_7: 13:37:27:897559
-round_100_aggregation: 13:37:27:897579
-round_100_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_100_end: 13:37:27:899339
-round_101_start: 13:37:27:899352
-round_101_model_trained: 13:37:27:910336
-round_101_model_shared: 13:37:27:934909
-round_101_received_params_7: 13:37:27:977375
-round_101_aggregation: 13:37:27:977393
-round_101_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_101_end: 13:37:27:979051
-round_102_start: 13:37:27:979063
-round_102_model_trained: 13:37:27:990038
-round_102_model_shared: 13:37:28:014813
-round_102_received_params_7: 13:37:28:057493
-round_102_aggregation: 13:37:28:057511
-round_102_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_102_end: 13:37:28:059254
-round_103_start: 13:37:28:059266
-round_103_model_trained: 13:37:28:070203
-round_103_model_shared: 13:37:28:094791
-round_103_received_params_7: 13:37:28:136955
-round_103_aggregation: 13:37:28:136975
-round_103_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_103_end: 13:37:28:138803
-round_104_start: 13:37:28:138814
-round_104_model_trained: 13:37:28:149715
-round_104_model_shared: 13:37:28:174463
-round_104_received_params_7: 13:37:28:216365
-round_104_aggregation: 13:37:28:216385
-round_104_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_104_end: 13:37:28:218187
-round_105_start: 13:37:28:218200
-round_105_model_trained: 13:37:28:229238
-round_105_model_shared: 13:37:28:253870
-round_105_received_params_7: 13:37:28:295649
-round_105_aggregation: 13:37:28:295667
-round_105_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_105_end: 13:37:28:297417
-round_106_start: 13:37:28:297427
-round_106_model_trained: 13:37:28:308357
-round_106_model_shared: 13:37:28:333222
-round_106_received_params_7: 13:37:28:376834
-round_106_aggregation: 13:37:28:376850
-round_106_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_106_end: 13:37:28:378630
-round_107_start: 13:37:28:378638
-round_107_model_trained: 13:37:28:389597
-round_107_model_shared: 13:37:28:414205
-round_107_received_params_7: 13:37:28:457899
-round_107_aggregation: 13:37:28:457915
-round_107_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_107_end: 13:37:28:459543
-round_108_start: 13:37:28:459552
-round_108_model_trained: 13:37:28:470472
-round_108_model_shared: 13:37:28:495280
-round_108_received_params_7: 13:37:28:539696
-round_108_aggregation: 13:37:28:539711
-round_108_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_108_end: 13:37:28:541483
-round_109_start: 13:37:28:541493
-round_109_model_trained: 13:37:28:552396
-round_109_model_shared: 13:37:28:576966
-round_109_received_params_7: 13:37:28:618945
-round_109_aggregation: 13:37:28:618961
-round_109_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_109_end: 13:37:28:620718
-round_110_start: 13:37:28:620727
-round_110_model_trained: 13:37:28:631625
-round_110_model_shared: 13:37:28:656316
-round_110_received_params_7: 13:37:28:697927
-round_110_aggregation: 13:37:28:697944
-round_110_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_110_end: 13:37:28:700033
-round_111_start: 13:37:28:700043
-round_111_model_trained: 13:37:28:711326
-round_111_model_shared: 13:37:28:736026
-round_111_received_params_7: 13:37:28:777953
-round_111_aggregation: 13:37:28:777971
-round_111_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_111_end: 13:37:28:779802
-round_112_start: 13:37:28:779811
-round_112_model_trained: 13:37:28:790751
-round_112_model_shared: 13:37:28:815485
-round_112_received_params_7: 13:37:28:857053
-round_112_aggregation: 13:37:28:857072
-round_112_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_112_end: 13:37:28:858829
-round_113_start: 13:37:28:858839
-round_113_model_trained: 13:37:28:869851
-round_113_model_shared: 13:37:28:894627
-round_113_received_params_7: 13:37:28:936640
-round_113_aggregation: 13:37:28:936656
-round_113_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_113_end: 13:37:28:938390
-round_114_start: 13:37:28:938401
-round_114_model_trained: 13:37:28:949259
-round_114_model_shared: 13:37:28:973642
-round_114_received_params_7: 13:37:29:015883
-round_114_aggregation: 13:37:29:015902
-round_114_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_114_end: 13:37:29:017665
-round_115_start: 13:37:29:017677
-round_115_model_trained: 13:37:29:028628
-round_115_model_shared: 13:37:29:053410
-round_115_received_params_7: 13:37:29:097074
-round_115_aggregation: 13:37:29:097093
-round_115_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_115_end: 13:37:29:098829
-round_116_start: 13:37:29:098839
-round_116_model_trained: 13:37:29:109768
-round_116_model_shared: 13:37:29:134145
-round_116_received_params_7: 13:37:29:177173
-round_116_aggregation: 13:37:29:177190
-round_116_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_116_end: 13:37:29:178969
-round_117_start: 13:37:29:178978
-round_117_model_trained: 13:37:29:189908
-round_117_model_shared: 13:37:29:214862
-round_117_received_params_7: 13:37:29:257684
-round_117_aggregation: 13:37:29:257700
-round_117_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_117_end: 13:37:29:259779
-round_118_start: 13:37:29:259789
-round_118_model_trained: 13:37:29:271099
-round_118_model_shared: 13:37:29:295626
-round_118_received_params_7: 13:37:29:337882
-round_118_aggregation: 13:37:29:337898
-round_118_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_118_end: 13:37:29:339676
-round_119_start: 13:37:29:339685
-round_119_model_trained: 13:37:29:350663
-round_119_model_shared: 13:37:29:374870
-round_119_received_params_7: 13:37:29:418028
-round_119_aggregation: 13:37:29:418044
-round_119_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_119_end: 13:37:29:419651
-round_120_start: 13:37:29:419660
-round_120_model_trained: 13:37:29:430641
-round_120_model_shared: 13:37:29:455255
-round_120_received_params_7: 13:37:29:498481
-round_120_aggregation: 13:37:29:498498
-round_120_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_120_end: 13:37:29:500576
-round_121_start: 13:37:29:500587
-round_121_model_trained: 13:37:29:511898
-round_121_model_shared: 13:37:29:536331
-round_121_received_params_7: 13:37:29:577401
-round_121_aggregation: 13:37:29:577417
-round_121_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_121_end: 13:37:29:579264
-round_122_start: 13:37:29:579275
-round_122_model_trained: 13:37:29:590659
-round_122_model_shared: 13:37:29:614821
-round_122_received_params_7: 13:37:29:656337
-round_122_aggregation: 13:37:29:656353
-round_122_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_122_end: 13:37:29:658321
-round_123_start: 13:37:29:658340
-round_123_model_trained: 13:37:29:669691
-round_123_model_shared: 13:37:29:694125
-round_123_received_params_7: 13:37:29:736275
-round_123_aggregation: 13:37:29:736291
-round_123_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_123_end: 13:37:29:738102
-round_124_start: 13:37:29:738111
-round_124_model_trained: 13:37:29:749074
-round_124_model_shared: 13:37:29:773879
-round_124_received_params_7: 13:37:29:815676
-round_124_aggregation: 13:37:29:815692
-round_124_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_124_end: 13:37:29:817785
-round_125_start: 13:37:29:817795
-round_125_model_trained: 13:37:29:829259
-round_125_model_shared: 13:37:29:853531
-round_125_received_params_7: 13:37:29:895534
-round_125_aggregation: 13:37:29:895550
-round_125_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_125_end: 13:37:29:897600
-round_126_start: 13:37:29:897611
-round_126_model_trained: 13:37:29:908941
-round_126_model_shared: 13:37:29:933447
-round_126_received_params_7: 13:37:29:975575
-round_126_aggregation: 13:37:29:975591
-round_126_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_126_end: 13:37:29:977454
-round_127_start: 13:37:29:977463
-round_127_model_trained: 13:37:29:988453
-round_127_model_shared: 13:37:30:013091
-round_127_received_params_7: 13:37:30:055783
-round_127_aggregation: 13:37:30:055801
-round_127_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_127_end: 13:37:30:057801
-round_128_start: 13:37:30:057810
-round_128_model_trained: 13:37:30:069316
-round_128_model_shared: 13:37:30:094196
-round_128_received_params_7: 13:37:30:135008
-round_128_aggregation: 13:37:30:135025
-round_128_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_128_end: 13:37:30:137183
-round_129_start: 13:37:30:137194
-round_129_model_trained: 13:37:30:148738
-round_129_model_shared: 13:37:30:173218
-round_129_received_params_7: 13:37:30:214677
-round_129_aggregation: 13:37:30:214693
-round_129_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_129_end: 13:37:30:216411
-round_130_start: 13:37:30:216432
-round_130_model_trained: 13:37:30:227481
-round_130_model_shared: 13:37:30:252270
-round_130_received_params_7: 13:37:30:294104
-round_130_aggregation: 13:37:30:294120
-round_130_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_130_end: 13:37:30:295949
-round_131_start: 13:37:30:295960
-round_131_model_trained: 13:37:30:307033
-round_131_model_shared: 13:37:30:331493
-round_131_received_params_7: 13:37:30:374144
-round_131_aggregation: 13:37:30:374160
-round_131_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_131_end: 13:37:30:375958
-round_132_start: 13:37:30:375969
-round_132_model_trained: 13:37:30:386978
-round_132_model_shared: 13:37:30:411423
-round_132_received_params_7: 13:37:30:454531
-round_132_aggregation: 13:37:30:454548
-round_132_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_132_end: 13:37:30:456330
-round_133_start: 13:37:30:456339
-round_133_model_trained: 13:37:30:467369
-round_133_model_shared: 13:37:30:491982
-round_133_received_params_7: 13:37:30:534160
-round_133_aggregation: 13:37:30:534176
-round_133_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_133_end: 13:37:30:536256
-round_134_start: 13:37:30:536266
-round_134_model_trained: 13:37:30:547618
-round_134_model_shared: 13:37:30:572034
-round_134_received_params_7: 13:37:30:615046
-round_134_aggregation: 13:37:30:615063
-round_134_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_134_end: 13:37:30:616748
-round_135_start: 13:37:30:616758
-round_135_model_trained: 13:37:30:627836
-round_135_model_shared: 13:37:30:652354
-round_135_received_params_7: 13:37:30:695867
-round_135_aggregation: 13:37:30:695883
-round_135_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_135_end: 13:37:30:697631
-round_136_start: 13:37:30:697640
-round_136_model_trained: 13:37:30:708522
-round_136_model_shared: 13:37:30:732725
-round_136_received_params_7: 13:37:30:776064
-round_136_aggregation: 13:37:30:776080
-round_136_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_136_end: 13:37:30:777800
-round_137_start: 13:37:30:777809
-round_137_model_trained: 13:37:30:788789
-round_137_model_shared: 13:37:30:813156
-round_137_received_params_7: 13:37:30:856762
-round_137_aggregation: 13:37:30:856778
-round_137_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_137_end: 13:37:30:858549
-round_138_start: 13:37:30:858558
-round_138_model_trained: 13:37:30:869515
-round_138_model_shared: 13:37:30:893826
-round_138_received_params_7: 13:37:30:936824
-round_138_aggregation: 13:37:30:936841
-round_138_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_138_end: 13:37:30:938635
-round_139_start: 13:37:30:938644
-round_139_model_trained: 13:37:30:949557
-round_139_model_shared: 13:37:30:974060
-round_139_received_params_7: 13:37:31:015984
-round_139_aggregation: 13:37:31:016001
-round_139_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_139_end: 13:37:31:017817
-round_140_start: 13:37:31:017826
-round_140_model_trained: 13:37:31:028777
-round_140_model_shared: 13:37:31:053142
-round_140_received_params_7: 13:37:31:095041
-round_140_aggregation: 13:37:31:095058
-round_140_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_140_end: 13:37:31:096878
-round_141_start: 13:37:31:096887
-round_141_model_trained: 13:37:31:106821
-round_141_model_shared: 13:37:31:131269
-round_141_received_params_7: 13:37:31:173043
-round_141_aggregation: 13:37:31:173060
-round_141_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_141_end: 13:37:31:174921
-round_142_start: 13:37:31:174932
-round_142_model_trained: 13:37:31:186684
-round_142_model_shared: 13:37:31:211188
-round_142_received_params_7: 13:37:31:254664
-round_142_aggregation: 13:37:31:254680
-round_142_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_142_end: 13:37:31:256699
-round_143_start: 13:37:31:256711
-round_143_model_trained: 13:37:31:268261
-round_143_model_shared: 13:37:31:292976
-round_143_received_params_7: 13:37:31:334511
-round_143_aggregation: 13:37:31:334527
-round_143_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_143_end: 13:37:31:336578
-round_144_start: 13:37:31:336588
-round_144_model_trained: 13:37:31:347879
-round_144_model_shared: 13:37:31:372588
-round_144_received_params_7: 13:37:31:415363
-round_144_aggregation: 13:37:31:415380
-round_144_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_144_end: 13:37:31:417150
-round_145_start: 13:37:31:417159
-round_145_model_trained: 13:37:31:428051
-round_145_model_shared: 13:37:31:453000
-round_145_received_params_7: 13:37:31:496081
-round_145_aggregation: 13:37:31:496099
-round_145_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_145_end: 13:37:31:497705
-round_146_start: 13:37:31:497714
-round_146_model_trained: 13:37:31:508633
-round_146_model_shared: 13:37:31:533535
-round_146_received_params_7: 13:37:31:578868
-round_146_aggregation: 13:37:31:578884
-round_146_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_146_end: 13:37:31:580624
-round_147_start: 13:37:31:580633
-round_147_model_trained: 13:37:31:591737
-round_147_model_shared: 13:37:31:616212
-round_147_received_params_7: 13:37:31:658145
-round_147_aggregation: 13:37:31:658162
-round_147_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_147_end: 13:37:31:660331
-round_148_start: 13:37:31:660340
-round_148_model_trained: 13:37:31:671249
-round_148_model_shared: 13:37:31:695951
-round_148_received_params_7: 13:37:31:737794
-round_148_aggregation: 13:37:31:737810
-round_148_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_148_end: 13:37:31:739840
-round_149_start: 13:37:31:739851
-round_149_model_trained: 13:37:31:751174
-round_149_model_shared: 13:37:31:775767
-round_149_received_params_7: 13:37:31:817010
-round_149_aggregation: 13:37:31:817026
-round_149_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_149_end: 13:37:31:818987
-round_150_start: 13:37:31:818998
-round_150_model_trained: 13:37:31:830302
-round_150_model_shared: 13:37:31:854537
-round_150_received_params_7: 13:37:31:895564
-round_150_aggregation: 13:37:31:895581
-round_150_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_150_end: 13:37:31:897667
-round_151_start: 13:37:31:897677
-round_151_model_trained: 13:37:31:909007
-round_151_model_shared: 13:37:31:933404
-round_151_received_params_7: 13:37:31:976199
-round_151_aggregation: 13:37:31:976216
-round_151_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_151_end: 13:37:31:977966
-round_152_start: 13:37:31:977976
-round_152_model_trained: 13:37:31:988922
-round_152_model_shared: 13:37:32:013376
-round_152_received_params_7: 13:37:32:056247
-round_152_aggregation: 13:37:32:056263
-round_152_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_152_end: 13:37:32:058249
-round_153_start: 13:37:32:058260
-round_153_model_trained: 13:37:32:069615
-round_153_model_shared: 13:37:32:094263
-round_153_received_params_7: 13:37:32:137868
-round_153_aggregation: 13:37:32:137886
-round_153_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_153_end: 13:37:32:139847
-round_154_start: 13:37:32:139859
-round_154_model_trained: 13:37:32:151576
-round_154_model_shared: 13:37:32:176437
-round_154_received_params_7: 13:37:32:219519
-round_154_aggregation: 13:37:32:219539
-round_154_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_154_end: 13:37:32:221505
-round_155_start: 13:37:32:221515
-round_155_model_trained: 13:37:32:233252
-round_155_model_shared: 13:37:32:258511
-round_155_received_params_7: 13:37:32:300166
-round_155_aggregation: 13:37:32:300185
-round_155_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_155_end: 13:37:32:302504
-round_156_start: 13:37:32:302516
-round_156_model_trained: 13:37:32:314593
-round_156_model_shared: 13:37:32:340174
-round_156_received_params_7: 13:37:32:381647
-round_156_aggregation: 13:37:32:381664
-round_156_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_156_end: 13:37:32:383802
-round_157_start: 13:37:32:383814
-round_157_model_trained: 13:37:32:395493
-round_157_model_shared: 13:37:32:420495
-round_157_received_params_7: 13:37:32:462827
-round_157_aggregation: 13:37:32:462843
-round_157_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_157_end: 13:37:32:464566
-round_158_start: 13:37:32:464575
-round_158_model_trained: 13:37:32:475685
-round_158_model_shared: 13:37:32:500282
-round_158_received_params_7: 13:37:32:542643
-round_158_aggregation: 13:37:32:542660
-round_158_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_158_end: 13:37:32:544523
-round_159_start: 13:37:32:544532
-round_159_model_trained: 13:37:32:555548
-round_159_model_shared: 13:37:32:580447
-round_159_received_params_7: 13:37:32:622651
-round_159_aggregation: 13:37:32:622668
-round_159_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_159_end: 13:37:32:624649
-round_160_start: 13:37:32:624660
-round_160_model_trained: 13:37:32:636075
-round_160_model_shared: 13:37:32:660775
-round_160_received_params_7: 13:37:32:702894
-round_160_aggregation: 13:37:32:702911
-round_160_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_160_end: 13:37:32:704691
-round_161_start: 13:37:32:704701
-round_161_model_trained: 13:37:32:715724
-round_161_model_shared: 13:37:32:740283
-round_161_received_params_7: 13:37:32:782776
-round_161_aggregation: 13:37:32:782792
-round_161_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_161_end: 13:37:32:784831
-round_162_start: 13:37:32:784842
-round_162_model_trained: 13:37:32:796209
-round_162_model_shared: 13:37:32:821150
-round_162_received_params_7: 13:37:32:863277
-round_162_aggregation: 13:37:32:863294
-round_162_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_162_end: 13:37:32:865007
-round_163_start: 13:37:32:865017
-round_163_model_trained: 13:37:32:876020
-round_163_model_shared: 13:37:32:900739
-round_163_received_params_7: 13:37:32:943415
-round_163_aggregation: 13:37:32:943431
-round_163_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_163_end: 13:37:32:945228
-round_164_start: 13:37:32:945238
-round_164_model_trained: 13:37:32:956132
-round_164_model_shared: 13:37:32:980584
-round_164_received_params_7: 13:37:33:023231
-round_164_aggregation: 13:37:33:023248
-round_164_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_164_end: 13:37:33:025071
-round_165_start: 13:37:33:025080
-round_165_model_trained: 13:37:33:036047
-round_165_model_shared: 13:37:33:060684
-round_165_received_params_7: 13:37:33:103479
-round_165_aggregation: 13:37:33:103496
-round_165_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_165_end: 13:37:33:105309
-round_166_start: 13:37:33:105319
-round_166_model_trained: 13:37:33:116225
-round_166_model_shared: 13:37:33:140762
-round_166_received_params_7: 13:37:33:183984
-round_166_aggregation: 13:37:33:184002
-round_166_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_166_end: 13:37:33:185605
-round_167_start: 13:37:33:185615
-round_167_model_trained: 13:37:33:196570
-round_167_model_shared: 13:37:33:221199
-round_167_received_params_7: 13:37:33:264637
-round_167_aggregation: 13:37:33:264654
-round_167_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_167_end: 13:37:33:266506
-round_168_start: 13:37:33:266516
-round_168_model_trained: 13:37:33:277439
-round_168_model_shared: 13:37:33:302242
-round_168_received_params_7: 13:37:33:345065
-round_168_aggregation: 13:37:33:345082
-round_168_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_168_end: 13:37:33:346723
-round_169_start: 13:37:33:346734
-round_169_model_trained: 13:37:33:357688
-round_169_model_shared: 13:37:33:382044
-round_169_received_params_7: 13:37:33:426239
-round_169_aggregation: 13:37:33:426257
-round_169_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_169_end: 13:37:33:428065
-round_170_start: 13:37:33:428075
-round_170_model_trained: 13:37:33:438949
-round_170_model_shared: 13:37:33:463482
-round_170_received_params_7: 13:37:33:506691
-round_170_aggregation: 13:37:33:506707
-round_170_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_170_end: 13:37:33:508389
-round_171_start: 13:37:33:508410
-round_171_model_trained: 13:37:33:519546
-round_171_model_shared: 13:37:33:544148
-round_171_received_params_7: 13:37:33:586825
-round_171_aggregation: 13:37:33:586842
-round_171_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_171_end: 13:37:33:588641
-round_172_start: 13:37:33:588651
-round_172_model_trained: 13:37:33:599602
-round_172_model_shared: 13:37:33:624497
-round_172_received_params_7: 13:37:33:666190
-round_172_aggregation: 13:37:33:666207
-round_172_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_172_end: 13:37:33:668216
-round_173_start: 13:37:33:668227
-round_173_model_trained: 13:37:33:679580
-round_173_model_shared: 13:37:33:703919
-round_173_received_params_7: 13:37:33:745025
-round_173_aggregation: 13:37:33:745042
-round_173_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_173_end: 13:37:33:746798
-round_174_start: 13:37:33:746807
-round_174_model_trained: 13:37:33:757836
-round_174_model_shared: 13:37:33:782182
-round_174_received_params_7: 13:37:33:824190
-round_174_aggregation: 13:37:33:824206
-round_174_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_174_end: 13:37:33:826223
-round_175_start: 13:37:33:826234
-round_175_model_trained: 13:37:33:837510
-round_175_model_shared: 13:37:33:862056
-round_175_received_params_7: 13:37:33:902449
-round_175_aggregation: 13:37:33:902466
-round_175_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_175_end: 13:37:33:904142
-round_176_start: 13:37:33:904151
-round_176_model_trained: 13:37:33:915081
-round_176_model_shared: 13:37:33:939886
-round_176_received_params_7: 13:37:33:980642
-round_176_aggregation: 13:37:33:980659
-round_176_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_176_end: 13:37:33:982673
-round_177_start: 13:37:33:982684
-round_177_model_trained: 13:37:33:994028
-round_177_model_shared: 13:37:34:018681
-round_177_received_params_7: 13:37:34:060454
-round_177_aggregation: 13:37:34:060471
-round_177_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_177_end: 13:37:34:062495
-round_178_start: 13:37:34:062506
-round_178_model_trained: 13:37:34:073925
-round_178_model_shared: 13:37:34:098406
-round_178_received_params_7: 13:37:34:138498
-round_178_aggregation: 13:37:34:138514
-round_178_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_178_end: 13:37:34:140562
-round_179_start: 13:37:34:140573
-round_179_model_trained: 13:37:34:151994
-round_179_model_shared: 13:37:34:176577
-round_179_received_params_7: 13:37:34:216976
-round_179_aggregation: 13:37:34:216993
-round_179_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_179_end: 13:37:34:218805
-round_180_start: 13:37:34:218815
-round_180_model_trained: 13:37:34:229773
-round_180_model_shared: 13:37:34:254489
-round_180_received_params_7: 13:37:34:295286
-round_180_aggregation: 13:37:34:295303
-round_180_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_180_end: 13:37:34:297090
-round_181_start: 13:37:34:297099
-round_181_model_trained: 13:37:34:308042
-round_181_model_shared: 13:37:34:332805
-round_181_received_params_7: 13:37:34:373087
-round_181_aggregation: 13:37:34:373104
-round_181_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_181_end: 13:37:34:374786
-round_182_start: 13:37:34:374796
-round_182_model_trained: 13:37:34:385758
-round_182_model_shared: 13:37:34:410200
-round_182_received_params_7: 13:37:34:452439
-round_182_aggregation: 13:37:34:452456
-round_182_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_182_end: 13:37:34:454461
-round_183_start: 13:37:34:454474
-round_183_model_trained: 13:37:34:465897
-round_183_model_shared: 13:37:34:490343
-round_183_received_params_7: 13:37:34:532008
-round_183_aggregation: 13:37:34:532025
-round_183_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_183_end: 13:37:34:533787
-round_184_start: 13:37:34:533796
-round_184_model_trained: 13:37:34:544785
-round_184_model_shared: 13:37:34:569385
-round_184_received_params_7: 13:37:34:610839
-round_184_aggregation: 13:37:34:610856
-round_184_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_184_end: 13:37:34:612921
-round_185_start: 13:37:34:612932
-round_185_model_trained: 13:37:34:625895
-round_185_model_shared: 13:37:34:650681
-round_185_received_params_7: 13:37:34:691086
-round_185_aggregation: 13:37:34:691104
-round_185_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_185_end: 13:37:34:693160
-round_186_start: 13:37:34:693171
-round_186_model_trained: 13:37:34:704621
-round_186_model_shared: 13:37:34:729307
-round_186_received_params_7: 13:37:34:768918
-round_186_aggregation: 13:37:34:768934
-round_186_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_186_end: 13:37:34:770742
-round_187_start: 13:37:34:770751
-round_187_model_trained: 13:37:34:781666
-round_187_model_shared: 13:37:34:806005
-round_187_received_params_7: 13:37:34:847087
-round_187_aggregation: 13:37:34:847104
-round_187_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_187_end: 13:37:34:848819
-round_188_start: 13:37:34:848829
-round_188_model_trained: 13:37:34:858743
-round_188_model_shared: 13:37:34:883333
-round_188_received_params_7: 13:37:34:924270
-round_188_aggregation: 13:37:34:924287
-round_188_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_188_end: 13:37:34:925944
-round_189_start: 13:37:34:925955
-round_189_model_trained: 13:37:34:937420
-round_189_model_shared: 13:37:34:961870
-round_189_received_params_7: 13:37:35:003173
-round_189_aggregation: 13:37:35:003191
-round_189_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_189_end: 13:37:35:005056
-round_190_start: 13:37:35:005066
-round_190_model_trained: 13:37:35:016049
-round_190_model_shared: 13:37:35:041096
-round_190_received_params_7: 13:37:35:081995
-round_190_aggregation: 13:37:35:082013
-round_190_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_190_end: 13:37:35:083776
-round_191_start: 13:37:35:083786
-round_191_model_trained: 13:37:35:094753
-round_191_model_shared: 13:37:35:119573
-round_191_received_params_7: 13:37:35:160321
-round_191_aggregation: 13:37:35:160339
-round_191_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_191_end: 13:37:35:162129
-round_192_start: 13:37:35:162139
-round_192_model_trained: 13:37:35:173171
-round_192_model_shared: 13:37:35:197588
-round_192_received_params_7: 13:37:35:239421
-round_192_aggregation: 13:37:35:239438
-round_192_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_192_end: 13:37:35:241223
-round_193_start: 13:37:35:241235
-round_193_model_trained: 13:37:35:252238
-round_193_model_shared: 13:37:35:276753
-round_193_received_params_7: 13:37:35:318614
-round_193_aggregation: 13:37:35:318632
-round_193_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_193_end: 13:37:35:320349
-round_194_start: 13:37:35:320359
-round_194_model_trained: 13:37:35:331277
-round_194_model_shared: 13:37:35:355590
-round_194_received_params_7: 13:37:35:397119
-round_194_aggregation: 13:37:35:397136
-round_194_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_194_end: 13:37:35:399128
-round_195_start: 13:37:35:399139
-round_195_model_trained: 13:37:35:410664
-round_195_model_shared: 13:37:35:435191
-round_195_received_params_7: 13:37:35:476385
-round_195_aggregation: 13:37:35:476403
-round_195_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_195_end: 13:37:35:478210
-round_196_start: 13:37:35:478220
-round_196_model_trained: 13:37:35:489082
-round_196_model_shared: 13:37:35:513892
-round_196_received_params_7: 13:37:35:555711
-round_196_aggregation: 13:37:35:555728
-round_196_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_196_end: 13:37:35:557526
-round_197_start: 13:37:35:557540
-round_197_model_trained: 13:37:35:568491
-round_197_model_shared: 13:37:35:592726
-round_197_received_params_7: 13:37:35:633945
-round_197_aggregation: 13:37:35:633962
-round_197_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_197_end: 13:37:35:635698
-round_198_start: 13:37:35:635709
-round_198_model_trained: 13:37:35:646667
-round_198_model_shared: 13:37:35:670882
-round_198_received_params_7: 13:37:35:713200
-round_198_aggregation: 13:37:35:713217
-round_198_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_198_end: 13:37:35:714996
-round_199_start: 13:37:35:715006
-round_199_model_trained: 13:37:35:725966
-round_199_model_shared: 13:37:35:750491
-round_199_received_params_7: 13:37:35:791238
-round_199_aggregation: 13:37:35:791255
-round_199_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_199_end: 13:37:35:793169
-round_200_start: 13:37:35:793181
-round_200_model_trained: 13:37:35:804567
-round_200_model_shared: 13:37:35:828759
-round_200_received_params_7: 13:37:35:869874
-round_200_aggregation: 13:37:35:869893
-round_200_aggregation order: [8, 0, 4, 5, 6, 7, 9]
-round_200_end: 13:37:35:871627
-round_201_start: 13:37:35:871637
-round_201_model_trained: 13:37:35:882612
-round_201_model_shared: 13:37:35:907194
-round_201_received_params_7: 13:37:35:948825
-round_201_aggregation: 13:37:35:948844
-round_201_aggregation order: [8, 0, 4, 5, 6, 7, 1]
-round_201_end: 13:37:35:950577
-round_202_start: 13:37:35:950588
-round_202_model_trained: 13:37:35:961653
-round_202_model_shared: 13:37:35:986173
-round_202_received_params_7: 13:37:36:026995
-round_202_aggregation: 13:37:36:027015
-round_202_aggregation order: [8, 0, 4, 5, 6, 7, 1]
-round_202_end: 13:37:36:028858
-round_203_start: 13:37:36:028869
-round_203_model_trained: 13:37:36:039820
-round_203_model_shared: 13:37:36:064220
-round_203_received_params_7: 13:37:36:105091
-round_203_aggregation: 13:37:36:105108
-round_203_aggregation order: [8, 0, 4, 5, 6, 7, 1]
-round_203_end: 13:37:36:107017
-round_204_start: 13:37:36:107028
-round_204_model_trained: 13:37:36:118033
-round_204_model_shared: 13:37:36:142562
-round_204_received_params_7: 13:37:36:183242
-round_204_aggregation: 13:37:36:183261
-round_204_aggregation order: [8, 0, 4, 5, 6, 7, 1]
-round_204_end: 13:37:36:184956
-round_205_start: 13:37:36:184966
-round_205_model_trained: 13:37:36:195974
-round_205_model_shared: 13:37:36:220313
-round_205_received_params_7: 13:37:36:261685
-round_205_aggregation: 13:37:36:261703
-round_205_aggregation order: [8, 0, 4, 5, 6, 7, 1]
-round_205_end: 13:37:36:263517
-round_206_start: 13:37:36:263527
-round_206_model_trained: 13:37:36:274444
-round_206_model_shared: 13:37:36:299180
-round_206_received_params_7: 13:37:36:339225
-round_206_aggregation: 13:37:36:339243
-round_206_aggregation order: [8, 0, 4, 5, 6, 7, 1]
-round_206_end: 13:37:36:341095
-round_207_start: 13:37:36:341105
-round_207_model_trained: 13:37:36:352110
-round_207_model_shared: 13:37:36:376882
-round_207_received_params_7: 13:37:36:416747
-round_207_aggregation: 13:37:36:416766
-round_207_aggregation order: [8, 0, 4, 5, 6, 7, 1]
-round_207_end: 13:37:36:418417
-round_208_start: 13:37:36:418428
-round_208_model_trained: 13:37:36:429360
-round_208_model_shared: 13:37:36:453659
-round_208_received_params_7: 13:37:36:493864
-round_208_aggregation: 13:37:36:493881
-round_208_aggregation order: [8, 0, 4, 5, 6, 7, 1]
-round_208_end: 13:37:36:495705
-round_209_start: 13:37:36:495714
-round_209_model_trained: 13:37:36:506678
-round_209_model_shared: 13:37:36:531341
-round_209_received_params_7: 13:37:36:571214
-round_209_aggregation: 13:37:36:571232
-round_209_aggregation order: [8, 0, 4, 5, 6, 7, 1]
-round_209_end: 13:37:36:573000
-round_210_start: 13:37:36:573010
-round_210_model_trained: 13:37:36:583952
-round_210_model_shared: 13:37:36:608383
-round_210_received_params_7: 13:37:36:648378
-round_210_aggregation: 13:37:36:648396
-round_210_aggregation order: [8, 0, 4, 5, 6, 7, 1]
-round_210_end: 13:37:36:650175
-round_211_start: 13:37:36:650186
-round_211_model_trained: 13:37:36:661216
-round_211_model_shared: 13:37:36:685801
-round_211_received_params_7: 13:37:36:727120
-round_211_aggregation: 13:37:36:727139
-round_211_aggregation order: [8, 0, 4, 5, 6, 7, 1]
-round_211_end: 13:37:36:728815
-round_212_start: 13:37:36:728825
-round_212_model_trained: 13:37:36:739678
-round_212_model_shared: 13:37:36:764185
-round_212_received_params_7: 13:37:36:805326
-round_212_aggregation: 13:37:36:805345
-round_212_aggregation order: [8, 0, 4, 5, 6, 7, 1]
-round_212_end: 13:37:36:807434
-round_213_start: 13:37:36:807445
-round_213_model_trained: 13:37:36:819129
-round_213_model_shared: 13:37:36:843698
-round_213_received_params_7: 13:37:36:883122
-round_213_aggregation: 13:37:36:883140
-round_213_aggregation order: [8, 0, 4, 5, 6, 7, 1]
-round_213_end: 13:37:36:884940
-round_214_start: 13:37:36:884950
-round_214_model_trained: 13:37:36:895874
-round_214_model_shared: 13:37:36:920518
-round_214_received_params_7: 13:37:36:960584
-round_214_aggregation: 13:37:36:960601
-round_214_aggregation order: [8, 0, 4, 5, 6, 7, 1]
-round_214_end: 13:37:36:962647
-round_215_start: 13:37:36:962659
-round_215_model_trained: 13:37:36:974175
-round_215_model_shared: 13:37:36:998701
-round_215_received_params_7: 13:37:37:037742
-round_215_aggregation: 13:37:37:037759
-round_215_aggregation order: [8, 0, 4, 5, 6, 7, 1]
-round_215_end: 13:37:37:039543
-round_216_start: 13:37:37:039553
-round_216_model_trained: 13:37:37:050633
-round_216_model_shared: 13:37:37:075122
-round_216_received_params_7: 13:37:37:114972
-round_216_aggregation: 13:37:37:114990
-round_216_aggregation order: [8, 0, 4, 5, 6, 7, 1]
-round_216_end: 13:37:37:116727
-round_217_start: 13:37:37:116737
-round_217_model_trained: 13:37:37:128131
-round_217_model_shared: 13:37:37:153348
-round_217_received_params_7: 13:37:37:211051
-round_217_aggregation: 13:37:37:211077
-round_217_aggregation order: [8, 0, 4, 5, 6, 7, 1]
-round_217_end: 13:37:37:213099
-round_218_start: 13:37:37:213110
-round_218_model_trained: 13:37:37:224769
-round_218_model_shared: 13:37:37:250405
-round_218_received_params_7: 13:37:37:285706
-round_218_aggregation: 13:37:37:285728
-round_218_aggregation order: [8, 0, 4, 5, 6, 7, 1]
-round_218_end: 13:37:37:288096
-round_219_start: 13:37:37:288112
-round_219_model_trained: 13:37:37:300450
-round_219_model_shared: 13:37:37:325664
-round_219_received_params_7: 13:37:37:360934
-round_219_aggregation: 13:37:37:360953
-round_219_aggregation order: [8, 0, 4, 5, 6, 7, 1]
-round_219_end: 13:37:37:363129
-round_220_start: 13:37:37:363146
-round_220_model_trained: 13:37:37:375163
-round_220_model_shared: 13:37:37:399983
-round_220_received_params_7: 13:37:37:435291
-round_220_aggregation: 13:37:37:435310
-round_220_aggregation order: [8, 0, 4, 5, 6, 1, 7]
-round_220_end: 13:37:37:437375
-round_221_start: 13:37:37:437388
-round_221_model_trained: 13:37:37:449014
-round_221_model_shared: 13:37:37:473077
-round_221_received_params_7: 13:37:37:508331
-round_221_aggregation: 13:37:37:508348
-round_221_aggregation order: [8, 0, 4, 5, 6, 7, 1]
-round_221_end: 13:37:37:510346
-round_222_start: 13:37:37:510359
-round_222_model_trained: 13:37:37:522097
-round_222_model_shared: 13:37:37:546782
-round_222_received_params_7: 13:37:37:582281
-round_222_aggregation: 13:37:37:582298
-round_222_aggregation order: [8, 0, 5, 4, 6, 7, 1]
-round_222_end: 13:37:37:584228
-round_223_start: 13:37:37:584241
-round_223_model_trained: 13:37:37:595667
-round_223_model_shared: 13:37:37:620187
-round_223_received_params_7: 13:37:37:657466
-round_223_aggregation: 13:37:37:657484
-round_223_aggregation order: [8, 0, 4, 5, 6, 7, 1]
-round_223_end: 13:37:37:659304
-round_224_start: 13:37:37:659315
-round_224_model_trained: 13:37:37:670341
-round_224_model_shared: 13:37:37:695255
-round_224_received_params_7: 13:37:37:734533
-round_224_aggregation: 13:37:37:734550
-round_224_aggregation order: [8, 0, 5, 4, 6, 7, 1]
-round_224_end: 13:37:37:736325
-round_225_start: 13:37:37:736335
-round_225_model_trained: 13:37:37:747299
-round_225_model_shared: 13:37:37:772193
-round_225_received_params_7: 13:37:37:812022
-round_225_aggregation: 13:37:37:812039
-round_225_aggregation order: [8, 0, 5, 4, 6, 7, 1]
-round_225_end: 13:37:37:813721
-round_226_start: 13:37:37:813731
-round_226_model_trained: 13:37:37:824784
-round_226_model_shared: 13:37:37:849349
-round_226_received_params_7: 13:37:37:889918
-round_226_aggregation: 13:37:37:889936
-round_226_aggregation order: [8, 0, 5, 4, 6, 7, 1]
-round_226_end: 13:37:37:891755
-round_227_start: 13:37:37:891765
-round_227_model_trained: 13:37:37:902746
-round_227_model_shared: 13:37:37:927123
-round_227_received_params_7: 13:37:37:967284
-round_227_aggregation: 13:37:37:967303
-round_227_aggregation order: [8, 0, 5, 4, 6, 7, 1]
-round_227_end: 13:37:37:968933
-round_228_start: 13:37:37:968944
-round_228_model_trained: 13:37:37:979866
-round_228_model_shared: 13:37:38:004656
-round_228_received_params_7: 13:37:38:044165
-round_228_aggregation: 13:37:38:044184
-round_228_aggregation order: [8, 0, 5, 4, 6, 7, 1]
-round_228_end: 13:37:38:045925
-round_229_start: 13:37:38:045936
-round_229_model_trained: 13:37:38:056908
-round_229_model_shared: 13:37:38:081998
-round_229_received_params_7: 13:37:38:121608
-round_229_aggregation: 13:37:38:121626
-round_229_aggregation order: [8, 0, 5, 4, 6, 7, 1]
-round_229_end: 13:37:38:123584
-round_230_start: 13:37:38:123596
-round_230_model_trained: 13:37:38:134891
-round_230_model_shared: 13:37:38:159607
-round_230_received_params_7: 13:37:38:198821
-round_230_aggregation: 13:37:38:198838
-round_230_aggregation order: [8, 0, 5, 4, 6, 7, 1]
-round_230_end: 13:37:38:200622
-round_231_start: 13:37:38:200633
-round_231_model_trained: 13:37:38:211672
-round_231_model_shared: 13:37:38:236326
-round_231_received_params_7: 13:37:38:277001
-round_231_aggregation: 13:37:38:277020
-round_231_aggregation order: [8, 0, 5, 4, 6, 7, 1]
-round_231_end: 13:37:38:278802
-round_232_start: 13:37:38:278813
-round_232_model_trained: 13:37:38:289793
-round_232_model_shared: 13:37:38:314058
-round_232_received_params_7: 13:37:38:356025
-round_232_aggregation: 13:37:38:356044
-round_232_aggregation order: [8, 0, 5, 4, 6, 7, 1]
-round_232_end: 13:37:38:357683
-round_233_start: 13:37:38:357695
-round_233_model_trained: 13:37:38:368621
-round_233_model_shared: 13:37:38:393173
-round_233_received_params_7: 13:37:38:434400
-round_233_aggregation: 13:37:38:434418
-round_233_aggregation order: [8, 0, 5, 4, 6, 7, 1]
-round_233_end: 13:37:38:436150
-round_234_start: 13:37:38:436161
-round_234_model_trained: 13:37:38:446980
-round_234_model_shared: 13:37:38:471331
-round_234_received_params_7: 13:37:38:511887
-round_234_aggregation: 13:37:38:511904
-round_234_aggregation order: [8, 0, 5, 4, 6, 7, 1]
-round_234_end: 13:37:38:513975
-round_235_start: 13:37:38:513987
-round_235_model_trained: 13:37:38:524437
-round_235_model_shared: 13:37:38:549057
-round_235_received_params_7: 13:37:38:588920
-round_235_aggregation: 13:37:38:588938
-round_235_aggregation order: [8, 0, 4, 5, 6, 7, 1]
-round_235_end: 13:37:38:590713
-round_236_start: 13:37:38:590723
-round_236_model_trained: 13:37:38:601984
-round_236_model_shared: 13:37:38:626507
-round_236_received_params_7: 13:37:38:667715
-round_236_aggregation: 13:37:38:667732
-round_236_aggregation order: [8, 0, 4, 5, 6, 7, 1]
-round_236_end: 13:37:38:669881
-round_237_start: 13:37:38:669894
-round_237_model_trained: 13:37:38:681233
-round_237_model_shared: 13:37:38:705825
-round_237_received_params_7: 13:37:38:745162
-round_237_aggregation: 13:37:38:745179
-round_237_aggregation order: [8, 0, 4, 5, 7, 6, 1]
-round_237_end: 13:37:38:746911
-round_238_start: 13:37:38:746923
-round_238_model_trained: 13:37:38:757924
-round_238_model_shared: 13:37:38:782672
-round_238_received_params_7: 13:37:38:822855
-round_238_aggregation: 13:37:38:822873
-round_238_aggregation order: [8, 0, 4, 5, 7, 6, 1]
-round_238_end: 13:37:38:824714
-round_239_start: 13:37:38:824725
-round_239_model_trained: 13:37:38:835652
-round_239_model_shared: 13:37:38:860300
-round_239_received_params_7: 13:37:38:900218
-round_239_aggregation: 13:37:38:900237
-round_239_aggregation order: [8, 0, 4, 5, 7, 6, 1]
-round_239_end: 13:37:38:901953
-round_240_start: 13:37:38:901964
-round_240_model_trained: 13:37:38:912977
-round_240_model_shared: 13:37:38:937798
-round_240_received_params_7: 13:37:38:978070
-round_240_aggregation: 13:37:38:978089
-round_240_aggregation order: [8, 0, 4, 5, 7, 6, 1]
-round_240_end: 13:37:38:980143
-round_241_start: 13:37:38:980156
-round_241_model_trained: 13:37:38:991723
-round_241_model_shared: 13:37:39:016695
-round_241_received_params_7: 13:37:39:055404
-round_241_aggregation: 13:37:39:055421
-round_241_aggregation order: [8, 0, 4, 5, 7, 6, 1]
-round_241_end: 13:37:39:057260
-round_242_start: 13:37:39:057271
-round_242_model_trained: 13:37:39:068217
-round_242_model_shared: 13:37:39:093081
-round_242_received_params_7: 13:37:39:132807
-round_242_aggregation: 13:37:39:132825
-round_242_aggregation order: [8, 0, 4, 5, 7, 6, 1]
-round_242_end: 13:37:39:134618
-round_243_start: 13:37:39:134629
-round_243_model_trained: 13:37:39:145606
-round_243_model_shared: 13:37:39:170247
-round_243_received_params_7: 13:37:39:209583
-round_243_aggregation: 13:37:39:209601
-round_243_aggregation order: [8, 0, 4, 5, 7, 6, 1]
-round_243_end: 13:37:39:211347
-round_244_start: 13:37:39:211360
-round_244_model_trained: 13:37:39:222294
-round_244_model_shared: 13:37:39:246923
-round_244_received_params_7: 13:37:39:287067
-round_244_aggregation: 13:37:39:287085
-round_244_aggregation order: [8, 0, 4, 5, 7, 6, 1]
-round_244_end: 13:37:39:288800
-round_245_start: 13:37:39:288811
-round_245_model_trained: 13:37:39:299765
-round_245_model_shared: 13:37:39:323788
-round_245_received_params_7: 13:37:39:364495
-round_245_aggregation: 13:37:39:364513
-round_245_aggregation order: [8, 0, 4, 5, 7, 6, 1]
-round_245_end: 13:37:39:366258
-round_246_start: 13:37:39:366269
-round_246_model_trained: 13:37:39:377357
-round_246_model_shared: 13:37:39:401847
-round_246_received_params_7: 13:37:39:441538
-round_246_aggregation: 13:37:39:441556
-round_246_aggregation order: [8, 0, 4, 5, 7, 6, 1]
-round_246_end: 13:37:39:443379
-round_247_start: 13:37:39:443389
-round_247_model_trained: 13:37:39:454253
-round_247_model_shared: 13:37:39:479104
-round_247_received_params_7: 13:37:39:519775
-round_247_aggregation: 13:37:39:519794
-round_247_aggregation order: [8, 0, 4, 5, 7, 6, 1]
-round_247_end: 13:37:39:521602
-round_248_start: 13:37:39:521612
-round_248_model_trained: 13:37:39:532549
-round_248_model_shared: 13:37:39:556939
-round_248_received_params_7: 13:37:39:597116
-round_248_aggregation: 13:37:39:597134
-round_248_aggregation order: [8, 0, 4, 5, 7, 6, 1]
-round_248_end: 13:37:39:598927
-round_249_start: 13:37:39:598938
-round_249_model_trained: 13:37:39:609912
-round_249_model_shared: 13:37:39:634428
-round_249_received_params_7: 13:37:39:675135
-round_249_aggregation: 13:37:39:675154
-round_249_aggregation order: [8, 0, 4, 5, 7, 6, 1]
-round_249_end: 13:37:39:677221
-round_250_start: 13:37:39:677235
-round_250_model_trained: 13:37:39:688628
-round_250_model_shared: 13:37:39:713142
-round_250_received_params_7: 13:37:39:751904
-round_250_aggregation: 13:37:39:751922
-round_250_aggregation order: [8, 0, 4, 5, 7, 6, 1]
-round_250_end: 13:37:39:753731
-round_251_start: 13:37:39:753743
-round_251_model_trained: 13:37:39:764648
-round_251_model_shared: 13:37:39:789459
-round_251_received_params_7: 13:37:39:829687
-round_251_aggregation: 13:37:39:829707
-round_251_aggregation order: [8, 0, 4, 5, 7, 6, 1]
-round_251_end: 13:37:39:831364
-round_252_start: 13:37:39:831375
-round_252_model_trained: 13:37:39:842372
-round_252_model_shared: 13:37:39:866853
-round_252_received_params_7: 13:37:39:906925
-round_252_aggregation: 13:37:39:906945
-round_252_aggregation order: [8, 0, 4, 5, 7, 6, 1]
-round_252_end: 13:37:39:908764
-round_253_start: 13:37:39:908776
-round_253_model_trained: 13:37:39:919638
-round_253_model_shared: 13:37:39:943838
-round_253_received_params_7: 13:37:39:985208
-round_253_aggregation: 13:37:39:985227
-round_253_aggregation order: [8, 0, 4, 5, 7, 6, 1]
-round_253_end: 13:37:39:987060
-round_254_start: 13:37:39:987072
-round_254_model_trained: 13:37:39:998066
-round_254_model_shared: 13:37:40:022820
-round_254_received_params_7: 13:37:40:063965
-round_254_aggregation: 13:37:40:063983
-round_254_aggregation order: [8, 0, 4, 5, 7, 6, 1]
-round_254_end: 13:37:40:065726
-round_255_start: 13:37:40:065737
-round_255_model_trained: 13:37:40:076864
-round_255_model_shared: 13:37:40:101222
-round_255_received_params_7: 13:37:40:141965
-round_255_aggregation: 13:37:40:141983
-round_255_aggregation order: [8, 0, 4, 5, 6, 7, 1]
-round_255_end: 13:37:40:143980
-round_256_start: 13:37:40:143993
-round_256_model_trained: 13:37:40:155286
-round_256_model_shared: 13:37:40:179736
-round_256_received_params_7: 13:37:40:219396
-round_256_aggregation: 13:37:40:219414
-round_256_aggregation order: [8, 0, 4, 5, 6, 7, 1]
-round_256_end: 13:37:40:221560
-round_257_start: 13:37:40:221572
-round_257_model_trained: 13:37:40:232917
-round_257_model_shared: 13:37:40:257600
-round_257_received_params_7: 13:37:40:296465
-round_257_aggregation: 13:37:40:296483
-round_257_aggregation order: [8, 0, 4, 5, 6, 7, 1]
-round_257_end: 13:37:40:298378
-round_258_start: 13:37:40:298391
-round_258_model_trained: 13:37:40:309713
-round_258_model_shared: 13:37:40:333861
-round_258_received_params_7: 13:37:40:374828
-round_258_aggregation: 13:37:40:374845
-round_258_aggregation order: [8, 0, 4, 5, 6, 7, 1]
-round_258_end: 13:37:40:376896
-round_259_start: 13:37:40:376909
-round_259_model_trained: 13:37:40:388356
-round_259_model_shared: 13:37:40:412577
-round_259_received_params_7: 13:37:40:453814
-round_259_aggregation: 13:37:40:453833
-round_259_aggregation order: [8, 0, 4, 5, 6, 7, 1]
-round_259_end: 13:37:40:455499
-round_260_start: 13:37:40:455511
-round_260_model_trained: 13:37:40:466566
-round_260_model_shared: 13:37:40:491640
-round_260_received_params_7: 13:37:40:531020
-round_260_aggregation: 13:37:40:531039
-round_260_aggregation order: [8, 0, 4, 5, 6, 7, 1]
-round_260_end: 13:37:40:532786
-round_261_start: 13:37:40:532797
-round_261_model_trained: 13:37:40:543702
-round_261_model_shared: 13:37:40:568338
-round_261_received_params_7: 13:37:40:608033
-round_261_aggregation: 13:37:40:608052
-round_261_aggregation order: [8, 0, 4, 5, 6, 7, 1]
-round_261_end: 13:37:40:609798
-round_262_start: 13:37:40:609809
-round_262_model_trained: 13:37:40:620791
-round_262_model_shared: 13:37:40:645702
-round_262_received_params_7: 13:37:40:686351
-round_262_aggregation: 13:37:40:686370
-round_262_aggregation order: [8, 0, 4, 5, 6, 7, 1]
-round_262_end: 13:37:40:688174
-round_263_start: 13:37:40:688185
-round_263_model_trained: 13:37:40:699126
-round_263_model_shared: 13:37:40:723666
-round_263_received_params_7: 13:37:40:763289
-round_263_aggregation: 13:37:40:763307
-round_263_aggregation order: [8, 0, 4, 5, 6, 7, 1]
-round_263_end: 13:37:40:765102
-round_264_start: 13:37:40:765114
-round_264_model_trained: 13:37:40:776042
-round_264_model_shared: 13:37:40:800543
-round_264_received_params_7: 13:37:40:840286
-round_264_aggregation: 13:37:40:840304
-round_264_aggregation order: [8, 0, 4, 5, 6, 7, 1]
-round_264_end: 13:37:40:842066
-round_265_start: 13:37:40:842078
-round_265_model_trained: 13:37:40:853006
-round_265_model_shared: 13:37:40:877847
-round_265_received_params_7: 13:37:40:918884
-round_265_aggregation: 13:37:40:918903
-round_265_aggregation order: [8, 0, 4, 5, 6, 7, 1]
-round_265_end: 13:37:40:920543
-round_266_start: 13:37:40:920555
-round_266_model_trained: 13:37:40:931461
-round_266_model_shared: 13:37:40:956537
-round_266_received_params_7: 13:37:40:997733
-round_266_aggregation: 13:37:40:997752
-round_266_aggregation order: [8, 0, 4, 5, 6, 7, 1]
-round_266_end: 13:37:40:999537
-round_267_start: 13:37:40:999549
-round_267_model_trained: 13:37:41:010430
-round_267_model_shared: 13:37:41:034941
-round_267_received_params_7: 13:37:41:075197
-round_267_aggregation: 13:37:41:075216
-round_267_aggregation order: [8, 0, 4, 5, 6, 7, 1]
-round_267_end: 13:37:41:077019
-round_268_start: 13:37:41:077030
-round_268_model_trained: 13:37:41:087958
-round_268_model_shared: 13:37:41:112536
-round_268_received_params_7: 13:37:41:152513
-round_268_aggregation: 13:37:41:152531
-round_268_aggregation order: [8, 0, 4, 5, 6, 7, 1]
-round_268_end: 13:37:41:154528
-round_269_start: 13:37:41:154541
-round_269_model_trained: 13:37:41:165993
-round_269_model_shared: 13:37:41:190501
-round_269_received_params_7: 13:37:41:230079
-round_269_aggregation: 13:37:41:230097
-round_269_aggregation order: [8, 0, 4, 5, 6, 7, 1]
-round_269_end: 13:37:41:231764
-round_270_start: 13:37:41:231775
-round_270_model_trained: 13:37:41:242656
-round_270_model_shared: 13:37:41:267097
-round_270_received_params_7: 13:37:41:307329
-round_270_aggregation: 13:37:41:307349
-round_270_aggregation order: [8, 0, 4, 5, 6, 7, 1]
-round_270_end: 13:37:41:309172
-round_271_start: 13:37:41:309183
-round_271_model_trained: 13:37:41:320127
-round_271_model_shared: 13:37:41:344871
-round_271_received_params_7: 13:37:41:384247
-round_271_aggregation: 13:37:41:384266
-round_271_aggregation order: [8, 0, 4, 5, 6, 7, 1]
-round_271_end: 13:37:41:386033
-round_272_start: 13:37:41:386044
-round_272_model_trained: 13:37:41:397056
-round_272_model_shared: 13:37:41:421373
-round_272_received_params_7: 13:37:41:462111
-round_272_aggregation: 13:37:41:462131
-round_272_aggregation order: [8, 0, 4, 5, 6, 7, 1]
-round_272_end: 13:37:41:464142
-round_273_start: 13:37:41:464156
-round_273_model_trained: 13:37:41:475427
-round_273_model_shared: 13:37:41:500077
-round_273_received_params_7: 13:37:41:539948
-round_273_aggregation: 13:37:41:539966
-round_273_aggregation order: [8, 0, 4, 5, 6, 7, 1]
-round_273_end: 13:37:41:541859
-round_274_start: 13:37:41:541873
-round_274_model_trained: 13:37:41:553238
-round_274_model_shared: 13:37:41:577464
-round_274_received_params_7: 13:37:41:616994
-round_274_aggregation: 13:37:41:617013
-round_274_aggregation order: [8, 0, 4, 5, 6, 7, 1]
-round_274_end: 13:37:41:618999
-round_275_start: 13:37:41:619012
-round_275_model_trained: 13:37:41:630375
-round_275_model_shared: 13:37:41:654597
-round_275_received_params_7: 13:37:41:694115
-round_275_aggregation: 13:37:41:694133
-round_275_aggregation order: [8, 0, 4, 5, 6, 7, 1]
-round_275_end: 13:37:41:696167
-round_276_start: 13:37:41:696180
-round_276_model_trained: 13:37:41:707535
-round_276_model_shared: 13:37:41:732125
-round_276_received_params_7: 13:37:41:771326
-round_276_aggregation: 13:37:41:771346
-round_276_aggregation order: [8, 0, 4, 5, 6, 7, 1]
-round_276_end: 13:37:41:773173
-round_277_start: 13:37:41:773185
-round_277_model_trained: 13:37:41:784075
-round_277_model_shared: 13:37:41:808530
-round_277_received_params_7: 13:37:41:848292
-round_277_aggregation: 13:37:41:848311
-round_277_aggregation order: [8, 0, 4, 5, 6, 7, 1]
-round_277_end: 13:37:41:850183
-round_278_start: 13:37:41:850195
-round_278_model_trained: 13:37:41:861153
-round_278_model_shared: 13:37:41:885343
-round_278_received_params_7: 13:37:41:926753
-round_278_aggregation: 13:37:41:926773
-round_278_aggregation order: [8, 0, 4, 5, 6, 7, 1]
-round_278_end: 13:37:41:928463
-round_279_start: 13:37:41:928475
-round_279_model_trained: 13:37:41:939519
-round_279_model_shared: 13:37:41:963978
-round_279_received_params_7: 13:37:42:004412
-round_279_aggregation: 13:37:42:004431
-round_279_aggregation order: [8, 0, 4, 5, 6, 7, 1]
-round_279_end: 13:37:42:006206
-round_280_start: 13:37:42:006218
-round_280_model_trained: 13:37:42:017207
-round_280_model_shared: 13:37:42:042377
-round_280_received_params_7: 13:37:42:082303
-round_280_aggregation: 13:37:42:082321
-round_280_aggregation order: [8, 0, 4, 5, 6, 7, 1]
-round_280_end: 13:37:42:084301
-round_281_start: 13:37:42:084314
-round_281_model_trained: 13:37:42:095854
-round_281_model_shared: 13:37:42:120565
-round_281_received_params_7: 13:37:42:161878
-round_281_aggregation: 13:37:42:161904
-round_281_aggregation order: [8, 0, 4, 5, 6, 7, 1]
-round_281_end: 13:37:42:164124
-round_282_start: 13:37:42:164141
-round_282_model_trained: 13:37:42:175205
-round_282_model_shared: 13:37:42:200229
-round_282_received_params_7: 13:37:42:239231
-round_282_aggregation: 13:37:42:239258
-round_282_aggregation order: [8, 0, 4, 5, 6, 7, 1]
-round_282_end: 13:37:42:241277
-round_283_start: 13:37:42:241293
-round_283_model_trained: 13:37:42:253423
-round_283_model_shared: 13:37:42:278866
-round_283_received_params_7: 13:37:42:318380
-round_283_aggregation: 13:37:42:318405
-round_283_aggregation order: [8, 0, 4, 5, 6, 7, 1]
-round_283_end: 13:37:42:320592
-round_284_start: 13:37:42:320609
-round_284_model_trained: 13:37:42:332834
-round_284_model_shared: 13:37:42:357695
-round_284_received_params_7: 13:37:42:395555
-round_284_aggregation: 13:37:42:395575
-round_284_aggregation order: [8, 0, 4, 5, 6, 7, 1]
-round_284_end: 13:37:42:397729
-round_285_start: 13:37:42:397745
-round_285_model_trained: 13:37:42:409474
-round_285_model_shared: 13:37:42:434143
-round_285_received_params_7: 13:37:42:472597
-round_285_aggregation: 13:37:42:472616
-round_285_aggregation order: [8, 0, 4, 5, 6, 7, 1]
-round_285_end: 13:37:42:474418
-round_286_start: 13:37:42:474430
-round_286_model_trained: 13:37:42:485404
-round_286_model_shared: 13:37:42:510016
-round_286_received_params_7: 13:37:42:550441
-round_286_aggregation: 13:37:42:550461
-round_286_aggregation order: [8, 0, 4, 5, 6, 7, 1]
-round_286_end: 13:37:42:552246
-round_287_start: 13:37:42:552257
-round_287_model_trained: 13:37:42:563158
-round_287_model_shared: 13:37:42:587715
-round_287_received_params_7: 13:37:42:627915
-round_287_aggregation: 13:37:42:627948
-round_287_aggregation order: [8, 0, 4, 5, 6, 7, 1]
-round_287_end: 13:37:42:629740
-round_288_start: 13:37:42:629752
-round_288_model_trained: 13:37:42:640721
-round_288_model_shared: 13:37:42:665061
-round_288_received_params_7: 13:37:42:705526
-round_288_aggregation: 13:37:42:705544
-round_288_aggregation order: [8, 0, 4, 5, 6, 7, 1]
-round_288_end: 13:37:42:707351
-round_289_start: 13:37:42:707362
-round_289_model_trained: 13:37:42:718287
-round_289_model_shared: 13:37:42:743378
-round_289_received_params_7: 13:37:42:783091
-round_289_aggregation: 13:37:42:783111
-round_289_aggregation order: [8, 0, 4, 5, 6, 7, 1]
-round_289_end: 13:37:42:784932
-round_290_start: 13:37:42:784944
-round_290_model_trained: 13:37:42:796007
-round_290_model_shared: 13:37:42:820580
-round_290_received_params_7: 13:37:42:860192
-round_290_aggregation: 13:37:42:860211
-round_290_aggregation order: [8, 0, 4, 5, 6, 7, 1]
-round_290_end: 13:37:42:861970
-round_291_start: 13:37:42:861982
-round_291_model_trained: 13:37:42:873218
-round_291_model_shared: 13:37:42:897746
-round_291_received_params_7: 13:37:42:937943
-round_291_aggregation: 13:37:42:937962
-round_291_aggregation order: [8, 0, 4, 5, 6, 7, 1]
-round_291_end: 13:37:42:939769
-round_292_start: 13:37:42:939781
-round_292_model_trained: 13:37:42:950975
-round_292_model_shared: 13:37:42:975734
-round_292_received_params_7: 13:37:43:015812
-round_292_aggregation: 13:37:43:015832
-round_292_aggregation order: [8, 0, 4, 5, 6, 7, 1]
-round_292_end: 13:37:43:017767
-round_293_start: 13:37:43:017780
-round_293_model_trained: 13:37:43:029111
-round_293_model_shared: 13:37:43:054111
-round_293_received_params_7: 13:37:43:092834
-round_293_aggregation: 13:37:43:092854
-round_293_aggregation order: [8, 0, 4, 5, 6, 7, 1]
-round_293_end: 13:37:43:094637
-round_294_start: 13:37:43:094649
-round_294_model_trained: 13:37:43:105562
-round_294_model_shared: 13:37:43:130123
-round_294_received_params_7: 13:37:43:171536
-round_294_aggregation: 13:37:43:171556
-round_294_aggregation order: [8, 0, 4, 5, 6, 7, 1]
-round_294_end: 13:37:43:173351
-round_295_start: 13:37:43:173362
-round_295_model_trained: 13:37:43:184308
-round_295_model_shared: 13:37:43:209266
-round_295_received_params_7: 13:37:43:248269
-round_295_aggregation: 13:37:43:248287
-round_295_aggregation order: [8, 0, 4, 5, 6, 7, 1]
-round_295_end: 13:37:43:250077
-round_296_start: 13:37:43:250088
-round_296_model_trained: 13:37:43:261362
-round_296_model_shared: 13:37:43:286291
-round_296_received_params_7: 13:37:43:326392
-round_296_aggregation: 13:37:43:326412
-round_296_aggregation order: [8, 0, 4, 5, 6, 7, 1]
-round_296_end: 13:37:43:328474
-round_297_start: 13:37:43:328486
-round_297_model_trained: 13:37:43:339968
-round_297_model_shared: 13:37:43:364381
-round_297_received_params_7: 13:37:43:403990
-round_297_aggregation: 13:37:43:404008
-round_297_aggregation order: [8, 0, 4, 5, 6, 7, 1]
-round_297_end: 13:37:43:405816
-round_298_start: 13:37:43:405828
-round_298_model_trained: 13:37:43:416967
-round_298_model_shared: 13:37:43:441896
-round_298_received_params_7: 13:37:43:482357
-round_298_aggregation: 13:37:43:482376
-round_298_aggregation order: [8, 0, 4, 5, 6, 7, 1]
-round_298_end: 13:37:43:484261
-round_299_start: 13:37:43:484275
-round_299_model_trained: 13:37:43:495734
-round_299_model_shared: 13:37:43:520451
-round_299_received_params_7: 13:37:43:559632
-round_299_aggregation: 13:37:43:559651
-round_299_aggregation order: [8, 0, 4, 5, 6, 7, 1]
-round_299_end: 13:37:43:561743
-round_300_start: 13:37:43:561757
-round_300_model_trained: 13:37:43:573157
-round_300_model_shared: 13:37:43:597895
-round_300_received_params_7: 13:37:43:636627
-round_300_aggregation: 13:37:43:636646
-round_300_aggregation order: [8, 0, 4, 5, 6, 7, 1]
-round_300_end: 13:37:43:638345
-end: 13:37:44:272643
+round_1_end: 13:03:58:048226
+round_2_start: 13:03:58:048234
+round_2_model_trained: 13:03:58:059967
+round_2_model_shared: 13:03:58:086247
+round_2_received_params_7: 13:03:58:173733
+round_2_aggregation: 13:03:58:173757
+round_2_aggregation order: [8, 0, 1, 7, 9, 2, 3]
+round_2_end: 13:03:58:175889
+round_3_start: 13:03:58:175896
+round_3_model_trained: 13:03:58:187745
+round_3_model_shared: 13:03:58:213610
+round_3_received_params_7: 13:03:58:269991
+round_3_aggregation: 13:03:58:270008
+round_3_aggregation order: [8, 0, 1, 6, 7, 9, 3]
+round_3_end: 13:03:58:272010
+round_4_start: 13:03:58:272017
+round_4_model_trained: 13:03:58:283486
+round_4_model_shared: 13:03:58:309676
+round_4_received_params_7: 13:03:58:361586
+round_4_aggregation: 13:03:58:361599
+round_4_aggregation order: [8, 0, 1, 7, 3, 6, 9]
+round_4_end: 13:03:58:363730
+round_5_start: 13:03:58:363739
+round_5_model_trained: 13:03:58:375423
+round_5_model_shared: 13:03:58:400793
+round_5_received_params_7: 13:03:58:484980
+round_5_aggregation: 13:03:58:484995
+round_5_aggregation order: [8, 0, 1, 3, 7, 9, 2]
+round_5_end: 13:03:58:486885
+round_6_start: 13:03:58:486892
+round_6_model_trained: 13:03:58:498127
+round_6_model_shared: 13:03:58:523529
+round_6_received_params_7: 13:03:58:561155
+round_6_aggregation: 13:03:58:561170
+round_6_aggregation order: [8, 0, 1, 3, 6, 7, 9]
+round_6_end: 13:03:58:563015
+round_7_start: 13:03:58:563022
+round_7_model_trained: 13:03:58:574258
+round_7_model_shared: 13:03:58:599853
+round_7_received_params_7: 13:03:58:667366
+round_7_aggregation: 13:03:58:667380
+round_7_aggregation order: [8, 0, 9, 1, 2, 3, 4]
+round_7_end: 13:03:58:669135
+round_8_start: 13:03:58:669141
+round_8_model_trained: 13:03:58:680290
+round_8_model_shared: 13:03:58:705646
+round_8_received_params_7: 13:03:58:753221
+round_8_aggregation: 13:03:58:753236
+round_8_aggregation order: [8, 0, 1, 2, 4, 9, 3]
+round_8_end: 13:03:58:755099
+round_9_start: 13:03:58:755106
+round_9_model_trained: 13:03:58:766345
+round_9_model_shared: 13:03:58:791519
+round_9_received_params_7: 13:03:58:877973
+round_9_aggregation: 13:03:58:877988
+round_9_aggregation order: [8, 7, 0, 4, 6, 9, 1]
+round_9_end: 13:03:58:879853
+round_10_start: 13:03:58:879861
+round_10_model_trained: 13:03:58:891060
+round_10_model_shared: 13:03:58:916353
+round_10_received_params_7: 13:03:58:958686
+round_10_aggregation: 13:03:58:958701
+round_10_aggregation order: [8, 0, 1, 3, 4, 7, 9]
+round_10_end: 13:03:58:960574
+round_11_start: 13:03:58:960581
+round_11_model_trained: 13:03:58:971722
+round_11_model_shared: 13:03:58:997188
+round_11_received_params_7: 13:03:59:047687
+round_11_aggregation: 13:03:59:047701
+round_11_aggregation order: [8, 0, 9, 2, 3, 4, 5]
+round_11_end: 13:03:59:049535
+round_12_start: 13:03:59:049542
+round_12_model_trained: 13:03:59:060696
+round_12_model_shared: 13:03:59:085927
+round_12_received_params_7: 13:03:59:163470
+round_12_aggregation: 13:03:59:163485
+round_12_aggregation order: [8, 9, 0, 2, 3, 4, 5]
+round_12_end: 13:03:59:165621
+round_13_start: 13:03:59:165629
+round_13_model_trained: 13:03:59:177167
+round_13_model_shared: 13:03:59:202707
+round_13_received_params_7: 13:03:59:264537
+round_13_aggregation: 13:03:59:264551
+round_13_aggregation order: [8, 0, 7, 9, 1, 2, 4]
+round_13_end: 13:03:59:266427
+round_14_start: 13:03:59:266434
+round_14_model_trained: 13:03:59:277558
+round_14_model_shared: 13:03:59:302996
+round_14_received_params_7: 13:03:59:357938
+round_14_aggregation: 13:03:59:357954
+round_14_aggregation order: [8, 0, 2, 4, 6, 9, 1]
+round_14_end: 13:03:59:359734
+round_15_start: 13:03:59:359741
+round_15_model_trained: 13:03:59:370915
+round_15_model_shared: 13:03:59:395776
+round_15_received_params_7: 13:03:59:454612
+round_15_aggregation: 13:03:59:454627
+round_15_aggregation order: [8, 0, 1, 2, 3, 4, 5]
+round_15_end: 13:03:59:456427
+round_16_start: 13:03:59:456434
+round_16_model_trained: 13:03:59:467557
+round_16_model_shared: 13:03:59:492583
+round_16_received_params_7: 13:03:59:575063
+round_16_aggregation: 13:03:59:575078
+round_16_aggregation order: [8, 1, 2, 4, 7, 0, 3]
+round_16_end: 13:03:59:576955
+round_17_start: 13:03:59:576962
+round_17_model_trained: 13:03:59:588079
+round_17_model_shared: 13:03:59:613477
+round_17_received_params_7: 13:03:59:655032
+round_17_aggregation: 13:03:59:655046
+round_17_aggregation order: [8, 0, 1, 2, 3, 6, 9]
+round_17_end: 13:03:59:656946
+round_18_start: 13:03:59:656953
+round_18_model_trained: 13:03:59:668140
+round_18_model_shared: 13:03:59:693467
+round_18_received_params_7: 13:03:59:785819
+round_18_aggregation: 13:03:59:785835
+round_18_aggregation order: [8, 7, 0, 1, 2, 3, 4]
+round_18_end: 13:03:59:787792
+round_19_start: 13:03:59:787801
+round_19_model_trained: 13:03:59:799398
+round_19_model_shared: 13:03:59:824989
+round_19_received_params_7: 13:03:59:892901
+round_19_aggregation: 13:03:59:892916
+round_19_aggregation order: [8, 0, 2, 3, 4, 7, 1]
+round_19_end: 13:03:59:894740
+round_20_start: 13:03:59:894748
+round_20_model_trained: 13:03:59:905865
+round_20_model_shared: 13:03:59:931242
+round_20_received_params_7: 13:04:00:013177
+round_20_aggregation: 13:04:00:013193
+round_20_aggregation order: [8, 0, 2, 6, 1, 3, 4]
+round_20_end: 13:04:00:015160
+round_21_start: 13:04:00:015168
+round_21_model_trained: 13:04:00:026474
+round_21_model_shared: 13:04:00:051721
+round_21_received_params_7: 13:04:00:091256
+round_21_aggregation: 13:04:00:091271
+round_21_aggregation order: [8, 0, 1, 3, 4, 5, 7]
+round_21_end: 13:04:00:093237
+round_22_start: 13:04:00:093246
+round_22_model_trained: 13:04:00:104855
+round_22_model_shared: 13:04:00:129975
+round_22_received_params_7: 13:04:00:207506
+round_22_aggregation: 13:04:00:207521
+round_22_aggregation order: [8, 0, 9, 1, 3, 2, 5]
+round_22_end: 13:04:00:209368
+round_23_start: 13:04:00:209375
+round_23_model_trained: 13:04:00:220632
+round_23_model_shared: 13:04:00:245738
+round_23_received_params_7: 13:04:00:327546
+round_23_aggregation: 13:04:00:327561
+round_23_aggregation order: [8, 0, 5, 1, 2, 3, 4]
+round_23_end: 13:04:00:329437
+round_24_start: 13:04:00:329444
+round_24_model_trained: 13:04:00:340524
+round_24_model_shared: 13:04:00:366027
+round_24_received_params_7: 13:04:00:420634
+round_24_aggregation: 13:04:00:420650
+round_24_aggregation order: [8, 0, 1, 3, 4, 5, 7]
+round_24_end: 13:04:00:422421
+round_25_start: 13:04:00:422429
+round_25_model_trained: 13:04:00:433683
+round_25_model_shared: 13:04:00:459007
+round_25_received_params_7: 13:04:00:568435
+round_25_aggregation: 13:04:00:568451
+round_25_aggregation order: [8, 0, 1, 3, 6, 9, 2]
+round_25_end: 13:04:00:570519
+round_26_start: 13:04:00:570528
+round_26_model_trained: 13:04:00:582140
+round_26_model_shared: 13:04:00:607001
+round_26_received_params_7: 13:04:00:675756
+round_26_aggregation: 13:04:00:675771
+round_26_aggregation order: [8, 0, 1, 3, 4, 6, 7]
+round_26_end: 13:04:00:677593
+round_27_start: 13:04:00:677602
+round_27_model_trained: 13:04:00:688703
+round_27_model_shared: 13:04:00:714112
+round_27_received_params_7: 13:04:00:779883
+round_27_aggregation: 13:04:00:779898
+round_27_aggregation order: [8, 0, 1, 4, 7, 9, 2]
+round_27_end: 13:04:00:781774
+round_28_start: 13:04:00:781781
+round_28_model_trained: 13:04:00:792888
+round_28_model_shared: 13:04:00:817944
+round_28_received_params_7: 13:04:00:867547
+round_28_aggregation: 13:04:00:867562
+round_28_aggregation order: [8, 0, 1, 2, 3, 9, 4]
+round_28_end: 13:04:00:869433
+round_29_start: 13:04:00:869440
+round_29_model_trained: 13:04:00:880537
+round_29_model_shared: 13:04:00:905634
+round_29_received_params_7: 13:04:01:001167
+round_29_aggregation: 13:04:01:001183
+round_29_aggregation order: [8, 0, 1, 4, 6, 7, 9]
+round_29_end: 13:04:01:003061
+round_30_start: 13:04:01:003069
+round_30_model_trained: 13:04:01:014216
+round_30_model_shared: 13:04:01:039659
+round_30_received_params_7: 13:04:01:119088
+round_30_aggregation: 13:04:01:119103
+round_30_aggregation order: [8, 0, 7, 9, 1, 2, 3]
+round_30_end: 13:04:01:120975
+round_31_start: 13:04:01:120983
+round_31_model_trained: 13:04:01:132101
+round_31_model_shared: 13:04:01:157010
+round_31_received_params_7: 13:04:01:207349
+round_31_aggregation: 13:04:01:207364
+round_31_aggregation order: [8, 0, 1, 2, 3, 4, 5]
+round_31_end: 13:04:01:209215
+round_32_start: 13:04:01:209223
+round_32_model_trained: 13:04:01:220475
+round_32_model_shared: 13:04:01:245365
+round_32_received_params_7: 13:04:01:326828
+round_32_aggregation: 13:04:01:326843
+round_32_aggregation order: [8, 0, 3, 4, 1, 2, 5]
+round_32_end: 13:04:01:328981
+round_33_start: 13:04:01:328990
+round_33_model_trained: 13:04:01:340762
+round_33_model_shared: 13:04:01:365960
+round_33_received_params_7: 13:04:01:459305
+round_33_aggregation: 13:04:01:459320
+round_33_aggregation order: [8, 0, 9, 1, 3, 6, 2]
+round_33_end: 13:04:01:461214
+round_34_start: 13:04:01:461222
+round_34_model_trained: 13:04:01:472420
+round_34_model_shared: 13:04:01:497515
+round_34_received_params_7: 13:04:01:574974
+round_34_aggregation: 13:04:01:574989
+round_34_aggregation order: [8, 0, 2, 3, 4, 6, 7]
+round_34_end: 13:04:01:576824
+round_35_start: 13:04:01:576832
+round_35_model_trained: 13:04:01:588022
+round_35_model_shared: 13:04:01:613096
+round_35_received_params_7: 13:04:01:696817
+round_35_aggregation: 13:04:01:696832
+round_35_aggregation order: [8, 0, 3, 4, 7, 1, 2]
+round_35_end: 13:04:01:698954
+round_36_start: 13:04:01:698963
+round_36_model_trained: 13:04:01:710683
+round_36_model_shared: 13:04:01:736117
+round_36_received_params_7: 13:04:01:796876
+round_36_aggregation: 13:04:01:796891
+round_36_aggregation order: [8, 0, 1, 4, 7, 9, 2]
+round_36_end: 13:04:01:798740
+round_37_start: 13:04:01:798747
+round_37_model_trained: 13:04:01:809803
+round_37_model_shared: 13:04:01:834544
+round_37_received_params_7: 13:04:01:921953
+round_37_aggregation: 13:04:01:921968
+round_37_aggregation order: [8, 0, 1, 6, 7, 9, 2]
+round_37_end: 13:04:01:923838
+round_38_start: 13:04:01:923845
+round_38_model_trained: 13:04:01:935014
+round_38_model_shared: 13:04:01:960300
+round_38_received_params_7: 13:04:02:029076
+round_38_aggregation: 13:04:02:029091
+round_38_aggregation order: [8, 0, 1, 3, 9, 2, 4]
+round_38_end: 13:04:02:030896
+round_39_start: 13:04:02:030904
+round_39_model_trained: 13:04:02:042051
+round_39_model_shared: 13:04:02:067564
+round_39_received_params_7: 13:04:02:147244
+round_39_aggregation: 13:04:02:147260
+round_39_aggregation order: [8, 0, 1, 3, 9, 2, 4]
+round_39_end: 13:04:02:149114
+round_40_start: 13:04:02:149122
+round_40_model_trained: 13:04:02:160283
+round_40_model_shared: 13:04:02:185648
+round_40_received_params_7: 13:04:02:231175
+round_40_aggregation: 13:04:02:231191
+round_40_aggregation order: [8, 0, 1, 2, 3, 7, 9]
+round_40_end: 13:04:02:233093
+round_41_start: 13:04:02:233100
+round_41_model_trained: 13:04:02:244353
+round_41_model_shared: 13:04:02:270132
+round_41_received_params_7: 13:04:02:358686
+round_41_aggregation: 13:04:02:358703
+round_41_aggregation order: [8, 7, 0, 4, 3, 5, 6]
+round_41_end: 13:04:02:360725
+round_42_start: 13:04:02:360733
+round_42_model_trained: 13:04:02:372267
+round_42_model_shared: 13:04:02:397809
+round_42_received_params_7: 13:04:02:484466
+round_42_aggregation: 13:04:02:484482
+round_42_aggregation order: [8, 0, 3, 1, 2, 4, 5]
+round_42_end: 13:04:02:486359
+round_43_start: 13:04:02:486367
+round_43_model_trained: 13:04:02:497705
+round_43_model_shared: 13:04:02:522883
+round_43_received_params_7: 13:04:02:608919
+round_43_aggregation: 13:04:02:608936
+round_43_aggregation order: [8, 0, 1, 9, 2, 4, 5]
+round_43_end: 13:04:02:610875
+round_44_start: 13:04:02:610882
+round_44_model_trained: 13:04:02:622391
+round_44_model_shared: 13:04:02:647748
+round_44_received_params_7: 13:04:02:685883
+round_44_aggregation: 13:04:02:685900
+round_44_aggregation order: [8, 0, 1, 2, 4, 6, 7]
+round_44_end: 13:04:02:687883
+round_45_start: 13:04:02:687892
+round_45_model_trained: 13:04:02:699526
+round_45_model_shared: 13:04:02:724256
+round_45_received_params_7: 13:04:02:800551
+round_45_aggregation: 13:04:02:800567
+round_45_aggregation order: [8, 0, 1, 9, 3, 4, 5]
+round_45_end: 13:04:02:802775
+round_46_start: 13:04:02:802785
+round_46_model_trained: 13:04:02:814437
+round_46_model_shared: 13:04:02:839606
+round_46_received_params_7: 13:04:02:940797
+round_46_aggregation: 13:04:02:940814
+round_46_aggregation order: [8, 0, 1, 7, 2, 4, 5]
+round_46_end: 13:04:02:942818
+round_47_start: 13:04:02:942828
+round_47_model_trained: 13:04:02:953654
+round_47_model_shared: 13:04:02:979030
+round_47_received_params_7: 13:04:03:024649
+round_47_aggregation: 13:04:03:024666
+round_47_aggregation order: [8, 0, 1, 4, 5, 7, 9]
+round_47_end: 13:04:03:026748
+round_48_start: 13:04:03:026757
+round_48_model_trained: 13:04:03:038979
+round_48_model_shared: 13:04:03:065020
+round_48_received_params_7: 13:04:03:132706
+round_48_aggregation: 13:04:03:132724
+round_48_aggregation order: [8, 0, 9, 1, 2, 3, 4]
+round_48_end: 13:04:03:134901
+round_49_start: 13:04:03:134910
+round_49_model_trained: 13:04:03:146702
+round_49_model_shared: 13:04:03:172225
+round_49_received_params_7: 13:04:03:253707
+round_49_aggregation: 13:04:03:253725
+round_49_aggregation order: [8, 0, 1, 7, 9, 2, 3]
+round_49_end: 13:04:03:255885
+round_50_start: 13:04:03:255895
+round_50_model_trained: 13:04:03:267855
+round_50_model_shared: 13:04:03:293332
+round_50_received_params_7: 13:04:03:356084
+round_50_aggregation: 13:04:03:356101
+round_50_aggregation order: [8, 0, 1, 3, 4, 7, 9]
+round_50_end: 13:04:03:358026
+round_51_start: 13:04:03:358034
+round_51_model_trained: 13:04:03:369201
+round_51_model_shared: 13:04:03:394495
+round_51_received_params_7: 13:04:03:481418
+round_51_aggregation: 13:04:03:481434
+round_51_aggregation order: [8, 0, 4, 9, 1, 2, 3]
+round_51_end: 13:04:03:483182
+round_52_start: 13:04:03:483191
+round_52_model_trained: 13:04:03:494448
+round_52_model_shared: 13:04:03:519754
+round_52_received_params_7: 13:04:03:567636
+round_52_aggregation: 13:04:03:567651
+round_52_aggregation order: [8, 0, 1, 2, 3, 5, 4]
+round_52_end: 13:04:03:569507
+round_53_start: 13:04:03:569516
+round_53_model_trained: 13:04:03:580759
+round_53_model_shared: 13:04:03:605876
+round_53_received_params_7: 13:04:03:718981
+round_53_aggregation: 13:04:03:718997
+round_53_aggregation order: [8, 0, 4, 1, 3, 5, 6]
+round_53_end: 13:04:03:721079
+round_54_start: 13:04:03:721089
+round_54_model_trained: 13:04:03:733021
+round_54_model_shared: 13:04:03:757962
+round_54_received_params_7: 13:04:03:818170
+round_54_aggregation: 13:04:03:818187
+round_54_aggregation order: [8, 0, 1, 3, 2, 4, 6]
+round_54_end: 13:04:03:820066
+round_55_start: 13:04:03:820074
+round_55_model_trained: 13:04:03:831212
+round_55_model_shared: 13:04:03:856491
+round_55_received_params_7: 13:04:03:908641
+round_55_aggregation: 13:04:03:908657
+round_55_aggregation order: [8, 0, 4, 6, 7, 1, 2]
+round_55_end: 13:04:03:910788
+round_56_start: 13:04:03:910797
+round_56_model_trained: 13:04:03:922470
+round_56_model_shared: 13:04:03:947442
+round_56_received_params_7: 13:04:04:069003
+round_56_aggregation: 13:04:04:069020
+round_56_aggregation order: [8, 1, 0, 3, 9, 2, 4]
+round_56_end: 13:04:04:070809
+round_57_start: 13:04:04:070817
+round_57_model_trained: 13:04:04:082041
+round_57_model_shared: 13:04:04:106948
+round_57_received_params_7: 13:04:04:184801
+round_57_aggregation: 13:04:04:184816
+round_57_aggregation order: [8, 0, 1, 5, 6, 9, 2]
+round_57_end: 13:04:04:186646
+round_58_start: 13:04:04:186654
+round_58_model_trained: 13:04:04:197871
+round_58_model_shared: 13:04:04:223408
+round_58_received_params_7: 13:04:04:267804
+round_58_aggregation: 13:04:04:267821
+round_58_aggregation order: [8, 0, 1, 2, 3, 4, 7]
+round_58_end: 13:04:04:269803
+round_59_start: 13:04:04:269812
+round_59_model_trained: 13:04:04:281088
+round_59_model_shared: 13:04:04:306110
+round_59_received_params_7: 13:04:04:408242
+round_59_aggregation: 13:04:04:408258
+round_59_aggregation order: [8, 0, 9, 6, 1, 2, 3]
+round_59_end: 13:04:04:409963
+round_60_start: 13:04:04:409972
+round_60_model_trained: 13:04:04:421122
+round_60_model_shared: 13:04:04:446214
+round_60_received_params_7: 13:04:04:542768
+round_60_aggregation: 13:04:04:542784
+round_60_aggregation order: [8, 1, 9, 0, 3, 6, 7]
+round_60_end: 13:04:04:544664
+round_61_start: 13:04:04:544673
+round_61_model_trained: 13:04:04:555890
+round_61_model_shared: 13:04:04:581017
+round_61_received_params_7: 13:04:04:637641
+round_61_aggregation: 13:04:04:637658
+round_61_aggregation order: [8, 0, 1, 3, 7, 2, 4]
+round_61_end: 13:04:04:639520
+round_62_start: 13:04:04:639529
+round_62_model_trained: 13:04:04:650656
+round_62_model_shared: 13:04:04:676045
+round_62_received_params_7: 13:04:04:736371
+round_62_aggregation: 13:04:04:736388
+round_62_aggregation order: [8, 0, 3, 5, 9, 1, 2]
+round_62_end: 13:04:04:738147
+round_63_start: 13:04:04:738156
+round_63_model_trained: 13:04:04:749331
+round_63_model_shared: 13:04:04:774553
+round_63_received_params_7: 13:04:04:888787
+round_63_aggregation: 13:04:04:888803
+round_63_aggregation order: [8, 0, 9, 1, 3, 4, 5]
+round_63_end: 13:04:04:890862
+round_64_start: 13:04:04:890873
+round_64_model_trained: 13:04:04:902504
+round_64_model_shared: 13:04:04:927550
+round_64_received_params_7: 13:04:04:983014
+round_64_aggregation: 13:04:04:983031
+round_64_aggregation order: [8, 0, 1, 4, 7, 9, 2]
+round_64_end: 13:04:04:984931
+round_65_start: 13:04:04:984940
+round_65_model_trained: 13:04:04:996334
+round_65_model_shared: 13:04:05:021771
+round_65_received_params_7: 13:04:05:078129
+round_65_aggregation: 13:04:05:078146
+round_65_aggregation order: [8, 0, 1, 3, 7, 9, 2]
+round_65_end: 13:04:05:080023
+round_66_start: 13:04:05:080031
+round_66_model_trained: 13:04:05:091301
+round_66_model_shared: 13:04:05:116536
+round_66_received_params_7: 13:04:05:234243
+round_66_aggregation: 13:04:05:234260
+round_66_aggregation order: [8, 0, 9, 2, 5, 6, 1]
+round_66_end: 13:04:05:236165
+round_67_start: 13:04:05:236174
+round_67_model_trained: 13:04:05:247402
+round_67_model_shared: 13:04:05:272893
+round_67_received_params_7: 13:04:05:307993
+round_67_aggregation: 13:04:05:308009
+round_67_aggregation order: [0, 8, 1, 2, 3, 4, 5]
+round_67_end: 13:04:05:309890
+round_68_start: 13:04:05:309899
+round_68_model_trained: 13:04:05:321193
+round_68_model_shared: 13:04:05:346691
+round_68_received_params_7: 13:04:05:425870
+round_68_aggregation: 13:04:05:425887
+round_68_aggregation order: [8, 0, 7, 1, 3, 2, 4]
+round_68_end: 13:04:05:428077
+round_69_start: 13:04:05:428087
+round_69_model_trained: 13:04:05:439962
+round_69_model_shared: 13:04:05:465145
+round_69_received_params_7: 13:04:05:567011
+round_69_aggregation: 13:04:05:567027
+round_69_aggregation order: [8, 0, 1, 3, 4, 7, 9]
+round_69_end: 13:04:05:568859
+round_70_start: 13:04:05:568868
+round_70_model_trained: 13:04:05:580402
+round_70_model_shared: 13:04:05:605737
+round_70_received_params_7: 13:04:05:672872
+round_70_aggregation: 13:04:05:672888
+round_70_aggregation order: [8, 0, 1, 3, 4, 7, 9]
+round_70_end: 13:04:05:674681
+round_71_start: 13:04:05:674690
+round_71_model_trained: 13:04:05:685974
+round_71_model_shared: 13:04:05:711452
+round_71_received_params_7: 13:04:05:780264
+round_71_aggregation: 13:04:05:780280
+round_71_aggregation order: [8, 0, 1, 3, 4, 9, 2]
+round_71_end: 13:04:05:782256
+round_72_start: 13:04:05:782265
+round_72_model_trained: 13:04:05:793570
+round_72_model_shared: 13:04:05:818694
+round_72_received_params_7: 13:04:05:917818
+round_72_aggregation: 13:04:05:917834
+round_72_aggregation order: [8, 0, 4, 9, 1, 2, 3]
+round_72_end: 13:04:05:919665
+round_73_start: 13:04:05:919673
+round_73_model_trained: 13:04:05:930954
+round_73_model_shared: 13:04:05:955882
+round_73_received_params_7: 13:04:05:998838
+round_73_aggregation: 13:04:05:998854
+round_73_aggregation order: [8, 0, 1, 2, 3, 4, 5]
+round_73_end: 13:04:06:000789
+round_74_start: 13:04:06:000798
+round_74_model_trained: 13:04:06:012022
+round_74_model_shared: 13:04:06:036583
+round_74_received_params_7: 13:04:06:109007
+round_74_aggregation: 13:04:06:109024
+round_74_aggregation order: [8, 1, 0, 3, 5, 6, 7]
+round_74_end: 13:04:06:110790
+round_75_start: 13:04:06:110800
+round_75_model_trained: 13:04:06:122009
+round_75_model_shared: 13:04:06:146936
+round_75_received_params_7: 13:04:06:218842
+round_75_aggregation: 13:04:06:218858
+round_75_aggregation order: [8, 0, 7, 9, 1, 2, 3]
+round_75_end: 13:04:06:220811
+round_76_start: 13:04:06:220819
+round_76_model_trained: 13:04:06:232121
+round_76_model_shared: 13:04:06:257194
+round_76_received_params_7: 13:04:06:359013
+round_76_aggregation: 13:04:06:359030
+round_76_aggregation order: [8, 1, 0, 2, 3, 4, 5]
+round_76_end: 13:04:06:360970
+round_77_start: 13:04:06:360978
+round_77_model_trained: 13:04:06:372250
+round_77_model_shared: 13:04:06:397465
+round_77_received_params_7: 13:04:06:468941
+round_77_aggregation: 13:04:06:468958
+round_77_aggregation order: [8, 0, 1, 2, 3, 4, 5]
+round_77_end: 13:04:06:470973
+round_78_start: 13:04:06:470984
+round_78_model_trained: 13:04:06:482579
+round_78_model_shared: 13:04:06:507687
+round_78_received_params_7: 13:04:06:551465
+round_78_aggregation: 13:04:06:551481
+round_78_aggregation order: [8, 0, 1, 3, 4, 6, 7]
+round_78_end: 13:04:06:553319
+round_79_start: 13:04:06:553328
+round_79_model_trained: 13:04:06:564472
+round_79_model_shared: 13:04:06:589319
+round_79_received_params_7: 13:04:06:683117
+round_79_aggregation: 13:04:06:683135
+round_79_aggregation order: [8, 0, 1, 5, 7, 2, 3]
+round_79_end: 13:04:06:685068
+round_80_start: 13:04:06:685077
+round_80_model_trained: 13:04:06:696271
+round_80_model_shared: 13:04:06:721167
+round_80_received_params_7: 13:04:06:802798
+round_80_aggregation: 13:04:06:802817
+round_80_aggregation order: [8, 0, 1, 3, 5, 6, 7]
+round_80_end: 13:04:06:804955
+round_81_start: 13:04:06:804966
+round_81_model_trained: 13:04:06:816500
+round_81_model_shared: 13:04:06:841510
+round_81_received_params_7: 13:04:06:932857
+round_81_aggregation: 13:04:06:932876
+round_81_aggregation order: [8, 0, 1, 2, 3, 4, 5]
+round_81_end: 13:04:06:934812
+round_82_start: 13:04:06:934824
+round_82_model_trained: 13:04:06:946016
+round_82_model_shared: 13:04:06:971088
+round_82_received_params_7: 13:04:07:052603
+round_82_aggregation: 13:04:07:052621
+round_82_aggregation order: [8, 0, 1, 2, 4, 7, 9]
+round_82_end: 13:04:07:054552
+round_83_start: 13:04:07:054564
+round_83_model_trained: 13:04:07:065719
+round_83_model_shared: 13:04:07:090777
+round_83_received_params_7: 13:04:07:154047
+round_83_aggregation: 13:04:07:154065
+round_83_aggregation order: [8, 0, 1, 9, 3, 4, 5]
+round_83_end: 13:04:07:156241
+round_84_start: 13:04:07:156254
+round_84_model_trained: 13:04:07:167913
+round_84_model_shared: 13:04:07:192701
+round_84_received_params_7: 13:04:07:274203
+round_84_aggregation: 13:04:07:274222
+round_84_aggregation order: [8, 0, 1, 2, 3, 4, 5]
+round_84_end: 13:04:07:276082
+round_85_start: 13:04:07:276093
+round_85_model_trained: 13:04:07:287638
+round_85_model_shared: 13:04:07:312655
+round_85_received_params_7: 13:04:07:396995
+round_85_aggregation: 13:04:07:397012
+round_85_aggregation order: [8, 0, 1, 7, 2, 3, 4]
+round_85_end: 13:04:07:399253
+round_86_start: 13:04:07:399265
+round_86_model_trained: 13:04:07:411113
+round_86_model_shared: 13:04:07:435769
+round_86_received_params_7: 13:04:07:502764
+round_86_aggregation: 13:04:07:502783
+round_86_aggregation order: [8, 0, 1, 2, 3, 4, 7]
+round_86_end: 13:04:07:504625
+round_87_start: 13:04:07:504635
+round_87_model_trained: 13:04:07:515834
+round_87_model_shared: 13:04:07:540568
+round_87_received_params_7: 13:04:07:609815
+round_87_aggregation: 13:04:07:609833
+round_87_aggregation order: [8, 0, 1, 7, 9, 2, 3]
+round_87_end: 13:04:07:611911
+round_88_start: 13:04:07:611923
+round_88_model_trained: 13:04:07:623653
+round_88_model_shared: 13:04:07:648580
+round_88_received_params_7: 13:04:07:732249
+round_88_aggregation: 13:04:07:732269
+round_88_aggregation order: [8, 0, 9, 1, 2, 3, 4]
+round_88_end: 13:04:07:734022
+round_89_start: 13:04:07:734034
+round_89_model_trained: 13:04:07:745211
+round_89_model_shared: 13:04:07:770442
+round_89_received_params_7: 13:04:07:842816
+round_89_aggregation: 13:04:07:842836
+round_89_aggregation order: [8, 0, 1, 2, 3, 7, 4]
+round_89_end: 13:04:07:844939
+round_90_start: 13:04:07:844950
+round_90_model_trained: 13:04:07:856456
+round_90_model_shared: 13:04:07:881470
+round_90_received_params_7: 13:04:07:942449
+round_90_aggregation: 13:04:07:942470
+round_90_aggregation order: [8, 0, 4, 5, 9, 1, 2]
+round_90_end: 13:04:07:944349
+round_91_start: 13:04:07:944359
+round_91_model_trained: 13:04:07:955661
+round_91_model_shared: 13:04:07:980923
+round_91_received_params_7: 13:04:08:049859
+round_91_aggregation: 13:04:08:049882
+round_91_aggregation order: [8, 0, 3, 9, 1, 4, 6]
+round_91_end: 13:04:08:052016
+round_92_start: 13:04:08:052029
+round_92_model_trained: 13:04:08:064136
+round_92_model_shared: 13:04:08:089981
+round_92_received_params_7: 13:04:08:169659
+round_92_aggregation: 13:04:08:169687
+round_92_aggregation order: [8, 0, 1, 3, 2, 4, 5]
+round_92_end: 13:04:08:171936
+round_93_start: 13:04:08:171948
+round_93_model_trained: 13:04:08:184220
+round_93_model_shared: 13:04:08:209852
+round_93_received_params_7: 13:04:08:257499
+round_93_aggregation: 13:04:08:257517
+round_93_aggregation order: [8, 0, 1, 4, 5, 7, 9]
+round_93_end: 13:04:08:259467
+round_94_start: 13:04:08:259476
+round_94_model_trained: 13:04:08:270083
+round_94_model_shared: 13:04:08:295375
+round_94_received_params_7: 13:04:08:377934
+round_94_aggregation: 13:04:08:377951
+round_94_aggregation order: [8, 0, 3, 4, 5, 9, 1]
+round_94_end: 13:04:08:380177
+round_95_start: 13:04:08:380188
+round_95_model_trained: 13:04:08:392570
+round_95_model_shared: 13:04:08:417785
+round_95_received_params_7: 13:04:08:514021
+round_95_aggregation: 13:04:08:514039
+round_95_aggregation order: [8, 0, 1, 4, 5, 9, 2]
+round_95_end: 13:04:08:516265
+round_96_start: 13:04:08:516276
+round_96_model_trained: 13:04:08:528071
+round_96_model_shared: 13:04:08:553085
+round_96_received_params_7: 13:04:08:595253
+round_96_aggregation: 13:04:08:595270
+round_96_aggregation order: [8, 0, 1, 2, 3, 4, 5]
+round_96_end: 13:04:08:597201
+round_97_start: 13:04:08:597211
+round_97_model_trained: 13:04:08:608538
+round_97_model_shared: 13:04:08:633677
+round_97_received_params_7: 13:04:08:705574
+round_97_aggregation: 13:04:08:705593
+round_97_aggregation order: [8, 0, 1, 4, 7, 9, 2]
+round_97_end: 13:04:08:707483
+round_98_start: 13:04:08:707492
+round_98_model_trained: 13:04:08:718636
+round_98_model_shared: 13:04:08:743644
+round_98_received_params_7: 13:04:08:855273
+round_98_aggregation: 13:04:08:855291
+round_98_aggregation order: [8, 1, 0, 2, 3, 4, 6]
+round_98_end: 13:04:08:857155
+round_99_start: 13:04:08:857164
+round_99_model_trained: 13:04:08:868383
+round_99_model_shared: 13:04:08:893542
+round_99_received_params_7: 13:04:08:958280
+round_99_aggregation: 13:04:08:958299
+round_99_aggregation order: [8, 0, 1, 2, 3, 7, 4]
+round_99_end: 13:04:08:960033
+round_100_start: 13:04:08:960042
+round_100_model_trained: 13:04:08:971325
+round_100_model_shared: 13:04:08:996549
+round_100_received_params_7: 13:04:09:066808
+round_100_aggregation: 13:04:09:066827
+round_100_aggregation order: [8, 0, 1, 3, 4, 5, 7]
+round_100_end: 13:04:09:068752
+round_101_start: 13:04:09:068762
+round_101_model_trained: 13:04:09:080064
+round_101_model_shared: 13:04:09:104650
+round_101_received_params_7: 13:04:09:190039
+round_101_aggregation: 13:04:09:190058
+round_101_aggregation order: [8, 0, 6, 1, 2, 3, 4]
+round_101_end: 13:04:09:191950
+round_102_start: 13:04:09:191961
+round_102_model_trained: 13:04:09:203221
+round_102_model_shared: 13:04:09:228268
+round_102_received_params_7: 13:04:09:320378
+round_102_aggregation: 13:04:09:320397
+round_102_aggregation order: [8, 9, 0, 1, 2, 3, 4]
+round_102_end: 13:04:09:322293
+round_103_start: 13:04:09:322303
+round_103_model_trained: 13:04:09:333655
+round_103_model_shared: 13:04:09:358824
+round_103_received_params_7: 13:04:09:413359
+round_103_aggregation: 13:04:09:413378
+round_103_aggregation order: [8, 0, 1, 2, 5, 7, 9]
+round_103_end: 13:04:09:415113
+round_104_start: 13:04:09:415126
+round_104_model_trained: 13:04:09:426291
+round_104_model_shared: 13:04:09:451588
+round_104_received_params_7: 13:04:09:529338
+round_104_aggregation: 13:04:09:529358
+round_104_aggregation order: [8, 0, 1, 5, 7, 9, 2]
+round_104_end: 13:04:09:531380
+round_105_start: 13:04:09:531394
+round_105_model_trained: 13:04:09:543140
+round_105_model_shared: 13:04:09:568063
+round_105_received_params_7: 13:04:09:636812
+round_105_aggregation: 13:04:09:636828
+round_105_aggregation order: [8, 0, 1, 2, 4, 9, 3]
+round_105_end: 13:04:09:638644
+round_106_start: 13:04:09:638653
+round_106_model_trained: 13:04:09:649930
+round_106_model_shared: 13:04:09:674810
+round_106_received_params_7: 13:04:09:775876
+round_106_aggregation: 13:04:09:775893
+round_106_aggregation order: [8, 0, 3, 7, 9, 1, 2]
+round_106_end: 13:04:09:777790
+round_107_start: 13:04:09:777798
+round_107_model_trained: 13:04:09:789177
+round_107_model_shared: 13:04:09:814607
+round_107_received_params_7: 13:04:09:875152
+round_107_aggregation: 13:04:09:875168
+round_107_aggregation order: [8, 0, 1, 3, 4, 7, 9]
+round_107_end: 13:04:09:877099
+round_108_start: 13:04:09:877108
+round_108_model_trained: 13:04:09:888501
+round_108_model_shared: 13:04:09:913684
+round_108_received_params_7: 13:04:09:976187
+round_108_aggregation: 13:04:09:976205
+round_108_aggregation order: [8, 0, 1, 4, 9, 2, 3]
+round_108_end: 13:04:09:978096
+round_109_start: 13:04:09:978106
+round_109_model_trained: 13:04:09:989362
+round_109_model_shared: 13:04:10:014645
+round_109_received_params_7: 13:04:10:120167
+round_109_aggregation: 13:04:10:120187
+round_109_aggregation order: [8, 0, 1, 3, 5, 2, 4]
+round_109_end: 13:04:10:122067
+round_110_start: 13:04:10:122078
+round_110_model_trained: 13:04:10:133368
+round_110_model_shared: 13:04:10:158123
+round_110_received_params_7: 13:04:10:225278
+round_110_aggregation: 13:04:10:225295
+round_110_aggregation order: [8, 0, 1, 2, 3, 4, 6]
+round_110_end: 13:04:10:227177
+round_111_start: 13:04:10:227187
+round_111_model_trained: 13:04:10:238487
+round_111_model_shared: 13:04:10:263704
+round_111_received_params_7: 13:04:10:309269
+round_111_aggregation: 13:04:10:309289
+round_111_aggregation order: [8, 0, 1, 2, 3, 4, 6]
+round_111_end: 13:04:10:311178
+round_112_start: 13:04:10:311189
+round_112_model_trained: 13:04:10:322372
+round_112_model_shared: 13:04:10:347505
+round_112_received_params_7: 13:04:10:436467
+round_112_aggregation: 13:04:10:436485
+round_112_aggregation order: [8, 0, 3, 4, 9, 1, 2]
+round_112_end: 13:04:10:438431
+round_113_start: 13:04:10:438443
+round_113_model_trained: 13:04:10:450498
+round_113_model_shared: 13:04:10:475622
+round_113_received_params_7: 13:04:10:519417
+round_113_aggregation: 13:04:10:519436
+round_113_aggregation order: [8, 0, 1, 2, 4, 6, 7]
+round_113_end: 13:04:10:521611
+round_114_start: 13:04:10:521623
+round_114_model_trained: 13:04:10:533351
+round_114_model_shared: 13:04:10:558507
+round_114_received_params_7: 13:04:10:631643
+round_114_aggregation: 13:04:10:631663
+round_114_aggregation order: [8, 0, 4, 9, 1, 2, 3]
+round_114_end: 13:04:10:633526
+round_115_start: 13:04:10:633539
+round_115_model_trained: 13:04:10:644787
+round_115_model_shared: 13:04:10:670191
+round_115_received_params_7: 13:04:10:774919
+round_115_aggregation: 13:04:10:774940
+round_115_aggregation order: [8, 0, 1, 4, 5, 6, 7]
+round_115_end: 13:04:10:776829
+round_116_start: 13:04:10:776840
+round_116_model_trained: 13:04:10:788025
+round_116_model_shared: 13:04:10:813248
+round_116_received_params_7: 13:04:10:885901
+round_116_aggregation: 13:04:10:885919
+round_116_aggregation order: [8, 0, 1, 4, 5, 6, 7]
+round_116_end: 13:04:10:887717
+round_117_start: 13:04:10:887726
+round_117_model_trained: 13:04:10:899168
+round_117_model_shared: 13:04:10:924107
+round_117_received_params_7: 13:04:10:971747
+round_117_aggregation: 13:04:10:971763
+round_117_aggregation order: [8, 0, 1, 4, 5, 6, 7]
+round_117_end: 13:04:10:973560
+round_118_start: 13:04:10:973570
+round_118_model_trained: 13:04:10:984742
+round_118_model_shared: 13:04:11:009623
+round_118_received_params_7: 13:04:11:077077
+round_118_aggregation: 13:04:11:077093
+round_118_aggregation order: [8, 7, 0, 1, 3, 2, 4]
+round_118_end: 13:04:11:078949
+round_119_start: 13:04:11:078958
+round_119_model_trained: 13:04:11:090206
+round_119_model_shared: 13:04:11:115352
+round_119_received_params_7: 13:04:11:214961
+round_119_aggregation: 13:04:11:214978
+round_119_aggregation order: [8, 0, 7, 9, 1, 2, 3]
+round_119_end: 13:04:11:216774
+round_120_start: 13:04:11:216794
+round_120_model_trained: 13:04:11:228061
+round_120_model_shared: 13:04:11:253369
+round_120_received_params_7: 13:04:11:316554
+round_120_aggregation: 13:04:11:316571
+round_120_aggregation order: [8, 0, 4, 6, 7, 9, 1]
+round_120_end: 13:04:11:318381
+round_121_start: 13:04:11:318390
+round_121_model_trained: 13:04:11:329736
+round_121_model_shared: 13:04:11:355146
+round_121_received_params_7: 13:04:11:417466
+round_121_aggregation: 13:04:11:417483
+round_121_aggregation order: [8, 0, 1, 2, 5, 6, 7]
+round_121_end: 13:04:11:419308
+round_122_start: 13:04:11:419317
+round_122_model_trained: 13:04:11:430534
+round_122_model_shared: 13:04:11:455609
+round_122_received_params_7: 13:04:11:543724
+round_122_aggregation: 13:04:11:543741
+round_122_aggregation order: [8, 0, 1, 2, 3, 4, 5]
+round_122_end: 13:04:11:545596
+round_123_start: 13:04:11:545605
+round_123_model_trained: 13:04:11:556804
+round_123_model_shared: 13:04:11:581847
+round_123_received_params_7: 13:04:11:654395
+round_123_aggregation: 13:04:11:654411
+round_123_aggregation order: [8, 0, 1, 2, 4, 5, 9]
+round_123_end: 13:04:11:656268
+round_124_start: 13:04:11:656278
+round_124_model_trained: 13:04:11:667470
+round_124_model_shared: 13:04:11:692934
+round_124_received_params_7: 13:04:11:749205
+round_124_aggregation: 13:04:11:749223
+round_124_aggregation order: [8, 0, 1, 2, 4, 5, 3]
+round_124_end: 13:04:11:751028
+round_125_start: 13:04:11:751038
+round_125_model_trained: 13:04:11:762329
+round_125_model_shared: 13:04:11:787507
+round_125_received_params_7: 13:04:11:865425
+round_125_aggregation: 13:04:11:865443
+round_125_aggregation order: [8, 0, 1, 6, 7, 2, 3]
+round_125_end: 13:04:11:867295
+round_126_start: 13:04:11:867305
+round_126_model_trained: 13:04:11:878517
+round_126_model_shared: 13:04:11:903799
+round_126_received_params_7: 13:04:11:986736
+round_126_aggregation: 13:04:11:986753
+round_126_aggregation order: [8, 0, 1, 9, 2, 3, 6]
+round_126_end: 13:04:11:988566
+round_127_start: 13:04:11:988575
+round_127_model_trained: 13:04:11:999869
+round_127_model_shared: 13:04:12:025072
+round_127_received_params_7: 13:04:12:078717
+round_127_aggregation: 13:04:12:078734
+round_127_aggregation order: [8, 0, 9, 1, 2, 4, 5]
+round_127_end: 13:04:12:080565
+round_128_start: 13:04:12:080574
+round_128_model_trained: 13:04:12:091806
+round_128_model_shared: 13:04:12:116767
+round_128_received_params_7: 13:04:12:230978
+round_128_aggregation: 13:04:12:230995
+round_128_aggregation order: [8, 0, 1, 2, 3, 5, 7]
+round_128_end: 13:04:12:232871
+round_129_start: 13:04:12:232881
+round_129_model_trained: 13:04:12:244217
+round_129_model_shared: 13:04:12:269400
+round_129_received_params_7: 13:04:12:323819
+round_129_aggregation: 13:04:12:323837
+round_129_aggregation order: [8, 0, 1, 2, 3, 5, 7]
+round_129_end: 13:04:12:326008
+round_130_start: 13:04:12:326018
+round_130_model_trained: 13:04:12:337915
+round_130_model_shared: 13:04:12:362988
+round_130_received_params_7: 13:04:12:437881
+round_130_aggregation: 13:04:12:437898
+round_130_aggregation order: [8, 0, 1, 3, 7, 2, 4]
+round_130_end: 13:04:12:439773
+round_131_start: 13:04:12:439783
+round_131_model_trained: 13:04:12:451058
+round_131_model_shared: 13:04:12:476301
+round_131_received_params_7: 13:04:12:530683
+round_131_aggregation: 13:04:12:530701
+round_131_aggregation order: [8, 0, 1, 2, 3, 4, 5]
+round_131_end: 13:04:12:532820
+round_132_start: 13:04:12:532831
+round_132_model_trained: 13:04:12:544602
+round_132_model_shared: 13:04:12:569508
+round_132_received_params_7: 13:04:12:647060
+round_132_aggregation: 13:04:12:647077
+round_132_aggregation order: [8, 0, 1, 2, 4, 5, 7]
+round_132_end: 13:04:12:648920
+round_133_start: 13:04:12:648930
+round_133_model_trained: 13:04:12:660301
+round_133_model_shared: 13:04:12:685280
+round_133_received_params_7: 13:04:12:768794
+round_133_aggregation: 13:04:12:768811
+round_133_aggregation order: [8, 0, 1, 4, 2, 3, 5]
+round_133_end: 13:04:12:770672
+round_134_start: 13:04:12:770682
+round_134_model_trained: 13:04:12:781991
+round_134_model_shared: 13:04:12:807193
+round_134_received_params_7: 13:04:12:878807
+round_134_aggregation: 13:04:12:878825
+round_134_aggregation order: [8, 0, 1, 3, 9, 2, 4]
+round_134_end: 13:04:12:880683
+round_135_start: 13:04:12:880694
+round_135_model_trained: 13:04:12:891957
+round_135_model_shared: 13:04:12:916843
+round_135_received_params_7: 13:04:12:994524
+round_135_aggregation: 13:04:12:994545
+round_135_aggregation order: [8, 0, 1, 3, 6, 2, 4]
+round_135_end: 13:04:12:996600
+round_136_start: 13:04:12:996612
+round_136_model_trained: 13:04:13:009024
+round_136_model_shared: 13:04:13:034651
+round_136_received_params_7: 13:04:13:106022
+round_136_aggregation: 13:04:13:106045
+round_136_aggregation order: [8, 0, 1, 6, 7, 9, 2]
+round_136_end: 13:04:13:108231
+round_137_start: 13:04:13:108242
+round_137_model_trained: 13:04:13:120253
+round_137_model_shared: 13:04:13:146468
+round_137_received_params_7: 13:04:13:216964
+round_137_aggregation: 13:04:13:216983
+round_137_aggregation order: [8, 0, 3, 7, 9, 1, 2]
+round_137_end: 13:04:13:219015
+round_138_start: 13:04:13:219024
+round_138_model_trained: 13:04:13:230582
+round_138_model_shared: 13:04:13:255665
+round_138_received_params_7: 13:04:13:341700
+round_138_aggregation: 13:04:13:341718
+round_138_aggregation order: [8, 0, 1, 9, 2, 3, 6]
+round_138_end: 13:04:13:343639
+round_139_start: 13:04:13:343649
+round_139_model_trained: 13:04:13:355074
+round_139_model_shared: 13:04:13:380580
+round_139_received_params_7: 13:04:13:432103
+round_139_aggregation: 13:04:13:432121
+round_139_aggregation order: [8, 0, 1, 2, 6, 9, 3]
+round_139_end: 13:04:13:433990
+round_140_start: 13:04:13:434000
+round_140_model_trained: 13:04:13:445532
+round_140_model_shared: 13:04:13:471092
+round_140_received_params_7: 13:04:13:555032
+round_140_aggregation: 13:04:13:555049
+round_140_aggregation order: [8, 0, 3, 4, 7, 1, 2]
+round_140_end: 13:04:13:556850
+round_141_start: 13:04:13:556860
+round_141_model_trained: 13:04:13:567083
+round_141_model_shared: 13:04:13:592233
+round_141_received_params_7: 13:04:13:678022
+round_141_aggregation: 13:04:13:678040
+round_141_aggregation order: [8, 0, 1, 7, 9, 3, 2]
+round_141_end: 13:04:13:679881
+round_142_start: 13:04:13:679891
+round_142_model_trained: 13:04:13:691657
+round_142_model_shared: 13:04:13:716768
+round_142_received_params_7: 13:04:13:795165
+round_142_aggregation: 13:04:13:795183
+round_142_aggregation order: [8, 0, 1, 2, 3, 5, 6]
+round_142_end: 13:04:13:797080
+round_143_start: 13:04:13:797091
+round_143_model_trained: 13:04:13:808379
+round_143_model_shared: 13:04:13:834029
+round_143_received_params_7: 13:04:13:892110
+round_143_aggregation: 13:04:13:892127
+round_143_aggregation order: [8, 0, 1, 2, 3, 5, 6]
+round_143_end: 13:04:13:893976
+round_144_start: 13:04:13:893986
+round_144_model_trained: 13:04:13:905374
+round_144_model_shared: 13:04:13:930268
+round_144_received_params_7: 13:04:13:994351
+round_144_aggregation: 13:04:13:994369
+round_144_aggregation order: [8, 0, 1, 3, 4, 7, 9]
+round_144_end: 13:04:13:996245
+round_145_start: 13:04:13:996254
+round_145_model_trained: 13:04:14:007459
+round_145_model_shared: 13:04:14:032241
+round_145_received_params_7: 13:04:14:132407
+round_145_aggregation: 13:04:14:132426
+round_145_aggregation order: [8, 0, 1, 9, 2, 4, 5]
+round_145_end: 13:04:14:134283
+round_146_start: 13:04:14:134293
+round_146_model_trained: 13:04:14:145554
+round_146_model_shared: 13:04:14:170588
+round_146_received_params_7: 13:04:14:252298
+round_146_aggregation: 13:04:14:252317
+round_146_aggregation order: [8, 0, 1, 7, 2, 3, 4]
+round_146_end: 13:04:14:254170
+round_147_start: 13:04:14:254179
+round_147_model_trained: 13:04:14:265452
+round_147_model_shared: 13:04:14:290380
+round_147_received_params_7: 13:04:14:339917
+round_147_aggregation: 13:04:14:339934
+round_147_aggregation order: [8, 0, 1, 2, 3, 4, 7]
+round_147_end: 13:04:14:341873
+round_148_start: 13:04:14:341882
+round_148_model_trained: 13:04:14:353196
+round_148_model_shared: 13:04:14:377986
+round_148_received_params_7: 13:04:14:439677
+round_148_aggregation: 13:04:14:439694
+round_148_aggregation order: [8, 0, 1, 9, 3, 4, 5]
+round_148_end: 13:04:14:441466
+round_149_start: 13:04:14:441476
+round_149_model_trained: 13:04:14:452923
+round_149_model_shared: 13:04:14:478381
+round_149_received_params_7: 13:04:14:549956
+round_149_aggregation: 13:04:14:549974
+round_149_aggregation order: [8, 7, 0, 1, 4, 2, 3]
+round_149_end: 13:04:14:551891
+round_150_start: 13:04:14:551901
+round_150_model_trained: 13:04:14:563093
+round_150_model_shared: 13:04:14:588290
+round_150_received_params_7: 13:04:14:657215
+round_150_aggregation: 13:04:14:657232
+round_150_aggregation order: [8, 0, 1, 2, 3, 9, 5]
+round_150_end: 13:04:14:659098
+round_151_start: 13:04:14:659108
+round_151_model_trained: 13:04:14:670422
+round_151_model_shared: 13:04:14:695400
+round_151_received_params_7: 13:04:14:801008
+round_151_aggregation: 13:04:14:801026
+round_151_aggregation order: [8, 0, 5, 4, 2, 3, 6]
+round_151_end: 13:04:14:802915
+round_152_start: 13:04:14:802925
+round_152_model_trained: 13:04:14:814194
+round_152_model_shared: 13:04:14:839318
+round_152_received_params_7: 13:04:14:876562
+round_152_aggregation: 13:04:14:876580
+round_152_aggregation order: [8, 0, 2, 3, 4, 7, 9]
+round_152_end: 13:04:14:878481
+round_153_start: 13:04:14:878491
+round_153_model_trained: 13:04:14:889710
+round_153_model_shared: 13:04:14:914809
+round_153_received_params_7: 13:04:15:003939
+round_153_aggregation: 13:04:15:003957
+round_153_aggregation order: [8, 9, 0, 4, 5, 6, 7]
+round_153_end: 13:04:15:005910
+round_154_start: 13:04:15:005921
+round_154_model_trained: 13:04:15:017569
+round_154_model_shared: 13:04:15:042559
+round_154_received_params_7: 13:04:15:133085
+round_154_aggregation: 13:04:15:133101
+round_154_aggregation order: [8, 0, 9, 4, 5, 1, 2]
+round_154_end: 13:04:15:135213
+round_155_start: 13:04:15:135225
+round_155_model_trained: 13:04:15:147034
+round_155_model_shared: 13:04:15:171598
+round_155_received_params_7: 13:04:15:244969
+round_155_aggregation: 13:04:15:244986
+round_155_aggregation order: [8, 4, 6, 7, 0, 1, 2]
+round_155_end: 13:04:15:246807
+round_156_start: 13:04:15:246817
+round_156_model_trained: 13:04:15:258150
+round_156_model_shared: 13:04:15:283170
+round_156_received_params_7: 13:04:15:348710
+round_156_aggregation: 13:04:15:348728
+round_156_aggregation order: [8, 0, 1, 3, 7, 9, 2]
+round_156_end: 13:04:15:350800
+round_157_start: 13:04:15:350810
+round_157_model_trained: 13:04:15:362623
+round_157_model_shared: 13:04:15:387519
+round_157_received_params_7: 13:04:15:450600
+round_157_aggregation: 13:04:15:450618
+round_157_aggregation order: [8, 0, 1, 3, 7, 9, 2]
+round_157_end: 13:04:15:452534
+round_158_start: 13:04:15:452545
+round_158_model_trained: 13:04:15:463864
+round_158_model_shared: 13:04:15:489399
+round_158_received_params_7: 13:04:15:596433
+round_158_aggregation: 13:04:15:596452
+round_158_aggregation order: [8, 0, 1, 7, 3, 4, 5]
+round_158_end: 13:04:15:598329
+round_159_start: 13:04:15:598339
+round_159_model_trained: 13:04:15:609696
+round_159_model_shared: 13:04:15:635524
+round_159_received_params_7: 13:04:15:678867
+round_159_aggregation: 13:04:15:678885
+round_159_aggregation order: [8, 0, 1, 3, 4, 5, 7]
+round_159_end: 13:04:15:680718
+round_160_start: 13:04:15:680728
+round_160_model_trained: 13:04:15:692064
+round_160_model_shared: 13:04:15:716761
+round_160_received_params_7: 13:04:15:778273
+round_160_aggregation: 13:04:15:778291
+round_160_aggregation order: [8, 0, 3, 1, 2, 4, 5]
+round_160_end: 13:04:15:780119
+round_161_start: 13:04:15:780129
+round_161_model_trained: 13:04:15:791349
+round_161_model_shared: 13:04:15:816263
+round_161_received_params_7: 13:04:15:898258
+round_161_aggregation: 13:04:15:898276
+round_161_aggregation order: [8, 0, 9, 1, 3, 4, 6]
+round_161_end: 13:04:15:900345
+round_162_start: 13:04:15:900356
+round_162_model_trained: 13:04:15:912023
+round_162_model_shared: 13:04:15:937151
+round_162_received_params_7: 13:04:16:036164
+round_162_aggregation: 13:04:16:036181
+round_162_aggregation order: [8, 0, 3, 6, 1, 2, 4]
+round_162_end: 13:04:16:038278
+round_163_start: 13:04:16:038290
+round_163_model_trained: 13:04:16:050101
+round_163_model_shared: 13:04:16:075304
+round_163_received_params_7: 13:04:16:120552
+round_163_aggregation: 13:04:16:120569
+round_163_aggregation order: [8, 0, 1, 2, 5, 7, 9]
+round_163_end: 13:04:16:122426
+round_164_start: 13:04:16:122436
+round_164_model_trained: 13:04:16:133703
+round_164_model_shared: 13:04:16:158704
+round_164_received_params_7: 13:04:16:213850
+round_164_aggregation: 13:04:16:213868
+round_164_aggregation order: [8, 0, 9, 1, 3, 7, 4]
+round_164_end: 13:04:16:215752
+round_165_start: 13:04:16:215761
+round_165_model_trained: 13:04:16:227081
+round_165_model_shared: 13:04:16:252778
+round_165_received_params_7: 13:04:16:339289
+round_165_aggregation: 13:04:16:339308
+round_165_aggregation order: [8, 0, 4, 1, 3, 6, 7]
+round_165_end: 13:04:16:341391
+round_166_start: 13:04:16:341403
+round_166_model_trained: 13:04:16:353210
+round_166_model_shared: 13:04:16:378560
+round_166_received_params_7: 13:04:16:450850
+round_166_aggregation: 13:04:16:450868
+round_166_aggregation order: [8, 0, 1, 3, 7, 9, 2]
+round_166_end: 13:04:16:452757
+round_167_start: 13:04:16:452767
+round_167_model_trained: 13:04:16:464008
+round_167_model_shared: 13:04:16:489169
+round_167_received_params_7: 13:04:16:551504
+round_167_aggregation: 13:04:16:551521
+round_167_aggregation order: [8, 0, 4, 6, 9, 1, 2]
+round_167_end: 13:04:16:553414
+round_168_start: 13:04:16:553425
+round_168_model_trained: 13:04:16:564697
+round_168_model_shared: 13:04:16:589216
+round_168_received_params_7: 13:04:16:690761
+round_168_aggregation: 13:04:16:690778
+round_168_aggregation order: [8, 0, 1, 2, 4, 5, 7]
+round_168_end: 13:04:16:692976
+round_169_start: 13:04:16:692988
+round_169_model_trained: 13:04:16:704688
+round_169_model_shared: 13:04:16:729654
+round_169_received_params_7: 13:04:16:794033
+round_169_aggregation: 13:04:16:794051
+round_169_aggregation order: [8, 0, 1, 2, 4, 5, 7]
+round_169_end: 13:04:16:795842
+round_170_start: 13:04:16:795852
+round_170_model_trained: 13:04:16:807385
+round_170_model_shared: 13:04:16:832550
+round_170_received_params_7: 13:04:16:908109
+round_170_aggregation: 13:04:16:908127
+round_170_aggregation order: [8, 0, 1, 5, 2, 3, 4]
+round_170_end: 13:04:16:909986
+round_171_start: 13:04:16:909997
+round_171_model_trained: 13:04:16:921310
+round_171_model_shared: 13:04:16:946632
+round_171_received_params_7: 13:04:16:985715
+round_171_aggregation: 13:04:16:985732
+round_171_aggregation order: [8, 0, 1, 2, 3, 7, 9]
+round_171_end: 13:04:16:987809
+round_172_start: 13:04:16:987820
+round_172_model_trained: 13:04:16:999494
+round_172_model_shared: 13:04:17:024631
+round_172_received_params_7: 13:04:17:149487
+round_172_aggregation: 13:04:17:149504
+round_172_aggregation order: [8, 0, 1, 6, 7, 2, 3]
+round_172_end: 13:04:17:151734
+round_173_start: 13:04:17:151745
+round_173_model_trained: 13:04:17:163443
+round_173_model_shared: 13:04:17:188723
+round_173_received_params_7: 13:04:17:262228
+round_173_aggregation: 13:04:17:262246
+round_173_aggregation order: [8, 0, 1, 3, 4, 5, 6]
+round_173_end: 13:04:17:263963
+round_174_start: 13:04:17:263973
+round_174_model_trained: 13:04:17:275212
+round_174_model_shared: 13:04:17:300286
+round_174_received_params_7: 13:04:17:352062
+round_174_aggregation: 13:04:17:352080
+round_174_aggregation order: [8, 0, 1, 4, 5, 9, 2]
+round_174_end: 13:04:17:354281
+round_175_start: 13:04:17:354292
+round_175_model_trained: 13:04:17:366190
+round_175_model_shared: 13:04:17:391768
+round_175_received_params_7: 13:04:17:449413
+round_175_aggregation: 13:04:17:449430
+round_175_aggregation order: [8, 0, 1, 6, 7, 2, 3]
+round_175_end: 13:04:17:451260
+round_176_start: 13:04:17:451272
+round_176_model_trained: 13:04:17:462565
+round_176_model_shared: 13:04:17:487791
+round_176_received_params_7: 13:04:17:582362
+round_176_aggregation: 13:04:17:582380
+round_176_aggregation order: [8, 7, 3, 0, 4, 5, 9]
+round_176_end: 13:04:17:584350
+round_177_start: 13:04:17:584363
+round_177_model_trained: 13:04:17:596115
+round_177_model_shared: 13:04:17:621426
+round_177_received_params_7: 13:04:17:672104
+round_177_aggregation: 13:04:17:672123
+round_177_aggregation order: [8, 0, 3, 4, 5, 9, 1]
+round_177_end: 13:04:17:673967
+round_178_start: 13:04:17:673978
+round_178_model_trained: 13:04:17:685550
+round_178_model_shared: 13:04:17:710528
+round_178_received_params_7: 13:04:17:766802
+round_178_aggregation: 13:04:17:766820
+round_178_aggregation order: [8, 0, 5, 1, 2, 3, 4]
+round_178_end: 13:04:17:768800
+round_179_start: 13:04:17:768810
+round_179_model_trained: 13:04:17:780073
+round_179_model_shared: 13:04:17:805143
+round_179_received_params_7: 13:04:17:900385
+round_179_aggregation: 13:04:17:900403
+round_179_aggregation order: [8, 0, 1, 3, 5, 6, 7]
+round_179_end: 13:04:17:902468
+round_180_start: 13:04:17:902480
+round_180_model_trained: 13:04:17:914232
+round_180_model_shared: 13:04:17:939363
+round_180_received_params_7: 13:04:18:024588
+round_180_aggregation: 13:04:18:024621
+round_180_aggregation order: [8, 0, 1, 2, 3, 4, 5]
+round_180_end: 13:04:18:026738
+round_181_start: 13:04:18:026749
+round_181_model_trained: 13:04:18:038757
+round_181_model_shared: 13:04:18:065184
+round_181_received_params_7: 13:04:18:123056
+round_181_aggregation: 13:04:18:123080
+round_181_aggregation order: [8, 0, 1, 3, 7, 9, 2]
+round_181_end: 13:04:18:125126
+round_182_start: 13:04:18:125137
+round_182_model_trained: 13:04:18:137242
+round_182_model_shared: 13:04:18:163285
+round_182_received_params_7: 13:04:18:208064
+round_182_aggregation: 13:04:18:208084
+round_182_aggregation order: [8, 0, 1, 4, 6, 7, 2]
+round_182_end: 13:04:18:210053
+round_183_start: 13:04:18:210064
+round_183_model_trained: 13:04:18:221644
+round_183_model_shared: 13:04:18:246992
+round_183_received_params_7: 13:04:18:373789
+round_183_aggregation: 13:04:18:373807
+round_183_aggregation order: [8, 0, 3, 2, 4, 5, 6]
+round_183_end: 13:04:18:375803
+round_184_start: 13:04:18:375814
+round_184_model_trained: 13:04:18:387332
+round_184_model_shared: 13:04:18:412962
+round_184_received_params_7: 13:04:18:459544
+round_184_aggregation: 13:04:18:459561
+round_184_aggregation order: [8, 0, 3, 4, 6, 7, 9]
+round_184_end: 13:04:18:461410
+round_185_start: 13:04:18:461420
+round_185_model_trained: 13:04:18:472835
+round_185_model_shared: 13:04:18:497825
+round_185_received_params_7: 13:04:18:556582
+round_185_aggregation: 13:04:18:556600
+round_185_aggregation order: [8, 0, 3, 7, 9, 1, 2]
+round_185_end: 13:04:18:558464
+round_186_start: 13:04:18:558475
+round_186_model_trained: 13:04:18:571458
+round_186_model_shared: 13:04:18:596825
+round_186_received_params_7: 13:04:18:649882
+round_186_aggregation: 13:04:18:649900
+round_186_aggregation order: [8, 0, 2, 1, 4, 7, 9]
+round_186_end: 13:04:18:652047
+round_187_start: 13:04:18:652059
+round_187_model_trained: 13:04:18:663811
+round_187_model_shared: 13:04:18:688814
+round_187_received_params_7: 13:04:18:808612
+round_187_aggregation: 13:04:18:808631
+round_187_aggregation order: [8, 0, 1, 3, 4, 2, 5]
+round_187_end: 13:04:18:810384
+round_188_start: 13:04:18:810405
+round_188_model_trained: 13:04:18:820603
+round_188_model_shared: 13:04:18:845425
+round_188_received_params_7: 13:04:18:905554
+round_188_aggregation: 13:04:18:905573
+round_188_aggregation order: [8, 0, 2, 3, 5, 6, 7]
+round_188_end: 13:04:18:907681
+round_189_start: 13:04:18:907693
+round_189_model_trained: 13:04:18:919988
+round_189_model_shared: 13:04:18:945231
+round_189_received_params_7: 13:04:18:999212
+round_189_aggregation: 13:04:18:999229
+round_189_aggregation order: [8, 0, 3, 9, 1, 2, 4]
+round_189_end: 13:04:19:001493
+round_190_start: 13:04:19:001505
+round_190_model_trained: 13:04:19:013243
+round_190_model_shared: 13:04:19:038400
+round_190_received_params_7: 13:04:19:100275
+round_190_aggregation: 13:04:19:100294
+round_190_aggregation order: [8, 0, 5, 1, 3, 7, 9]
+round_190_end: 13:04:19:102465
+round_191_start: 13:04:19:102477
+round_191_model_trained: 13:04:19:114100
+round_191_model_shared: 13:04:19:139343
+round_191_received_params_7: 13:04:19:243969
+round_191_aggregation: 13:04:19:243988
+round_191_aggregation order: [8, 0, 9, 1, 3, 4, 7]
+round_191_end: 13:04:19:246128
+round_192_start: 13:04:19:246140
+round_192_model_trained: 13:04:19:257906
+round_192_model_shared: 13:04:19:283185
+round_192_received_params_7: 13:04:19:362583
+round_192_aggregation: 13:04:19:362602
+round_192_aggregation order: [8, 0, 1, 3, 9, 2, 4]
+round_192_end: 13:04:19:364385
+round_193_start: 13:04:19:364396
+round_193_model_trained: 13:04:19:375775
+round_193_model_shared: 13:04:19:401249
+round_193_received_params_7: 13:04:19:463096
+round_193_aggregation: 13:04:19:463115
+round_193_aggregation order: [8, 0, 1, 3, 4, 6, 7]
+round_193_end: 13:04:19:464994
+round_194_start: 13:04:19:465006
+round_194_model_trained: 13:04:19:476382
+round_194_model_shared: 13:04:19:501155
+round_194_received_params_7: 13:04:19:562846
+round_194_aggregation: 13:04:19:562865
+round_194_aggregation order: [8, 0, 1, 7, 9, 2, 3]
+round_194_end: 13:04:19:564730
+round_195_start: 13:04:19:564740
+round_195_model_trained: 13:04:19:576024
+round_195_model_shared: 13:04:19:601375
+round_195_received_params_7: 13:04:19:680849
+round_195_aggregation: 13:04:19:680867
+round_195_aggregation order: [8, 0, 5, 9, 1, 2, 3]
+round_195_end: 13:04:19:682737
+round_196_start: 13:04:19:682748
+round_196_model_trained: 13:04:19:694170
+round_196_model_shared: 13:04:19:719302
+round_196_received_params_7: 13:04:19:804010
+round_196_aggregation: 13:04:19:804029
+round_196_aggregation order: [8, 0, 1, 4, 9, 3, 5]
+round_196_end: 13:04:19:805884
+round_197_start: 13:04:19:805898
+round_197_model_trained: 13:04:19:817554
+round_197_model_shared: 13:04:19:843220
+round_197_received_params_7: 13:04:19:888551
+round_197_aggregation: 13:04:19:888570
+round_197_aggregation order: [8, 0, 1, 5, 7, 9, 2]
+round_197_end: 13:04:19:890543
+round_198_start: 13:04:19:890554
+round_198_model_trained: 13:04:19:901979
+round_198_model_shared: 13:04:19:927021
+round_198_received_params_7: 13:04:20:035632
+round_198_aggregation: 13:04:20:035651
+round_198_aggregation order: [8, 0, 1, 3, 7, 9, 2]
+round_198_end: 13:04:20:037797
+round_199_start: 13:04:20:037808
+round_199_model_trained: 13:04:20:049623
+round_199_model_shared: 13:04:20:074742
+round_199_received_params_7: 13:04:20:113952
+round_199_aggregation: 13:04:20:113970
+round_199_aggregation order: [8, 0, 2, 3, 4, 5, 6]
+round_199_end: 13:04:20:116034
+round_200_start: 13:04:20:116046
+round_200_model_trained: 13:04:20:127816
+round_200_model_shared: 13:04:20:153080
+round_200_received_params_7: 13:04:20:229097
+round_200_aggregation: 13:04:20:229115
+round_200_aggregation order: [8, 0, 4, 5, 1, 2, 3]
+round_200_end: 13:04:20:231096
+round_201_start: 13:04:20:231108
+round_201_model_trained: 13:04:20:242898
+round_201_model_shared: 13:04:20:267762
+round_201_received_params_7: 13:04:20:344685
+round_201_aggregation: 13:04:20:344703
+round_201_aggregation order: [8, 0, 3, 7, 1, 2, 4]
+round_201_end: 13:04:20:346604
+round_202_start: 13:04:20:346615
+round_202_model_trained: 13:04:20:358071
+round_202_model_shared: 13:04:20:383201
+round_202_received_params_7: 13:04:20:457040
+round_202_aggregation: 13:04:20:457058
+round_202_aggregation order: [8, 0, 1, 4, 9, 2, 3]
+round_202_end: 13:04:20:458906
+round_203_start: 13:04:20:458917
+round_203_model_trained: 13:04:20:470347
+round_203_model_shared: 13:04:20:495263
+round_203_received_params_7: 13:04:20:549756
+round_203_aggregation: 13:04:20:549774
+round_203_aggregation order: [8, 0, 9, 1, 3, 5, 6]
+round_203_end: 13:04:20:551670
+round_204_start: 13:04:20:551680
+round_204_model_trained: 13:04:20:562870
+round_204_model_shared: 13:04:20:588077
+round_204_received_params_7: 13:04:20:680199
+round_204_aggregation: 13:04:20:680218
+round_204_aggregation order: [8, 0, 1, 2, 3, 5, 6]
+round_204_end: 13:04:20:682105
+round_205_start: 13:04:20:682115
+round_205_model_trained: 13:04:20:693596
+round_205_model_shared: 13:04:20:718531
+round_205_received_params_7: 13:04:20:805223
+round_205_aggregation: 13:04:20:805241
+round_205_aggregation order: [8, 0, 1, 2, 3, 6, 7]
+round_205_end: 13:04:20:807292
+round_206_start: 13:04:20:807305
+round_206_model_trained: 13:04:20:818959
+round_206_model_shared: 13:04:20:844494
+round_206_received_params_7: 13:04:20:903883
+round_206_aggregation: 13:04:20:903902
+round_206_aggregation order: [8, 0, 1, 3, 9, 2, 4]
+round_206_end: 13:04:20:905646
+round_207_start: 13:04:20:905657
+round_207_model_trained: 13:04:20:917020
+round_207_model_shared: 13:04:20:942257
+round_207_received_params_7: 13:04:21:017933
+round_207_aggregation: 13:04:21:017952
+round_207_aggregation order: [8, 0, 3, 1, 2, 4, 5]
+round_207_end: 13:04:21:019916
+round_208_start: 13:04:21:019929
+round_208_model_trained: 13:04:21:031632
+round_208_model_shared: 13:04:21:056836
+round_208_received_params_7: 13:04:21:139551
+round_208_aggregation: 13:04:21:139583
+round_208_aggregation order: [8, 0, 1, 4, 6, 7, 9]
+round_208_end: 13:04:21:141487
+round_209_start: 13:04:21:141497
+round_209_model_trained: 13:04:21:152855
+round_209_model_shared: 13:04:21:177967
+round_209_received_params_7: 13:04:21:270082
+round_209_aggregation: 13:04:21:270101
+round_209_aggregation order: [8, 0, 1, 9, 2, 3, 4]
+round_209_end: 13:04:21:271939
+round_210_start: 13:04:21:271949
+round_210_model_trained: 13:04:21:283264
+round_210_model_shared: 13:04:21:308933
+round_210_received_params_7: 13:04:21:362552
+round_210_aggregation: 13:04:21:362570
+round_210_aggregation order: [8, 0, 1, 2, 3, 4, 5]
+round_210_end: 13:04:21:364467
+round_211_start: 13:04:21:364478
+round_211_model_trained: 13:04:21:375794
+round_211_model_shared: 13:04:21:400665
+round_211_received_params_7: 13:04:21:478515
+round_211_aggregation: 13:04:21:478534
+round_211_aggregation order: [8, 2, 7, 0, 1, 3, 4]
+round_211_end: 13:04:21:480460
+round_212_start: 13:04:21:480472
+round_212_model_trained: 13:04:21:491804
+round_212_model_shared: 13:04:21:516912
+round_212_received_params_7: 13:04:21:598583
+round_212_aggregation: 13:04:21:598602
+round_212_aggregation order: [8, 0, 1, 4, 9, 2, 3]
+round_212_end: 13:04:21:600676
+round_213_start: 13:04:21:600687
+round_213_model_trained: 13:04:21:612154
+round_213_model_shared: 13:04:21:637304
+round_213_received_params_7: 13:04:21:681984
+round_213_aggregation: 13:04:21:682001
+round_213_aggregation order: [8, 0, 1, 2, 3, 4, 9]
+round_213_end: 13:04:21:683909
+round_214_start: 13:04:21:683920
+round_214_model_trained: 13:04:21:695369
+round_214_model_shared: 13:04:21:720761
+round_214_received_params_7: 13:04:21:793600
+round_214_aggregation: 13:04:21:793618
+round_214_aggregation order: [8, 0, 4, 1, 2, 7, 3]
+round_214_end: 13:04:21:795595
+round_215_start: 13:04:21:795609
+round_215_model_trained: 13:04:21:807365
+round_215_model_shared: 13:04:21:832348
+round_215_received_params_7: 13:04:21:933643
+round_215_aggregation: 13:04:21:933662
+round_215_aggregation order: [8, 0, 3, 1, 7, 9, 2]
+round_215_end: 13:04:21:935383
+round_216_start: 13:04:21:935394
+round_216_model_trained: 13:04:21:946707
+round_216_model_shared: 13:04:21:971776
+round_216_received_params_7: 13:04:22:016693
+round_216_aggregation: 13:04:22:016712
+round_216_aggregation order: [8, 0, 1, 4, 9, 3, 5]
+round_216_end: 13:04:22:018550
+round_217_start: 13:04:22:018563
+round_217_model_trained: 13:04:22:029907
+round_217_model_shared: 13:04:22:054870
+round_217_received_params_7: 13:04:22:158510
+round_217_aggregation: 13:04:22:158528
+round_217_aggregation order: [8, 3, 0, 1, 4, 5, 9]
+round_217_end: 13:04:22:160606
+round_218_start: 13:04:22:160620
+round_218_model_trained: 13:04:22:172315
+round_218_model_shared: 13:04:22:197512
+round_218_received_params_7: 13:04:22:309335
+round_218_aggregation: 13:04:22:309354
+round_218_aggregation order: [8, 0, 4, 5, 1, 2, 3]
+round_218_end: 13:04:22:311261
+round_219_start: 13:04:22:311273
+round_219_model_trained: 13:04:22:322838
+round_219_model_shared: 13:04:22:348320
+round_219_received_params_7: 13:04:22:384669
+round_219_aggregation: 13:04:22:384687
+round_219_aggregation order: [8, 0, 1, 3, 4, 5, 6]
+round_219_end: 13:04:22:386549
+round_220_start: 13:04:22:386560
+round_220_model_trained: 13:04:22:398016
+round_220_model_shared: 13:04:22:423147
+round_220_received_params_7: 13:04:22:512152
+round_220_aggregation: 13:04:22:512170
+round_220_aggregation order: [8, 0, 1, 9, 2, 4, 6]
+round_220_end: 13:04:22:513947
+round_221_start: 13:04:22:513958
+round_221_model_trained: 13:04:22:525322
+round_221_model_shared: 13:04:22:550401
+round_221_received_params_7: 13:04:22:617488
+round_221_aggregation: 13:04:22:617507
+round_221_aggregation order: [8, 0, 1, 6, 9, 2, 3]
+round_221_end: 13:04:22:619618
+round_222_start: 13:04:22:619630
+round_222_model_trained: 13:04:22:631321
+round_222_model_shared: 13:04:22:656568
+round_222_received_params_7: 13:04:22:718491
+round_222_aggregation: 13:04:22:718509
+round_222_aggregation order: [8, 0, 1, 2, 7, 3, 4]
+round_222_end: 13:04:22:720424
+round_223_start: 13:04:22:720435
+round_223_model_trained: 13:04:22:731812
+round_223_model_shared: 13:04:22:756678
+round_223_received_params_7: 13:04:22:858640
+round_223_aggregation: 13:04:22:858660
+round_223_aggregation order: [8, 0, 9, 1, 2, 4, 3]
+round_223_end: 13:04:22:860572
+round_224_start: 13:04:22:860583
+round_224_model_trained: 13:04:22:871821
+round_224_model_shared: 13:04:22:896840
+round_224_received_params_7: 13:04:22:932791
+round_224_aggregation: 13:04:22:932808
+round_224_aggregation order: [8, 0, 1, 2, 3, 4, 5]
+round_224_end: 13:04:22:934636
+round_225_start: 13:04:22:934647
+round_225_model_trained: 13:04:22:946019
+round_225_model_shared: 13:04:22:971422
+round_225_received_params_7: 13:04:23:045035
+round_225_aggregation: 13:04:23:045058
+round_225_aggregation order: [8, 0, 2, 1, 5, 6, 7]
+round_225_end: 13:04:23:047181
+round_226_start: 13:04:23:047196
+round_226_model_trained: 13:04:23:059204
+round_226_model_shared: 13:04:23:085221
+round_226_received_params_7: 13:04:23:183552
+round_226_aggregation: 13:04:23:183595
+round_226_aggregation order: [8, 1, 0, 2, 9, 3, 4]
+round_226_end: 13:04:23:185706
+round_227_start: 13:04:23:185719
+round_227_model_trained: 13:04:23:197717
+round_227_model_shared: 13:04:23:223527
+round_227_received_params_7: 13:04:23:308180
+round_227_aggregation: 13:04:23:308198
+round_227_aggregation order: [8, 0, 1, 3, 7, 9, 2]
+round_227_end: 13:04:23:310202
+round_228_start: 13:04:23:310215
+round_228_model_trained: 13:04:23:322317
+round_228_model_shared: 13:04:23:347523
+round_228_received_params_7: 13:04:23:424647
+round_228_aggregation: 13:04:23:424668
+round_228_aggregation order: [8, 0, 1, 3, 7, 9, 2]
+round_228_end: 13:04:23:426625
+round_229_start: 13:04:23:426637
+round_229_model_trained: 13:04:23:438115
+round_229_model_shared: 13:04:23:463437
+round_229_received_params_7: 13:04:23:518914
+round_229_aggregation: 13:04:23:518932
+round_229_aggregation order: [8, 0, 1, 3, 4, 5, 6]
+round_229_end: 13:04:23:520955
+round_230_start: 13:04:23:520967
+round_230_model_trained: 13:04:23:532865
+round_230_model_shared: 13:04:23:557869
+round_230_received_params_7: 13:04:23:611743
+round_230_aggregation: 13:04:23:611762
+round_230_aggregation order: [8, 0, 1, 4, 7, 2, 3]
+round_230_end: 13:04:23:613624
+round_231_start: 13:04:23:613638
+round_231_model_trained: 13:04:23:624957
+round_231_model_shared: 13:04:23:650177
+round_231_received_params_7: 13:04:23:743895
+round_231_aggregation: 13:04:23:743914
+round_231_aggregation order: [8, 0, 1, 9, 5, 2, 3]
+round_231_end: 13:04:23:745717
+round_232_start: 13:04:23:745728
+round_232_model_trained: 13:04:23:757058
+round_232_model_shared: 13:04:23:782256
+round_232_received_params_7: 13:04:23:822053
+round_232_aggregation: 13:04:23:822076
+round_232_aggregation order: [8, 0, 2, 3, 9, 1, 4]
+round_232_end: 13:04:23:823986
+round_233_start: 13:04:23:823996
+round_233_model_trained: 13:04:23:835298
+round_233_model_shared: 13:04:23:860587
+round_233_received_params_7: 13:04:23:952584
+round_233_aggregation: 13:04:23:952603
+round_233_aggregation order: [8, 0, 3, 7, 1, 4, 6]
+round_233_end: 13:04:23:954738
+round_234_start: 13:04:23:954751
+round_234_model_trained: 13:04:23:966520
+round_234_model_shared: 13:04:23:991198
+round_234_received_params_7: 13:04:24:055383
+round_234_aggregation: 13:04:24:055403
+round_234_aggregation order: [8, 0, 4, 1, 2, 3, 5]
+round_234_end: 13:04:24:057558
+round_235_start: 13:04:24:057573
+round_235_model_trained: 13:04:24:068480
+round_235_model_shared: 13:04:24:093643
+round_235_received_params_7: 13:04:24:153331
+round_235_aggregation: 13:04:24:153351
+round_235_aggregation order: [8, 0, 1, 3, 5, 6, 9]
+round_235_end: 13:04:24:155104
+round_236_start: 13:04:24:155116
+round_236_model_trained: 13:04:24:166822
+round_236_model_shared: 13:04:24:191992
+round_236_received_params_7: 13:04:24:306628
+round_236_aggregation: 13:04:24:306649
+round_236_aggregation order: [8, 0, 7, 2, 3, 9, 1]
+round_236_end: 13:04:24:308527
+round_237_start: 13:04:24:308539
+round_237_model_trained: 13:04:24:319909
+round_237_model_shared: 13:04:24:345177
+round_237_received_params_7: 13:04:24:414558
+round_237_aggregation: 13:04:24:414577
+round_237_aggregation order: [8, 0, 1, 3, 5, 6, 7]
+round_237_end: 13:04:24:416517
+round_238_start: 13:04:24:416528
+round_238_model_trained: 13:04:24:427807
+round_238_model_shared: 13:04:24:453169
+round_238_received_params_7: 13:04:24:528779
+round_238_aggregation: 13:04:24:528797
+round_238_aggregation order: [8, 0, 1, 3, 5, 6, 7]
+round_238_end: 13:04:24:530635
+round_239_start: 13:04:24:530645
+round_239_model_trained: 13:04:24:541918
+round_239_model_shared: 13:04:24:566799
+round_239_received_params_7: 13:04:24:620202
+round_239_aggregation: 13:04:24:620222
+round_239_aggregation order: [8, 0, 1, 6, 7, 9, 2]
+round_239_end: 13:04:24:622070
+round_240_start: 13:04:24:622081
+round_240_model_trained: 13:04:24:633295
+round_240_model_shared: 13:04:24:658399
+round_240_received_params_7: 13:04:24:750477
+round_240_aggregation: 13:04:24:750495
+round_240_aggregation order: [8, 0, 9, 1, 2, 4, 3]
+round_240_end: 13:04:24:752341
+round_241_start: 13:04:24:752353
+round_241_model_trained: 13:04:24:763775
+round_241_model_shared: 13:04:24:789138
+round_241_received_params_7: 13:04:24:864330
+round_241_aggregation: 13:04:24:864349
+round_241_aggregation order: [8, 0, 1, 4, 7, 9, 2]
+round_241_end: 13:04:24:866442
+round_242_start: 13:04:24:866454
+round_242_model_trained: 13:04:24:878429
+round_242_model_shared: 13:04:24:903840
+round_242_received_params_7: 13:04:24:945588
+round_242_aggregation: 13:04:24:945607
+round_242_aggregation order: [8, 0, 1, 2, 3, 6, 7]
+round_242_end: 13:04:24:947398
+round_243_start: 13:04:24:947409
+round_243_model_trained: 13:04:24:958781
+round_243_model_shared: 13:04:24:983735
+round_243_received_params_7: 13:04:25:076617
+round_243_aggregation: 13:04:25:076637
+round_243_aggregation order: [8, 0, 1, 5, 3, 2, 4]
+round_243_end: 13:04:25:078501
+round_244_start: 13:04:25:078513
+round_244_model_trained: 13:04:25:089807
+round_244_model_shared: 13:04:25:114762
+round_244_received_params_7: 13:04:25:226538
+round_244_aggregation: 13:04:25:226557
+round_244_aggregation order: [8, 0, 1, 3, 4, 5, 6]
+round_244_end: 13:04:25:228339
+round_245_start: 13:04:25:228351
+round_245_model_trained: 13:04:25:239774
+round_245_model_shared: 13:04:25:264667
+round_245_received_params_7: 13:04:25:342518
+round_245_aggregation: 13:04:25:342538
+round_245_aggregation order: [8, 0, 1, 3, 4, 5, 6]
+round_245_end: 13:04:25:344436
+round_246_start: 13:04:25:344449
+round_246_model_trained: 13:04:25:355917
+round_246_model_shared: 13:04:25:381020
+round_246_received_params_7: 13:04:25:419783
+round_246_aggregation: 13:04:25:419802
+round_246_aggregation order: [8, 0, 1, 3, 4, 5, 6]
+round_246_end: 13:04:25:421901
+round_247_start: 13:04:25:421913
+round_247_model_trained: 13:04:25:433706
+round_247_model_shared: 13:04:25:458961
+round_247_received_params_7: 13:04:25:516191
+round_247_aggregation: 13:04:25:516210
+round_247_aggregation order: [8, 0, 1, 4, 6, 9, 2]
+round_247_end: 13:04:25:518067
+round_248_start: 13:04:25:518077
+round_248_model_trained: 13:04:25:529529
+round_248_model_shared: 13:04:25:554749
+round_248_received_params_7: 13:04:25:653792
+round_248_aggregation: 13:04:25:653812
+round_248_aggregation order: [8, 0, 4, 1, 2, 3, 6]
+round_248_end: 13:04:25:655704
+round_249_start: 13:04:25:655716
+round_249_model_trained: 13:04:25:666981
+round_249_model_shared: 13:04:25:692370
+round_249_received_params_7: 13:04:25:752133
+round_249_aggregation: 13:04:25:752155
+round_249_aggregation order: [8, 0, 3, 7, 9, 1, 2]
+round_249_end: 13:04:25:754033
+round_250_start: 13:04:25:754045
+round_250_model_trained: 13:04:25:765418
+round_250_model_shared: 13:04:25:790860
+round_250_received_params_7: 13:04:25:864564
+round_250_aggregation: 13:04:25:864583
+round_250_aggregation order: [8, 0, 6, 7, 9, 1, 2]
+round_250_end: 13:04:25:866736
+end: 13:04:25:927952
