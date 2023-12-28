@@ -253,11 +253,13 @@ Round 250: [4, 0, 1, 5]
 -- SSL/TLS handshake complete!, Id:1  ## CipherSuite: TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256.
 -- SSL/TLS handshake complete!, Id:2  ## CipherSuite: TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256.
 -- SSL/TLS handshake complete!, Id:3  ## CipherSuite: TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256.
--- ID = 4
+-- SSL/TLS handshake complete!, Id:4  ## CipherSuite: TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256.
+-- SSL/TLS handshake complete!, Id:5  ## CipherSuite: TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256.
+-- ID = 6
 -- N = 10
 -- F = 3
--- Port (client <-> server) = 10040
--- Port (server <-> server) = 10041
+-- Port (client <-> server) = 10060
+-- Port (server <-> server) = 10061
 -- requestTimeout = 2000
 -- maxBatch = 1024
 -- Binded replica to IP address 127.0.0.1
@@ -269,7 +271,7 @@ Round 250: [4, 0, 1, 5]
 		###################################
 		    Ready to process operations    
 		###################################
-Server 4 Port: 38623
+Server 6 Port: 44735
 -- Session Created, active clients=0
 -- Session Created, active clients=1
 -- Session Created, active clients=2
@@ -4442,7 +4444,7 @@ Last finished consensus: 15368
 		TS=0 
 		Propose=[v/HG5p6ORqeniMmYDomFURz8i6/mxvuuXWkzvPjK2Ys=] 
 		Writes=([v/HG5p6ORqeniMmYDomFURz8i6/mxvuuXWkzvPjK2Ys=], [v/HG5p6ORqeniMmYDomFURz8i6/mxvuuXWkzvPjK2Ys=], [v/HG5p6ORqeniMmYDomFURz8i6/mxvuuXWkzvPjK2Ys=], [v/HG5p6ORqeniMmYDomFURz8i6/mxvuuXWkzvPjK2Ys=], [v/HG5p6ORqeniMmYDomFURz8i6/mxvuuXWkzvPjK2Ys=], [v/HG5p6ORqeniMmYDomFURz8i6/mxvuuXWkzvPjK2Ys=], [v/HG5p6ORqeniMmYDomFURz8i6/mxvuuXWkzvPjK2Ys=], [v/HG5p6ORqeniMmYDomFURz8i6/mxvuuXWkzvPjK2Ys=], [v/HG5p6ORqeniMmYDomFURz8i6/mxvuuXWkzvPjK2Ys=], [v/HG5p6ORqeniMmYDomFURz8i6/mxvuuXWkzvPjK2Ys=]) 
-		Accepts=([v/HG5p6ORqeniMmYDomFURz8i6/mxvuuXWkzvPjK2Ys=], [v/HG5p6ORqeniMmYDomFURz8i6/mxvuuXWkzvPjK2Ys=], [v/HG5p6ORqeniMmYDomFURz8i6/mxvuuXWkzvPjK2Ys=], [v/HG5p6ORqeniMmYDomFURz8i6/mxvuuXWkzvPjK2Ys=], [v/HG5p6ORqeniMmYDomFURz8i6/mxvuuXWkzvPjK2Ys=], [null], [v/HG5p6ORqeniMmYDomFURz8i6/mxvuuXWkzvPjK2Ys=], [null], [null], [v/HG5p6ORqeniMmYDomFURz8i6/mxvuuXWkzvPjK2Ys=])
+		Accepts=([v/HG5p6ORqeniMmYDomFURz8i6/mxvuuXWkzvPjK2Ys=], [v/HG5p6ORqeniMmYDomFURz8i6/mxvuuXWkzvPjK2Ys=], [v/HG5p6ORqeniMmYDomFURz8i6/mxvuuXWkzvPjK2Ys=], [v/HG5p6ORqeniMmYDomFURz8i6/mxvuuXWkzvPjK2Ys=], [null], [v/HG5p6ORqeniMmYDomFURz8i6/mxvuuXWkzvPjK2Ys=], [v/HG5p6ORqeniMmYDomFURz8i6/mxvuuXWkzvPjK2Ys=], [null], [null], [v/HG5p6ORqeniMmYDomFURz8i6/mxvuuXWkzvPjK2Ys=])
 
 Consensus in execution: None
 
