@@ -72,7 +72,7 @@ def accuracy(input_file_name):
     for line in input_file:
         line = line.strip()
         key_value = line.split("=")
-        if i != 0:
+        if i != 0 and i != nb_rounds + 1:
             result.append(round(float(key_value[-1]), 4))
         i += 1
     return result
@@ -350,7 +350,7 @@ def all_accuracy_per_time_per_pace(fl, p2p, con, rank, trsh):
             ax.errorbar(x=[np.mean(t) for t in con[agg][att][rank]['end_time']], xerr=[np.std(t) for t in con[agg][att][rank]['end_time']], y=[np.mean(t) for t in con[agg][att][rank]['acc']], yerr=[np.std(t) for t in con[agg][att][rank]['acc']], fmt='o-', markersize=1, linewidth=3)
             ax.legend(['fl', 'p2p', 'con'])
             # draw horizontal line from 0 to 1 and add a text on the line
-            print(np.mean(con[agg][att][rank]['end_time'][con[agg][att][rank]['round'] - 2]))
+            # print(np.mean(con[agg][att][rank]['end_time'][con[agg][att][rank]['round'] - 2]))
             ax.axhline(y = trsh, color = 'black', linestyle = 'dotted', linewidth=2, xmax=np.mean(con[agg][att][rank]['end_time'][con[agg][att][rank]['round'] - 2]) / np.max([np.mean(t) for t in p2p[agg][att][rank]['end_time']]))
             ax.text(0, trsh, trsh, horizontalalignment='left', verticalalignment='bottom', fontsize=30)
 
@@ -382,7 +382,8 @@ def find_fastest_slowest_trsh(senario, aggregator, attack, trsh):
         fake_senario = 'Gossip_res'
     if senario == 'con':
         senario = 'Consensus_res'
-        fake_senario = 'FL_res'
+        fake_senario = 'Consensus_res'
+        # fake_senario = 'FL_res'
 
     clients_reached_trsh_round = dict()
     clients_reached_trsh_time = dict()    
@@ -426,6 +427,7 @@ def find_fastest_slowest_trsh(senario, aggregator, attack, trsh):
            'fastest': {'end_time': clients_times[min_key], 'acc': clients_accs[min_key][1:], 'round': clients_reached_trsh_round[min_key]}}
     # print(max_key, min_key)
     # print(clients_reached_trsh_time, clients_reached_trsh_time[max_key], clients_reached_trsh_time[min_key])
+    print(len(clients_times[min_key]), len(clients_accs[min_key]))
     # print(res)
     return res
     # print(clients_accs)
