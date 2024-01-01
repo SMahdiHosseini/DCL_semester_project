@@ -40,7 +40,7 @@ public final class FLServer extends DefaultSingleRecoverable {
         this.recevdParamIds = new HashMap<Integer, ArrayList<Integer>>();
         this.test = _test;
         if (this.test.equals("Accuracy"))
-            this.fileName = "../../../../Consensus_res/" + aggregatorName + "/ncl_" + Integer.toString(_clientNums + byzNums) + "/nbyz_" + Integer.toString(byzNums) + "/Performance_1/recevdParamIds.txt";
+            this.fileName = "../../../../Consensus_res/" + aggregatorName + "/ncl_" + Integer.toString(_clientNums + byzNums) + "/nbyz_" + Integer.toString(byzNums) + "/Performance_3/recevdParamIds.txt";
         else if (this.test.equals("Performance"))
             this.fileName = "../../../../Consensus_res/" + aggregatorName + "/ncl_" + Integer.toString(_clientNums) + "/nbyz_" + Integer.toString(byzNums) + "/Performance/recevdParamIds.txt";
         

@@ -30,7 +30,7 @@ function f {
 
 trap f SIGINT
 
-for i in {1..1}
+for i in {3..3}
 do
     for agg in ${aggregator[@]}; do
         if [[ "$1" == "fl" || "$1" == "all" ]]
