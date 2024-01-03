@@ -34,8 +34,8 @@ nb_byz = int(sys.argv[2])
 nb_rounds = int(sys.argv[3])
 nb_experiments = 3
 experiment = 1
-heterogeneity = "Homogeneous"
-# heterogeneity = "Heterogeneous"
+# heterogeneity = "Homogeneous"
+heterogeneity = "Heterogeneous"
 
 attacks = ["SF"]
 aggregators = ["trmean"]
@@ -83,8 +83,8 @@ def analyseAccuracy(aggregator, attack, nb_clients, nb_byz, res, senario):
     if senario == 'p2p':
         senario = 'Gossip_res'
     if senario == 'con':
-        # senario = 'Consensus_res'
-        senario = "FL_res"
+        senario = 'Consensus_res'
+        # senario = "FL_res"
 
     exps = []
     for exp in range(1, nb_experiments + 1):
@@ -140,6 +140,13 @@ def analysePerformance(aggregator, nb_clients, nb_byz, res, senario):
 
         res[aggregator]['time'].append(times)
         res[aggregator]['end_time'].append(end_times)
+    # res[agg]['end_time'] is a list of dicts, merge them into one dict
+    res[aggregator]['end_time'] = {key: list(value) for key, value in zip(res[aggregator]['end_time'][0].keys(), zip(*[d.values() for d in res[aggregator]['end_time']]))}
+    res[aggregator]['time'] = {key: list(value) for key, value in zip(res[aggregator]['time'][0].keys(), zip(*[d.values() for d in res[aggregator]['time']]))}
+    # then merge the values, which are lists of lists, of the dict into one list
+    res[aggregator]['end_time'] = {key: [item for sublist in value for item in sublist] for key, value in res[aggregator]['end_time'].items()}
+    res[aggregator]['time'] = {key: [item for sublist in value for item in sublist] for key, value in res[aggregator]['time'].items()}
+
 
 def setBoxColors_i(bp, num):
     for i in range(num):        
@@ -238,13 +245,13 @@ def violin_plot(fl, p2p, con):
     all_times['p2p'] = dict()
     all_times['con'] = dict()
     for agg in aggregators:
-        # all_times['fl'][agg] = [value for values in fl[agg]['time'].values() for value in values]
-        # all_times['p2p'][agg] = [value for values in p2p[agg]['time'].values() for value in values]
-        # all_times['con'][agg] = [value for values in con[agg]['time'].values() for value in values]
-        all_times['fl'][agg] = [value for item in fl[agg]['time'] for values in item.values() for value in values]
-        all_times['p2p'][agg] = [value for item in p2p[agg]['time'] for values in item.values() for value in values]
-        all_times['con'][agg] = [value for item in con[agg]['time'] for values in item.values() for value in values]
-
+        all_times['fl'][agg] = [value for values in fl[agg]['time'].values() for value in values]
+        all_times['p2p'][agg] = [value for values in p2p[agg]['time'].values() for value in values]
+        all_times['con'][agg] = [value for values in con[agg]['time'].values() for value in values]
+        # all_times['fl'][agg] = [value for item in fl[agg]['time'] for values in item.values() for value in values]
+        # all_times['p2p'][agg] = [value for item in p2p[agg]['time'] for values in item.values() for value in values]
+        # all_times['con'][agg] = [value for item in con[agg]['time'] for values in item.values() for value in values]
+    # print(len(all_times['fl']['trmean']))
     df = pd.DataFrame(columns = ['senario', 'trmean'])
     for key, value in all_times.items():
         times_df = pd.DataFrame({'senario': key, 'trmean': value['trmean']})
@@ -364,7 +371,7 @@ def all_accuracy_per_time_per_pace(fl, p2p, con, rank, trsh):
             ax.vlines(x=np.mean(con[agg][att][rank]['end_time'][con[agg][att][rank]['round'] - 2]), ymin = 0, ymax = trsh, color = 'black', linestyle = 'dotted', linewidth=2)
             ax.text(np.mean(con[agg][att][rank]['end_time'][con[agg][att][rank]['round'] - 2]), -0.005, str(round(np.mean(con[agg][att][rank]['end_time'][con[agg][att][rank]['round'] - 2]), 2)), horizontalalignment='center', verticalalignment='top', fontsize=20)
 
-            ax.set_xlim([0, np.max([np.mean(t) for t in p2p[agg][att][rank]['end_time']])])
+            # ax.set_xlim([0, np.max([np.mean(t) for t in p2p[agg][att][rank]['end_time']])])
             ax.set_ylim([0, np.max([np.mean(t) for t in p2p[agg][att][rank]['acc']]) + 0.1])
             ax.set_xlabel('time(s)')
             ax.set_ylabel('accuracy')
@@ -507,51 +514,52 @@ def main():
         analysePerformance(aggregator=agg, nb_clients=nb_clients, nb_byz=nb_byz, res=p2p, senario='p2p')
         analysePerformance(aggregator=agg, nb_clients=nb_clients, nb_byz=nb_byz, res=con, senario='con')
 
-    #     for att in attacks:
-    #         analyseAccuracy(aggregator=agg, attack=att, nb_clients=nb_clients, nb_byz=nb_byz, res=fl, senario='fl')
-    #         analyseAccuracy(aggregator=agg, attack=att, nb_clients=nb_clients, nb_byz=nb_byz, res=p2p, senario='p2p')
-    #         analyseAccuracy(aggregator=agg, attack=att, nb_clients=nb_clients, nb_byz=nb_byz, res=con, senario='con')
+        for att in attacks:
+            analyseAccuracy(aggregator=agg, attack=att, nb_clients=nb_clients, nb_byz=nb_byz, res=fl, senario='fl')
+            analyseAccuracy(aggregator=agg, attack=att, nb_clients=nb_clients, nb_byz=nb_byz, res=p2p, senario='p2p')
+            analyseAccuracy(aggregator=agg, attack=att, nb_clients=nb_clients, nb_byz=nb_byz, res=con, senario='con')
     # print("fl:", len(fl['trmean']['time']))
+    # print("fl", fl['trmean']['time'].values())
 #     # # print("p2p:", p2p)
 #     # # print("con:", con)
-    # all_accuracy_per_round(fl, p2p, con)
-    # all_accuracy_per_time(fl, p2p, con)
-    # accuracy_attack_plot(fl, "fl", nb_clients, nb_byz)
-    # accuracy_attack_plot(p2p, "p2p", nb_clients, nb_byz)
-    # accuracy_attack_plot(con, "con", nb_clients, nb_byz)
+    all_accuracy_per_round(fl, p2p, con)
+    all_accuracy_per_time(fl, p2p, con)
+    accuracy_attack_plot(fl, "fl", nb_clients, nb_byz)
+    accuracy_attack_plot(p2p, "p2p", nb_clients, nb_byz)
+    accuracy_attack_plot(con, "con", nb_clients, nb_byz)
 
-    # boxplots_i(boxes=[[[value for values in fl[agg]['time'].values() for value in values] for agg in aggregators], 
-    #                   [[value for values in p2p[agg]['time'].values() for value in values] for agg in aggregators],
-    #                   [[value for values in con[agg]['time'].values() for value in values] for agg in aggregators]],
-    #            num=3, labels=aggregators, boxes_tags=['fl', 'p2p', 'con'], x_label="aggregator", y_label="time", y_lim=0.15, filename="../../Plots/roundtime_" + str(nb_clients) + "_" + str(nb_byz) + ".png", 
-    #            title="n = " + str(nb_clients) + "\n n byz = " + str(nb_byz))
-    
+    boxplots_i(boxes=[[[value for values in fl[agg]['time'].values() for value in values] for agg in aggregators], 
+                      [[value for values in p2p[agg]['time'].values() for value in values] for agg in aggregators],
+                      [[value for values in con[agg]['time'].values() for value in values] for agg in aggregators]],
+               num=3, labels=aggregators, boxes_tags=['fl', 'p2p', 'con'], x_label="aggregator", y_label="time", y_lim=0.30, filename="../../Plots/roundtime_" + str(nb_clients) + "_" + str(nb_byz) + ".png", 
+               title="n = " + str(nb_clients) + "\n n byz = " + str(nb_byz))
+
 
     violin_plot(fl, p2p, con)
-    # slowest_fl, fastest_fl = find_fastest_slowest('fl', 'trmean')
-    # slowest_p2p, fastest_p2p = find_fastest_slowest('p2p', 'trmean')
-    # slowest_con, fastest_con = find_fastest_slowest('con', 'trmean')
-    # violin_plot_slowest_fastest({'slowest': slowest_fl, 'fastest': fastest_fl}, {'slowest': slowest_p2p, 'fastest': fastest_p2p}, {'slowest': slowest_con, 'fastest': fastest_con})
+    slowest_fl, fastest_fl = find_fastest_slowest('fl', 'trmean')
+    slowest_p2p, fastest_p2p = find_fastest_slowest('p2p', 'trmean')
+    slowest_con, fastest_con = find_fastest_slowest('con', 'trmean')
+    violin_plot_slowest_fastest({'slowest': slowest_fl, 'fastest': fastest_fl}, {'slowest': slowest_p2p, 'fastest': fastest_p2p}, {'slowest': slowest_con, 'fastest': fastest_con})
 
 # #### finding the fastest node that reached the trsh first
-    # trsh = 0.50
-    trsh = 0.75
+    trsh = 0.60
+    # trsh = 0.75
     fl_slowest_fastest = {'trmean': {'SF': find_fastest_slowest_trsh('fl', 'trmean', 'SF', trsh)}}
     p2p_slowest_fastest = {'trmean': {'SF': find_fastest_slowest_trsh('p2p', 'trmean', 'SF', trsh)}}
     con_slowest_fastest = {'trmean': {'SF': find_fastest_slowest_trsh('con', 'trmean', 'SF', trsh)}}
     # print(p2p_slowest_fastest['trmean']['SF']['fastest']['acc'])
     all_accuracy_per_time_per_pace(fl_slowest_fastest, p2p_slowest_fastest, con_slowest_fastest, 'fastest', trsh)
-    # all_accuracy_per_time_per_pace(fl_slowest_fastest, p2p_slowest_fastest, con_slowest_fastest, 'slowest')
+    all_accuracy_per_time_per_pace(fl_slowest_fastest, p2p_slowest_fastest, con_slowest_fastest, 'slowest', trsh)
 
 ## accuracy per time per client
-    # all_clients_acccs('p2p', 'trmean', 'SF')
-    # all_clients_acccs('fl', 'trmean', 'SF')
-    # all_clients_acccs('con', 'trmean', 'SF')
+    all_clients_acccs('p2p', 'trmean', 'SF')
+    all_clients_acccs('fl', 'trmean', 'SF')
+    all_clients_acccs('con', 'trmean', 'SF')
 
 ### finding the orders of clients
-    # print(readOrders(0, nb_clients, nb_byz, nb_rounds, 'trmean', 'SF', 'fl'))
+    print(readOrders(0, nb_clients, nb_byz, nb_rounds, 'trmean', 'SF', 'fl'))
     # print(readOrders(0, nb_clients, nb_byz, nb_rounds, 'trmean', 'SF', 'con'))
-    # for i in range(nb_clients):
-    #     print(i, readOrders(i, nb_clients, nb_byz, nb_rounds, 'trmean', 'SF', 'p2p'))
+    for i in range(nb_clients):
+        print(i, readOrders(i, nb_clients, nb_byz, nb_rounds, 'trmean', 'SF', 'p2p'))
 if __name__ == "__main__":
     main()
