@@ -67,6 +67,7 @@ function transfer_files {
             scp ubuntu@$client:/home/ubuntu/DCL_semester_project/Consensus_res/$agg/ncl_$nb_clients/nbyz_$nb_byz/Performance/$i.txt  ./Consensus_res/$agg/ncl_$nb_clients/nbyz_$nb_byz/Performance_$j &
             scp ubuntu@$client:/home/ubuntu/DCL_semester_project/Consensus_res/$agg/ncl_$nb_clients/nbyz_$nb_byz/Performance/server_$i.txt  ./Consensus_res/$agg/ncl_$nb_clients/nbyz_$nb_byz/Performance_$j &
             scp ubuntu@$client:/home/ubuntu/DCL_semester_project/Consensus_res/$agg/ncl_$nb_clients/nbyz_$nb_byz/Performance/recevdParamIds.txt  ./Consensus_res/$agg/ncl_$nb_clients/nbyz_$nb_byz/Performance_$j &
+            scp ubuntu@$client:/home/ubuntu/DCL_semester_project/library/build/install/library/Results/res_$i.txt  ./library/build/install/library/Results & 
             i=$(( $i + $d ))
         done  
     fi

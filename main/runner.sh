@@ -96,13 +96,19 @@ do
             mkdir -p "../Consensus_res/""$agg"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Accuracy_$i/Homogeneous
 
             # echo running con with "$nb_byz" byzantine client. Performance test phase! Aggregator: "$agg"
-            # bash ConsensusRunner.sh "$nb_replicas" "$nb_clients" "$rounds" "$localHost" "$nb_byz" "$agg" "att" "Performance"
+            # cd Utils
+            # python3 BFTConfig.py "$nb_clients" "$nb_byz"
+            # cd ../
+            # bash ConsensusRunner.sh "$nb_clients" "$nb_clients" "$rounds" "$localHost" "$nb_byz" "$agg" "att" "Performance"
 
             for att in ${attack[@]}; do
                 mkdir -p "../Consensus_res/""$agg"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Accuracy/"$att"
                 echo running con with "$nb_byz" byzantine client. Accuracy test phase! Aggregator: "$agg" Attack: "$att"
                 ((new_nb_clients = nb_clients - nb_byz))
-                bash ConsensusRunner.sh "$nb_replicas" "$new_nb_clients" "$rounds" "$localHost" "$nb_byz" "$agg" "$att" "Accuracy"
+                cd Utils
+                python3 BFTConfig.py "$new_nb_clients" "0"
+                cd ../
+                bash ConsensusRunner.sh "$new_nb_clients" "$new_nb_clients" "$rounds" "$localHost" "$nb_byz" "$agg" "$att" "Accuracy"
                 if [[ "$Heterogeneity" == "1" ]]
                 then
                     rm -rf "../Consensus_res/""$agg"/ncl_"$nb_clients"/nbyz_"$nb_byz"/Accuracy_$i/Heterogeneous/"$att"

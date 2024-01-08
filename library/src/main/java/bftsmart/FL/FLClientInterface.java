@@ -3,30 +3,35 @@ package bftsmart.FL;
 import java.io.*;
 
 import bftsmart.tom.ServiceProxy;
+import java.net.Socket;
+
 import org.graalvm.compiler.bytecode.Bytes;
 
 public class FLClientInterface {
 
     private static ModelClient modelClient;
+    private static Socket clientSocket;
+    private static DataInputStream in;
+    private static int clientId;
 
     public static boolean handleMessage(FLMessage msg, ServiceProxy serviceProxy) throws IOException, ClassNotFoundException, InterruptedException {
-        while (msg.getType().equals(MessageType.WAITTHIS)){
-            byte[] reply = serviceProxy.invokeOrdered(FLMessage.toBytes(new FLMessage(MessageType.CHECK, "", msg.getRound(), msg.getClientId(), "non")));
-            if (reply == null){
-                System.out.println(", ERROR! Exiting.");
-                return true;
+        if (msg.getType().equals(MessageType.ACK)){
+            System.out.println("Got ACK Message");
+            String ready = in.readUTF();
+            if (ready.equals("ready")){
+                // read the parameters from the file
+                FileReader fr = new FileReader("params" + Integer.toString(clientId));
+                BufferedReader br = new BufferedReader(fr);
+                String newParam = br.readLine();
+                modelClient.setParameters(newParam);
+                // System.out.println("Sending new params: " + newParam);
+                br.close();
             }
-            msg = FLMessage.fromBytes(reply);
         }
-        if (msg.getType().equals(MessageType.LASTAGGPARAM)) {
-            modelClient.setParameters(msg.getContent());
+        if (msg.getType().equals(MessageType.END)) {
             return true;
-        } else if (msg.getType().equals(MessageType.END)){
-            return true;
-        } else if (msg.getType().equals(MessageType.AGGPARAM)){
-            // System.out.println("GOt AGGPARAM Message for round " + msg.getRound());
-            modelClient.setParameters(msg.getContent());
         }
+        
         return false;
 
     }
@@ -73,10 +78,17 @@ public class FLClientInterface {
             System.out.println("Usage: FL <client id> <modelClientAddress> <clientsNum> <byzNum> <aggregator> <attack> <test>");
         }
         modelClient = new ModelClient(args[1], Integer.parseInt(args[0]), Integer.parseInt(args[2]), Integer.parseInt(args[3]), args[4], args[5], args[6]);
+        clientId = Integer.parseInt(args[0]);
+        System.out.println("Client " + clientId + " started!");
         try {
+            clientSocket = new Socket(args[1], 6100 + Integer.parseInt(args[0]));
+            in = new DataInputStream(clientSocket.getInputStream());
             execute(Integer.parseInt(args[0]));
             modelClient.terminate();
+            clientSocket.close();
+            in.close();
             System.out.println(" END!");
+            System.exit(0);
         } catch (IOException | ClassNotFoundException | InterruptedException e){
             System.out.println("Failed to send PUT request: " + e.getMessage() + "Class: " + e.getClass().toString());
         }

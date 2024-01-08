@@ -23,10 +23,12 @@ public final class FLServer extends DefaultSingleRecoverable {
     private ReentrantLock lock, lock2;
     private DataInputStream in;
     private DataOutputStream out;
+    private DataOutputStream replicaToClient;
     private HashMap<Integer, ArrayList<Integer>> recevdParamIds;
     private String test;
     private String fileName;
     private ArrayList<Integer> connectedClients;
+    private int id;
     public FLServer(int id, int _clientNums, int _numOfRounds, String address, int byzNums, String aggregatorName, String attackName, String _test){
         this.numOfRounds = _numOfRounds;
         this.clientNums = _clientNums;
@@ -39,8 +41,9 @@ public final class FLServer extends DefaultSingleRecoverable {
         this.aggregatedParams = new HashMap<Integer, String>();
         this.recevdParamIds = new HashMap<Integer, ArrayList<Integer>>();
         this.test = _test;
+        this.id = id;
         if (this.test.equals("Accuracy"))
-            this.fileName = "../../../../Consensus_res/" + aggregatorName + "/ncl_" + Integer.toString(_clientNums + byzNums) + "/nbyz_" + Integer.toString(byzNums) + "/Performance_3/recevdParamIds.txt";
+            this.fileName = "../../../../Consensus_res/" + aggregatorName + "/ncl_" + Integer.toString(_clientNums + byzNums) + "/nbyz_" + Integer.toString(byzNums) + "/Performance/recevdParamIds.txt";
         else if (this.test.equals("Performance"))
             this.fileName = "../../../../Consensus_res/" + aggregatorName + "/ncl_" + Integer.toString(_clientNums) + "/nbyz_" + Integer.toString(byzNums) + "/Performance/recevdParamIds.txt";
         
@@ -62,6 +65,14 @@ public final class FLServer extends DefaultSingleRecoverable {
             out = new DataOutputStream(socket.getOutputStream());
         } catch (IOException e) {
             throw new RuntimeException(e);
+        }
+
+        try {
+            ServerSocket replicaToClientSocket = new ServerSocket(6100 + id);
+            Socket s = replicaToClientSocket.accept();
+            replicaToClient = new DataOutputStream(s.getOutputStream());
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
@@ -114,8 +125,16 @@ public final class FLServer extends DefaultSingleRecoverable {
         int msg_size = Integer.parseInt(in.readUTF());
         byte[] data = new byte[msg_size];
         in.readFully(data);
-        aggregatedParams.put(currentRound, new String(data, 0, data.length));
+        String newAggregatedParams = new String(data, 0, data.length);
+        aggregatedParams.put(currentRound, newAggregatedParams);
         System.out.println("**** Aggregated of round " + currentRound);
+        FileWriter fw = new FileWriter("params" + Integer.toString(id), false);
+        BufferedWriter bw = new BufferedWriter(fw);
+        bw.write(newAggregatedParams);
+        bw.close();
+        String ready = "ready";
+        replicaToClient.writeUTF(ready);
+        replicaToClient.flush();
         currentRound++;
         receivedParams = 0;
         if (currentRound > numOfRounds) {
@@ -123,27 +142,10 @@ public final class FLServer extends DefaultSingleRecoverable {
         }
     }
 
-//     public void checkRoundEnd(int clientId) throws IOException {
-//         if (sentAggParams == clientNums){
-//             aggregated = false;
-// //            System.out.println("Round Ended by sending to client " + clientId);
-//             for (int i = 0; i < receivedParamsNextArr.size(); i++){
-//                 sendParametersToAggregator(receivedParamsNextArr.get(i), receivedParamsNextDatasetSizeArr.get(i));
-//             }
-//             sentAggParams = 0;
-//             receivedParams = receivedParamsNext;
-//             receivedParamsNext = 0;
-//             receivedParamsNextArr = new ArrayList<String>();
-//             currentRound++;
-//         }
-//     }
 
     public FLMessage sendAggParams(int clientId, int round) throws IOException {
         lock.lock();
-//        System.out.println("Send Aggregated param of round " + currentRound + " to client " + clientId);
-//        System.out.println("SentAggParams = " + sentAggParams);
         FLMessage msg = new FLMessage((round == numOfRounds) ? MessageType.LASTAGGPARAM : MessageType.AGGPARAM, aggregatedParams.get(round), round, clientId, "non");
-//        FLMessage msg = new FLMessage((currentRound == numOfRounds) ? MessageType.LASTAGGPARAM : MessageType.AGGPARAM, "Hello", currentRound, clientId, "non");
         lock.unlock();
         return msg;
     }
@@ -186,9 +188,12 @@ public final class FLServer extends DefaultSingleRecoverable {
         out.flush();
     }
     public FLMessage handleNewParam(FLMessage msg) throws IOException {
-       System.out.println("Got new param from " + msg.getClientId() + " Curretn Round: " + currentRound + " Client round:" + msg.getRound());
-        if (test.equals("Accuracy") && !recevdParamIds.get(currentRound).contains(msg.getClientId())){
-            return new FLMessage(MessageType.WAITTHIS, "", msg.getRound(), msg.getClientId(), "non");
+        System.out.println("Got new param from " + msg.getClientId() + " Curretn Round: " + currentRound + " Client round:" + msg.getRound());
+        if (msg.getRound() > numOfRounds){
+           return new FLMessage(MessageType.END, "", msg.getRound(), msg.getClientId(), "non");
+        }
+        if (test.equals("Accuracy") && (currentRound > numOfRounds || !recevdParamIds.get(currentRound).contains(msg.getClientId()))){
+                return new FLMessage(MessageType.ACK, "", msg.getRound(), msg.getClientId(), "non");
         }
         else{
             if (msg.getRound() == currentRound){
@@ -200,29 +205,51 @@ public final class FLServer extends DefaultSingleRecoverable {
                     System.out.println("Send Aggregate to Aggregator by client " + msg.getClientId());
                     System.out.println("Received params: " + recevdParamIds.get(currentRound));
                     aggregateParams();
-                    lock2.unlock();
-                    return sendAggParams(msg.getClientId(), msg.getRound());
                 }
-                else{
-                    lock2.unlock();
-                    return new FLMessage(MessageType.WAITTHIS, "", currentRound, msg.getClientId(), "non");
-                }
+                lock2.unlock();
             }
-            else{
-                return sendAggParams(msg.getClientId(), msg.getRound());
-            }
+            return new FLMessage(MessageType.ACK, "", msg.getRound(), msg.getClientId(), "non");
         }
     }
+
+    // public FLMessage handleNewParam(FLMessage msg) throws IOException {
+    //    System.out.println("Got new param from " + msg.getClientId() + " Curretn Round: " + currentRound + " Client round:" + msg.getRound());
+    //     if (test.equals("Accuracy") && !recevdParamIds.get(currentRound).contains(msg.getClientId())){
+    //         return new FLMessage(MessageType.WAITTHIS, "", msg.getRound(), msg.getClientId(), "non");
+    //     }
+    //     else{
+    //         if (msg.getRound() == currentRound){
+    //             lock2.lock();
+    //             receivedParams++;
+    //             recevdParamIds.get(currentRound).add(msg.getClientId());
+    //             sendParametersToAggregator(msg.getContent(), msg.getExtension());
+    //             if ((receivedParams >= clientNums - byzNums)){
+    //                 System.out.println("Send Aggregate to Aggregator by client " + msg.getClientId());
+    //                 System.out.println("Received params: " + recevdParamIds.get(currentRound));
+    //                 aggregateParams();
+    //                 lock2.unlock();
+    //                 return sendAggParams(msg.getClientId(), msg.getRound());
+    //             }
+    //             else{
+    //                 lock2.unlock();
+    //                 return new FLMessage(MessageType.WAITTHIS, "", currentRound, msg.getClientId(), "non");
+    //             }
+    //         }
+    //         else{
+    //             return sendAggParams(msg.getClientId(), msg.getRound());
+    //         }
+    //     }
+    // }
  
-    public FLMessage handleCheckMsg(FLMessage msg) throws IOException {
-        if (msg.getRound() >= currentRound){
-            return new FLMessage(MessageType.WAITTHIS, "", msg.getRound(), msg.getClientId(), "non");
-        }
-        else{
-            System.out.println("Got Check from " + msg.getClientId() + " Curretn Round: " + currentRound + " Client round:" + msg.getRound());
-            return sendAggParams(msg.getClientId(), msg.getRound());
-        }
-    }
+    // public FLMessage handleCheckMsg(FLMessage msg) throws IOException {
+    //     if (msg.getRound() >= currentRound){
+    //         return new FLMessage(MessageType.WAITTHIS, "", msg.getRound(), msg.getClientId(), "non");
+    //     }
+    //     else{
+    //         System.out.println("Got Check from " + msg.getClientId() + " Curretn Round: " + currentRound + " Client round:" + msg.getRound());
+    //         return sendAggParams(msg.getClientId(), msg.getRound());
+    //     }
+    // }
     @Override
     public void installSnapshot(byte[] state) {
 
@@ -239,8 +266,6 @@ public final class FLServer extends DefaultSingleRecoverable {
             FLMessage message = FLMessage.fromBytes(command);
             if (message.getType().equals(MessageType.NEWPARAM)){
                 return FLMessage.toBytes(handleNewParam(message));
-            } else if (message.getType().equals(MessageType.CHECK)){
-                return FLMessage.toBytes(handleCheckMsg(message));
             } else if (message.getType().equals(MessageType.GETSTATUS)){
                 if (connectedClients.size() == clientNums){
                     return FLMessage.toBytes(new FLMessage(MessageType.START, "", 0, message.getClientId(), "non"));
@@ -257,26 +282,29 @@ public final class FLServer extends DefaultSingleRecoverable {
             return null;
 
         } catch (IOException | ClassNotFoundException e) {
+            System.out.println("***** Server id: " + id);
             System.err.println("Invalid request received!" + e.getMessage());
+            e.printStackTrace();
             return null;
         }
     }
 
     @Override
     public byte[] appExecuteUnordered(byte[] command, MessageContext msgCtx) {
-        try {
-            FLMessage message = FLMessage.fromBytes(command);
-            if (message.getType().equals(MessageType.CHECK)){
-                return FLMessage.toBytes(handleCheckMsg(message));
-            }
-            System.err.println("Not valid message type!");
-            terminateTheAggregator();
-            return null;
+        // try {
+        //     FLMessage message = FLMessage.fromBytes(command);
+        //     if (message.getType().equals(MessageType.CHECK)){
+        //         return FLMessage.toBytes(handleCheckMsg(message));
+        //     }
+        //     System.err.println("Not valid message type!");
+        //     terminateTheAggregator();
+        //     return null;
 
-        } catch (IOException | ClassNotFoundException e) {
-            System.err.println("Invalid request received!");
-            return null;
-        }
+        // } catch (IOException | ClassNotFoundException e) {
+        //     System.err.println("Invalid request received!");
+        //     return null;
+        // }
+        return null;
     }
 
     public static void main(String[] args){
