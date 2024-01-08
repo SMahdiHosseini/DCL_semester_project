@@ -1,12 +1,18 @@
 -- Using view stored on disk
--- ID = 1
+-- SSL/TLS handshake complete!, Id:1  ## CipherSuite: TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256.
+-- SSL/TLS handshake complete!, Id:2  ## CipherSuite: TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256.
+-- SSL/TLS handshake complete!, Id:3  ## CipherSuite: TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256.
+-- SSL/TLS handshake complete!, Id:4  ## CipherSuite: TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256.
+-- SSL/TLS handshake complete!, Id:5  ## CipherSuite: TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256.
+-- SSL/TLS handshake complete!, Id:6  ## CipherSuite: TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256.
+-- ID = 7
 -- N = 10
 -- F = 3
--- Port (client <-> server) = 10010
--- Port (server <-> server) = 10011
+-- Port (client <-> server) = 10070
+-- Port (server <-> server) = 10071
 -- requestTimeout = 2000
 -- maxBatch = 1024
--- Binded replica to IP address 172.31.24.198
+-- Binded replica to IP address 172.31.28.114
 -- SSL/TLS enabled, protocol version: TLSv1.2
 -- In current view: ID:0; F:3; Processes:0(/172.31.19.231:10000),1(/172.31.24.198:10010),2(/172.31.16.37:10020),3(/172.31.20.254:10030),4(/172.31.16.89:10040),5(/172.31.16.201:10050),6(/172.31.16.133:10060),7(/172.31.28.114:10070),8(/172.31.24.114:10080),9(/172.31.24.32:10090),
 -- Retrieving State
@@ -16,7 +22,7 @@
 		###################################
 		    Ready to process operations    
 		###################################
-Server 1 Port: 33677
+Server 7 Port: 33887
 -- Session Created, active clients=0
 -- Session Created, active clients=1
 -- Session Created, active clients=2
@@ -3681,7 +3687,7 @@ Got new param from 9 Curretn Round: 261 Client round:261
 -- 
 ---------- DEBUG INFO ----------
 
-Current time: 19:18:40.657
+Current time: 19:18:40.692
 Current leader: 0
 Current regency: 0
 
@@ -3698,7 +3704,7 @@ Last finished consensus: 807
 		CID=807 
 		TS=0 
 		Propose=[5GFtk6iBfA3M45wMqu+Hfi4GBNJGgptZUM1LQL/hfrE=] 
-		Writes=([5GFtk6iBfA3M45wMqu+Hfi4GBNJGgptZUM1LQL/hfrE=], [5GFtk6iBfA3M45wMqu+Hfi4GBNJGgptZUM1LQL/hfrE=], [5GFtk6iBfA3M45wMqu+Hfi4GBNJGgptZUM1LQL/hfrE=], [5GFtk6iBfA3M45wMqu+Hfi4GBNJGgptZUM1LQL/hfrE=], [5GFtk6iBfA3M45wMqu+Hfi4GBNJGgptZUM1LQL/hfrE=], [5GFtk6iBfA3M45wMqu+Hfi4GBNJGgptZUM1LQL/hfrE=], [null], [5GFtk6iBfA3M45wMqu+Hfi4GBNJGgptZUM1LQL/hfrE=], [5GFtk6iBfA3M45wMqu+Hfi4GBNJGgptZUM1LQL/hfrE=], [5GFtk6iBfA3M45wMqu+Hfi4GBNJGgptZUM1LQL/hfrE=]) 
+		Writes=([5GFtk6iBfA3M45wMqu+Hfi4GBNJGgptZUM1LQL/hfrE=], [5GFtk6iBfA3M45wMqu+Hfi4GBNJGgptZUM1LQL/hfrE=], [5GFtk6iBfA3M45wMqu+Hfi4GBNJGgptZUM1LQL/hfrE=], [5GFtk6iBfA3M45wMqu+Hfi4GBNJGgptZUM1LQL/hfrE=], [5GFtk6iBfA3M45wMqu+Hfi4GBNJGgptZUM1LQL/hfrE=], [5GFtk6iBfA3M45wMqu+Hfi4GBNJGgptZUM1LQL/hfrE=], [5GFtk6iBfA3M45wMqu+Hfi4GBNJGgptZUM1LQL/hfrE=], [5GFtk6iBfA3M45wMqu+Hfi4GBNJGgptZUM1LQL/hfrE=], [5GFtk6iBfA3M45wMqu+Hfi4GBNJGgptZUM1LQL/hfrE=], [5GFtk6iBfA3M45wMqu+Hfi4GBNJGgptZUM1LQL/hfrE=]) 
 		Accepts=([null], [5GFtk6iBfA3M45wMqu+Hfi4GBNJGgptZUM1LQL/hfrE=], [5GFtk6iBfA3M45wMqu+Hfi4GBNJGgptZUM1LQL/hfrE=], [5GFtk6iBfA3M45wMqu+Hfi4GBNJGgptZUM1LQL/hfrE=], [null], [5GFtk6iBfA3M45wMqu+Hfi4GBNJGgptZUM1LQL/hfrE=], [null], [5GFtk6iBfA3M45wMqu+Hfi4GBNJGgptZUM1LQL/hfrE=], [5GFtk6iBfA3M45wMqu+Hfi4GBNJGgptZUM1LQL/hfrE=], [5GFtk6iBfA3M45wMqu+Hfi4GBNJGgptZUM1LQL/hfrE=])
 
 Consensus in execution: None

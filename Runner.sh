@@ -115,7 +115,7 @@ fi
 . global.config
 
 ## Performance Test
-for j in {1..1}
+for j in {3..3}
 do
     for agg in ${aggregator[@]}; do
         read_bytes > main/net_$1.txt
