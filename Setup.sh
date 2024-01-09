@@ -103,13 +103,13 @@ echo "   BFT prepared!     "
 echo "*********************"
 echo "*********************"
 
-echo "Introducing latencies for the network..."
-echo  "server=0" > latency.txt
-for i in `seq 0 $(( $nb_clients - 1 ))`
-do
-    r=$(( $RANDOM % 20 ))
-    echo "client_$i=$r" >> latency.txt
-done
+# echo "Introducing latencies for the network..."
+# echo  "server=0" > latency.txt
+# for i in `seq 0 $(( $nb_clients - 1 ))`
+# do
+#     r=$(( $RANDOM % 50 ))
+#     echo "client_$i=$r" >> latency.txt
+# done
 
 echo "*********************"
 echo "*********************" 
