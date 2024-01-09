@@ -264,6 +264,10 @@ public final class FLServer extends DefaultSingleRecoverable {
     public byte[] appExecuteOrdered(byte[] command, MessageContext msgCtx) {
         try {
             FLMessage message = FLMessage.fromBytes(command);
+            if (message.getType().equals(MessageType.NEWPARAM) && message.getRound() == 1 && message.getClientId() == 0){
+                // //print stack trace
+                // new Exception().printStackTrace();
+            }
             if (message.getType().equals(MessageType.NEWPARAM)){
                 return FLMessage.toBytes(handleNewParam(message));
             } else if (message.getType().equals(MessageType.GETSTATUS)){
