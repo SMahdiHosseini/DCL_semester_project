@@ -511,55 +511,55 @@ def main():
     fl = dict()
     p2p = dict()
     con = dict()
-    # for agg in aggregators:
-    #     fl[agg] = dict()
-    #     p2p[agg] = dict()
-    #     con[agg] = dict()
-    #     analysePerformance(aggregator=agg, nb_clients=nb_clients, nb_byz=nb_byz, res=fl, senario='fl')
-    #     analysePerformance(aggregator=agg, nb_clients=nb_clients, nb_byz=nb_byz, res=p2p, senario='p2p')
-    #     analysePerformance(aggregator=agg, nb_clients=nb_clients, nb_byz=nb_byz, res=con, senario='con')
+    for agg in aggregators:
+        fl[agg] = dict()
+        p2p[agg] = dict()
+        con[agg] = dict()
+        analysePerformance(aggregator=agg, nb_clients=nb_clients, nb_byz=nb_byz, res=fl, senario='fl')
+        analysePerformance(aggregator=agg, nb_clients=nb_clients, nb_byz=nb_byz, res=p2p, senario='p2p')
+        analysePerformance(aggregator=agg, nb_clients=nb_clients, nb_byz=nb_byz, res=con, senario='con')
 
-    #     for att in attacks:
-    #         analyseAccuracy(aggregator=agg, attack=att, nb_clients=nb_clients, nb_byz=nb_byz, res=fl, senario='fl')
-    #         analyseAccuracy(aggregator=agg, attack=att, nb_clients=nb_clients, nb_byz=nb_byz, res=p2p, senario='p2p')
-    #         analyseAccuracy(aggregator=agg, attack=att, nb_clients=nb_clients, nb_byz=nb_byz, res=con, senario='con')
+        for att in attacks:
+            analyseAccuracy(aggregator=agg, attack=att, nb_clients=nb_clients, nb_byz=nb_byz, res=fl, senario='fl')
+            analyseAccuracy(aggregator=agg, attack=att, nb_clients=nb_clients, nb_byz=nb_byz, res=p2p, senario='p2p')
+            analyseAccuracy(aggregator=agg, attack=att, nb_clients=nb_clients, nb_byz=nb_byz, res=con, senario='con')
     # print("fl:", len(fl['trmean']['time']))
     # print("fl", fl['trmean']['time'].values())
-#     # # print("p2p:", p2p)
-#     # # print("con:", con)
-    # all_accuracy_per_round(fl, p2p, con)
-    # all_accuracy_per_time(fl, p2p, con)
-    # accuracy_attack_plot(fl, "fl", nb_clients, nb_byz)
-    # accuracy_attack_plot(p2p, "p2p", nb_clients, nb_byz)
-    # accuracy_attack_plot(con, "con", nb_clients, nb_byz)
+    # # print("p2p:", p2p)
+    # # print("con:", con)
+    all_accuracy_per_round(fl, p2p, con)
+    all_accuracy_per_time(fl, p2p, con)
+    accuracy_attack_plot(fl, "fl", nb_clients, nb_byz)
+    accuracy_attack_plot(p2p, "p2p", nb_clients, nb_byz)
+    accuracy_attack_plot(con, "con", nb_clients, nb_byz)
 
-    # boxplots_i(boxes=[[[value for values in fl[agg]['time'].values() for value in values] for agg in aggregators], 
-    #                   [[value for values in p2p[agg]['time'].values() for value in values] for agg in aggregators],
-    #                   [[value for values in con[agg]['time'].values() for value in values] for agg in aggregators]],
-    #            num=3, labels=aggregators, boxes_tags=['fl', 'p2p', 'con'], x_label="aggregator", y_label="time", y_lim=0.30, filename="../../Plots/roundtime_" + str(nb_clients) + "_" + str(nb_byz) + ".png", 
-    #            title="n = " + str(nb_clients) + "\n n byz = " + str(nb_byz))
+    boxplots_i(boxes=[[[value for values in fl[agg]['time'].values() for value in values] for agg in aggregators], 
+                      [[value for values in p2p[agg]['time'].values() for value in values] for agg in aggregators],
+                      [[value for values in con[agg]['time'].values() for value in values] for agg in aggregators]],
+               num=3, labels=aggregators, boxes_tags=['fl', 'p2p', 'con'], x_label="aggregator", y_label="time", y_lim=0.30, filename="../../Plots/roundtime_" + str(nb_clients) + "_" + str(nb_byz) + ".png", 
+               title="n = " + str(nb_clients) + "\n n byz = " + str(nb_byz))
 
 
-    # violin_plot(fl, p2p, con)
-    # slowest_fl, fastest_fl = find_fastest_slowest('fl', 'trmean')
-    # slowest_p2p, fastest_p2p = find_fastest_slowest('p2p', 'trmean')
-    # slowest_con, fastest_con = find_fastest_slowest('con', 'trmean')
-    # violin_plot_slowest_fastest({'slowest': slowest_fl, 'fastest': fastest_fl}, {'slowest': slowest_p2p, 'fastest': fastest_p2p}, {'slowest': slowest_con, 'fastest': fastest_con})
+    violin_plot(fl, p2p, con)
+    slowest_fl, fastest_fl = find_fastest_slowest('fl', 'trmean')
+    slowest_p2p, fastest_p2p = find_fastest_slowest('p2p', 'trmean')
+    slowest_con, fastest_con = find_fastest_slowest('con', 'trmean')
+    violin_plot_slowest_fastest({'slowest': slowest_fl, 'fastest': fastest_fl}, {'slowest': slowest_p2p, 'fastest': fastest_p2p}, {'slowest': slowest_con, 'fastest': fastest_con})
 
 # #### finding the fastest node that reached the trsh first
-    trsh = 0.60
-    # trsh = 0.75
-    # fl_slowest_fastest = {'trmean': {'SF': find_fastest_slowest_trsh('fl', 'trmean', 'SF', trsh)}}
-    # p2p_slowest_fastest = {'trmean': {'SF': find_fastest_slowest_trsh('p2p', 'trmean', 'SF', trsh)}}
-    # con_slowest_fastest = {'trmean': {'SF': find_fastest_slowest_trsh('con', 'trmean', 'SF', trsh)}}
+    # trsh = 0.60
+    trsh = 0.75
+    fl_slowest_fastest = {'trmean': {'SF': find_fastest_slowest_trsh('fl', 'trmean', 'SF', trsh)}}
+    p2p_slowest_fastest = {'trmean': {'SF': find_fastest_slowest_trsh('p2p', 'trmean', 'SF', trsh)}}
+    con_slowest_fastest = {'trmean': {'SF': find_fastest_slowest_trsh('con', 'trmean', 'SF', trsh)}}
     # print(p2p_slowest_fastest['trmean']['SF']['fastest']['acc'])
-    # all_accuracy_per_time_per_pace(fl_slowest_fastest, p2p_slowest_fastest, con_slowest_fastest, 'fastest', trsh)
-    # all_accuracy_per_time_per_pace(fl_slowest_fastest, p2p_slowest_fastest, con_slowest_fastest, 'slowest', trsh)
+    all_accuracy_per_time_per_pace(fl_slowest_fastest, p2p_slowest_fastest, con_slowest_fastest, 'fastest', trsh)
+    all_accuracy_per_time_per_pace(fl_slowest_fastest, p2p_slowest_fastest, con_slowest_fastest, 'slowest', trsh)
 
 ## accuracy per time per client
-    # all_clients_acccs('p2p', 'trmean', 'SF')
-    # all_clients_acccs('fl', 'trmean', 'SF')
-    # all_clients_acccs('con', 'trmean', 'SF')
+    all_clients_acccs('p2p', 'trmean', 'SF')
+    all_clients_acccs('fl', 'trmean', 'SF')
+    all_clients_acccs('con', 'trmean', 'SF')
 
 ### finding the orders of clients
     print(readOrders(0, nb_clients, nb_byz, nb_rounds, 'trmean', 'SF', 'fl'))

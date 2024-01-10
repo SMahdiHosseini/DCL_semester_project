@@ -1,535 +1,1052 @@
 Client 4 started! ... 
+round_1_aggregation order: [4, 1, 3, 5]
+round_2_aggregation order: [4, 0, 1, 2]
+round_3_aggregation order: [4, 0, 1, 2]
+round_4_aggregation order: [4, 0, 1, 2]
+round_5_aggregation order: [4, 0, 1, 3]
+round_6_aggregation order: [4, 0, 1, 3]
+round_7_aggregation order: [4, 0, 1, 3]
+round_8_aggregation order: [4, 0, 1, 3]
+round_9_aggregation order: [4, 1, 5, 0]
+round_10_aggregation order: [4, 1, 3, 5]
+round_11_aggregation order: [4, 1, 3, 5]
+round_12_aggregation order: [4, 5, 6, 1]
+round_13_aggregation order: [4, 3, 5, 0]
+round_14_aggregation order: [4, 1, 3, 5]
+round_15_aggregation order: [4, 0, 1, 3]
+round_16_aggregation order: [4, 1, 3, 5]
+round_17_aggregation order: [4, 0, 1, 3]
+round_18_aggregation order: [4, 1, 3, 5]
+round_19_aggregation order: [4, 0, 1, 3]
+round_20_aggregation order: [4, 1, 3, 5]
+round_21_aggregation order: [4, 1, 3, 5]
+round_22_aggregation order: [4, 0, 1, 3]
+round_23_aggregation order: [4, 0, 1, 3]
+round_24_aggregation order: [4, 5, 0, 1]
+round_25_aggregation order: [4, 0, 1, 3]
+round_26_aggregation order: [4, 0, 1, 3]
+round_27_aggregation order: [4, 1, 3, 5]
+round_28_aggregation order: [4, 1, 3, 5]
+round_29_aggregation order: [4, 1, 5, 0]
+round_30_aggregation order: [4, 1, 5, 6]
+round_31_aggregation order: [4, 1, 3, 5]
+round_32_aggregation order: [4, 1, 3, 5]
+round_33_aggregation order: [4, 1, 3, 5]
+round_34_aggregation order: [4, 1, 3, 0]
+round_35_aggregation order: [4, 0, 1, 3]
+round_36_aggregation order: [4, 0, 1, 3]
+round_37_aggregation order: [4, 1, 3, 5]
+round_38_aggregation order: [4, 1, 3, 5]
+round_39_aggregation order: [4, 1, 3, 5]
+round_40_aggregation order: [4, 0, 1, 3]
+round_41_aggregation order: [4, 0, 1, 3]
+round_42_aggregation order: [4, 1, 5, 6]
+round_43_aggregation order: [4, 1, 5, 0]
+round_44_aggregation order: [4, 3, 5, 0]
+round_45_aggregation order: [4, 1, 3, 5]
+round_46_aggregation order: [4, 1, 0, 2]
+round_47_aggregation order: [4, 1, 5, 6]
+round_48_aggregation order: [4, 0, 1, 3]
+round_49_aggregation order: [4, 1, 3, 5]
+round_50_aggregation order: [4, 1, 5, 2]
+round_51_aggregation order: [4, 1, 3, 5]
+round_52_aggregation order: [4, 0, 1, 3]
+round_53_aggregation order: [4, 1, 3, 5]
+round_54_aggregation order: [4, 0, 1, 2]
+round_55_aggregation order: [4, 1, 3, 5]
+round_56_aggregation order: [4, 5, 0, 1]
+round_57_aggregation order: [4, 0, 1, 3]
+round_58_aggregation order: [4, 0, 1, 3]
+round_59_aggregation order: [4, 1, 3, 5]
+round_60_aggregation order: [4, 1, 3, 5]
+round_61_aggregation order: [4, 1, 3, 5]
+round_62_aggregation order: [4, 1, 3, 5]
+round_63_aggregation order: [4, 5, 1, 2]
+round_64_aggregation order: [4, 1, 3, 5]
+round_65_aggregation order: [4, 0, 1, 2]
+round_66_aggregation order: [4, 0, 1, 2]
+round_67_aggregation order: [4, 0, 1, 3]
+round_68_aggregation order: [4, 0, 1, 3]
+round_69_aggregation order: [4, 1, 3, 5]
+round_70_aggregation order: [4, 0, 1, 2]
+round_71_aggregation order: [4, 1, 3, 5]
+round_72_aggregation order: [4, 3, 0, 1]
+round_73_aggregation order: [4, 0, 1, 3]
+round_74_aggregation order: [4, 1, 3, 5]
+round_75_aggregation order: [4, 1, 3, 5]
+round_76_aggregation order: [4, 1, 3, 5]
+round_77_aggregation order: [4, 1, 2, 3]
+round_78_aggregation order: [4, 1, 3, 5]
+round_79_aggregation order: [4, 3, 1, 5]
+round_80_aggregation order: [4, 0, 1, 3]
+round_81_aggregation order: [4, 0, 1, 3]
+round_82_aggregation order: [4, 0, 1, 3]
+round_83_aggregation order: [4, 1, 3, 5]
+round_84_aggregation order: [4, 0, 1, 3]
+round_85_aggregation order: [4, 1, 3, 5]
+round_86_aggregation order: [4, 1, 2, 3]
+round_87_aggregation order: [4, 1, 3, 5]
+round_88_aggregation order: [4, 3, 0, 1]
+round_89_aggregation order: [4, 0, 1, 5]
+round_90_aggregation order: [4, 3, 5, 6]
+round_91_aggregation order: [4, 1, 3, 5]
+round_92_aggregation order: [4, 1, 3, 5]
+round_93_aggregation order: [4, 1, 3, 5]
+round_94_aggregation order: [4, 1, 3, 5]
+round_95_aggregation order: [4, 1, 3, 5]
+round_96_aggregation order: [4, 1, 3, 5]
+round_97_aggregation order: [4, 1, 2, 3]
+round_98_aggregation order: [4, 1, 3, 5]
+round_99_aggregation order: [4, 0, 1, 3]
+round_100_aggregation order: [4, 1, 3, 5]
+round_101_aggregation order: [4, 0, 1, 2]
+round_102_aggregation order: [4, 1, 3, 5]
+round_103_aggregation order: [4, 0, 1, 3]
+round_104_aggregation order: [4, 1, 3, 5]
+round_105_aggregation order: [4, 1, 5, 0]
+round_106_aggregation order: [4, 1, 3, 5]
+round_107_aggregation order: [4, 5, 0, 1]
+round_108_aggregation order: [4, 1, 3, 5]
+round_109_aggregation order: [4, 0, 1, 2]
+round_110_aggregation order: [4, 0, 1, 2]
+round_111_aggregation order: [4, 0, 1, 2]
+round_112_aggregation order: [4, 0, 1, 3]
+round_113_aggregation order: [4, 1, 3, 5]
+round_114_aggregation order: [4, 0, 1, 3]
+round_115_aggregation order: [4, 1, 3, 5]
+round_116_aggregation order: [4, 1, 3, 5]
+round_117_aggregation order: [4, 1, 3, 5]
+round_118_aggregation order: [4, 1, 3, 5]
+round_119_aggregation order: [4, 1, 3, 5]
+round_120_aggregation order: [4, 1, 5, 3]
+round_121_aggregation order: [4, 1, 3, 5]
+round_122_aggregation order: [4, 0, 5, 6]
+round_123_aggregation order: [4, 3, 5, 6]
+round_124_aggregation order: [4, 3, 5, 1]
+round_125_aggregation order: [4, 1, 3, 5]
+round_126_aggregation order: [4, 1, 3, 5]
+round_127_aggregation order: [4, 1, 3, 5]
+round_128_aggregation order: [4, 5, 1, 2]
+round_129_aggregation order: [4, 5, 0, 1]
+round_130_aggregation order: [4, 3, 6, 0]
+round_131_aggregation order: [4, 0, 1, 2]
+round_132_aggregation order: [4, 1, 3, 5]
+round_133_aggregation order: [4, 1, 3, 5]
+round_134_aggregation order: [4, 1, 3, 5]
+round_135_aggregation order: [4, 1, 3, 6]
+round_136_aggregation order: [1, 3, 4, 2]
+round_137_aggregation order: [4, 1, 2, 3]
+round_138_aggregation order: [4, 1, 3, 5]
+round_139_aggregation order: [4, 3, 0, 1]
+round_140_aggregation order: [4, 1, 3, 5]
+round_141_aggregation order: [4, 1, 3, 5]
+round_142_aggregation order: [4, 1, 3, 5]
+round_143_aggregation order: [4, 1, 3, 5]
+round_144_aggregation order: [4, 0, 1, 2]
+round_145_aggregation order: [4, 1, 3, 5]
+round_146_aggregation order: [4, 1, 3, 0]
+round_147_aggregation order: [3, 4, 0, 1]
+round_148_aggregation order: [4, 0, 1, 3]
+round_149_aggregation order: [4, 1, 3, 5]
+round_150_aggregation order: [4, 1, 3, 5]
+round_151_aggregation order: [4, 0, 1, 5]
+round_152_aggregation order: [4, 1, 5, 0]
+round_153_aggregation order: [4, 0, 1, 3]
+round_154_aggregation order: [4, 0, 1, 3]
+round_155_aggregation order: [4, 1, 3, 5]
+round_156_aggregation order: [4, 1, 3, 5]
+round_157_aggregation order: [4, 3, 5, 6]
+round_158_aggregation order: [4, 1, 3, 5]
+round_159_aggregation order: [4, 0, 1, 2]
+round_160_aggregation order: [4, 0, 1, 2]
+round_161_aggregation order: [4, 0, 1, 3]
+round_162_aggregation order: [4, 0, 1, 3]
+round_163_aggregation order: [4, 1, 3, 5]
+round_164_aggregation order: [4, 0, 1, 3]
+round_165_aggregation order: [4, 0, 1, 3]
+round_166_aggregation order: [4, 1, 5, 6]
+round_167_aggregation order: [4, 0, 1, 3]
+round_168_aggregation order: [4, 0, 1, 3]
+round_169_aggregation order: [4, 1, 3, 5]
+round_170_aggregation order: [4, 3, 5, 0]
+round_171_aggregation order: [4, 1, 3, 5]
+round_172_aggregation order: [4, 1, 3, 0]
+round_173_aggregation order: [4, 0, 1, 3]
+round_174_aggregation order: [4, 1, 3, 5]
+round_175_aggregation order: [4, 1, 5, 6]
+round_176_aggregation order: [4, 1, 5, 0]
+round_177_aggregation order: [4, 0, 1, 2]
+round_178_aggregation order: [4, 0, 1, 3]
+round_179_aggregation order: [4, 1, 3, 5]
+round_180_aggregation order: [4, 1, 3, 5]
+round_181_aggregation order: [4, 1, 3, 5]
+round_182_aggregation order: [4, 1, 3, 5]
+round_183_aggregation order: [4, 3, 5, 1]
+round_184_aggregation order: [4, 1, 5, 6]
+round_185_aggregation order: [4, 1, 3, 5]
+round_186_aggregation order: [4, 1, 5, 0]
+round_187_aggregation order: [4, 1, 3, 5]
+round_188_aggregation order: [4, 0, 1, 3]
+round_189_aggregation order: [4, 3, 5, 6]
+round_190_aggregation order: [4, 0, 1, 3]
+round_191_aggregation order: [4, 1, 3, 5]
+round_192_aggregation order: [4, 1, 3, 5]
+round_193_aggregation order: [4, 1, 3, 6]
+round_194_aggregation order: [4, 1, 3, 5]
+round_195_aggregation order: [4, 1, 3, 5]
+round_196_aggregation order: [4, 1, 3, 5]
+round_197_aggregation order: [4, 1, 3, 5]
+round_198_aggregation order: [4, 1, 3, 5]
+round_199_aggregation order: [4, 5, 0, 1]
+round_200_aggregation order: [4, 0, 1, 3]
+round_201_aggregation order: [4, 1, 5, 3]
+round_202_aggregation order: [4, 3, 1, 2]
+round_203_aggregation order: [4, 1, 3, 5]
+round_204_aggregation order: [4, 1, 3, 5]
+round_205_aggregation order: [4, 1, 3, 5]
+round_206_aggregation order: [4, 0, 1, 3]
+round_207_aggregation order: [4, 0, 1, 3]
+round_208_aggregation order: [4, 3, 5, 6]
+round_209_aggregation order: [4, 0, 1, 3]
+round_210_aggregation order: [4, 0, 1, 3]
+round_211_aggregation order: [4, 0, 1, 3]
+round_212_aggregation order: [4, 0, 1, 3]
+round_213_aggregation order: [4, 1, 3, 5]
+round_214_aggregation order: [4, 1, 5, 6]
+round_215_aggregation order: [4, 1, 3, 5]
+round_216_aggregation order: [4, 0, 1, 3]
+round_217_aggregation order: [4, 3, 6, 1]
+round_218_aggregation order: [4, 1, 3, 5]
+round_219_aggregation order: [4, 1, 3, 5]
+round_220_aggregation order: [4, 1, 3, 5]
+round_221_aggregation order: [4, 3, 5, 0]
+round_222_aggregation order: [4, 0, 1, 3]
+round_223_aggregation order: [4, 1, 3, 5]
+round_224_aggregation order: [4, 1, 2, 3]
+round_225_aggregation order: [4, 1, 3, 5]
+round_226_aggregation order: [4, 3, 0, 1]
+round_227_aggregation order: [4, 1, 3, 5]
+round_228_aggregation order: [4, 1, 3, 5]
+round_229_aggregation order: [4, 1, 3, 5]
+round_230_aggregation order: [4, 0, 1, 3]
+round_231_aggregation order: [4, 1, 0, 3]
+round_232_aggregation order: [4, 1, 3, 5]
+round_233_aggregation order: [4, 1, 5, 6]
+round_234_aggregation order: [4, 0, 1, 2]
+round_235_aggregation order: [4, 0, 1, 2]
+round_236_aggregation order: [4, 0, 1, 3]
+round_237_aggregation order: [4, 0, 1, 3]
+round_238_aggregation order: [4, 0, 1, 3]
+round_239_aggregation order: [4, 3, 0, 1]
+round_240_aggregation order: [4, 1, 3, 5]
+round_241_aggregation order: [4, 5, 1, 2]
+round_242_aggregation order: [4, 1, 3, 5]
+round_243_aggregation order: [4, 0, 1, 2]
+round_244_aggregation order: [4, 1, 3, 5]
+round_245_aggregation order: [4, 1, 5, 3]
+round_246_aggregation order: [4, 1, 3, 5]
+round_247_aggregation order: [4, 1, 0, 2]
+round_248_aggregation order: [4, 1, 2, 3]
+round_249_aggregation order: [4, 1, 3, 5]
+round_250_aggregation order: [4, 0, 1, 3]
+round_251_aggregation order: [4, 1, 3, 5]
+round_252_aggregation order: [4, 1, 3, 0]
+round_253_aggregation order: [4, 5, 1, 3]
+round_254_aggregation order: [4, 1, 3, 5]
+round_255_aggregation order: [4, 0, 1, 3]
+round_256_aggregation order: [4, 1, 5, 0]
+round_257_aggregation order: [4, 0, 1, 3]
+round_258_aggregation order: [4, 0, 1, 3]
+round_259_aggregation order: [5, 4, 1, 3]
+round_260_aggregation order: [4, 0, 1, 3]
 Client 4 connected to client 0 !
 Client 4 connected to client 1 !
 Client 4 connected to client 2 !
 Client 4 connected to client 3 !
 Client 4 connected to client 5 !
 Client 4 connected to client 6 !
-Client 4 connected to client 7 !
-Client 4 connected to client 8 !
-Client 4 connected to client 9 !
 client connected to neighbors!
 Client 4 initialized! ...
 Client 4 started Training! ... 
-Loss = 2.3310041427612305, Accuracy = 0.0625
-round 1 finished 17:30:46:692230
-Loss = 2.3199026584625244, Accuracy = 0.0703125
-round 2 finished 17:30:46:965429
-Loss = 2.278806209564209, Accuracy = 0.171875
-round 3 finished 17:30:47:130100
-Loss = 2.278998851776123, Accuracy = 0.171875
-round 4 finished 17:30:47:216428
-Loss = 2.244846820831299, Accuracy = 0.1796875
-round 5 finished 17:30:47:291979
-Loss = 2.243898391723633, Accuracy = 0.21875
-round 6 finished 17:30:47:366600
-Loss = 2.2074413299560547, Accuracy = 0.28125
-round 7 finished 17:30:47:475102
-Loss = 2.1753246784210205, Accuracy = 0.3203125
-round 8 finished 17:30:47:573129
-Loss = 2.184241533279419, Accuracy = 0.296875
-round 9 finished 17:30:47:716226
-Loss = 2.1444997787475586, Accuracy = 0.3359375
-round 10 finished 17:30:47:812581
-Loss = 2.12073016166687, Accuracy = 0.4375
-round 11 finished 17:30:47:954807
-Loss = 2.1294589042663574, Accuracy = 0.390625
-round 12 finished 17:30:48:064551
-Loss = 2.0993216037750244, Accuracy = 0.4375
-round 13 finished 17:30:48:236224
-Loss = 2.026270627975464, Accuracy = 0.5859375
-round 14 finished 17:30:48:339179
-Loss = 2.0900261402130127, Accuracy = 0.453125
-round 15 finished 17:30:48:472373
-Loss = 2.0443975925445557, Accuracy = 0.5546875
-round 16 finished 17:30:48:681896
-Loss = 2.0214223861694336, Accuracy = 0.53125
-round 17 finished 17:30:48:762227
-Loss = 2.0072734355926514, Accuracy = 0.5625
-round 18 finished 17:30:48:885943
-Loss = 2.001436710357666, Accuracy = 0.5859375
-round 19 finished 17:30:49:025085
-Loss = 1.9832028150558472, Accuracy = 0.625
-round 20 finished 17:30:49:118908
-Loss = 2.0099010467529297, Accuracy = 0.5703125
-round 21 finished 17:30:49:343209
-Loss = 1.9536274671554565, Accuracy = 0.6328125
-round 22 finished 17:30:49:454238
-Loss = 1.920752763748169, Accuracy = 0.671875
-round 23 finished 17:30:49:551237
-Loss = 1.873557209968567, Accuracy = 0.7578125
-round 24 finished 17:30:49:800105
-Loss = 1.862094521522522, Accuracy = 0.6953125
-round 25 finished 17:30:49:886148
-Loss = 1.8732985258102417, Accuracy = 0.6328125
-round 26 finished 17:30:49:959466
-Loss = 1.8444231748580933, Accuracy = 0.6171875
-round 27 finished 17:30:50:159711
-Loss = 1.865149974822998, Accuracy = 0.640625
-round 28 finished 17:30:50:243413
-Loss = 1.830764889717102, Accuracy = 0.671875
-round 29 finished 17:30:50:384873
-Loss = 1.7902320623397827, Accuracy = 0.703125
-round 30 finished 17:30:50:569258
-Loss = 1.8081414699554443, Accuracy = 0.6640625
-round 31 finished 17:30:50:711048
-Loss = 1.8014943599700928, Accuracy = 0.640625
-round 32 finished 17:30:50:855565
-Loss = 1.7626112699508667, Accuracy = 0.71875
-round 33 finished 17:30:50:992270
-Loss = 1.7804944515228271, Accuracy = 0.65625
-round 34 finished 17:30:51:170467
-Loss = 1.7547402381896973, Accuracy = 0.7109375
-round 35 finished 17:30:51:266942
-Loss = 1.7541882991790771, Accuracy = 0.6640625
-round 36 finished 17:30:51:400202
-Loss = 1.7472312450408936, Accuracy = 0.7109375
-round 37 finished 17:30:51:565653
-Loss = 1.6196330785751343, Accuracy = 0.8125
-round 38 finished 17:30:51:665356
-Loss = 1.7400760650634766, Accuracy = 0.7109375
-round 39 finished 17:30:51:812957
-Loss = 1.6500405073165894, Accuracy = 0.8359375
-round 40 finished 17:30:52:017129
-Loss = 1.7421717643737793, Accuracy = 0.6640625
-round 41 finished 17:30:52:093770
-Loss = 1.6461341381072998, Accuracy = 0.7578125
-round 42 finished 17:30:52:226148
-Loss = 1.689026951789856, Accuracy = 0.6953125
-round 43 finished 17:30:52:352478
-Loss = 1.6166801452636719, Accuracy = 0.765625
-round 44 finished 17:30:52:547051
-Loss = 1.651566505432129, Accuracy = 0.71875
-round 45 finished 17:30:52:646104
-Loss = 1.6371978521347046, Accuracy = 0.734375
-round 46 finished 17:30:52:794136
-Loss = 1.6524494886398315, Accuracy = 0.7232142686843872
-round 47 finished 17:30:52:976006
-Loss = 1.6349245309829712, Accuracy = 0.796875
-round 48 finished 17:30:53:093876
-Loss = 1.589634895324707, Accuracy = 0.7578125
-round 49 finished 17:30:53:186357
-Loss = 1.5424543619155884, Accuracy = 0.7578125
-round 50 finished 17:30:53:377330
-Loss = 1.6564360857009888, Accuracy = 0.671875
-round 51 finished 17:30:53:451237
-Loss = 1.5579924583435059, Accuracy = 0.75
-round 52 finished 17:30:53:639027
-Loss = 1.5921586751937866, Accuracy = 0.765625
-round 53 finished 17:30:53:727792
-Loss = 1.5250214338302612, Accuracy = 0.7734375
-round 54 finished 17:30:53:922098
-Loss = 1.5221747159957886, Accuracy = 0.7578125
-round 55 finished 17:30:54:012871
-Loss = 1.4928207397460938, Accuracy = 0.8046875
-round 56 finished 17:30:54:218100
-Loss = 1.5097570419311523, Accuracy = 0.7421875
-round 57 finished 17:30:54:316032
-Loss = 1.4670780897140503, Accuracy = 0.78125
-round 58 finished 17:30:54:426883
-Loss = 1.559078335762024, Accuracy = 0.7578125
-round 59 finished 17:30:54:568034
-Loss = 1.509562611579895, Accuracy = 0.765625
-round 60 finished 17:30:54:709852
-Loss = 1.483792781829834, Accuracy = 0.71875
-round 61 finished 17:30:54:861093
-Loss = 1.4711296558380127, Accuracy = 0.7734375
-round 62 finished 17:30:55:000033
-Loss = 1.4938117265701294, Accuracy = 0.7265625
-round 63 finished 17:30:55:142535
-Loss = 1.5342915058135986, Accuracy = 0.671875
-round 64 finished 17:30:55:352052
-Loss = 1.4744471311569214, Accuracy = 0.7578125
-round 65 finished 17:30:55:488048
-Loss = 1.4865806102752686, Accuracy = 0.703125
-round 66 finished 17:30:55:618349
-Loss = 1.3943930864334106, Accuracy = 0.7578125
-round 67 finished 17:30:55:756422
-Loss = 1.4635967016220093, Accuracy = 0.7421875
-round 68 finished 17:30:55:829821
-Loss = 1.4014948606491089, Accuracy = 0.8125
-round 69 finished 17:30:56:033748
-Loss = 1.4081220626831055, Accuracy = 0.8046875
-round 70 finished 17:30:56:131773
-Loss = 1.3797041177749634, Accuracy = 0.7734375
-round 71 finished 17:30:56:256828
-Loss = 1.3356362581253052, Accuracy = 0.796875
-round 72 finished 17:30:56:427345
-Loss = 1.4504674673080444, Accuracy = 0.765625
-round 73 finished 17:30:56:570068
-Loss = 1.3398076295852661, Accuracy = 0.7890625
-round 74 finished 17:30:56:718986
-Loss = 1.3346372842788696, Accuracy = 0.7734375
-round 75 finished 17:30:56:851012
-Loss = 1.3878215551376343, Accuracy = 0.734375
-round 76 finished 17:30:57:015018
-Loss = 1.3855189085006714, Accuracy = 0.7421875
-round 77 finished 17:30:57:125016
-Loss = 1.3174211978912354, Accuracy = 0.84375
-round 78 finished 17:30:57:246012
-Loss = 1.422715663909912, Accuracy = 0.7109375
-round 79 finished 17:30:57:446638
-Loss = 1.3158574104309082, Accuracy = 0.8125
-round 80 finished 17:30:57:575142
-Loss = 1.2847087383270264, Accuracy = 0.8203125
-round 81 finished 17:30:57:686987
-Loss = 1.3081554174423218, Accuracy = 0.796875
-round 82 finished 17:30:57:825247
-Loss = 1.2243084907531738, Accuracy = 0.859375
-round 83 finished 17:30:57:995170
-Loss = 1.3714053630828857, Accuracy = 0.765625
-round 84 finished 17:30:58:093291
-Loss = 1.3185690641403198, Accuracy = 0.796875
-round 85 finished 17:30:58:167499
-Loss = 1.2625994682312012, Accuracy = 0.8125
-round 86 finished 17:30:58:369046
-Loss = 1.320346474647522, Accuracy = 0.7265625
-round 87 finished 17:30:58:474117
-Loss = 1.169937252998352, Accuracy = 0.8359375
-round 88 finished 17:30:58:637746
-Loss = 1.2272096872329712, Accuracy = 0.8046875
-round 89 finished 17:30:58:754742
-Loss = 1.1822844743728638, Accuracy = 0.8515625
-round 90 finished 17:30:58:939285
-Loss = 1.3279904127120972, Accuracy = 0.7578125
-round 91 finished 17:30:59:068237
-Loss = 1.2370318174362183, Accuracy = 0.8125
-round 92 finished 17:30:59:168188
-Loss = 1.1375164985656738, Accuracy = 0.828125
-round 93 finished 17:30:59:323728
-Loss = 1.2032470703125, Accuracy = 0.8035714030265808
-round 94 finished 17:30:59:471568
-Loss = 1.2285380363464355, Accuracy = 0.8203125
-round 95 finished 17:30:59:596686
-Loss = 1.1880860328674316, Accuracy = 0.828125
-round 96 finished 17:30:59:704041
-Loss = 1.1796321868896484, Accuracy = 0.796875
-round 97 finished 17:30:59:896131
-Loss = 1.2374647855758667, Accuracy = 0.765625
-round 98 finished 17:31:00:001007
-Loss = 1.2002439498901367, Accuracy = 0.8046875
-round 99 finished 17:31:00:142056
-Loss = 1.1969726085662842, Accuracy = 0.8515625
-round 100 finished 17:31:00:235927
-Loss = 1.202440619468689, Accuracy = 0.828125
-round 101 finished 17:31:00:410943
-Loss = 1.1510894298553467, Accuracy = 0.828125
-round 102 finished 17:31:00:586499
-Loss = 1.2176755666732788, Accuracy = 0.796875
-round 103 finished 17:31:00:693825
-Loss = 1.1698459386825562, Accuracy = 0.84375
-round 104 finished 17:31:00:786010
-Loss = 1.1568083763122559, Accuracy = 0.8671875
-round 105 finished 17:31:00:941861
-Loss = 1.2473951578140259, Accuracy = 0.7734375
-round 106 finished 17:31:01:048251
-Loss = 1.144517421722412, Accuracy = 0.796875
-round 107 finished 17:31:01:203094
-Loss = 1.1333047151565552, Accuracy = 0.8125
-round 108 finished 17:31:01:293625
-Loss = 1.2392878532409668, Accuracy = 0.765625
-round 109 finished 17:31:01:550328
-Loss = 1.2031136751174927, Accuracy = 0.7734375
-round 110 finished 17:31:01:690945
-Loss = 1.2133026123046875, Accuracy = 0.7890625
-round 111 finished 17:31:01:817191
-Loss = 1.1235042810440063, Accuracy = 0.8359375
-round 112 finished 17:31:01:890469
-Loss = 1.2525144815444946, Accuracy = 0.7421875
-round 113 finished 17:31:02:061380
-Loss = 1.2429555654525757, Accuracy = 0.7578125
-round 114 finished 17:31:02:166951
-Loss = 1.1118048429489136, Accuracy = 0.8203125
-round 115 finished 17:31:02:307331
-Loss = 1.0907559394836426, Accuracy = 0.8359375
-round 116 finished 17:31:02:419866
-Loss = 1.173124074935913, Accuracy = 0.7578125
-round 117 finished 17:31:02:577974
-Loss = 1.140990138053894, Accuracy = 0.8203125
-round 118 finished 17:31:02:696157
-Loss = 1.0866544246673584, Accuracy = 0.8359375
-round 119 finished 17:31:02:810182
-Loss = 1.09028959274292, Accuracy = 0.8125
-round 120 finished 17:31:02:974353
-Loss = 1.104725956916809, Accuracy = 0.8046875
-round 121 finished 17:31:03:110100
-Loss = 1.0318220853805542, Accuracy = 0.859375
-round 122 finished 17:31:03:243152
-Loss = 1.088809609413147, Accuracy = 0.828125
-round 123 finished 17:31:03:366238
-Loss = 1.0590126514434814, Accuracy = 0.8125
-round 124 finished 17:31:03:515272
-Loss = 1.1338014602661133, Accuracy = 0.796875
-round 125 finished 17:31:03:697008
-Loss = 1.1225621700286865, Accuracy = 0.8125
-round 126 finished 17:31:03:796337
-Loss = 1.0385993719100952, Accuracy = 0.8359375
-round 127 finished 17:31:03:909909
-Loss = 1.0688865184783936, Accuracy = 0.8203125
-round 128 finished 17:31:04:060433
-Loss = 1.057463526725769, Accuracy = 0.7734375
-round 129 finished 17:31:04:195828
-Loss = 1.0794241428375244, Accuracy = 0.796875
-round 130 finished 17:31:04:395341
-Loss = 1.0747272968292236, Accuracy = 0.8046875
-round 131 finished 17:31:04:533031
-Loss = 1.160929799079895, Accuracy = 0.765625
-round 132 finished 17:31:04:641022
-Loss = 0.9968153834342957, Accuracy = 0.859375
-round 133 finished 17:31:04:789598
-Loss = 1.1300318241119385, Accuracy = 0.7890625
-round 134 finished 17:31:04:905849
-Loss = 1.1061128377914429, Accuracy = 0.7890625
-round 135 finished 17:31:05:138558
-Loss = 1.0404925346374512, Accuracy = 0.8359375
-round 136 finished 17:31:05:230648
-Loss = 1.0907585620880127, Accuracy = 0.7890625
-round 137 finished 17:31:05:364086
-Loss = 1.0533334016799927, Accuracy = 0.8203125
-round 138 finished 17:31:05:458147
-Loss = 1.0934993028640747, Accuracy = 0.796875
-round 139 finished 17:31:05:635147
-Loss = 1.0693610906600952, Accuracy = 0.7890625
-round 140 finished 17:31:05:734675
-Loss = 0.9555902481079102, Accuracy = 0.8839285969734192
-round 141 finished 17:31:05:912996
-Loss = 1.0545610189437866, Accuracy = 0.859375
-round 142 finished 17:31:06:001528
-Loss = 1.034869909286499, Accuracy = 0.8203125
-round 143 finished 17:31:06:278431
-Loss = 1.0649341344833374, Accuracy = 0.796875
-round 144 finished 17:31:06:351786
-Loss = 0.9440053701400757, Accuracy = 0.8671875
-round 145 finished 17:31:06:425631
-Loss = 1.0675112009048462, Accuracy = 0.7578125
-round 146 finished 17:31:06:628121
-Loss = 1.081821084022522, Accuracy = 0.7890625
-round 147 finished 17:31:06:709111
-Loss = 0.9580495357513428, Accuracy = 0.859375
-round 148 finished 17:31:06:826954
-Loss = 1.002434492111206, Accuracy = 0.84375
-round 149 finished 17:31:06:960735
-Loss = 0.9642477631568909, Accuracy = 0.8125
-round 150 finished 17:31:07:080103
-Loss = 1.0552574396133423, Accuracy = 0.765625
-round 151 finished 17:31:07:192284
-Loss = 1.0265883207321167, Accuracy = 0.859375
-round 152 finished 17:31:07:403126
-Loss = 1.065787434577942, Accuracy = 0.8125
-round 153 finished 17:31:07:507163
-Loss = 1.0043699741363525, Accuracy = 0.8203125
-round 154 finished 17:31:07:631229
-Loss = 0.9724053144454956, Accuracy = 0.828125
-round 155 finished 17:31:07:753366
-Loss = 1.0124832391738892, Accuracy = 0.828125
-round 156 finished 17:31:07:861281
-Loss = 0.9131507873535156, Accuracy = 0.84375
-round 157 finished 17:31:08:006107
-Loss = 0.9800459742546082, Accuracy = 0.8203125
-round 158 finished 17:31:08:213446
-Loss = 0.958676815032959, Accuracy = 0.828125
-round 159 finished 17:31:08:361319
-Loss = 0.9617512822151184, Accuracy = 0.859375
-round 160 finished 17:31:08:505293
-Loss = 0.9419634342193604, Accuracy = 0.8359375
-round 161 finished 17:31:08:618888
-Loss = 0.99339359998703, Accuracy = 0.8203125
-round 162 finished 17:31:08:738151
-Loss = 1.0361675024032593, Accuracy = 0.8046875
-round 163 finished 17:31:08:832002
-Loss = 0.9569799304008484, Accuracy = 0.859375
-round 164 finished 17:31:09:026587
-Loss = 0.9247919917106628, Accuracy = 0.859375
-round 165 finished 17:31:09:121419
-Loss = 0.9413032531738281, Accuracy = 0.8203125
-round 166 finished 17:31:09:339344
-Loss = 0.9204840064048767, Accuracy = 0.859375
-round 167 finished 17:31:09:462480
-Loss = 1.0277820825576782, Accuracy = 0.78125
-round 168 finished 17:31:09:546778
-Loss = 0.9943950176239014, Accuracy = 0.796875
-round 169 finished 17:31:09:651410
-Loss = 0.9371470212936401, Accuracy = 0.859375
-round 170 finished 17:31:09:834446
-Loss = 1.0659246444702148, Accuracy = 0.75
-round 171 finished 17:31:09:938982
-Loss = 0.9707167148590088, Accuracy = 0.7734375
-round 172 finished 17:31:10:148092
-Loss = 1.0221916437149048, Accuracy = 0.796875
-round 173 finished 17:31:10:239345
-Loss = 0.994192361831665, Accuracy = 0.796875
-round 174 finished 17:31:10:376770
-Loss = 0.9500471949577332, Accuracy = 0.8515625
-round 175 finished 17:31:10:559078
-Loss = 0.9531635046005249, Accuracy = 0.8125
-round 176 finished 17:31:10:708373
-Loss = 0.9439362287521362, Accuracy = 0.8203125
-round 177 finished 17:31:10:811766
-Loss = 0.8745173811912537, Accuracy = 0.859375
-round 178 finished 17:31:10:955308
-Loss = 0.9404335618019104, Accuracy = 0.8515625
-round 179 finished 17:31:11:050970
-Loss = 0.954484224319458, Accuracy = 0.8515625
-round 180 finished 17:31:11:258508
-Loss = 0.8620050549507141, Accuracy = 0.8984375
-round 181 finished 17:31:11:364018
-Loss = 0.9506345987319946, Accuracy = 0.8046875
-round 182 finished 17:31:11:478409
-Loss = 0.8878999948501587, Accuracy = 0.796875
-round 183 finished 17:31:11:616583
-Loss = 0.8749374747276306, Accuracy = 0.84375
-round 184 finished 17:31:11:785839
-Loss = 0.9855703115463257, Accuracy = 0.8046875
-round 185 finished 17:31:11:922344
-Loss = 0.9064289927482605, Accuracy = 0.828125
-round 186 finished 17:31:12:026656
-Loss = 0.8332599401473999, Accuracy = 0.875
-round 187 finished 17:31:12:206212
-Loss = 0.9086169004440308, Accuracy = 0.8482142686843872
-round 188 finished 17:31:12:302821
-Loss = 0.9773548245429993, Accuracy = 0.8515625
-round 189 finished 17:31:12:414377
-Loss = 0.8995591402053833, Accuracy = 0.8125
-round 190 finished 17:31:12:603984
-Loss = 0.8622542023658752, Accuracy = 0.8359375
-round 191 finished 17:31:12:746766
-Loss = 0.8930531740188599, Accuracy = 0.828125
-round 192 finished 17:31:12:863851
-Loss = 0.8496091961860657, Accuracy = 0.859375
-round 193 finished 17:31:13:008935
-Loss = 0.9053322672843933, Accuracy = 0.828125
-round 194 finished 17:31:13:152921
-Loss = 0.9215558171272278, Accuracy = 0.78125
-round 195 finished 17:31:13:318218
-Loss = 0.9129636883735657, Accuracy = 0.78125
-round 196 finished 17:31:13:427106
-Loss = 0.9246972799301147, Accuracy = 0.796875
-round 197 finished 17:31:13:568003
-Loss = 0.8652646541595459, Accuracy = 0.828125
-round 198 finished 17:31:13:681748
-Loss = 0.7736411690711975, Accuracy = 0.8828125
-round 199 finished 17:31:13:851609
-Loss = 0.9573182463645935, Accuracy = 0.8046875
-round 200 finished 17:31:13:968412
-Loss = 0.8156204223632812, Accuracy = 0.8671875
-round 201 finished 17:31:14:075326
-Loss = 0.8709229826927185, Accuracy = 0.8359375
-round 202 finished 17:31:14:282684
-Loss = 0.906381368637085, Accuracy = 0.84375
-round 203 finished 17:31:14:380945
-Loss = 0.9752665162086487, Accuracy = 0.8046875
-round 204 finished 17:31:14:502216
-Loss = 0.8608503937721252, Accuracy = 0.828125
-round 205 finished 17:31:14:712409
-Loss = 0.9092164635658264, Accuracy = 0.7890625
-round 206 finished 17:31:14:829427
-Loss = 0.9427623152732849, Accuracy = 0.7734375
-round 207 finished 17:31:14:927670
-Loss = 0.8395727872848511, Accuracy = 0.8359375
-round 208 finished 17:31:15:086592
-Loss = 0.8094350695610046, Accuracy = 0.8984375
-round 209 finished 17:31:15:217876
-Loss = 0.7920722961425781, Accuracy = 0.875
-round 210 finished 17:31:15:321232
-Loss = 0.9557262659072876, Accuracy = 0.8125
-round 211 finished 17:31:15:547229
-Loss = 0.8758871555328369, Accuracy = 0.8359375
-round 212 finished 17:31:15:619294
-Loss = 0.9147022366523743, Accuracy = 0.8203125
-round 213 finished 17:31:15:756040
-Loss = 0.7985201478004456, Accuracy = 0.875
-round 214 finished 17:31:15:892606
-Loss = 0.8694775700569153, Accuracy = 0.84375
-round 215 finished 17:31:16:041054
-Loss = 0.8134638071060181, Accuracy = 0.8515625
-round 216 finished 17:31:16:142077
-Loss = 0.7706671357154846, Accuracy = 0.8984375
-round 217 finished 17:31:16:355416
-Loss = 0.8261040449142456, Accuracy = 0.875
-round 218 finished 17:31:16:469755
-Loss = 0.8596310019493103, Accuracy = 0.8203125
-round 219 finished 17:31:16:610328
-Loss = 0.7991077899932861, Accuracy = 0.8515625
-round 220 finished 17:31:16:717199
-Loss = 0.7869604229927063, Accuracy = 0.8828125
-round 221 finished 17:31:16:924581
-Loss = 0.8973366618156433, Accuracy = 0.8046875
-round 222 finished 17:31:17:024400
-Loss = 0.8920704126358032, Accuracy = 0.8359375
-round 223 finished 17:31:17:197664
-Loss = 0.8892229199409485, Accuracy = 0.8046875
-round 224 finished 17:31:17:287935
-Loss = 0.8587842583656311, Accuracy = 0.8125
-round 225 finished 17:31:17:412924
-Loss = 0.8794098496437073, Accuracy = 0.8125
-round 226 finished 17:31:17:576685
-Loss = 0.8115995526313782, Accuracy = 0.828125
-round 227 finished 17:31:17:752896
-Loss = 0.8627326488494873, Accuracy = 0.765625
-round 228 finished 17:31:17:842408
-Loss = 0.8618741035461426, Accuracy = 0.8515625
-round 229 finished 17:31:18:004526
-Loss = 0.8663902282714844, Accuracy = 0.859375
-round 230 finished 17:31:18:088391
-Loss = 0.923038899898529, Accuracy = 0.796875
-round 231 finished 17:31:18:258268
-Loss = 0.8620104193687439, Accuracy = 0.859375
-round 232 finished 17:31:18:365231
-Loss = 0.8991866707801819, Accuracy = 0.78125
-round 233 finished 17:31:18:590884
-Loss = 0.8141648173332214, Accuracy = 0.8671875
-round 234 finished 17:31:18:721578
-Loss = 0.7549766898155212, Accuracy = 0.9017857313156128
-round 235 finished 17:31:18:807401
-Loss = 0.7546607255935669, Accuracy = 0.8984375
-round 236 finished 17:31:18:942868
-Loss = 0.7154962420463562, Accuracy = 0.8828125
-round 237 finished 17:31:19:076104
-Loss = 0.802763819694519, Accuracy = 0.859375
-round 238 finished 17:31:19:166177
-Loss = 0.9058522582054138, Accuracy = 0.8203125
-round 239 finished 17:31:19:340631
-Loss = 0.7130420207977295, Accuracy = 0.890625
-round 240 finished 17:31:19:450147
-Loss = 0.7890756130218506, Accuracy = 0.8515625
-round 241 finished 17:31:19:651762
-Loss = 0.8615660667419434, Accuracy = 0.8203125
-round 242 finished 17:31:19:723583
-Loss = 0.9109950065612793, Accuracy = 0.8046875
-round 243 finished 17:31:19:918721
-Loss = 0.8970062136650085, Accuracy = 0.8125
-round 244 finished 17:31:20:001080
-Loss = 0.7571594715118408, Accuracy = 0.8984375
-round 245 finished 17:31:20:159271
-Loss = 0.7733231782913208, Accuracy = 0.8671875
-round 246 finished 17:31:20:267639
-Loss = 0.8241056203842163, Accuracy = 0.796875
-round 247 finished 17:31:20:453524
-Loss = 0.8669283390045166, Accuracy = 0.7890625
-round 248 finished 17:31:20:556708
-Loss = 0.792558491230011, Accuracy = 0.8359375
-round 249 finished 17:31:20:721961
-Loss = 0.9028834700584412, Accuracy = 0.8203125
-round 250 finished 17:31:20:846218
-Loss = 0.8525650501251221, Accuracy = 0.8203125
-round 251 finished 17:31:20:933825
-Loss = 0.8619489073753357, Accuracy = 0.796875
-round 252 finished 17:31:21:060209
-Loss = 0.8904936909675598, Accuracy = 0.8046875
-round 253 finished 17:31:21:211780
-Loss = 0.785437822341919, Accuracy = 0.8671875
-round 254 finished 17:31:21:355875
-Loss = 0.8174293637275696, Accuracy = 0.84375
-round 255 finished 17:31:21:460791
-Loss = 0.7990323901176453, Accuracy = 0.8515625
-round 256 finished 17:31:21:644638
-Loss = 0.8272855281829834, Accuracy = 0.828125
-round 257 finished 17:31:21:732895
-Loss = 0.8317102789878845, Accuracy = 0.8125
-round 258 finished 17:31:21:906270
-Loss = 0.8137319087982178, Accuracy = 0.84375
-round 259 finished 17:31:21:972424
-Loss = 0.8182373046875, Accuracy = 0.84375
-round 260 finished 17:31:22:133460
+Loss = 2.3367741107940674, Accuracy = 0.0546875
+dict_keys([(4, '11:40:50:352532'), (1, '11:40:51:602346'), (5, '11:40:51:606729'), (3, '11:40:51:957797'), (-1, '11:40:51:973558'), (-2, '11:40:51:973558'), (-3, '11:40:51:973558')])
+round 1 finished 11:40:52:878977
+Loss = 2.241407632827759, Accuracy = 0.09375
+dict_keys([(4, '11:40:52:879001'), (1, '11:40:52:912548'), (2, '11:40:52:921138'), (0, '11:40:53:210627'), (-1, '11:40:53:210627'), (-2, '11:40:53:210627'), (-3, '11:40:53:210627')])
+round 2 finished 11:40:54:476389
+Loss = 2.303279161453247, Accuracy = 0.0703125
+dict_keys([(4, '11:40:54:476413'), (0, '11:40:54:501658'), (1, '11:40:54:519367'), (2, '11:40:54:524875'), (-1, '11:40:54:552022'), (-2, '11:40:54:552022'), (-3, '11:40:54:552022')])
+round 3 finished 11:40:55:463740
+Loss = 2.3316431045532227, Accuracy = 0.0546875
+dict_keys([(4, '11:40:55:463766'), (0, '11:40:55:495438'), (1, '11:40:55:512858'), (2, '11:40:55:813947'), (-1, '11:40:55:813947'), (-2, '11:40:55:813947'), (-3, '11:40:55:813947')])
+round 4 finished 11:40:56:760636
+Loss = 2.3779454231262207, Accuracy = 0.015625
+dict_keys([(4, '11:40:56:760663'), (3, '11:40:56:790997'), (1, '11:40:56:810965'), (0, '11:40:57:111540'), (-1, '11:40:57:111540'), (-2, '11:40:57:111540'), (-3, '11:40:57:111540')])
+round 5 finished 11:40:58:399305
+Loss = 2.367610216140747, Accuracy = 0.015625
+dict_keys([(4, '11:40:58:399329'), (0, '11:40:58:427595'), (1, '11:40:58:472697'), (3, '11:40:58:484672'), (-1, '11:40:58:519557'), (-2, '11:40:58:519557'), (-3, '11:40:58:519557')])
+round 6 finished 11:40:59:424166
+Loss = 2.4053289890289307, Accuracy = 0.0390625
+dict_keys([(4, '11:40:59:424192'), (0, '11:40:59:483841'), (1, '11:40:59:716031'), (3, '11:40:59:723661'), (-1, '11:40:59:723661'), (-2, '11:40:59:723661'), (-3, '11:40:59:723661')])
+round 7 finished 11:41:00:699045
+Loss = 2.4408748149871826, Accuracy = 0.03125
+dict_keys([(4, '11:41:00:699071'), (0, '11:41:00:725640'), (1, '11:41:00:734256'), (3, '11:41:01:003369'), (-1, '11:41:01:003369'), (-2, '11:41:01:003369'), (-3, '11:41:01:003369')])
+round 8 finished 11:41:01:909356
+Loss = 2.4890105724334717, Accuracy = 0.046875
+dict_keys([(4, '11:41:01:909381'), (5, '11:41:01:938462'), (1, '11:41:01:988360'), (0, '11:41:02:229372'), (-1, '11:41:02:275643'), (-2, '11:41:02:275643'), (-3, '11:41:02:275643')])
+round 9 finished 11:41:03:553811
+Loss = 2.4630203247070312, Accuracy = 0.140625
+dict_keys([(4, '11:41:03:553837'), (1, '11:41:03:621041'), (3, '11:41:03:664247'), (5, '11:41:03:669859'), (-1, '11:41:03:686234'), (-2, '11:41:03:686234'), (-3, '11:41:03:686234')])
+round 10 finished 11:41:04:611114
+Loss = 2.4927005767822266, Accuracy = 0.0625
+dict_keys([(4, '11:41:04:611145'), (3, '11:41:04:650124'), (5, '11:41:04:654910'), (1, '11:41:04:871836'), (-1, '11:41:04:871836'), (-2, '11:41:04:871836'), (-3, '11:41:04:871836')])
+round 11 finished 11:41:05:813353
+Loss = 2.520266056060791, Accuracy = 0.1171875
+dict_keys([(4, '11:41:05:813382'), (1, '11:41:05:875590'), (6, '11:41:06:155656'), (5, '11:41:06:164805'), (-1, '11:41:06:164805'), (-2, '11:41:06:164805'), (-3, '11:41:06:164805')])
+round 12 finished 11:41:07:401906
+Loss = 2.5870447158813477, Accuracy = 0.09375
+dict_keys([(4, '11:41:07:401931'), (0, '11:41:07:427760'), (3, '11:41:07:468750'), (5, '11:41:07:485097'), (-1, '11:41:07:490587'), (-2, '11:41:07:490587'), (-3, '11:41:07:490587')])
+round 13 finished 11:41:08:391219
+Loss = 2.499173641204834, Accuracy = 0.1015625
+dict_keys([(4, '11:41:08:391253'), (1, '11:41:08:433800'), (3, '11:41:08:449585'), (5, '11:41:08:734925'), (-1, '11:41:08:734925'), (-2, '11:41:08:734925'), (-3, '11:41:08:734925')])
+round 14 finished 11:41:10:024134
+Loss = 2.455188274383545, Accuracy = 0.140625
+dict_keys([(4, '11:41:10:024176'), (0, '11:41:10:052883'), (1, '11:41:10:058522'), (3, '11:41:10:070536'), (-1, '11:41:10:082175'), (-2, '11:41:10:082175'), (-3, '11:41:10:082175')])
+round 15 finished 11:41:11:027027
+Loss = 2.550975799560547, Accuracy = 0.109375
+dict_keys([(4, '11:41:11:027056'), (1, '11:41:11:069917'), (3, '11:41:11:086938'), (5, '11:41:11:356085'), (-1, '11:41:11:356085'), (-2, '11:41:11:356085'), (-3, '11:41:11:356085')])
+round 16 finished 11:41:12:603127
+Loss = 2.5553078651428223, Accuracy = 0.078125
+dict_keys([(4, '11:41:12:603156'), (0, '11:41:12:627852'), (3, '11:41:12:638956'), (1, '11:41:12:668760'), (-1, '11:41:12:668760'), (-2, '11:41:12:668760'), (-3, '11:41:12:668760')])
+round 17 finished 11:41:13:888895
+Loss = 2.5708718299865723, Accuracy = 0.09375
+dict_keys([(4, '11:41:13:888924'), (1, '11:41:13:914373'), (3, '11:41:13:927315'), (5, '11:41:13:932239'), (-1, '11:41:13:954631'), (-2, '11:41:13:954631'), (-3, '11:41:13:954631')])
+round 18 finished 11:41:14:937931
+Loss = 2.570699691772461, Accuracy = 0.1171875
+dict_keys([(4, '11:41:14:937967'), (1, '11:41:15:013978'), (3, '11:41:15:296394'), (0, '11:41:15:305491'), (-1, '11:41:15:305491'), (-2, '11:41:15:305491'), (-3, '11:41:15:305491')])
+round 19 finished 11:41:16:573858
+Loss = 2.5907979011535645, Accuracy = 0.109375
+dict_keys([(4, '11:41:16:573884'), (1, '11:41:16:634364'), (3, '11:41:16:670151'), (5, '11:41:16:676062'), (-1, '11:41:16:694071'), (-2, '11:41:16:694071'), (-3, '11:41:16:694071')])
+round 20 finished 11:41:17:873738
+Loss = 2.619966745376587, Accuracy = 0.109375
+dict_keys([(4, '11:41:17:873799'), (1, '11:41:17:907972'), (3, '11:41:17:926930'), (5, '11:41:17:932461'), (-1, '11:41:17:937966'), (-2, '11:41:17:937966'), (-3, '11:41:17:937966')])
+round 21 finished 11:41:18:796271
+Loss = 2.6488049030303955, Accuracy = 0.109375
+dict_keys([(4, '11:41:18:796304'), (3, '11:41:18:846797'), (0, '11:41:18:915021'), (1, '11:41:19:202762'), (-1, '11:41:19:202762'), (-2, '11:41:19:202762'), (-3, '11:41:19:202762')])
+round 22 finished 11:41:20:459418
+Loss = 2.6189539432525635, Accuracy = 0.0859375
+dict_keys([(4, '11:41:20:459439'), (0, '11:41:20:486399'), (1, '11:41:20:494477'), (3, '11:41:20:505600'), (-1, '11:41:20:516656'), (-2, '11:41:20:516656'), (-3, '11:41:20:516656')])
+round 23 finished 11:41:21:434402
+Loss = 2.6195924282073975, Accuracy = 0.078125
+dict_keys([(4, '11:41:21:434438'), (1, '11:41:21:465901'), (5, '11:41:21:477217'), (0, '11:41:21:760756'), (-1, '11:41:21:760756'), (-2, '11:41:21:760756'), (-3, '11:41:21:760756')])
+round 24 finished 11:41:22:802255
+Loss = 2.5866823196411133, Accuracy = 0.109375
+dict_keys([(4, '11:41:22:802291'), (0, '11:41:22:828997'), (3, '11:41:22:844028'), (1, '11:41:23:072366'), (-1, '11:41:23:072366'), (-2, '11:41:23:072366'), (-3, '11:41:23:072366')])
+round 25 finished 11:41:24:036269
+Loss = 2.4555137157440186, Accuracy = 0.140625
+dict_keys([(4, '11:41:24:036304'), (3, '11:41:24:077892'), (1, '11:41:24:162598'), (0, '11:41:24:345273'), (-1, '11:41:24:367679'), (-2, '11:41:24:367679'), (-3, '11:41:24:367679')])
+round 26 finished 11:41:25:637962
+Loss = 2.488806962966919, Accuracy = 0.1171875
+dict_keys([(4, '11:41:25:637986'), (1, '11:41:25:671648'), (3, '11:41:25:691779'), (5, '11:41:25:700201'), (-1, '11:41:25:729522'), (-2, '11:41:25:729522'), (-3, '11:41:25:729522')])
+round 27 finished 11:41:26:600516
+Loss = 2.569136381149292, Accuracy = 0.125
+dict_keys([(4, '11:41:26:600552'), (1, '11:41:26:646910'), (3, '11:41:26:651819'), (5, '11:41:26:656014'), (-1, '11:41:26:927483'), (-2, '11:41:26:927483'), (-3, '11:41:26:927483')])
+round 28 finished 11:41:27:887229
+Loss = 2.493502140045166, Accuracy = 0.125
+dict_keys([(4, '11:41:27:887258'), (0, '11:41:27:913867'), (5, '11:41:27:923989'), (1, '11:41:27:945294'), (-1, '11:41:28:208458'), (-2, '11:41:28:208458'), (-3, '11:41:28:208458')])
+round 29 finished 11:41:29:186694
+Loss = 2.487231492996216, Accuracy = 0.1015625
+dict_keys([(4, '11:41:29:186723'), (1, '11:41:29:222719'), (6, '11:41:29:292878'), (5, '11:41:29:534245'), (-1, '11:41:29:534245'), (-2, '11:41:29:534245'), (-3, '11:41:29:534245')])
+round 30 finished 11:41:30:487736
+Loss = 2.4626972675323486, Accuracy = 0.09375
+dict_keys([(4, '11:41:30:487762'), (5, '11:41:30:525284'), (3, '11:41:30:539977'), (1, '11:41:30:790696'), (-1, '11:41:30:790696'), (-2, '11:41:30:790696'), (-3, '11:41:30:790696')])
+round 31 finished 11:41:32:041458
+Loss = 2.477863311767578, Accuracy = 0.203125
+dict_keys([(4, '11:41:32:041487'), (3, '11:41:32:081422'), (5, '11:41:32:088472'), (1, '11:41:32:135111'), (-1, '11:41:32:135111'), (-2, '11:41:32:135111'), (-3, '11:41:32:135111')])
+round 32 finished 11:41:33:103184
+Loss = 2.426363945007324, Accuracy = 0.1484375
+dict_keys([(4, '11:41:33:103228'), (5, '11:41:33:139604'), (1, '11:41:33:166095'), (3, '11:41:33:430222'), (-1, '11:41:33:430222'), (-2, '11:41:33:430222'), (-3, '11:41:33:430222')])
+round 33 finished 11:41:34:390768
+Loss = 2.3518078327178955, Accuracy = 0.1953125
+dict_keys([(4, '11:41:34:390797'), (0, '11:41:34:424894'), (1, '11:41:34:431128'), (3, '11:41:34:456832'), (-1, '11:41:34:744053'), (-2, '11:41:34:744053'), (-3, '11:41:34:744053')])
+round 34 finished 11:41:35:995479
+Loss = 2.319455623626709, Accuracy = 0.2734375
+dict_keys([(4, '11:41:35:995505'), (0, '11:41:36:021339'), (1, '11:41:36:029882'), (3, '11:41:36:051878'), (-1, '11:41:36:077789'), (-2, '11:41:36:077789'), (-3, '11:41:36:077789')])
+round 35 finished 11:41:37:328436
+Loss = 2.3737637996673584, Accuracy = 0.1875
+dict_keys([(4, '11:41:37:328463'), (0, '11:41:37:353461'), (1, '11:41:37:360424'), (3, '11:41:37:371363'), (-1, '11:41:37:382242'), (-2, '11:41:37:382242'), (-3, '11:41:37:382242')])
+round 36 finished 11:41:38:298174
+Loss = 2.3552119731903076, Accuracy = 0.1875
+dict_keys([(4, '11:41:38:298205'), (1, '11:41:38:325851'), (5, '11:41:38:333367'), (3, '11:41:38:631631'), (-1, '11:41:38:649323'), (-2, '11:41:38:649323'), (-3, '11:41:38:649323')])
+round 37 finished 11:41:39:563218
+Loss = 2.5272865295410156, Accuracy = 0.1328125
+dict_keys([(4, '11:41:39:563249'), (5, '11:41:39:664828'), (3, '11:41:39:712069'), (1, '11:41:39:964422'), (-1, '11:41:39:964422'), (-2, '11:41:39:964422'), (-3, '11:41:39:964422')])
+round 38 finished 11:41:41:290687
+Loss = 2.307359218597412, Accuracy = 0.2265625
+dict_keys([(4, '11:41:41:290714'), (1, '11:41:41:345895'), (3, '11:41:41:356867'), (5, '11:41:41:362373'), (-1, '11:41:41:368808'), (-2, '11:41:41:368808'), (-3, '11:41:41:368808')])
+round 39 finished 11:41:42:275351
+Loss = 2.432405948638916, Accuracy = 0.21875
+dict_keys([(4, '11:41:42:275387'), (0, '11:41:42:310176'), (1, '11:41:42:316143'), (3, '11:41:42:570393'), (-1, '11:41:42:570393'), (-2, '11:41:42:570393'), (-3, '11:41:42:570393')])
+round 40 finished 11:41:43:540823
+Loss = 2.4394240379333496, Accuracy = 0.21875
+dict_keys([(4, '11:41:43:540853'), (3, '11:41:43:575912'), (1, '11:41:43:607561'), (0, '11:41:43:890179'), (-1, '11:41:43:890179'), (-2, '11:41:43:890179'), (-3, '11:41:43:890179')])
+round 41 finished 11:41:44:906748
+Loss = 2.39019775390625, Accuracy = 0.2109375
+dict_keys([(4, '11:41:44:906777'), (1, '11:41:44:932903'), (5, '11:41:44:942136'), (6, '11:41:45:225022'), (-1, '11:41:45:225022'), (-2, '11:41:45:225022'), (-3, '11:41:45:225022')])
+round 42 finished 11:41:46:175979
+Loss = 2.414212703704834, Accuracy = 0.2109375
+dict_keys([(4, '11:41:46:176008'), (5, '11:41:46:203638'), (0, '11:41:46:252104'), (1, '11:41:46:500605'), (-1, '11:41:46:500605'), (-2, '11:41:46:500605'), (-3, '11:41:46:500605')])
+round 43 finished 11:41:47:757447
+Loss = 2.4637064933776855, Accuracy = 0.1953125
+dict_keys([(4, '11:41:47:757470'), (0, '11:41:47:782485'), (3, '11:41:47:794283'), (5, '11:41:47:798804'), (-1, '11:41:47:823172'), (-2, '11:41:47:823172'), (-3, '11:41:47:823172')])
+round 44 finished 11:41:48:784311
+Loss = 2.5177860260009766, Accuracy = 0.1640625
+dict_keys([(4, '11:41:48:784337'), (3, '11:41:48:824419'), (1, '11:41:48:839374'), (5, '11:41:49:100135'), (-1, '11:41:49:123716'), (-2, '11:41:49:123716'), (-3, '11:41:49:123716')])
+round 45 finished 11:41:50:070961
+Loss = 2.4433164596557617, Accuracy = 0.1875
+dict_keys([(4, '11:41:50:070990'), (1, '11:41:50:102115'), (0, '11:41:50:118406'), (2, '11:41:50:380003'), (-1, '11:41:50:406721'), (-2, '11:41:50:406721'), (-3, '11:41:50:406721')])
+round 46 finished 11:41:51:375330
+Loss = 2.432230234146118, Accuracy = 0.203125
+dict_keys([(4, '11:41:51:375365'), (5, '11:41:51:414479'), (6, '11:41:51:423010'), (1, '11:41:51:685767'), (-1, '11:41:51:685767'), (-2, '11:41:51:685767'), (-3, '11:41:51:685767')])
+round 47 finished 11:41:52:937002
+Loss = 2.590275764465332, Accuracy = 0.140625
+dict_keys([(4, '11:41:52:937030'), (0, '11:41:52:962200'), (1, '11:41:52:971409'), (3, '11:41:52:977469'), (-1, '11:41:52:993885'), (-2, '11:41:52:993885'), (-3, '11:41:52:993885')])
+round 48 finished 11:41:53:891289
+Loss = 2.4823789596557617, Accuracy = 0.15625
+dict_keys([(4, '11:41:53:891320'), (3, '11:41:53:983870'), (1, '11:41:53:995218'), (5, '11:41:54:292095'), (-1, '11:41:54:292095'), (-2, '11:41:54:292095'), (-3, '11:41:54:292095')])
+round 49 finished 11:41:55:213966
+Loss = 2.527810573577881, Accuracy = 0.171875
+dict_keys([(4, '11:41:55:213998'), (5, '11:41:55:255649'), (2, '11:41:55:528242'), (1, '11:41:55:581110'), (-1, '11:41:55:581110'), (-2, '11:41:55:581110'), (-3, '11:41:55:581110')])
+round 50 finished 11:41:56:499935
+Loss = 2.4543349742889404, Accuracy = 0.1796875
+dict_keys([(4, '11:41:56:499965'), (3, '11:41:56:565910'), (5, '11:41:56:871357'), (1, '11:41:56:879623'), (-1, '11:41:56:879623'), (-2, '11:41:56:879623'), (-3, '11:41:56:879623')])
+round 51 finished 11:41:57:882374
+Loss = 2.41113018989563, Accuracy = 0.203125
+dict_keys([(4, '11:41:57:882451'), (0, '11:41:57:915816'), (3, '11:41:58:162834'), (1, '11:41:58:189651'), (-1, '11:41:58:189651'), (-2, '11:41:58:189651'), (-3, '11:41:58:189651')])
+round 52 finished 11:41:59:156205
+Loss = 2.3705315589904785, Accuracy = 0.25
+dict_keys([(4, '11:41:59:156237'), (3, '11:41:59:212685'), (1, '11:41:59:246042'), (5, '11:41:59:492055'), (-1, '11:41:59:518817'), (-2, '11:41:59:518817'), (-3, '11:41:59:518817')])
+round 53 finished 11:42:00:414237
+Loss = 2.3513989448547363, Accuracy = 0.2421875
+dict_keys([(4, '11:42:00:414267'), (0, '11:42:00:457337'), (1, '11:42:00:759489'), (2, '11:42:00:780186'), (-1, '11:42:00:780186'), (-2, '11:42:00:780186'), (-3, '11:42:00:780186')])
+round 54 finished 11:42:02:062336
+Loss = 2.3142104148864746, Accuracy = 0.265625
+dict_keys([(4, '11:42:02:062371'), (1, '11:42:02:102586'), (3, '11:42:02:113593'), (5, '11:42:02:119087'), (-1, '11:42:02:124604'), (-2, '11:42:02:124604'), (-3, '11:42:02:124604')])
+round 55 finished 11:42:03:400186
+Loss = 2.4249134063720703, Accuracy = 0.1875
+dict_keys([(4, '11:42:03:400216'), (0, '11:42:03:425218'), (1, '11:42:03:431849'), (5, '11:42:03:448277'), (-1, '11:42:03:453711'), (-2, '11:42:03:453711'), (-3, '11:42:03:453711')])
+round 56 finished 11:42:04:394690
+Loss = 2.533194065093994, Accuracy = 0.1328125
+dict_keys([(4, '11:42:04:394723'), (0, '11:42:04:445203'), (1, '11:42:04:452869'), (3, '11:42:04:759284'), (-1, '11:42:04:759284'), (-2, '11:42:04:759284'), (-3, '11:42:04:759284')])
+round 57 finished 11:42:05:701455
+Loss = 2.4319748878479004, Accuracy = 0.203125
+dict_keys([(4, '11:42:05:701486'), (3, '11:42:05:745392'), (1, '11:42:06:040846'), (0, '11:42:06:052630'), (-1, '11:42:06:052630'), (-2, '11:42:06:052630'), (-3, '11:42:06:052630')])
+round 58 finished 11:42:06:994675
+Loss = 2.423102617263794, Accuracy = 0.21875
+dict_keys([(4, '11:42:06:994705'), (5, '11:42:07:021989'), (1, '11:42:07:038484'), (3, '11:42:07:049964'), (-1, '11:42:07:353401'), (-2, '11:42:07:353401'), (-3, '11:42:07:353401')])
+round 59 finished 11:42:08:300747
+Loss = 2.5363762378692627, Accuracy = 0.1796875
+dict_keys([(4, '11:42:08:300776'), (3, '11:42:08:328254'), (5, '11:42:08:389411'), (1, '11:42:08:662623'), (-1, '11:42:08:662623'), (-2, '11:42:08:662623'), (-3, '11:42:08:662623')])
+round 60 finished 11:42:09:606741
+Loss = 2.3632450103759766, Accuracy = 0.2265625
+dict_keys([(4, '11:42:09:606772'), (3, '11:42:09:653901'), (5, '11:42:09:699011'), (1, '11:42:09:973370'), (-1, '11:42:09:996105'), (-2, '11:42:09:996105'), (-3, '11:42:09:996105')])
+round 61 finished 11:42:10:963723
+Loss = 2.553558111190796, Accuracy = 0.1875
+dict_keys([(4, '11:42:10:963751'), (3, '11:42:11:003145'), (5, '11:42:11:013734'), (1, '11:42:11:287236'), (-1, '11:42:11:302884'), (-2, '11:42:11:302884'), (-3, '11:42:11:302884')])
+round 62 finished 11:42:12:147937
+Loss = 2.4766287803649902, Accuracy = 0.15625
+dict_keys([(4, '11:42:12:147968'), (5, '11:42:12:226864'), (1, '11:42:12:511067'), (2, '11:42:12:538215'), (-1, '11:42:12:538215'), (-2, '11:42:12:538215'), (-3, '11:42:12:538215')])
+round 63 finished 11:42:13:485951
+Loss = 2.3356966972351074, Accuracy = 0.21875
+dict_keys([(4, '11:42:13:485979'), (1, '11:42:13:522381'), (5, '11:42:13:821227'), (3, '11:42:13:834588'), (-1, '11:42:13:834588'), (-2, '11:42:13:834588'), (-3, '11:42:13:834588')])
+round 64 finished 11:42:14:814500
+Loss = 2.426950454711914, Accuracy = 0.203125
+dict_keys([(4, '11:42:14:814529'), (1, '11:42:14:840236'), (2, '11:42:14:846060'), (0, '11:42:15:091317'), (-1, '11:42:15:112139'), (-2, '11:42:15:112139'), (-3, '11:42:15:112139')])
+round 65 finished 11:42:16:032049
+Loss = 2.3883159160614014, Accuracy = 0.203125
+dict_keys([(4, '11:42:16:032080'), (1, '11:42:16:092665'), (2, '11:42:16:111938'), (0, '11:42:16:398510'), (-1, '11:42:16:398510'), (-2, '11:42:16:398510'), (-3, '11:42:16:398510')])
+round 66 finished 11:42:17:559193
+Loss = 2.3255786895751953, Accuracy = 0.22764228284358978
+dict_keys([(4, '11:42:17:559223'), (0, '11:42:17:584377'), (1, '11:42:17:590880'), (3, '11:42:17:595223'), (-1, '11:42:17:640920'), (-2, '11:42:17:640920'), (-3, '11:42:17:640920')])
+round 67 finished 11:42:18:949391
+Loss = 2.3778581619262695, Accuracy = 0.2265625
+dict_keys([(4, '11:42:18:949435'), (0, '11:42:18:985748'), (1, '11:42:18:994365'), (3, '11:42:19:010293'), (-1, '11:42:19:021499'), (-2, '11:42:19:021499'), (-3, '11:42:19:021499')])
+round 68 finished 11:42:19:969460
+Loss = 2.470383644104004, Accuracy = 0.2109375
+dict_keys([(4, '11:42:19:969488'), (5, '11:42:20:018868'), (1, '11:42:20:055236'), (3, '11:42:20:320548'), (-1, '11:42:20:320548'), (-2, '11:42:20:320548'), (-3, '11:42:20:320548')])
+round 69 finished 11:42:21:248300
+Loss = 2.5378780364990234, Accuracy = 0.15625
+dict_keys([(4, '11:42:21:248332'), (0, '11:42:21:319070'), (2, '11:42:21:356816'), (1, '11:42:21:416012'), (-1, '11:42:21:631431'), (-2, '11:42:21:631431'), (-3, '11:42:21:631431')])
+round 70 finished 11:42:22:551596
+Loss = 2.2948923110961914, Accuracy = 0.2578125
+dict_keys([(4, '11:42:22:551627'), (5, '11:42:22:591731'), (3, '11:42:22:631422'), (1, '11:42:22:907107'), (-1, '11:42:22:917106'), (-2, '11:42:22:917106'), (-3, '11:42:22:917106')])
+round 71 finished 11:42:23:868445
+Loss = 2.320432662963867, Accuracy = 0.25
+dict_keys([(4, '11:42:23:868483'), (0, '11:42:23:921553'), (3, '11:42:23:930358'), (1, '11:42:24:225247'), (-1, '11:42:24:225247'), (-2, '11:42:24:225247'), (-3, '11:42:24:225247')])
+round 72 finished 11:42:25:210088
+Loss = 2.483809471130371, Accuracy = 0.1953125
+dict_keys([(4, '11:42:25:210118'), (1, '11:42:25:242141'), (3, '11:42:25:252027'), (0, '11:42:25:269474'), (-1, '11:42:25:556085'), (-2, '11:42:25:556085'), (-3, '11:42:25:556085')])
+round 73 finished 11:42:26:506279
+Loss = 2.3459675312042236, Accuracy = 0.2265625
+dict_keys([(4, '11:42:26:506316'), (3, '11:42:26:548454'), (1, '11:42:26:810650'), (5, '11:42:26:819325'), (-1, '11:42:26:819325'), (-2, '11:42:26:819325'), (-3, '11:42:26:819325')])
+round 74 finished 11:42:27:745969
+Loss = 2.42623233795166, Accuracy = 0.234375
+dict_keys([(4, '11:42:27:745999'), (1, '11:42:27:780803'), (5, '11:42:27:796789'), (3, '11:42:28:079961'), (-1, '11:42:28:079961'), (-2, '11:42:28:079961'), (-3, '11:42:28:079961')])
+round 75 finished 11:42:29:067221
+Loss = 2.464637279510498, Accuracy = 0.21875
+dict_keys([(4, '11:42:29:067252'), (5, '11:42:29:110503'), (1, '11:42:29:127691'), (3, '11:42:29:406290'), (-1, '11:42:29:406290'), (-2, '11:42:29:406290'), (-3, '11:42:29:406290')])
+round 76 finished 11:42:30:373930
+Loss = 2.4075589179992676, Accuracy = 0.2265625
+dict_keys([(4, '11:42:30:373971'), (1, '11:42:30:404317'), (2, '11:42:30:413798'), (3, '11:42:30:705245'), (-1, '11:42:30:705245'), (-2, '11:42:30:705245'), (-3, '11:42:30:705245')])
+round 77 finished 11:42:31:671644
+Loss = 2.525235414505005, Accuracy = 0.25
+dict_keys([(4, '11:42:31:671673'), (3, '11:42:31:709461'), (1, '11:42:32:012375'), (5, '11:42:32:021737'), (-1, '11:42:32:021737'), (-2, '11:42:32:021737'), (-3, '11:42:32:021737')])
+round 78 finished 11:42:32:953087
+Loss = 2.3981082439422607, Accuracy = 0.3125
+dict_keys([(4, '11:42:32:953121'), (1, '11:42:32:985082'), (3, '11:42:33:023942'), (5, '11:42:33:302917'), (-1, '11:42:33:302917'), (-2, '11:42:33:302917'), (-3, '11:42:33:302917')])
+round 79 finished 11:42:34:247291
+Loss = 2.4090921878814697, Accuracy = 0.265625
+dict_keys([(4, '11:42:34:247322'), (0, '11:42:34:309719'), (1, '11:42:34:574708'), (3, '11:42:34:607407'), (-1, '11:42:34:607407'), (-2, '11:42:34:607407'), (-3, '11:42:34:607407')])
+round 80 finished 11:42:35:599737
+Loss = 2.414764642715454, Accuracy = 0.2265625
+dict_keys([(4, '11:42:35:599774'), (0, '11:42:35:632653'), (3, '11:42:35:650184'), (1, '11:42:35:924623'), (-1, '11:42:35:924623'), (-2, '11:42:35:924623'), (-3, '11:42:35:924623')])
+round 81 finished 11:42:37:159009
+Loss = 2.4170315265655518, Accuracy = 0.2421875
+dict_keys([(4, '11:42:37:159038'), (0, '11:42:37:183668'), (3, '11:42:37:201261'), (1, '11:42:37:218552'), (-1, '11:42:37:218552'), (-2, '11:42:37:218552'), (-3, '11:42:37:218552')])
+round 82 finished 11:42:38:190158
+Loss = 2.481483221054077, Accuracy = 0.2109375
+dict_keys([(4, '11:42:38:190251'), (1, '11:42:38:236562'), (5, '11:42:38:246411'), (3, '11:42:38:512294'), (-1, '11:42:38:512294'), (-2, '11:42:38:512294'), (-3, '11:42:38:512294')])
+round 83 finished 11:42:39:799952
+Loss = 2.5513298511505127, Accuracy = 0.1875
+dict_keys([(4, '11:42:39:799979'), (0, '11:42:39:824962'), (1, '11:42:39:831899'), (3, '11:42:39:853890'), (-1, '11:42:39:898213'), (-2, '11:42:39:898213'), (-3, '11:42:39:898213')])
+round 84 finished 11:42:40:809185
+Loss = 2.333570718765259, Accuracy = 0.2421875
+dict_keys([(4, '11:42:40:809217'), (3, '11:42:40:852482'), (5, '11:42:40:861944'), (1, '11:42:41:081460'), (-1, '11:42:41:102772'), (-2, '11:42:41:102772'), (-3, '11:42:41:102772')])
+round 85 finished 11:42:42:069547
+Loss = 2.1941771507263184, Accuracy = 0.3671875
+dict_keys([(4, '11:42:42:069578'), (1, '11:42:42:097583'), (2, '11:42:42:121616'), (3, '11:42:42:438957'), (-1, '11:42:42:438957'), (-2, '11:42:42:438957'), (-3, '11:42:42:438957')])
+round 86 finished 11:42:43:443345
+Loss = 2.408811330795288, Accuracy = 0.2265625
+dict_keys([(4, '11:42:43:443374'), (1, '11:42:43:477713'), (5, '11:42:43:732261'), (3, '11:42:43:742857'), (-1, '11:42:43:742857'), (-2, '11:42:43:742857'), (-3, '11:42:43:742857')])
+round 87 finished 11:42:45:014574
+Loss = 2.2161309719085693, Accuracy = 0.25
+dict_keys([(4, '11:42:45:014604'), (0, '11:42:45:039833'), (1, '11:42:45:047303'), (3, '11:42:45:060786'), (-1, '11:42:45:084487'), (-2, '11:42:45:084487'), (-3, '11:42:45:084487')])
+round 88 finished 11:42:46:119626
+Loss = 2.223686695098877, Accuracy = 0.2734375
+dict_keys([(4, '11:42:46:119655'), (0, '11:42:46:148995'), (1, '11:42:46:156399'), (5, '11:42:46:389667'), (-1, '11:42:46:389667'), (-2, '11:42:46:389667'), (-3, '11:42:46:389667')])
+round 89 finished 11:42:47:402315
+Loss = 2.251558303833008, Accuracy = 0.1953125
+dict_keys([(4, '11:42:47:402345'), (3, '11:42:47:438258'), (5, '11:42:47:445861'), (6, '11:42:47:688187'), (-1, '11:42:47:688187'), (-2, '11:42:47:688187'), (-3, '11:42:47:688187')])
+round 90 finished 11:42:48:627911
+Loss = 2.2272720336914062, Accuracy = 0.2265625
+dict_keys([(4, '11:42:48:627949'), (3, '11:42:48:671989'), (5, '11:42:48:681212'), (1, '11:42:48:975580'), (-1, '11:42:48:975580'), (-2, '11:42:48:975580'), (-3, '11:42:48:975580')])
+round 91 finished 11:42:49:950730
+Loss = 1.9941198825836182, Accuracy = 0.296875
+dict_keys([(4, '11:42:49:950763'), (1, '11:42:49:979111'), (5, '11:42:50:107037'), (3, '11:42:50:263714'), (-1, '11:42:50:285126'), (-2, '11:42:50:285126'), (-3, '11:42:50:285126')])
+round 92 finished 11:42:51:365373
+Loss = 2.2190518379211426, Accuracy = 0.1953125
+dict_keys([(4, '11:42:51:365402'), (1, '11:42:51:391389'), (3, '11:42:51:407289'), (5, '11:42:51:411616'), (-1, '11:42:51:550091'), (-2, '11:42:51:550091'), (-3, '11:42:51:550091')])
+round 93 finished 11:42:52:564024
+Loss = 2.0539605617523193, Accuracy = 0.2734375
+dict_keys([(4, '11:42:52:564054'), (1, '11:42:52:590649'), (3, '11:42:52:604882'), (5, '11:42:52:847279'), (-1, '11:42:52:847279'), (-2, '11:42:52:847279'), (-3, '11:42:52:847279')])
+round 94 finished 11:42:53:798887
+Loss = 1.9929125308990479, Accuracy = 0.328125
+dict_keys([(4, '11:42:53:798918'), (1, '11:42:53:849562'), (3, '11:42:53:858201'), (5, '11:42:54:163842'), (-1, '11:42:54:163842'), (-2, '11:42:54:163842'), (-3, '11:42:54:163842')])
+round 95 finished 11:42:55:157222
+Loss = 2.119729995727539, Accuracy = 0.265625
+dict_keys([(4, '11:42:55:157260'), (1, '11:42:55:192463'), (5, '11:42:55:197095'), (3, '11:42:55:408087'), (-1, '11:42:55:408087'), (-2, '11:42:55:408087'), (-3, '11:42:55:408087')])
+round 96 finished 11:42:56:342878
+Loss = 2.084955930709839, Accuracy = 0.2890625
+dict_keys([(4, '11:42:56:342909'), (2, '11:42:56:375139'), (1, '11:42:56:392372'), (3, '11:42:56:730963'), (-1, '11:42:56:730963'), (-2, '11:42:56:730963'), (-3, '11:42:56:730963')])
+round 97 finished 11:42:57:677485
+Loss = 2.0646328926086426, Accuracy = 0.3046875
+dict_keys([(4, '11:42:57:677514'), (1, '11:42:57:710526'), (5, '11:42:57:720454'), (3, '11:42:57:948517'), (-1, '11:42:57:999775'), (-2, '11:42:57:999775'), (-3, '11:42:57:999775')])
+round 98 finished 11:42:58:961613
+Loss = 2.1587536334991455, Accuracy = 0.2265625
+dict_keys([(4, '11:42:58:961645'), (0, '11:42:59:067120'), (3, '11:42:59:273801'), (1, '11:42:59:300010'), (-1, '11:42:59:300010'), (-2, '11:42:59:300010'), (-3, '11:42:59:300010')])
+round 99 finished 11:43:00:167267
+Loss = 2.0816538333892822, Accuracy = 0.2734375
+dict_keys([(4, '11:43:00:167298'), (3, '11:43:00:283348'), (1, '11:43:00:359182'), (5, '11:43:00:518122'), (-1, '11:43:00:563661'), (-2, '11:43:00:563661'), (-3, '11:43:00:563661')])
+round 100 finished 11:43:01:507039
+Loss = 2.0343000888824463, Accuracy = 0.265625
+dict_keys([(4, '11:43:01:507069'), (2, '11:43:01:551570'), (1, '11:43:01:595317'), (0, '11:43:01:866740'), (-1, '11:43:01:866740'), (-2, '11:43:01:866740'), (-3, '11:43:01:866740')])
+round 101 finished 11:43:02:809683
+Loss = 2.130295991897583, Accuracy = 0.2109375
+dict_keys([(4, '11:43:02:809713'), (1, '11:43:02:844887'), (3, '11:43:02:857691'), (5, '11:43:02:862072'), (-1, '11:43:03:132202'), (-2, '11:43:03:132202'), (-3, '11:43:03:132202')])
+round 102 finished 11:43:04:161236
+Loss = 2.19504451751709, Accuracy = 0.1953125
+dict_keys([(4, '11:43:04:161266'), (0, '11:43:04:188331'), (1, '11:43:04:195858'), (3, '11:43:04:210341'), (-1, '11:43:04:438814'), (-2, '11:43:04:438814'), (-3, '11:43:04:438814')])
+round 103 finished 11:43:05:408116
+Loss = 2.1614434719085693, Accuracy = 0.21875
+dict_keys([(4, '11:43:05:408146'), (1, '11:43:05:457147'), (5, '11:43:05:466785'), (3, '11:43:05:729255'), (-1, '11:43:05:729255'), (-2, '11:43:05:729255'), (-3, '11:43:05:729255')])
+round 104 finished 11:43:06:684947
+Loss = 2.105055570602417, Accuracy = 0.21875
+dict_keys([(4, '11:43:06:684979'), (5, '11:43:06:728452'), (1, '11:43:06:742575'), (0, '11:43:07:010352'), (-1, '11:43:07:030019'), (-2, '11:43:07:030019'), (-3, '11:43:07:030019')])
+round 105 finished 11:43:08:305150
+Loss = 2.0795998573303223, Accuracy = 0.2265625
+dict_keys([(4, '11:43:08:305178'), (1, '11:43:08:338808'), (3, '11:43:08:350234'), (5, '11:43:08:355708'), (-1, '11:43:08:361270'), (-2, '11:43:08:361270'), (-3, '11:43:08:361270')])
+round 106 finished 11:43:09:344305
+Loss = 1.9964048862457275, Accuracy = 0.2734375
+dict_keys([(4, '11:43:09:344345'), (1, '11:43:09:373735'), (0, '11:43:09:402349'), (5, '11:43:09:643380'), (-1, '11:43:09:643380'), (-2, '11:43:09:643380'), (-3, '11:43:09:643380')])
+round 107 finished 11:43:10:558142
+Loss = 2.1221249103546143, Accuracy = 0.21875
+dict_keys([(4, '11:43:10:558175'), (1, '11:43:10:673068'), (3, '11:43:10:700114'), (5, '11:43:10:948933'), (-1, '11:43:10:948933'), (-2, '11:43:10:948933'), (-3, '11:43:10:948933')])
+round 108 finished 11:43:11:898572
+Loss = 2.155876874923706, Accuracy = 0.2265625
+dict_keys([(4, '11:43:11:898595'), (1, '11:43:11:927843'), (0, '11:43:11:974930'), (2, '11:43:12:233443'), (-1, '11:43:12:253175'), (-2, '11:43:12:253175'), (-3, '11:43:12:253175')])
+round 109 finished 11:43:13:152777
+Loss = 2.108330011367798, Accuracy = 0.2265625
+dict_keys([(4, '11:43:13:152809'), (0, '11:43:13:232909'), (1, '11:43:13:348187'), (2, '11:43:13:531202'), (-1, '11:43:13:531202'), (-2, '11:43:13:531202'), (-3, '11:43:13:531202')])
+round 110 finished 11:43:14:496935
+Loss = 1.9659862518310547, Accuracy = 0.265625
+dict_keys([(4, '11:43:14:496964'), (2, '11:43:14:544352'), (0, '11:43:14:553086'), (1, '11:43:14:844689'), (-1, '11:43:14:844689'), (-2, '11:43:14:844689'), (-3, '11:43:14:844689')])
+round 111 finished 11:43:16:140587
+Loss = 2.0511460304260254, Accuracy = 0.203125
+dict_keys([(4, '11:43:16:140614'), (0, '11:43:16:166787'), (1, '11:43:16:175603'), (3, '11:43:16:187170'), (-1, '11:43:16:198242'), (-2, '11:43:16:198242'), (-3, '11:43:16:198242')])
+round 112 finished 11:43:17:120394
+Loss = 2.0413730144500732, Accuracy = 0.234375
+dict_keys([(4, '11:43:17:120422'), (1, '11:43:17:145999'), (3, '11:43:17:156192'), (5, '11:43:17:437274'), (-1, '11:43:17:437274'), (-2, '11:43:17:437274'), (-3, '11:43:17:437274')])
+round 113 finished 11:43:18:389576
+Loss = 2.0581395626068115, Accuracy = 0.2265625
+dict_keys([(4, '11:43:18:389614'), (0, '11:43:18:418989'), (1, '11:43:18:427771'), (3, '11:43:18:435997'), (-1, '11:43:18:714998'), (-2, '11:43:18:714998'), (-3, '11:43:18:714998')])
+round 114 finished 11:43:19:692846
+Loss = 2.0507709980010986, Accuracy = 0.234375
+dict_keys([(4, '11:43:19:692895'), (5, '11:43:19:778518'), (3, '11:43:19:991160'), (1, '11:43:19:997400'), (-1, '11:43:19:997400'), (-2, '11:43:19:997400'), (-3, '11:43:19:997400')])
+round 115 finished 11:43:20:958934
+Loss = 2.0959677696228027, Accuracy = 0.2109375
+dict_keys([(4, '11:43:20:958966'), (1, '11:43:21:031923'), (3, '11:43:21:072967'), (5, '11:43:21:276379'), (-1, '11:43:21:337021'), (-2, '11:43:21:337021'), (-3, '11:43:21:337021')])
+round 116 finished 11:43:22:626948
+Loss = 2.0468521118164062, Accuracy = 0.2109375
+dict_keys([(4, '11:43:22:626975'), (1, '11:43:22:657964'), (3, '11:43:22:679820'), (5, '11:43:22:685278'), (-1, '11:43:22:690747'), (-2, '11:43:22:690747'), (-3, '11:43:22:690747')])
+round 117 finished 11:43:23:922491
+Loss = 2.063638210296631, Accuracy = 0.25
+dict_keys([(4, '11:43:23:922527'), (1, '11:43:23:958347'), (3, '11:43:23:969425'), (5, '11:43:23:974901'), (-1, '11:43:23:980669'), (-2, '11:43:23:980669'), (-3, '11:43:23:980669')])
+round 118 finished 11:43:24:943933
+Loss = 1.9277360439300537, Accuracy = 0.2578125
+dict_keys([(4, '11:43:24:943961'), (3, '11:43:24:979079'), (5, '11:43:24:983449'), (1, '11:43:25:245513'), (-1, '11:43:25:245513'), (-2, '11:43:25:245513'), (-3, '11:43:25:245513')])
+round 119 finished 11:43:26:204105
+Loss = 2.035135269165039, Accuracy = 0.2265625
+dict_keys([(4, '11:43:26:204148'), (5, '11:43:26:248113'), (1, '11:43:26:274579'), (3, '11:43:26:502500'), (-1, '11:43:26:524191'), (-2, '11:43:26:524191'), (-3, '11:43:26:524191')])
+round 120 finished 11:43:27:718956
+Loss = 1.9291057586669922, Accuracy = 0.28125
+dict_keys([(4, '11:43:27:718986'), (1, '11:43:27:753155'), (3, '11:43:27:757469'), (5, '11:43:27:761620'), (-1, '11:43:27:827150'), (-2, '11:43:27:827150'), (-3, '11:43:27:827150')])
+round 121 finished 11:43:28:797590
+Loss = 1.8796194791793823, Accuracy = 0.265625
+dict_keys([(4, '11:43:28:797620'), (5, '11:43:28:825762'), (0, '11:43:28:847481'), (6, '11:43:28:870996'), (-1, '11:43:29:131756'), (-2, '11:43:29:131756'), (-3, '11:43:29:131756')])
+round 122 finished 11:43:30:147055
+Loss = 1.8837779760360718, Accuracy = 0.21875
+dict_keys([(4, '11:43:30:147091'), (3, '11:43:30:179748'), (5, '11:43:30:184100'), (6, '11:43:30:195239'), (-1, '11:43:30:452583'), (-2, '11:43:30:452583'), (-3, '11:43:30:452583')])
+round 123 finished 11:43:31:698575
+Loss = 1.941154956817627, Accuracy = 0.234375
+dict_keys([(4, '11:43:31:698604'), (1, '11:43:31:730034'), (3, '11:43:31:738680'), (5, '11:43:31:742950'), (-1, '11:43:31:750181'), (-2, '11:43:31:750181'), (-3, '11:43:31:750181')])
+round 124 finished 11:43:32:677022
+Loss = 2.0624561309814453, Accuracy = 0.1953125
+dict_keys([(4, '11:43:32:677054'), (3, '11:43:32:706273'), (5, '11:43:32:713895'), (1, '11:43:33:021690'), (-1, '11:43:33:034560'), (-2, '11:43:33:034560'), (-3, '11:43:33:034560')])
+round 125 finished 11:43:34:007670
+Loss = 1.8427166938781738, Accuracy = 0.2421875
+dict_keys([(4, '11:43:34:007715'), (1, '11:43:34:045641'), (3, '11:43:34:053895'), (5, '11:43:34:062619'), (-1, '11:43:34:344200'), (-2, '11:43:34:344200'), (-3, '11:43:34:344200')])
+round 126 finished 11:43:35:295120
+Loss = 1.9154951572418213, Accuracy = 0.2578125
+dict_keys([(4, '11:43:35:295154'), (5, '11:43:35:325582'), (3, '11:43:35:354476'), (1, '11:43:35:365068'), (-1, '11:43:35:668184'), (-2, '11:43:35:668184'), (-3, '11:43:35:668184')])
+round 127 finished 11:43:36:921795
+Loss = 1.902120590209961, Accuracy = 0.2578125
+dict_keys([(4, '11:43:36:921825'), (1, '11:43:36:947271'), (2, '11:43:36:955821'), (5, '11:43:36:968343'), (-1, '11:43:37:025527'), (-2, '11:43:37:025527'), (-3, '11:43:37:025527')])
+round 128 finished 11:43:37:879623
+Loss = 1.8908873796463013, Accuracy = 0.2265625
+dict_keys([(4, '11:43:37:879649'), (0, '11:43:37:942852'), (1, '11:43:37:953471'), (5, '11:43:37:961576'), (-1, '11:43:38:233586'), (-2, '11:43:38:233586'), (-3, '11:43:38:233586')])
+round 129 finished 11:43:39:164943
+Loss = 1.7482784986495972, Accuracy = 0.296875
+dict_keys([(4, '11:43:39:164976'), (3, '11:43:39:235717'), (0, '11:43:39:243246'), (6, '11:43:39:519356'), (-1, '11:43:39:541925'), (-2, '11:43:39:541925'), (-3, '11:43:39:541925')])
+round 130 finished 11:43:40:483062
+Loss = 1.773742437362671, Accuracy = 0.25
+dict_keys([(4, '11:43:40:483094'), (1, '11:43:40:566498'), (2, '11:43:40:596188'), (0, '11:43:40:896133'), (-1, '11:43:40:896133'), (-2, '11:43:40:896133'), (-3, '11:43:40:896133')])
+round 131 finished 11:43:41:777880
+Loss = 1.7705588340759277, Accuracy = 0.28125
+dict_keys([(4, '11:43:41:777912'), (5, '11:43:41:880186'), (1, '11:43:41:900764'), (3, '11:43:42:107688'), (-1, '11:43:42:135751'), (-2, '11:43:42:135751'), (-3, '11:43:42:135751')])
+round 132 finished 11:43:43:132221
+Loss = 1.7010958194732666, Accuracy = 0.3203125
+dict_keys([(4, '11:43:43:132251'), (3, '11:43:43:158940'), (5, '11:43:43:166570'), (1, '11:43:43:424581'), (-1, '11:43:43:441882'), (-2, '11:43:43:441882'), (-3, '11:43:43:441882')])
+round 133 finished 11:43:44:478102
+Loss = 1.7359488010406494, Accuracy = 0.3333333432674408
+dict_keys([(4, '11:43:44:478130'), (1, '11:43:44:512205'), (5, '11:43:44:516590'), (3, '11:43:44:728611'), (-1, '11:43:44:741603'), (-2, '11:43:44:741603'), (-3, '11:43:44:741603')])
+round 134 finished 11:43:46:037991
+Loss = 1.7936677932739258, Accuracy = 0.28125
+dict_keys([(4, '11:43:46:038022'), (1, '11:43:46:072381'), (3, '11:43:46:098872'), (6, '11:43:46:109747'), (-1, '11:43:46:109747'), (-2, '11:43:46:109747'), (-3, '11:43:46:109747')])
+round 135 finished 11:43:47:027760
+Loss = 1.8944162130355835, Accuracy = 0.2578125
+dict_keys([(4, '11:43:47:027791'), (2, '11:43:47:073934'), (3, '11:43:47:138304'), (1, '11:43:47:401562'), (-1, '11:43:47:401562'), (-2, '11:43:47:401562'), (-3, '11:43:47:401562')])
+round 136 finished 11:43:48:676516
+Loss = 1.8444468975067139, Accuracy = 0.21875
+dict_keys([(4, '11:43:48:676560'), (1, '11:43:48:712438'), (2, '11:43:48:717978'), (3, '11:43:48:723396'), (-1, '11:43:48:734377'), (-2, '11:43:48:734377'), (-3, '11:43:48:734377')])
+round 137 finished 11:43:49:673975
+Loss = 1.8156445026397705, Accuracy = 0.25
+dict_keys([(4, '11:43:49:674005'), (1, '11:43:49:774550'), (5, '11:43:49:977480'), (3, '11:43:50:034889'), (-1, '11:43:50:034889'), (-2, '11:43:50:034889'), (-3, '11:43:50:034889')])
+round 138 finished 11:43:51:009206
+Loss = 1.7716050148010254, Accuracy = 0.25
+dict_keys([(4, '11:43:51:009238'), (0, '11:43:51:049224'), (1, '11:43:51:057843'), (3, '11:43:51:338859'), (-1, '11:43:51:353825'), (-2, '11:43:51:353825'), (-3, '11:43:51:353825')])
+round 139 finished 11:43:52:268283
+Loss = 1.8028682470321655, Accuracy = 0.25
+dict_keys([(4, '11:43:52:268315'), (3, '11:43:52:319604'), (1, '11:43:52:340883'), (5, '11:43:52:648137'), (-1, '11:43:52:656851'), (-2, '11:43:52:656851'), (-3, '11:43:52:656851')])
+round 140 finished 11:43:53:589861
+Loss = 1.8462493419647217, Accuracy = 0.2421875
+dict_keys([(4, '11:43:53:589893'), (1, '11:43:53:640872'), (3, '11:43:53:892105'), (5, '11:43:53:941796'), (-1, '11:43:53:941796'), (-2, '11:43:53:941796'), (-3, '11:43:53:941796')])
+round 141 finished 11:43:54:910294
+Loss = 1.799906849861145, Accuracy = 0.2734375
+dict_keys([(4, '11:43:54:910328'), (1, '11:43:54:950125'), (5, '11:43:55:249656'), (3, '11:43:55:267216'), (-1, '11:43:55:267216'), (-2, '11:43:55:267216'), (-3, '11:43:55:267216')])
+round 142 finished 11:43:56:216024
+Loss = 1.66029953956604, Accuracy = 0.3203125
+dict_keys([(4, '11:43:56:216062'), (5, '11:43:56:254762'), (1, '11:43:56:265921'), (3, '11:43:56:537106'), (-1, '11:43:56:566676'), (-2, '11:43:56:566676'), (-3, '11:43:56:566676')])
+round 143 finished 11:43:57:506776
+Loss = 1.6779134273529053, Accuracy = 0.296875
+dict_keys([(4, '11:43:57:506808'), (2, '11:43:57:534489'), (0, '11:43:57:579333'), (1, '11:43:57:846521'), (-1, '11:43:57:846521'), (-2, '11:43:57:846521'), (-3, '11:43:57:846521')])
+round 144 finished 11:43:58:739123
+Loss = 1.637740969657898, Accuracy = 0.3671875
+dict_keys([(4, '11:43:58:739155'), (5, '11:43:58:781265'), (3, '11:43:58:815854'), (1, '11:43:59:172187'), (-1, '11:43:59:172187'), (-2, '11:43:59:172187'), (-3, '11:43:59:172187')])
+round 145 finished 11:44:00:121101
+Loss = 1.644495964050293, Accuracy = 0.3125
+dict_keys([(4, '11:44:00:121133'), (1, '11:44:00:178783'), (0, '11:44:00:188115'), (3, '11:44:00:465986'), (-1, '11:44:00:485345'), (-2, '11:44:00:485345'), (-3, '11:44:00:485345')])
+round 146 finished 11:44:01:404957
+Loss = 1.5964891910552979, Accuracy = 0.34375
+dict_keys([(4, '11:44:01:404987'), (3, '11:44:01:440713'), (0, '11:44:01:462718'), (1, '11:44:01:476318'), (-1, '11:44:01:777198'), (-2, '11:44:01:777198'), (-3, '11:44:01:777198')])
+round 147 finished 11:44:02:720542
+Loss = 1.6414563655853271, Accuracy = 0.3515625
+dict_keys([(4, '11:44:02:720574'), (3, '11:44:02:772756'), (0, '11:44:02:782922'), (1, '11:44:03:063131'), (-1, '11:44:03:101825'), (-2, '11:44:03:101825'), (-3, '11:44:03:101825')])
+round 148 finished 11:44:04:048355
+Loss = 1.7368272542953491, Accuracy = 0.359375
+dict_keys([(4, '11:44:04:048389'), (3, '11:44:04:092924'), (1, '11:44:04:112389'), (5, '11:44:04:400691'), (-1, '11:44:04:426162'), (-2, '11:44:04:426162'), (-3, '11:44:04:426162')])
+round 149 finished 11:44:05:405547
+Loss = 1.6411925554275513, Accuracy = 0.3203125
+dict_keys([(4, '11:44:05:405585'), (3, '11:44:05:449237'), (5, '11:44:05:731911'), (1, '11:44:05:743781'), (-1, '11:44:05:743781'), (-2, '11:44:05:743781'), (-3, '11:44:05:743781')])
+round 150 finished 11:44:06:700911
+Loss = 1.7962327003479004, Accuracy = 0.2109375
+dict_keys([(4, '11:44:06:700941'), (5, '11:44:06:738794'), (0, '11:44:06:780776'), (1, '11:44:06:989414'), (-1, '11:44:07:026387'), (-2, '11:44:07:026387'), (-3, '11:44:07:026387')])
+round 151 finished 11:44:08:006445
+Loss = 1.702112078666687, Accuracy = 0.2890625
+dict_keys([(4, '11:44:08:006496'), (1, '11:44:08:039842'), (5, '11:44:08:065044'), (0, '11:44:08:335896'), (-1, '11:44:08:357452'), (-2, '11:44:08:357452'), (-3, '11:44:08:357452')])
+round 152 finished 11:44:09:344662
+Loss = 1.62319815158844, Accuracy = 0.3359375
+dict_keys([(4, '11:44:09:344692'), (0, '11:44:09:371750'), (3, '11:44:09:386446'), (1, '11:44:09:662624'), (-1, '11:44:09:662624'), (-2, '11:44:09:662624'), (-3, '11:44:09:662624')])
+round 153 finished 11:44:10:839891
+Loss = 1.5486559867858887, Accuracy = 0.359375
+dict_keys([(4, '11:44:10:839921'), (0, '11:44:10:865109'), (1, '11:44:10:875096'), (3, '11:44:10:884050'), (-1, '11:44:10:909684'), (-2, '11:44:10:909684'), (-3, '11:44:10:909684')])
+round 154 finished 11:44:11:823551
+Loss = 1.6631882190704346, Accuracy = 0.3203125
+dict_keys([(4, '11:44:11:823583'), (3, '11:44:11:869120'), (1, '11:44:11:905643'), (5, '11:44:12:205133'), (-1, '11:44:12:205133'), (-2, '11:44:12:205133'), (-3, '11:44:12:205133')])
+round 155 finished 11:44:13:458969
+Loss = 1.6617281436920166, Accuracy = 0.328125
+dict_keys([(4, '11:44:13:458997'), (1, '11:44:13:500980'), (3, '11:44:13:528338'), (5, '11:44:13:533988'), (-1, '11:44:13:539449'), (-2, '11:44:13:539449'), (-3, '11:44:13:539449')])
+round 156 finished 11:44:14:403964
+Loss = 1.6042108535766602, Accuracy = 0.375
+dict_keys([(4, '11:44:14:403996'), (3, '11:44:14:451060'), (5, '11:44:14:508808'), (6, '11:44:14:698941'), (-1, '11:44:14:777945'), (-2, '11:44:14:777945'), (-3, '11:44:14:777945')])
+round 157 finished 11:44:15:673711
+Loss = 1.6878867149353027, Accuracy = 0.3125
+dict_keys([(4, '11:44:15:673740'), (1, '11:44:15:701467'), (3, '11:44:15:826515'), (5, '11:44:16:051272'), (-1, '11:44:16:051272'), (-2, '11:44:16:051272'), (-3, '11:44:16:051272')])
+round 158 finished 11:44:16:998844
+Loss = 1.6883702278137207, Accuracy = 0.2890625
+dict_keys([(4, '11:44:16:998877'), (1, '11:44:17:053742'), (2, '11:44:17:076852'), (0, '11:44:17:366438'), (-1, '11:44:17:366438'), (-2, '11:44:17:366438'), (-3, '11:44:17:366438')])
+round 159 finished 11:44:18:377977
+Loss = 1.6639882326126099, Accuracy = 0.390625
+dict_keys([(4, '11:44:18:378008'), (0, '11:44:18:403214'), (1, '11:44:18:410638'), (2, '11:44:18:657367'), (-1, '11:44:18:657367'), (-2, '11:44:18:657367'), (-3, '11:44:18:657367')])
+round 160 finished 11:44:19:905615
+Loss = 1.627606987953186, Accuracy = 0.390625
+dict_keys([(4, '11:44:19:905646'), (0, '11:44:19:930584'), (1, '11:44:19:935151'), (3, '11:44:19:939506'), (-1, '11:44:19:959576'), (-2, '11:44:19:959576'), (-3, '11:44:19:959576')])
+round 161 finished 11:44:20:892197
+Loss = 1.6533026695251465, Accuracy = 0.3203125
+dict_keys([(4, '11:44:20:892230'), (1, '11:44:20:954280'), (3, '11:44:20:979678'), (0, '11:44:21:270534'), (-1, '11:44:21:279393'), (-2, '11:44:21:279393'), (-3, '11:44:21:279393')])
+round 162 finished 11:44:22:235189
+Loss = 1.6187046766281128, Accuracy = 0.3515625
+dict_keys([(4, '11:44:22:235228'), (5, '11:44:22:268845'), (3, '11:44:22:294168'), (1, '11:44:22:316389'), (-1, '11:44:22:575640'), (-2, '11:44:22:575640'), (-3, '11:44:22:575640')])
+round 163 finished 11:44:23:504302
+Loss = 1.6546003818511963, Accuracy = 0.3203125
+dict_keys([(4, '11:44:23:504334'), (1, '11:44:23:571322'), (3, '11:44:23:598311'), (0, '11:44:23:630698'), (-1, '11:44:23:863487'), (-2, '11:44:23:863487'), (-3, '11:44:23:863487')])
+round 164 finished 11:44:24:856417
+Loss = 1.6616551876068115, Accuracy = 0.3046875
+dict_keys([(4, '11:44:24:856449'), (1, '11:44:24:920166'), (0, '11:44:25:109242'), (3, '11:44:25:131060'), (-1, '11:44:25:131060'), (-2, '11:44:25:131060'), (-3, '11:44:25:131060')])
+round 165 finished 11:44:26:097084
+Loss = 1.6304290294647217, Accuracy = 0.375
+dict_keys([(4, '11:44:26:097126'), (1, '11:44:26:131048'), (5, '11:44:26:140982'), (6, '11:44:26:157254'), (-1, '11:44:26:427696'), (-2, '11:44:26:427696'), (-3, '11:44:26:427696')])
+round 166 finished 11:44:27:351285
+Loss = 1.5884199142456055, Accuracy = 0.453125
+dict_keys([(4, '11:44:27:351319'), (3, '11:44:27:422040'), (1, '11:44:27:697022'), (0, '11:44:27:730961'), (-1, '11:44:27:730961'), (-2, '11:44:27:730961'), (-3, '11:44:27:730961')])
+round 167 finished 11:44:28:650387
+Loss = 1.5703696012496948, Accuracy = 0.40625
+dict_keys([(4, '11:44:28:650419'), (3, '11:44:28:686845'), (0, '11:44:28:731872'), (1, '11:44:29:008760'), (-1, '11:44:29:020450'), (-2, '11:44:29:020450'), (-3, '11:44:29:020450')])
+round 168 finished 11:44:29:975861
+Loss = 1.6453181505203247, Accuracy = 0.34375
+dict_keys([(4, '11:44:29:975893'), (3, '11:44:30:015857'), (5, '11:44:30:034877'), (1, '11:44:30:295456'), (-1, '11:44:30:312674'), (-2, '11:44:30:312674'), (-3, '11:44:30:312674')])
+round 169 finished 11:44:31:598649
+Loss = 1.5365861654281616, Accuracy = 0.3984375
+dict_keys([(4, '11:44:31:598677'), (0, '11:44:31:632032'), (3, '11:44:31:661129'), (5, '11:44:31:666633'), (-1, '11:44:31:683012'), (-2, '11:44:31:683012'), (-3, '11:44:31:683012')])
+round 170 finished 11:44:32:629396
+Loss = 1.6443995237350464, Accuracy = 0.328125
+dict_keys([(4, '11:44:32:629432'), (3, '11:44:32:672332'), (5, '11:44:32:679405'), (1, '11:44:32:838227'), (-1, '11:44:32:846783'), (-2, '11:44:32:846783'), (-3, '11:44:32:846783')])
+round 171 finished 11:44:33:821922
+Loss = 1.584567904472351, Accuracy = 0.40625
+dict_keys([(4, '11:44:33:821945'), (0, '11:44:33:854365'), (1, '11:44:33:861683'), (3, '11:44:34:141277'), (-1, '11:44:34:153837'), (-2, '11:44:34:153837'), (-3, '11:44:34:153837')])
+round 172 finished 11:44:35:123690
+Loss = 1.6054253578186035, Accuracy = 0.3671875
+dict_keys([(4, '11:44:35:123723'), (1, '11:44:35:166667'), (0, '11:44:35:175866'), (3, '11:44:35:487376'), (-1, '11:44:35:487376'), (-2, '11:44:35:487376'), (-3, '11:44:35:487376')])
+round 173 finished 11:44:36:742901
+Loss = 1.6016498804092407, Accuracy = 0.375
+dict_keys([(4, '11:44:36:742938'), (1, '11:44:36:787261'), (3, '11:44:36:798042'), (5, '11:44:36:803328'), (-1, '11:44:36:808632'), (-2, '11:44:36:808632'), (-3, '11:44:36:808632')])
+round 174 finished 11:44:37:717835
+Loss = 1.5824211835861206, Accuracy = 0.390625
+dict_keys([(4, '11:44:37:717920'), (5, '11:44:37:753484'), (1, '11:44:38:052886'), (6, '11:44:38:069954'), (-1, '11:44:38:069954'), (-2, '11:44:38:069954'), (-3, '11:44:38:069954')])
+round 175 finished 11:44:39:055108
+Loss = 1.5042517185211182, Accuracy = 0.4296875
+dict_keys([(4, '11:44:39:055141'), (0, '11:44:39:091985'), (5, '11:44:39:124885'), (1, '11:44:39:413039'), (-1, '11:44:39:413039'), (-2, '11:44:39:413039'), (-3, '11:44:39:413039')])
+round 176 finished 11:44:40:384599
+Loss = 1.4455924034118652, Accuracy = 0.4765625
+dict_keys([(4, '11:44:40:384649'), (2, '11:44:40:421041'), (0, '11:44:40:446626'), (1, '11:44:40:730417'), (-1, '11:44:40:751742'), (-2, '11:44:40:751742'), (-3, '11:44:40:751742')])
+round 177 finished 11:44:41:706365
+Loss = 1.4586540460586548, Accuracy = 0.4921875
+dict_keys([(4, '11:44:41:706407'), (1, '11:44:41:752314'), (0, '11:44:41:769553'), (3, '11:44:42:049312'), (-1, '11:44:42:059561'), (-2, '11:44:42:059561'), (-3, '11:44:42:059561')])
+round 178 finished 11:44:42:977633
+Loss = 1.607789397239685, Accuracy = 0.359375
+dict_keys([(4, '11:44:42:977664'), (3, '11:44:43:048262'), (1, '11:44:43:061503'), (5, '11:44:43:085326'), (-1, '11:44:43:332259'), (-2, '11:44:43:332259'), (-3, '11:44:43:332259')])
+round 179 finished 11:44:44:373848
+Loss = 1.587997555732727, Accuracy = 0.375
+dict_keys([(4, '11:44:44:373879'), (3, '11:44:44:399318'), (5, '11:44:44:406141'), (1, '11:44:44:635122'), (-1, '11:44:44:643382'), (-2, '11:44:44:643382'), (-3, '11:44:44:643382')])
+round 180 finished 11:44:45:564756
+Loss = 1.6753400564193726, Accuracy = 0.296875
+dict_keys([(4, '11:44:45:564795'), (5, '11:44:45:606057'), (3, '11:44:45:647906'), (1, '11:44:45:918995'), (-1, '11:44:45:939630'), (-2, '11:44:45:939630'), (-3, '11:44:45:939630')])
+round 181 finished 11:44:47:230933
+Loss = 1.5286850929260254, Accuracy = 0.421875
+dict_keys([(4, '11:44:47:230968'), (1, '11:44:47:265442'), (3, '11:44:47:276273'), (5, '11:44:47:281643'), (-1, '11:44:47:286927'), (-2, '11:44:47:286927'), (-3, '11:44:47:286927')])
+round 182 finished 11:44:48:165488
+Loss = 1.610779881477356, Accuracy = 0.359375
+dict_keys([(4, '11:44:48:165520'), (3, '11:44:48:251239'), (1, '11:44:48:258621'), (5, '11:44:48:470567'), (-1, '11:44:48:470567'), (-2, '11:44:48:470567'), (-3, '11:44:48:470567')])
+round 183 finished 11:44:49:432899
+Loss = 1.5779263973236084, Accuracy = 0.359375
+dict_keys([(4, '11:44:49:432929'), (1, '11:44:49:460916'), (6, '11:44:49:491373'), (5, '11:44:49:736100'), (-1, '11:44:49:746082'), (-2, '11:44:49:746082'), (-3, '11:44:49:746082')])
+round 184 finished 11:44:50:925370
+Loss = 1.530883550643921, Accuracy = 0.3828125
+dict_keys([(4, '11:44:50:925402'), (1, '11:44:50:959810'), (3, '11:44:50:987198'), (5, '11:44:50:993791'), (-1, '11:44:50:999088'), (-2, '11:44:50:999088'), (-3, '11:44:50:999088')])
+round 185 finished 11:44:51:898651
+Loss = 1.495029091835022, Accuracy = 0.46875
+dict_keys([(4, '11:44:51:898682'), (5, '11:44:51:937732'), (0, '11:44:51:997441'), (1, '11:44:52:235097'), (-1, '11:44:52:246670'), (-2, '11:44:52:246670'), (-3, '11:44:52:246670')])
+round 186 finished 11:44:53:224921
+Loss = 1.3658616542816162, Accuracy = 0.5078125
+dict_keys([(4, '11:44:53:224954'), (1, '11:44:53:281427'), (5, '11:44:53:442319'), (3, '11:44:53:540886'), (-1, '11:44:53:540886'), (-2, '11:44:53:540886'), (-3, '11:44:53:540886')])
+round 187 finished 11:44:54:533696
+Loss = 1.5086227655410767, Accuracy = 0.4375
+dict_keys([(4, '11:44:54:533739'), (1, '11:44:54:569425'), (0, '11:44:54:625146'), (3, '11:44:54:801525'), (-1, '11:44:54:812235'), (-2, '11:44:54:812235'), (-3, '11:44:54:812235')])
+round 188 finished 11:44:55:742987
+Loss = 1.5954105854034424, Accuracy = 0.3671875
+dict_keys([(4, '11:44:55:743019'), (5, '11:44:55:772590'), (3, '11:44:55:805691'), (6, '11:44:55:825797'), (-1, '11:44:56:142948'), (-2, '11:44:56:142948'), (-3, '11:44:56:142948')])
+round 189 finished 11:44:57:147486
+Loss = 1.61387038230896, Accuracy = 0.3515625
+dict_keys([(4, '11:44:57:147516'), (0, '11:44:57:173210'), (1, '11:44:57:183278'), (3, '11:44:57:441341'), (-1, '11:44:57:441341'), (-2, '11:44:57:441341'), (-3, '11:44:57:441341')])
+round 190 finished 11:44:58:342131
+Loss = 1.4332144260406494, Accuracy = 0.421875
+dict_keys([(4, '11:44:58:342162'), (1, '11:44:58:384161'), (5, '11:44:58:399969'), (3, '11:44:58:426663'), (-1, '11:44:58:723686'), (-2, '11:44:58:723686'), (-3, '11:44:58:723686')])
+round 191 finished 11:44:59:655372
+Loss = 1.4792156219482422, Accuracy = 0.5234375
+dict_keys([(4, '11:44:59:655403'), (5, '11:44:59:682293'), (3, '11:44:59:776911'), (1, '11:44:59:968022'), (-1, '11:45:00:025853'), (-2, '11:45:00:025853'), (-3, '11:45:00:025853')])
+round 192 finished 11:45:00:908725
+Loss = 1.4971243143081665, Accuracy = 0.46875
+dict_keys([(4, '11:45:00:908763'), (3, '11:45:00:936677'), (1, '11:45:01:276358'), (6, '11:45:01:307708'), (-1, '11:45:01:307708'), (-2, '11:45:01:307708'), (-3, '11:45:01:307708')])
+round 193 finished 11:45:02:388698
+Loss = 1.4560881853103638, Accuracy = 0.4296875
+dict_keys([(4, '11:45:02:388728'), (5, '11:45:02:433739'), (1, '11:45:02:559864'), (3, '11:45:02:592345'), (-1, '11:45:02:592345'), (-2, '11:45:02:592345'), (-3, '11:45:02:592345')])
+round 194 finished 11:45:03:499670
+Loss = 1.497652292251587, Accuracy = 0.4765625
+dict_keys([(4, '11:45:03:499700'), (5, '11:45:03:535114'), (1, '11:45:03:564348'), (3, '11:45:03:628486'), (-1, '11:45:03:878648'), (-2, '11:45:03:878648'), (-3, '11:45:03:878648')])
+round 195 finished 11:45:05:145586
+Loss = 1.5444360971450806, Accuracy = 0.390625
+dict_keys([(4, '11:45:05:145617'), (1, '11:45:05:171261'), (3, '11:45:05:202860'), (5, '11:45:05:208397'), (-1, '11:45:05:230061'), (-2, '11:45:05:230061'), (-3, '11:45:05:230061')])
+round 196 finished 11:45:06:172320
+Loss = 1.4557442665100098, Accuracy = 0.4765625
+dict_keys([(4, '11:45:06:172349'), (1, '11:45:06:197917'), (3, '11:45:06:209795'), (5, '11:45:06:213954'), (-1, '11:45:06:461985'), (-2, '11:45:06:461985'), (-3, '11:45:06:461985')])
+round 197 finished 11:45:07:391000
+Loss = 1.4275599718093872, Accuracy = 0.515625
+dict_keys([(4, '11:45:07:391039'), (3, '11:45:07:420169'), (5, '11:45:07:451516'), (1, '11:45:07:753656'), (-1, '11:45:07:753656'), (-2, '11:45:07:753656'), (-3, '11:45:07:753656')])
+round 198 finished 11:45:08:710555
+Loss = 1.591498851776123, Accuracy = 0.4453125
+dict_keys([(4, '11:45:08:710585'), (1, '11:45:08:746914'), (5, '11:45:08:758467'), (0, '11:45:08:774793'), (-1, '11:45:09:051827'), (-2, '11:45:09:051827'), (-3, '11:45:09:051827')])
+round 199 finished 11:45:10:015047
+Loss = 1.5413553714752197, Accuracy = 0.4140625
+dict_keys([(4, '11:45:10:015078'), (1, '11:45:10:049210'), (0, '11:45:10:078912'), (3, '11:45:10:099674'), (-1, '11:45:10:382604'), (-2, '11:45:10:382604'), (-3, '11:45:10:382604')])
+round 200 finished 11:45:11:402566
+Loss = 1.5185679197311401, Accuracy = 0.4471544623374939
+dict_keys([(4, '11:45:11:402596'), (3, '11:45:11:430075'), (5, '11:45:11:438791'), (1, '11:45:11:706845'), (-1, '11:45:11:715184'), (-2, '11:45:11:715184'), (-3, '11:45:11:715184')])
+round 201 finished 11:45:12:742034
+Loss = 1.4927934408187866, Accuracy = 0.4296875
+dict_keys([(4, '11:45:12:742072'), (2, '11:45:12:780840'), (3, '11:45:12:786628'), (1, '11:45:13:026720'), (-1, '11:45:13:026720'), (-2, '11:45:13:026720'), (-3, '11:45:13:026720')])
+round 202 finished 11:45:14:347696
+Loss = 1.522660732269287, Accuracy = 0.3828125
+dict_keys([(4, '11:45:14:347724'), (1, '11:45:14:386128'), (3, '11:45:14:402545'), (5, '11:45:14:410762'), (-1, '11:45:14:427671'), (-2, '11:45:14:427671'), (-3, '11:45:14:427671')])
+round 203 finished 11:45:15:451122
+Loss = 1.5351886749267578, Accuracy = 0.421875
+dict_keys([(4, '11:45:15:451152'), (1, '11:45:15:481732'), (3, '11:45:15:485923'), (5, '11:45:15:490033'), (-1, '11:45:15:706582'), (-2, '11:45:15:706582'), (-3, '11:45:15:706582')])
+round 204 finished 11:45:16:667637
+Loss = 1.6061409711837769, Accuracy = 0.3203125
+dict_keys([(4, '11:45:16:667670'), (5, '11:45:16:708413'), (1, '11:45:16:731626'), (3, '11:45:16:740833'), (-1, '11:45:17:053224'), (-2, '11:45:17:053224'), (-3, '11:45:17:053224')])
+round 205 finished 11:45:18:090319
+Loss = 1.513109803199768, Accuracy = 0.4140625
+dict_keys([(4, '11:45:18:090350'), (0, '11:45:18:116537'), (1, '11:45:18:374695'), (3, '11:45:18:397743'), (-1, '11:45:18:397743'), (-2, '11:45:18:397743'), (-3, '11:45:18:397743')])
+round 206 finished 11:45:19:397567
+Loss = 1.3409940004348755, Accuracy = 0.5625
+dict_keys([(4, '11:45:19:397597'), (3, '11:45:19:426437'), (0, '11:45:19:482134'), (1, '11:45:19:494361'), (-1, '11:45:19:695167'), (-2, '11:45:19:695167'), (-3, '11:45:19:695167')])
+round 207 finished 11:45:20:935546
+Loss = 1.5005686283111572, Accuracy = 0.4765625
+dict_keys([(4, '11:45:20:935576'), (3, '11:45:20:975778'), (5, '11:45:20:982802'), (6, '11:45:21:018424'), (-1, '11:45:21:023309'), (-2, '11:45:21:023309'), (-3, '11:45:21:023309')])
+round 208 finished 11:45:21:884160
+Loss = 1.4969509840011597, Accuracy = 0.4296875
+dict_keys([(4, '11:45:21:884192'), (0, '11:45:21:994759'), (3, '11:45:22:257227'), (1, '11:45:22:287644'), (-1, '11:45:22:287644'), (-2, '11:45:22:287644'), (-3, '11:45:22:287644')])
+round 209 finished 11:45:23:288183
+Loss = 1.5450608730316162, Accuracy = 0.421875
+dict_keys([(4, '11:45:23:288219'), (0, '11:45:23:319696'), (1, '11:45:23:326282'), (3, '11:45:23:511242'), (-1, '11:45:23:610274'), (-2, '11:45:23:610274'), (-3, '11:45:23:610274')])
+round 210 finished 11:45:24:591819
+Loss = 1.5192838907241821, Accuracy = 0.4453125
+dict_keys([(4, '11:45:24:591851'), (0, '11:45:24:618183'), (1, '11:45:24:652857'), (3, '11:45:24:905383'), (-1, '11:45:24:905383'), (-2, '11:45:24:905383'), (-3, '11:45:24:905383')])
+round 211 finished 11:45:26:184626
+Loss = 1.524234652519226, Accuracy = 0.3671875
+dict_keys([(4, '11:45:26:184653'), (0, '11:45:26:208771'), (1, '11:45:26:215682'), (3, '11:45:26:226362'), (-1, '11:45:26:236948'), (-2, '11:45:26:236948'), (-3, '11:45:26:236948')])
+round 212 finished 11:45:27:079556
+Loss = 1.5925017595291138, Accuracy = 0.3515625
+dict_keys([(4, '11:45:27:079588'), (5, '11:45:27:163698'), (3, '11:45:27:229341'), (1, '11:45:27:239445'), (-1, '11:45:27:498894'), (-2, '11:45:27:498894'), (-3, '11:45:27:498894')])
+round 213 finished 11:45:28:456883
+Loss = 1.5585956573486328, Accuracy = 0.40625
+dict_keys([(4, '11:45:28:456916'), (1, '11:45:28:519991'), (6, '11:45:28:552962'), (5, '11:45:28:577203'), (-1, '11:45:28:823144'), (-2, '11:45:28:823144'), (-3, '11:45:28:823144')])
+round 214 finished 11:45:30:081650
+Loss = 1.6648285388946533, Accuracy = 0.34375
+dict_keys([(4, '11:45:30:081681'), (1, '11:45:30:113640'), (3, '11:45:30:122388'), (5, '11:45:30:126892'), (-1, '11:45:30:134978'), (-2, '11:45:30:134978'), (-3, '11:45:30:134978')])
+round 215 finished 11:45:31:405422
+Loss = 1.5988423824310303, Accuracy = 0.3359375
+dict_keys([(4, '11:45:31:405474'), (0, '11:45:31:438590'), (1, '11:45:31:445751'), (3, '11:45:31:457064'), (-1, '11:45:31:467569'), (-2, '11:45:31:467569'), (-3, '11:45:31:467569')])
+round 216 finished 11:45:32:383649
+Loss = 1.6180390119552612, Accuracy = 0.328125
+dict_keys([(4, '11:45:32:383680'), (6, '11:45:32:414565'), (3, '11:45:32:431369'), (1, '11:45:32:485720'), (-1, '11:45:32:720943'), (-2, '11:45:32:720943'), (-3, '11:45:32:720943')])
+round 217 finished 11:45:33:633562
+Loss = 1.5012495517730713, Accuracy = 0.4765625
+dict_keys([(4, '11:45:33:633592'), (5, '11:45:33:660909'), (3, '11:45:33:669729'), (1, '11:45:33:989967'), (-1, '11:45:33:989967'), (-2, '11:45:33:989967'), (-3, '11:45:33:989967')])
+round 218 finished 11:45:35:260605
+Loss = 1.4955540895462036, Accuracy = 0.4453125
+dict_keys([(4, '11:45:35:260635'), (3, '11:45:35:295126'), (5, '11:45:35:299244'), (1, '11:45:35:319243'), (-1, '11:45:35:319243'), (-2, '11:45:35:319243'), (-3, '11:45:35:319243')])
+round 219 finished 11:45:36:312820
+Loss = 1.567787766456604, Accuracy = 0.40625
+dict_keys([(4, '11:45:36:312858'), (3, '11:45:36:358324'), (5, '11:45:36:362493'), (1, '11:45:36:603209'), (-1, '11:45:36:648283'), (-2, '11:45:36:648283'), (-3, '11:45:36:648283')])
+round 220 finished 11:45:37:578646
+Loss = 1.6087895631790161, Accuracy = 0.3828125
+dict_keys([(4, '11:45:37:578679'), (5, '11:45:37:615141'), (0, '11:45:37:917294'), (3, '11:45:37:930459'), (-1, '11:45:37:930459'), (-2, '11:45:37:930459'), (-3, '11:45:37:930459')])
+round 221 finished 11:45:38:935721
+Loss = 1.6122492551803589, Accuracy = 0.359375
+dict_keys([(4, '11:45:38:935765'), (0, '11:45:38:972037'), (1, '11:45:38:978709'), (3, '11:45:39:240559'), (-1, '11:45:39:248501'), (-2, '11:45:39:248501'), (-3, '11:45:39:248501')])
+round 222 finished 11:45:40:466151
+Loss = 1.4975117444992065, Accuracy = 0.3984375
+dict_keys([(4, '11:45:40:466182'), (1, '11:45:40:491655'), (3, '11:45:40:505788'), (5, '11:45:40:513001'), (-1, '11:45:40:530035'), (-2, '11:45:40:530035'), (-3, '11:45:40:530035')])
+round 223 finished 11:45:41:448501
+Loss = 1.5493416786193848, Accuracy = 0.40625
+dict_keys([(4, '11:45:41:448564'), (1, '11:45:41:492233'), (2, '11:45:41:517089'), (3, '11:45:41:815631'), (-1, '11:45:41:823643'), (-2, '11:45:41:823643'), (-3, '11:45:41:823643')])
+round 224 finished 11:45:42:747450
+Loss = 1.6022967100143433, Accuracy = 0.3515625
+dict_keys([(4, '11:45:42:747482'), (3, '11:45:42:774113'), (5, '11:45:42:778545'), (1, '11:45:43:081091'), (-1, '11:45:43:081091'), (-2, '11:45:43:081091'), (-3, '11:45:43:081091')])
+round 225 finished 11:45:44:030026
+Loss = 1.6745150089263916, Accuracy = 0.3515625
+dict_keys([(4, '11:45:44:030060'), (3, '11:45:44:110442'), (1, '11:45:44:135649'), (0, '11:45:44:380762'), (-1, '11:45:44:428320'), (-2, '11:45:44:428320'), (-3, '11:45:44:428320')])
+round 226 finished 11:45:45:492896
+Loss = 1.6196634769439697, Accuracy = 0.34375
+dict_keys([(4, '11:45:45:492925'), (3, '11:45:45:525840'), (5, '11:45:45:530011'), (1, '11:45:45:749420'), (-1, '11:45:45:749420'), (-2, '11:45:45:749420'), (-3, '11:45:45:749420')])
+round 227 finished 11:45:46:718979
+Loss = 1.6780986785888672, Accuracy = 0.3125
+dict_keys([(4, '11:45:46:719009'), (3, '11:45:46:761125'), (5, '11:45:47:037363'), (1, '11:45:47:052897'), (-1, '11:45:47:052897'), (-2, '11:45:47:052897'), (-3, '11:45:47:052897')])
+round 228 finished 11:45:48:005478
+Loss = 1.5647342205047607, Accuracy = 0.3828125
+dict_keys([(4, '11:45:48:005510'), (1, '11:45:48:044533'), (5, '11:45:48:051983'), (3, '11:45:48:305638'), (-1, '11:45:48:325130'), (-2, '11:45:48:325130'), (-3, '11:45:48:325130')])
+round 229 finished 11:45:49:559425
+Loss = 1.6658071279525757, Accuracy = 0.328125
+dict_keys([(4, '11:45:49:559456'), (0, '11:45:49:584341'), (1, '11:45:49:592790'), (3, '11:45:49:660186'), (-1, '11:45:49:660186'), (-2, '11:45:49:660186'), (-3, '11:45:49:660186')])
+round 230 finished 11:45:50:929194
+Loss = 1.663771629333496, Accuracy = 0.3671875
+dict_keys([(4, '11:45:50:929232'), (0, '11:45:50:962839'), (1, '11:45:51:011869'), (3, '11:45:51:031457'), (-1, '11:45:51:042192'), (-2, '11:45:51:042192'), (-3, '11:45:51:042192')])
+round 231 finished 11:45:51:958159
+Loss = 1.7239762544631958, Accuracy = 0.3046875
+dict_keys([(4, '11:45:51:958220'), (1, '11:45:51:998094'), (5, '11:45:52:002294'), (3, '11:45:52:261644'), (-1, '11:45:52:280853'), (-2, '11:45:52:280853'), (-3, '11:45:52:280853')])
+round 232 finished 11:45:53:578590
+Loss = 1.6354572772979736, Accuracy = 0.3515625
+dict_keys([(4, '11:45:53:578621'), (1, '11:45:53:612649'), (5, '11:45:53:715472'), (6, '11:45:53:732100'), (-1, '11:45:53:732100'), (-2, '11:45:53:732100'), (-3, '11:45:53:732100')])
+round 233 finished 11:45:54:613213
+Loss = 1.6664167642593384, Accuracy = 0.34375
+dict_keys([(4, '11:45:54:613246'), (2, '11:45:54:645073'), (1, '11:45:54:663282'), (0, '11:45:54:923041'), (-1, '11:45:54:936726'), (-2, '11:45:54:936726'), (-3, '11:45:54:936726')])
+round 234 finished 11:45:56:213776
+Loss = 1.5799180269241333, Accuracy = 0.375
+dict_keys([(4, '11:45:56:213806'), (1, '11:45:56:238811'), (2, '11:45:56:247176'), (0, '11:45:56:270115'), (-1, '11:45:56:270115'), (-2, '11:45:56:270115'), (-3, '11:45:56:270115')])
+round 235 finished 11:45:57:527646
+Loss = 1.5770572423934937, Accuracy = 0.3828125
+dict_keys([(4, '11:45:57:527683'), (0, '11:45:57:553084'), (1, '11:45:57:559469'), (3, '11:45:57:570100'), (-1, '11:45:57:580698'), (-2, '11:45:57:580698'), (-3, '11:45:57:580698')])
+round 236 finished 11:45:58:491074
+Loss = 1.5967010259628296, Accuracy = 0.328125
+dict_keys([(4, '11:45:58:491106'), (0, '11:45:58:627348'), (1, '11:45:58:854152'), (3, '11:45:58:872444'), (-1, '11:45:58:872444'), (-2, '11:45:58:872444'), (-3, '11:45:58:872444')])
+round 237 finished 11:46:00:177246
+Loss = 1.6672608852386475, Accuracy = 0.328125
+dict_keys([(4, '11:46:00:177273'), (0, '11:46:00:203104'), (1, '11:46:00:223540'), (3, '11:46:00:247178'), (-1, '11:46:00:268788'), (-2, '11:46:00:268788'), (-3, '11:46:00:268788')])
+round 238 finished 11:46:01:227442
+Loss = 1.541069746017456, Accuracy = 0.40625
+dict_keys([(4, '11:46:01:227472'), (0, '11:46:01:253762'), (1, '11:46:01:260671'), (3, '11:46:01:523002'), (-1, '11:46:01:523002'), (-2, '11:46:01:523002'), (-3, '11:46:01:523002')])
+round 239 finished 11:46:02:510029
+Loss = 1.6044321060180664, Accuracy = 0.3984375
+dict_keys([(4, '11:46:02:510068'), (1, '11:46:02:539435'), (3, '11:46:02:546822'), (5, '11:46:02:784350'), (-1, '11:46:02:815516'), (-2, '11:46:02:815516'), (-3, '11:46:02:815516')])
+round 240 finished 11:46:04:078987
+Loss = 1.6311777830123901, Accuracy = 0.375
+dict_keys([(4, '11:46:04:079016'), (1, '11:46:04:114521'), (2, '11:46:04:120024'), (5, '11:46:04:141011'), (-1, '11:46:04:150331'), (-2, '11:46:04:150331'), (-3, '11:46:04:150331')])
+round 241 finished 11:46:05:383770
+Loss = 1.6027207374572754, Accuracy = 0.328125
+dict_keys([(4, '11:46:05:383799'), (1, '11:46:05:415524'), (3, '11:46:05:447946'), (5, '11:46:05:453234'), (-1, '11:46:05:469538'), (-2, '11:46:05:469538'), (-3, '11:46:05:469538')])
+round 242 finished 11:46:06:320586
+Loss = 1.5715488195419312, Accuracy = 0.375
+dict_keys([(4, '11:46:06:320619'), (2, '11:46:06:365574'), (0, '11:46:06:423626'), (1, '11:46:06:688501'), (-1, '11:46:06:688501'), (-2, '11:46:06:688501'), (-3, '11:46:06:688501')])
+round 243 finished 11:46:07:903841
+Loss = 1.528269648551941, Accuracy = 0.4609375
+dict_keys([(4, '11:46:07:903867'), (1, '11:46:07:953624'), (3, '11:46:08:016559'), (5, '11:46:08:021872'), (-1, '11:46:08:027227'), (-2, '11:46:08:027227'), (-3, '11:46:08:027227')])
+round 244 finished 11:46:08:907756
+Loss = 1.4461370706558228, Accuracy = 0.46875
+dict_keys([(4, '11:46:08:907793'), (5, '11:46:08:954758'), (1, '11:46:09:217937'), (3, '11:46:09:226319'), (-1, '11:46:09:226319'), (-2, '11:46:09:226319'), (-3, '11:46:09:226319')])
+round 245 finished 11:46:10:493509
+Loss = 1.5424844026565552, Accuracy = 0.421875
+dict_keys([(4, '11:46:10:493540'), (1, '11:46:10:525852'), (3, '11:46:10:529964'), (5, '11:46:10:534335'), (-1, '11:46:10:550398'), (-2, '11:46:10:550398'), (-3, '11:46:10:550398')])
+round 246 finished 11:46:11:448791
+Loss = 1.5104269981384277, Accuracy = 0.4453125
+dict_keys([(4, '11:46:11:448824'), (0, '11:46:11:544358'), (2, '11:46:11:554093'), (1, '11:46:11:571280'), (-1, '11:46:11:810683'), (-2, '11:46:11:810683'), (-3, '11:46:11:810683')])
+round 247 finished 11:46:13:019687
+Loss = 1.5300686359405518, Accuracy = 0.40625
+dict_keys([(4, '11:46:13:019717'), (1, '11:46:13:051147'), (2, '11:46:13:055293'), (3, '11:46:13:059431'), (-1, '11:46:13:083196'), (-2, '11:46:13:083196'), (-3, '11:46:13:083196')])
+round 248 finished 11:46:13:941798
+Loss = 1.5272448062896729, Accuracy = 0.390625
+dict_keys([(4, '11:46:13:941833'), (1, '11:46:14:022405'), (5, '11:46:14:047421'), (3, '11:46:14:385282'), (-1, '11:46:14:385282'), (-2, '11:46:14:385282'), (-3, '11:46:14:385282')])
+round 249 finished 11:46:15:567104
+Loss = 1.5677860975265503, Accuracy = 0.3671875
+dict_keys([(4, '11:46:15:567134'), (0, '11:46:15:591594'), (1, '11:46:15:597844'), (3, '11:46:15:653122'), (-1, '11:46:15:653122'), (-2, '11:46:15:653122'), (-3, '11:46:15:653122')])
+round 250 finished 11:46:16:554546
+Loss = 1.524016261100769, Accuracy = 0.4609375
+dict_keys([(4, '11:46:16:554578'), (1, '11:46:16:636803'), (3, '11:46:16:674511'), (5, '11:46:16:957326'), (-1, '11:46:16:957326'), (-2, '11:46:16:957326'), (-3, '11:46:16:957326')])
+round 251 finished 11:46:17:915784
+Loss = 1.5869832038879395, Accuracy = 0.375
+dict_keys([(4, '11:46:17:915817'), (1, '11:46:17:948695'), (3, '11:46:17:958421'), (0, '11:46:17:969986'), (-1, '11:46:18:239053'), (-2, '11:46:18:239053'), (-3, '11:46:18:239053')])
+round 252 finished 11:46:19:205626
+Loss = 1.4788919687271118, Accuracy = 0.4609375
+dict_keys([(4, '11:46:19:205657'), (1, '11:46:19:237218'), (3, '11:46:19:245580'), (5, '11:46:19:300268'), (-1, '11:46:19:529074'), (-2, '11:46:19:529074'), (-3, '11:46:19:529074')])
+round 253 finished 11:46:20:471899
+Loss = 1.5771852731704712, Accuracy = 0.3828125
+dict_keys([(4, '11:46:20:471931'), (1, '11:46:20:513297'), (5, '11:46:20:527680'), (3, '11:46:20:773904'), (-1, '11:46:20:881270'), (-2, '11:46:20:881270'), (-3, '11:46:20:881270')])
+round 254 finished 11:46:22:160142
+Loss = 1.7823659181594849, Accuracy = 0.28125
+dict_keys([(4, '11:46:22:160197'), (0, '11:46:22:185906'), (1, '11:46:22:194205'), (3, '11:46:22:207383'), (-1, '11:46:22:219987'), (-2, '11:46:22:219987'), (-3, '11:46:22:219987')])
+round 255 finished 11:46:23:477487
+Loss = 1.496944546699524, Accuracy = 0.3828125
+dict_keys([(4, '11:46:23:477514'), (0, '11:46:23:503759'), (1, '11:46:23:511951'), (5, '11:46:23:538991'), (-1, '11:46:23:555160'), (-2, '11:46:23:555160'), (-3, '11:46:23:555160')])
+round 256 finished 11:46:24:483418
+Loss = 1.714674949645996, Accuracy = 0.296875
+dict_keys([(4, '11:46:24:483452'), (1, '11:46:24:586391'), (0, '11:46:24:795992'), (3, '11:46:24:804426'), (-1, '11:46:24:804426'), (-2, '11:46:24:804426'), (-3, '11:46:24:804426')])
+round 257 finished 11:46:25:778941
+Loss = 1.541373610496521, Accuracy = 0.3984375
+dict_keys([(4, '11:46:25:778973'), (0, '11:46:25:811865'), (3, '11:46:25:831077'), (1, '11:46:25:841597'), (-1, '11:46:26:118533'), (-2, '11:46:26:118533'), (-3, '11:46:26:118533')])
+round 258 finished 11:46:27:015630
+Loss = 1.5827535390853882, Accuracy = 0.34375
+dict_keys([(4, '11:46:27:015662'), (1, '11:46:27:082266'), (5, '11:46:27:138095'), (3, '11:46:27:432834'), (-1, '11:46:27:432834'), (-2, '11:46:27:432834'), (-3, '11:46:27:432834')])
+round 259 finished 11:46:28:418340
+Loss = 1.7347365617752075, Accuracy = 0.2421875
+dict_keys([(4, '11:46:28:418371'), (1, '11:46:28:453352'), (3, '11:46:28:477154'), (0, '11:46:28:767568'), (-1, '11:46:28:767568'), (-2, '11:46:28:767568'), (-3, '11:46:28:767568')])
+round 260 finished 11:46:29:831656
 Client Iteration Finished!
 Client 4 terminated! ...
