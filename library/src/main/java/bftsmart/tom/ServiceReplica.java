@@ -517,4 +517,9 @@ public class ServiceReplica {
     public int getId() {
         return id;
     }
+
+    ////////// Mahdi: get ExecutionManager
+    public TOMLayer getTomLayer() {
+        return tomLayer;
+    }
 }

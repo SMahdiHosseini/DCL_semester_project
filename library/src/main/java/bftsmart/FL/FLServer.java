@@ -2,6 +2,8 @@ package bftsmart.FL;
 
 import bftsmart.tom.MessageContext;
 import bftsmart.tom.ServiceReplica;
+import bftsmart.tom.core.ExecutionManager;
+import bftsmart.tom.core.TOMLayer;
 import bftsmart.tom.server.defaultservices.DefaultSingleRecoverable;
 
 import java.io.*;
@@ -10,6 +12,7 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.concurrent.locks.ReentrantLock;
 
 public final class FLServer extends DefaultSingleRecoverable {
@@ -29,6 +32,7 @@ public final class FLServer extends DefaultSingleRecoverable {
     private String fileName;
     private ArrayList<Integer> connectedClients;
     private int id;
+    private TOMLayer tomLayer;
     public FLServer(int id, int _clientNums, int _numOfRounds, String address, int byzNums, String aggregatorName, String attackName, String _test){
         this.numOfRounds = _numOfRounds;
         this.clientNums = _clientNums;
@@ -48,8 +52,7 @@ public final class FLServer extends DefaultSingleRecoverable {
             this.fileName = "../../../../Consensus_res/" + aggregatorName + "/ncl_" + Integer.toString(_clientNums) + "/nbyz_" + Integer.toString(byzNums) + "/Performance/recevdParamIds.txt";
         
         createRecvdParamIds();
-        new ServiceReplica(id, this, this);
-
+        tomLayer = new ServiceReplica(id, this, this).getTomLayer();
         try {
 
 //            ServerSocket serverSocket = new ServerSocket(6000);
@@ -260,8 +263,39 @@ public final class FLServer extends DefaultSingleRecoverable {
         return new byte[0];
     }
 
+    public void checkAndExecLeaderChange(){
+        /// Mahdi: leader change test \\\ START
+        // System.out.println("######### leader change test\n leader id: " + currentLeader + "\n process id: " + tomLayer.controller.getStaticConf().getProcessId());
+        if (currentRound % 5 == 0){
+            if (!tomLayer.isChangingLeader() && !tomLayer.isRetrievingState() && tomLayer.execManager.getCurrentLeader() == tomLayer.controller.getStaticConf().getProcessId()){
+                tomLayer.getSynchronizer().triggerTimeout(new LinkedList<>());
+            }
+            // if (!tomLayer.isChangingLeader() && !tomLayer.isRetrievingState()){
+            //     tomLayer.getSynchronizer().triggerTimeout(new LinkedList<>());
+            // }
+            try {
+                Thread.sleep(500);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+
+        // wait for the leader change
+        while (tomLayer.isChangingLeader() || tomLayer.isRetrievingState()) {
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+        
+        // System.out.println("********** leader change ended!\n leader id: " + tomLayer.execManager.getCurrentLeader() + "\n process id: " + tomLayer.controller.getStaticConf().getProcessId());
+        /// Mahdi: leader change test \\\ END
+    }
+
     @Override
     public byte[] appExecuteOrdered(byte[] command, MessageContext msgCtx) {
+        checkAndExecLeaderChange();
         try {
             FLMessage message = FLMessage.fromBytes(command);
             if (message.getType().equals(MessageType.NEWPARAM) && message.getRound() == 1 && message.getClientId() == 0){
