@@ -62,18 +62,18 @@ def readOrders(client_id, nb_clients, nb_byz, nb_rounds, aggreagator, attack, se
 
     return participationDict, participationMatrix
 
-flParticipationDict, flParticipationMatrix = readOrders(0, 10, 3, 250, 'trmean', 'SF', 'fl', 1)
-ConParticipationDict, conParticipationMatrix = readOrders(0, 10, 3, 250, 'trmean', 'SF', 'con', 1)
-f_exp = [175 for i in range(10)]
+# flParticipationDict, flParticipationMatrix = readOrders(0, 10, 3, 250, 'trmean', 'SF', 'fl', 1)
+# ConParticipationDict, conParticipationMatrix = readOrders(0, 10, 3, 250, 'trmean', 'SF', 'con', 1)
+# f_exp = [175 for i in range(10)]
 
-# print(entropyMixingScore(participationMatrix))
+# # print(entropyMixingScore(participationMatrix))
 
-print("FL CompressionMixingScore: ", CompressionMixingScore(flParticipationMatrix))
-print("Consensus CompressionMixingScore: ", CompressionMixingScore(conParticipationMatrix))
+# print("FL CompressionMixingScore: ", CompressionMixingScore(flParticipationMatrix))
+# print("Consensus CompressionMixingScore: ", CompressionMixingScore(conParticipationMatrix))
 
-print("FL ChisquareMixingScore: ", chisquareMixingScore(list(flParticipationDict.values()), f_exp))
-print("Consensus ChisquareMixingScore: ", chisquareMixingScore(list(ConParticipationDict.values()), f_exp))
+# print("FL ChisquareMixingScore: ", chisquareMixingScore(list(flParticipationDict.values()), f_exp))
+# print("Consensus ChisquareMixingScore: ", chisquareMixingScore(list(ConParticipationDict.values()), f_exp))
 
-print("FL TransitionMixingScore: ", transitionMixingScore(flParticipationMatrix))
-print("Consensus TransitionMixingScore: ", transitionMixingScore(conParticipationMatrix))
+# print("FL TransitionMixingScore: ", transitionMixingScore(flParticipationMatrix))
+# print("Consensus TransitionMixingScore: ", transitionMixingScore(conParticipationMatrix))
 

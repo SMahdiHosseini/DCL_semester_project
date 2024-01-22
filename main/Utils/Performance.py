@@ -72,7 +72,7 @@ def accuracy(input_file_name):
     for line in input_file:
         line = line.strip()
         key_value = line.split("=")
-        if i != 0 and i != nb_rounds + 1:
+        if i != 0 and i < nb_rounds + 1:
             result.append(round(float(key_value[-1]), 4))
         i += 1
     return result
@@ -505,66 +505,138 @@ def all_clients_acccs(senario, aggregator, attack):
     plt.savefig("../../Plots/" + aggregator + "/" + attack + "/" + str(nb_clients) + "_"  + str(nb_byz) + "_clients_time_" + senario + "_" + heterogeneity + ".png", bbox_inches='tight')
     plt.close()
 
+def accuracy_per_mixing_plot(agg, att, senario):
+    exp = 1
+    import MixingScore as ms
+    CompressionMixingScore = dict()
+    transitionMixingScore = dict()
+    ChisquareMixingScore = dict()
+    accs = dict()
+    for senario in ['fl', 'p2p', 'con']:
+        if senario == 'fl':
+            # senario = "FL_res"
+            fake_senario = "FL_res"
+        if senario == 'p2p':
+            # senario = 'Gossip_res'
+            fake_senario = 'Gossip_res'
+        if senario == 'con':
+            # senario = 'Consensus_res'
+            fake_senario = 'Consensus_res'
+
+        CompressionMixingScore[senario] = []
+        transitionMixingScore[senario] = []
+        ChisquareMixingScore[senario] = []
+        accs[senario] = []
+        # participationDict, participationMatrix = ms.readOrders(0, nb_clients, nb_byz, nb_rounds, agg, att, senario, exp)
+        accs[senario] = accuracy("../../" + fake_senario +"/" + agg + "/ncl_" + str(nb_clients) + "/nbyz_" + str(nb_byz) + "/Accuracy_" + str(exp) + "/" + heterogeneity + "/" + att + "/" + str(0) + ".txt")
+        
+        for r in range(1, nb_rounds + 1):
+            f_exp = [r * (nb_clients - nb_byz) / nb_clients for i in range(nb_clients)]
+            participationDict, participationMatrix = ms.readOrders(2, nb_clients, nb_byz, r, agg, att, senario, exp)
+            CompressionMixingScore[senario].append(ms.CompressionMixingScore(participationMatrix))
+            transitionMixingScore[senario].append(ms.transitionMixingScore(participationMatrix))
+            ChisquareMixingScore[senario].append(ms.chisquareMixingScore(list(participationDict.values()), f_exp))
+            # print('round {} CompressionMixingScore: {}'.format(r, ms.CompressionMixingScore(participationMatrix)))
+            # print('round {} transitionMixingScore: {}'.format(r, ms.transitionMixingScore(participationMatrix)))
+            # print('round {} ChisquareMixingScore: {}'.format(r, ms.chisquareMixingScore(list(participationDict.values()), f_exp)))
+    
+    plt.plot(CompressionMixingScore['fl'], accs['fl'])
+    plt.plot(CompressionMixingScore['p2p'], accs['p2p'])
+    plt.plot(CompressionMixingScore['con'], accs['con'])
+    plt.xlabel('CompressionMixingScore')
+    plt.ylabel('accuracy')
+    plt.legend(['fl', 'p2p', 'con'])
+    plt.savefig("../../Plots/" + agg + "/" + att + "/" + str(nb_clients) + "_"  + str(nb_byz) + "_CompressionMixingScore_" + heterogeneity + ".png", bbox_inches='tight')
+    plt.close()
+
+    plt.plot(transitionMixingScore['fl'], accs['fl'])
+    plt.plot(transitionMixingScore['p2p'], accs['p2p'])
+    plt.plot(transitionMixingScore['con'], accs['con'])
+    plt.xlabel('transitionMixingScore')
+    plt.ylabel('accuracy')
+    plt.legend(['fl', 'p2p', 'con'])
+    plt.savefig("../../Plots/" + agg + "/" + att + "/" + str(nb_clients) + "_"  + str(nb_byz) + "_transitionMixingScore_" + heterogeneity + ".png", bbox_inches='tight')
+    plt.close()
+
+    plt.plot(ChisquareMixingScore['fl'], accs['fl'])
+    plt.plot(ChisquareMixingScore['p2p'], accs['p2p'])
+    plt.plot(ChisquareMixingScore['con'], accs['con'])
+    plt.xlabel('ChisquareMixingScore')
+    plt.ylabel('accuracy')
+    plt.legend(['fl', 'p2p', 'con'])
+    plt.savefig("../../Plots/" + agg + "/" + att + "/" + str(nb_clients) + "_"  + str(nb_byz) + "_ChisquareMixingScore_" + heterogeneity + ".png", bbox_inches='tight')
+    plt.close()
+
+    # for i in range(1, nb_rounds + 1):
+    #     print(i, CompressionMixingScore['fl'][i-1], CompressionMixingScore['p2p'][i-1], CompressionMixingScore['con'][i-1])
+
+
+
 
 
 def main():
-    fl = dict()
-    p2p = dict()
-    con = dict()
+#     fl = dict()
+#     p2p = dict()
+#     con = dict()
+#     for agg in aggregators:
+#         fl[agg] = dict()
+#         p2p[agg] = dict()
+#         con[agg] = dict()
+#         analysePerformance(aggregator=agg, nb_clients=nb_clients, nb_byz=nb_byz, res=fl, senario='fl')
+#         analysePerformance(aggregator=agg, nb_clients=nb_clients, nb_byz=nb_byz, res=p2p, senario='p2p')
+#         analysePerformance(aggregator=agg, nb_clients=nb_clients, nb_byz=nb_byz, res=con, senario='con')
+
+#         for att in attacks:
+#             analyseAccuracy(aggregator=agg, attack=att, nb_clients=nb_clients, nb_byz=nb_byz, res=fl, senario='fl')
+#             analyseAccuracy(aggregator=agg, attack=att, nb_clients=nb_clients, nb_byz=nb_byz, res=p2p, senario='p2p')
+#             analyseAccuracy(aggregator=agg, attack=att, nb_clients=nb_clients, nb_byz=nb_byz, res=con, senario='con')
+#     # print("fl:", len(fl['trmean']['time']))
+#     # print("fl", fl['trmean']['time'].values())
+#     # # print("p2p:", p2p)
+#     # # print("con:", con)
+#     all_accuracy_per_round(fl, p2p, con)
+#     all_accuracy_per_time(fl, p2p, con)
+#     accuracy_attack_plot(fl, "fl", nb_clients, nb_byz)
+#     accuracy_attack_plot(p2p, "p2p", nb_clients, nb_byz)
+#     accuracy_attack_plot(con, "con", nb_clients, nb_byz)
+
+#     boxplots_i(boxes=[[[value for values in fl[agg]['time'].values() for value in values] for agg in aggregators], 
+#                       [[value for values in p2p[agg]['time'].values() for value in values] for agg in aggregators],
+#                       [[value for values in con[agg]['time'].values() for value in values] for agg in aggregators]],
+#                num=3, labels=aggregators, boxes_tags=['fl', 'p2p', 'con'], x_label="aggregator", y_label="time", y_lim=0.30, filename="../../Plots/roundtime_" + str(nb_clients) + "_" + str(nb_byz) + ".png", 
+#                title="n = " + str(nb_clients) + "\n n byz = " + str(nb_byz))
+
+
+#     violin_plot(fl, p2p, con)
+#     slowest_fl, fastest_fl = find_fastest_slowest('fl', 'trmean')
+#     slowest_p2p, fastest_p2p = find_fastest_slowest('p2p', 'trmean')
+#     slowest_con, fastest_con = find_fastest_slowest('con', 'trmean')
+#     violin_plot_slowest_fastest({'slowest': slowest_fl, 'fastest': fastest_fl}, {'slowest': slowest_p2p, 'fastest': fastest_p2p}, {'slowest': slowest_con, 'fastest': fastest_con})
+
+# # #### finding the fastest node that reached the trsh first
+#     # trsh = 0.60
+#     trsh = 0.75
+#     fl_slowest_fastest = {'trmean': {'SF': find_fastest_slowest_trsh('fl', 'trmean', 'SF', trsh)}}
+#     p2p_slowest_fastest = {'trmean': {'SF': find_fastest_slowest_trsh('p2p', 'trmean', 'SF', trsh)}}
+#     con_slowest_fastest = {'trmean': {'SF': find_fastest_slowest_trsh('con', 'trmean', 'SF', trsh)}}
+#     # print(p2p_slowest_fastest['trmean']['SF']['fastest']['acc'])
+#     all_accuracy_per_time_per_pace(fl_slowest_fastest, p2p_slowest_fastest, con_slowest_fastest, 'fastest', trsh)
+#     all_accuracy_per_time_per_pace(fl_slowest_fastest, p2p_slowest_fastest, con_slowest_fastest, 'slowest', trsh)
+
+# ## accuracy per time per client
+#     all_clients_acccs('p2p', 'trmean', 'SF')
+#     all_clients_acccs('fl', 'trmean', 'SF')
+#     all_clients_acccs('con', 'trmean', 'SF')
+
+# ### finding the orders of clients
+#     print(readOrders(0, nb_clients, nb_byz, nb_rounds, 'trmean', 'SF', 'fl'))
+#     print(readOrders(0, nb_clients, nb_byz, nb_rounds, 'trmean', 'SF', 'con'))
+#     for i in range(nb_clients):
+#         print(i, readOrders(i, nb_clients, nb_byz, nb_rounds, 'trmean', 'SF', 'p2p'))
+
+### plot the accuracy per mixing score
     for agg in aggregators:
-        fl[agg] = dict()
-        p2p[agg] = dict()
-        con[agg] = dict()
-        analysePerformance(aggregator=agg, nb_clients=nb_clients, nb_byz=nb_byz, res=fl, senario='fl')
-        analysePerformance(aggregator=agg, nb_clients=nb_clients, nb_byz=nb_byz, res=p2p, senario='p2p')
-        analysePerformance(aggregator=agg, nb_clients=nb_clients, nb_byz=nb_byz, res=con, senario='con')
-
-        for att in attacks:
-            analyseAccuracy(aggregator=agg, attack=att, nb_clients=nb_clients, nb_byz=nb_byz, res=fl, senario='fl')
-            analyseAccuracy(aggregator=agg, attack=att, nb_clients=nb_clients, nb_byz=nb_byz, res=p2p, senario='p2p')
-            analyseAccuracy(aggregator=agg, attack=att, nb_clients=nb_clients, nb_byz=nb_byz, res=con, senario='con')
-    # print("fl:", len(fl['trmean']['time']))
-    # print("fl", fl['trmean']['time'].values())
-    # # print("p2p:", p2p)
-    # # print("con:", con)
-    all_accuracy_per_round(fl, p2p, con)
-    all_accuracy_per_time(fl, p2p, con)
-    accuracy_attack_plot(fl, "fl", nb_clients, nb_byz)
-    accuracy_attack_plot(p2p, "p2p", nb_clients, nb_byz)
-    accuracy_attack_plot(con, "con", nb_clients, nb_byz)
-
-    boxplots_i(boxes=[[[value for values in fl[agg]['time'].values() for value in values] for agg in aggregators], 
-                      [[value for values in p2p[agg]['time'].values() for value in values] for agg in aggregators],
-                      [[value for values in con[agg]['time'].values() for value in values] for agg in aggregators]],
-               num=3, labels=aggregators, boxes_tags=['fl', 'p2p', 'con'], x_label="aggregator", y_label="time", y_lim=0.30, filename="../../Plots/roundtime_" + str(nb_clients) + "_" + str(nb_byz) + ".png", 
-               title="n = " + str(nb_clients) + "\n n byz = " + str(nb_byz))
-
-
-    violin_plot(fl, p2p, con)
-    slowest_fl, fastest_fl = find_fastest_slowest('fl', 'trmean')
-    slowest_p2p, fastest_p2p = find_fastest_slowest('p2p', 'trmean')
-    slowest_con, fastest_con = find_fastest_slowest('con', 'trmean')
-    violin_plot_slowest_fastest({'slowest': slowest_fl, 'fastest': fastest_fl}, {'slowest': slowest_p2p, 'fastest': fastest_p2p}, {'slowest': slowest_con, 'fastest': fastest_con})
-
-# #### finding the fastest node that reached the trsh first
-    # trsh = 0.60
-    trsh = 0.75
-    fl_slowest_fastest = {'trmean': {'SF': find_fastest_slowest_trsh('fl', 'trmean', 'SF', trsh)}}
-    p2p_slowest_fastest = {'trmean': {'SF': find_fastest_slowest_trsh('p2p', 'trmean', 'SF', trsh)}}
-    con_slowest_fastest = {'trmean': {'SF': find_fastest_slowest_trsh('con', 'trmean', 'SF', trsh)}}
-    # print(p2p_slowest_fastest['trmean']['SF']['fastest']['acc'])
-    all_accuracy_per_time_per_pace(fl_slowest_fastest, p2p_slowest_fastest, con_slowest_fastest, 'fastest', trsh)
-    all_accuracy_per_time_per_pace(fl_slowest_fastest, p2p_slowest_fastest, con_slowest_fastest, 'slowest', trsh)
-
-## accuracy per time per client
-    all_clients_acccs('p2p', 'trmean', 'SF')
-    all_clients_acccs('fl', 'trmean', 'SF')
-    all_clients_acccs('con', 'trmean', 'SF')
-
-### finding the orders of clients
-    print(readOrders(0, nb_clients, nb_byz, nb_rounds, 'trmean', 'SF', 'fl'))
-    print(readOrders(0, nb_clients, nb_byz, nb_rounds, 'trmean', 'SF', 'con'))
-    for i in range(nb_clients):
-        print(i, readOrders(i, nb_clients, nb_byz, nb_rounds, 'trmean', 'SF', 'p2p'))
+        accuracy_per_mixing_plot(agg, 'SF', 'fl')
+        # accuracy_per_mixing_plot(agg, 'SF', 'con')
 if __name__ == "__main__":
     main()
