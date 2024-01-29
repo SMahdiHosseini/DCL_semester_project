@@ -21,10 +21,10 @@ def transitionMixingScore(participationMatrix):
     score = 0
     for i in range(1, len(participationMatrix)):
         for j in range(len(participationMatrix[i])):
-            if participationMatrix[i][j] == 1 and participationMatrix[i-1][j] == 1:
+            # if participationMatrix[i][j] == 1 and participationMatrix[i-1][j] == 1:
+            #     score += 1
+            if (participationMatrix[i][j] == 1 and participationMatrix[i-1][j] == 0) or (participationMatrix[i][j] == 0 and participationMatrix[i-1][j] == 1):
                 score += 1
-            if participationMatrix[i][j] == 1 and participationMatrix[i-1][j] == 0:
-                score += 2
     return score
 
 def readOrders(client_id, nb_clients, nb_byz, nb_rounds, aggreagator, attack, senario, experiment):

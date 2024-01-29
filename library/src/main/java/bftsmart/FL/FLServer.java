@@ -267,7 +267,7 @@ public final class FLServer extends DefaultSingleRecoverable {
         /// Mahdi: leader change test \\\ START
         // System.out.println("######### leader change test\n leader id: " + currentLeader + "\n process id: " + tomLayer.controller.getStaticConf().getProcessId());
         if (currentRound % 5 == 0){
-            if (!tomLayer.isChangingLeader() && !tomLayer.isRetrievingState() && tomLayer.execManager.getCurrentLeader() == tomLayer.controller.getStaticConf().getProcessId()){
+            if (!tomLayer.isChangingLeader() && !tomLayer.isRetrievingState()){
                 tomLayer.getSynchronizer().triggerTimeout(new LinkedList<>());
             }
             // if (!tomLayer.isChangingLeader() && !tomLayer.isRetrievingState()){

@@ -136,7 +136,32 @@
 
 # print(len(net.get_parameters()))
 
-import random
-s = [i for i in range(10)]
-random.shuffle(s)
-print(s)
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Sample data
+x = np.array([1, 2, 3, 4, 5])
+y1 = np.array([3, 6, 8, 4, 7])
+y2 = np.array([2, 5, 7, 3, 6])
+y3 = np.array([1, 4, 6, 2, 5])
+
+# Bar width
+bar_width = 0.2
+
+# Create a figure and axis
+fig, ax = plt.subplots()
+
+# Plotting the bars
+ax.bar(x - bar_width, y1, width=bar_width, label='Bar 1')
+ax.bar(x, y2, width=bar_width, label='Bar 2')
+ax.bar(x + bar_width, y3, width=bar_width, label='Bar 3')
+
+# Adding labels, title, and legend
+ax.set_xlabel('X-axis')
+ax.set_ylabel('Y-axis')
+ax.set_title('Multiple Bars at Each X-point')
+ax.legend()
+
+# Show the plot
+plt.savefig("temp.png")
+plt.close()

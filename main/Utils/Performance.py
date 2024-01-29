@@ -18,7 +18,7 @@ plt.rcParams.update({
     "axes.labelcolor": "black",
     "xtick.color": "black",
     "ytick.color": "black",
-    "grid.color": "white",
+    "grid.color": "gray",
     "figure.facecolor": "white",
     "figure.edgecolor": "white",
     "savefig.facecolor": "white",
@@ -53,7 +53,7 @@ def readlines(input_file_name):
         key = key_value[0]
         t = datetime(year=2023, month=2, day=1, hour=int(key_value[1]), minute=int(key_value[2]), second=int(key_value[3]), microsecond=int(key_value[4]))
         lines[key] = t
-    return lines
+    return lines    
 
 def sumOfTimes(times):
     result = None
@@ -261,12 +261,22 @@ def violin_plot(fl, p2p, con):
     df['time'] = df['time'].astype(float)
     # print(df)
 
-    ax = sns.violinplot(data = df,x = 'aggregator', y = 'time', hue='senario', fill=False, linewidth=5)
+    # ax = sns.violinplot(data = df,x = 'aggregator', y = 'time', hue='senario', fill=False, linewidth=5)
+    # set different colors for different senarios
+    ax = sns.violinplot(data = df,x = 'senario', y = 'time', fill=False, linewidth=5, hue='senario', legend=False, palette=sns.color_palette("Set1", 3))
     # ax.axhline(np.median(all_times['fl']['trmean']), color='blue', linewidth=1)
     # ax.axhline(np.median(all_times['p2p']['trmean']), color='red', linewidth=1)
     # ax.axhline(np.median(all_times['con']['trmean']), color='green', linewidth=1)
-    ax.set_ylabel('time(s)')
-    plt.savefig("../../Plots/Violin_" + str(nb_clients) + "_"  + str(nb_byz) + ".png", bbox_inches='tight')
+    ax.set_ylabel('time(s)', fontsize=60)
+    ax.set_xlabel('Paradigm', fontsize=60)
+    ax.grid(linestyle='dotted')
+    ax.xaxis.grid(False)
+    ax.set_xticklabels(['CFL', 'PPL', 'CBDL'], fontsize=60)
+    ax.set_ylim(bottom=0)
+    ax.set_yticks(np.arange(0, 0.4, 0.03))
+    ax.figure.set_size_inches(40, 25)
+
+    plt.savefig("../../Plots/Violin_" + str(nb_clients) + "_"  + str(nb_byz) + ".pdf", bbox_inches='tight')
     plt.close()
 
 def violin_plot_slowest_fastest(fl, p2p, con):
@@ -352,32 +362,36 @@ def all_accuracy_per_time_per_pace(fl, p2p, con, rank, trsh):
             fig, ax = plt.subplots()
             # connect data points with thicker line
 
-            ax.errorbar(x=[np.mean(t) for t in fl[agg][att][rank]['end_time']], xerr=[np.std(t) for t in fl[agg][att][rank]['end_time']], y=[np.mean(t) for t in fl[agg][att][rank]['acc']], yerr=[np.std(t) for t in fl[agg][att][rank]['acc']], fmt='o-', markersize=1, linewidth=3)
-            ax.errorbar(x=[np.mean(t) for t in p2p[agg][att][rank]['end_time']], xerr=[np.std(t) for t in p2p[agg][att][rank]['end_time']], y=[np.mean(t) for t in p2p[agg][att][rank]['acc']], yerr=[np.std(t) for t in p2p[agg][att][rank]['acc']], fmt='o-', markersize=1, linewidth=3)
-            ax.errorbar(x=[np.mean(t) for t in con[agg][att][rank]['end_time']], xerr=[np.std(t) for t in con[agg][att][rank]['end_time']], y=[np.mean(t) for t in con[agg][att][rank]['acc']], yerr=[np.std(t) for t in con[agg][att][rank]['acc']], fmt='o-', markersize=1, linewidth=3)
-            ax.legend(['fl', 'p2p', 'con'])
+            ax.errorbar(x=[np.mean(t) for t in fl[agg][att][rank]['end_time']], xerr=[np.std(t) for t in fl[agg][att][rank]['end_time']], y=[np.mean(t) for t in fl[agg][att][rank]['acc']], yerr=[np.std(t) for t in fl[agg][att][rank]['acc']], fmt='o-', markersize=1, linewidth=3, color='red')
+            ax.errorbar(x=[np.mean(t) for t in p2p[agg][att][rank]['end_time']], xerr=[np.std(t) for t in p2p[agg][att][rank]['end_time']], y=[np.mean(t) for t in p2p[agg][att][rank]['acc']], yerr=[np.std(t) for t in p2p[agg][att][rank]['acc']], fmt='o-', markersize=1, linewidth=3, color='blue')
+            ax.errorbar(x=[np.mean(t) for t in con[agg][att][rank]['end_time']], xerr=[np.std(t) for t in con[agg][att][rank]['end_time']], y=[np.mean(t) for t in con[agg][att][rank]['acc']], yerr=[np.std(t) for t in con[agg][att][rank]['acc']], fmt='o-', markersize=1, linewidth=3, color='green')
+            # set the position of the legend
+            ax.legend(['CFL', 'PPL', 'CBDL'], loc='lower right', fontsize=30)
             # draw horizontal line from 0 to 1 and add a text on the line
             # print(np.mean(con[agg][att][rank]['end_time'][con[agg][att][rank]['round'] - 2]))
-            ax.axhline(y = trsh, color = 'black', linestyle = 'dotted', linewidth=2, xmax=np.mean(con[agg][att][rank]['end_time'][con[agg][att][rank]['round'] - 2]) / np.max([np.mean(t) for t in p2p[agg][att][rank]['end_time']]))
-            ax.text(0, trsh, trsh, horizontalalignment='left', verticalalignment='bottom', fontsize=30)
+            ax.axhline(y = trsh, color = 'black', linestyle = '-', linewidth=3)
+            ax.text(0, trsh, "Accuracy Treshohld", horizontalalignment='left', verticalalignment='bottom', fontsize=27)
 
             # vertical line from the point that accuracy reaches the threshold to the x-axis
-            ax.vlines(x=np.mean(fl[agg][att][rank]['end_time'][fl[agg][att][rank]['round'] - 2]), ymin = 0, ymax = trsh, color = 'black', linestyle = 'dotted', linewidth=2)
-            ax.text(np.mean(fl[agg][att][rank]['end_time'][fl[agg][att][rank]['round'] - 2]), -0.005, str(round(np.mean(fl[agg][att][rank]['end_time'][fl[agg][att][rank]['round'] - 2]), 2)), horizontalalignment='center', verticalalignment='top', fontsize=20)
+            ax.vlines(x=np.mean(fl[agg][att][rank]['end_time'][fl[agg][att][rank]['round'] - 2]), ymin = 0, ymax = trsh, color = 'red', linestyle = 'dotted', linewidth=2)
+            ax.text(np.mean(fl[agg][att][rank]['end_time'][fl[agg][att][rank]['round'] - 2]), -0.005, str(round(np.mean(fl[agg][att][rank]['end_time'][fl[agg][att][rank]['round'] - 2]), 1)), horizontalalignment='center', verticalalignment='top', fontsize=20)
 
-            ax.vlines(x=np.mean(p2p[agg][att][rank]['end_time'][p2p[agg][att][rank]['round'] - 2]), ymin = 0, ymax = trsh, color = 'black', linestyle = 'dotted', linewidth=2)
-            ax.text(np.mean(p2p[agg][att][rank]['end_time'][p2p[agg][att][rank]['round'] - 2]), -0.005, str(round(np.mean(p2p[agg][att][rank]['end_time'][p2p[agg][att][rank]['round'] - 2]), 2)), horizontalalignment='center', verticalalignment='top', fontsize=20)
+            ax.vlines(x=np.mean(p2p[agg][att][rank]['end_time'][p2p[agg][att][rank]['round'] - 2]), ymin = 0, ymax = trsh, color = 'blue', linestyle = 'dotted', linewidth=2)
+            ax.text(np.mean(p2p[agg][att][rank]['end_time'][p2p[agg][att][rank]['round'] - 2]), -0.005, str(round(np.mean(p2p[agg][att][rank]['end_time'][p2p[agg][att][rank]['round'] - 2]), 1)), horizontalalignment='center', verticalalignment='top', fontsize=20)
 
-            ax.vlines(x=np.mean(con[agg][att][rank]['end_time'][con[agg][att][rank]['round'] - 2]), ymin = 0, ymax = trsh, color = 'black', linestyle = 'dotted', linewidth=2)
-            ax.text(np.mean(con[agg][att][rank]['end_time'][con[agg][att][rank]['round'] - 2]), -0.005, str(round(np.mean(con[agg][att][rank]['end_time'][con[agg][att][rank]['round'] - 2]), 2)), horizontalalignment='center', verticalalignment='top', fontsize=20)
+            ax.vlines(x=np.mean(con[agg][att][rank]['end_time'][con[agg][att][rank]['round'] - 2]), ymin = 0, ymax = trsh, color = 'green', linestyle = 'dotted', linewidth=2)
+            ax.text(np.mean(con[agg][att][rank]['end_time'][con[agg][att][rank]['round'] - 2]), -0.005, str(round(np.mean(con[agg][att][rank]['end_time'][con[agg][att][rank]['round'] - 2]), 1)), horizontalalignment='center', verticalalignment='top', fontsize=20)
 
             # ax.set_xlim([0, np.max([np.mean(t) for t in p2p[agg][att][rank]['end_time']])])
             ax.set_ylim([0, np.max([np.mean(t) for t in p2p[agg][att][rank]['acc']]) + 0.1])
-            ax.set_xlabel('time(s)')
-            ax.set_ylabel('accuracy')
-
-            ax.set_title("average accuracy for the " + rank + " client for n = " + str(nb_clients) + ", f = " + str(nb_byz) + "\naggregator: " + agg + "\nattack:" + att)
-            plt.savefig("../../Plots/" + agg + "/" +  att + "/" + str(nb_clients) + "_"  + str(nb_byz) + "_trsh_" + rank + "_" + heterogeneity + "_time.png", bbox_inches='tight')
+            ax.set_xlabel('Time(s)')
+            ax.set_ylabel('Accuracy')
+            ax.set_xlim(left=0)
+            ax.xaxis.grid(False)
+            ax.set_yticks(np.arange(0, .95, 0.05))
+            ax.grid(axis='y', linestyle='dotted', linewidth=0.8)
+            # ax.set_title("average accuracy for the " + rank + " client for n = " + str(nb_clients) + ", f = " + str(nb_byz) + "\naggregator: " + agg + "\nattack:" + att)
+            plt.savefig("../../Plots/" + agg + "/" +  att + "/" + str(nb_clients) + "_"  + str(nb_byz) + "_trsh_" + rank + "_" + heterogeneity + "_time.pdf", bbox_inches='tight')
             plt.close()
 
 def find_fastest_slowest_trsh(senario, aggregator, attack, trsh):
@@ -567,12 +581,46 @@ def accuracy_per_mixing_plot(agg, att, senario):
     plt.savefig("../../Plots/" + agg + "/" + att + "/" + str(nb_clients) + "_"  + str(nb_byz) + "_ChisquareMixingScore_" + heterogeneity + ".png", bbox_inches='tight')
     plt.close()
 
+    plt.plot(transitionMixingScore['fl'], accs['fl'])
+    plt.plot(transitionMixingScore['p2p'], accs['p2p'])
+    plt.plot(transitionMixingScore['con'], accs['con'])
+    plt.xlabel('transitionMixingScore')
+    plt.ylabel('accuracy')
+    plt.legend(['fl', 'p2p', 'con'])
+    plt.savefig("../../Plots/" + agg + "/" + att + "/" + str(nb_clients) + "_"  + str(nb_byz) + "_transitionMixingScore_" + heterogeneity + ".png", bbox_inches='tight')
+    plt.close()
     # for i in range(1, nb_rounds + 1):
     #     print(i, CompressionMixingScore['fl'][i-1], CompressionMixingScore['p2p'][i-1], CompressionMixingScore['con'][i-1])
 
 
+def bandwidth_consumption(att, senario):
+    f = open("../net_" + senario + ".txt", "r")
+    lines = f.readlines()
+    f.close()
+    sentBytes = []
+    for i in range(nb_clients):
+        sentBytes.append([])
+        for line in lines:
+            if "client_" + str(i) in line:
+                sentBytes[i].append(int(line.split(",")[1]))
+        sentBytes[i] = (sentBytes[i][1] - sentBytes[i][0]) / nb_rounds
+    # print(sentBytes)
+    return np.mean(sentBytes)
+    
 
-
+def orders_plot(agg, orders, senario, color):
+    # draw the histogram of orders, x axis is the client id and y axis is the value of order[client_id] for each senario
+    bar_width = 0.75
+    fig, ax = plt.subplots()
+    ax.bar(np.array(range(nb_clients)), orders.values(), label="p2p", width=bar_width, color=color)
+    ax.set_xlabel('client Id', fontsize=60)
+    ax.set_ylabel('Number of rounds selected for aggregation', fontsize=60)
+    ax.grid(axis='y', linestyle='dotted', linewidth=0.8)
+    ax.xaxis.grid(False)
+    ax.set_xticks(np.arange(0, nb_clients, 1))
+    ax.figure.set_size_inches(40, 25)
+    plt.savefig("../../Plots/" + agg + "/" + str(nb_clients) + "_"  + str(nb_byz) + "_" + senario + "_orders.pdf", bbox_inches='tight')
+    plt.close()
 
 def main():
 #     fl = dict()
@@ -613,15 +661,15 @@ def main():
 #     slowest_con, fastest_con = find_fastest_slowest('con', 'trmean')
 #     violin_plot_slowest_fastest({'slowest': slowest_fl, 'fastest': fastest_fl}, {'slowest': slowest_p2p, 'fastest': fastest_p2p}, {'slowest': slowest_con, 'fastest': fastest_con})
 
-# # #### finding the fastest node that reached the trsh first
-#     # trsh = 0.60
-#     trsh = 0.75
-#     fl_slowest_fastest = {'trmean': {'SF': find_fastest_slowest_trsh('fl', 'trmean', 'SF', trsh)}}
-#     p2p_slowest_fastest = {'trmean': {'SF': find_fastest_slowest_trsh('p2p', 'trmean', 'SF', trsh)}}
-#     con_slowest_fastest = {'trmean': {'SF': find_fastest_slowest_trsh('con', 'trmean', 'SF', trsh)}}
-#     # print(p2p_slowest_fastest['trmean']['SF']['fastest']['acc'])
-#     all_accuracy_per_time_per_pace(fl_slowest_fastest, p2p_slowest_fastest, con_slowest_fastest, 'fastest', trsh)
-#     all_accuracy_per_time_per_pace(fl_slowest_fastest, p2p_slowest_fastest, con_slowest_fastest, 'slowest', trsh)
+#### finding the fastest node that reached the trsh first
+    # trsh = 0.60
+    # # trsh = 0.80
+    # fl_slowest_fastest = {'trmean': {'SF': find_fastest_slowest_trsh('fl', 'trmean', 'SF', trsh)}}
+    # p2p_slowest_fastest = {'trmean': {'SF': find_fastest_slowest_trsh('p2p', 'trmean', 'SF', trsh)}}
+    # con_slowest_fastest = {'trmean': {'SF': find_fastest_slowest_trsh('con', 'trmean', 'SF', trsh)}}
+    # # print(p2p_slowest_fastest['trmean']['SF']['fastest']['acc'])
+    # all_accuracy_per_time_per_pace(fl_slowest_fastest, p2p_slowest_fastest, con_slowest_fastest, 'fastest', trsh)
+    # all_accuracy_per_time_per_pace(fl_slowest_fastest, p2p_slowest_fastest, con_slowest_fastest, 'slowest', trsh)
 
 # ## accuracy per time per client
 #     all_clients_acccs('p2p', 'trmean', 'SF')
@@ -629,14 +677,30 @@ def main():
 #     all_clients_acccs('con', 'trmean', 'SF')
 
 # ### finding the orders of clients
-#     print(readOrders(0, nb_clients, nb_byz, nb_rounds, 'trmean', 'SF', 'fl'))
-#     print(readOrders(0, nb_clients, nb_byz, nb_rounds, 'trmean', 'SF', 'con'))
-#     for i in range(nb_clients):
-#         print(i, readOrders(i, nb_clients, nb_byz, nb_rounds, 'trmean', 'SF', 'p2p'))
+    fl_orders = readOrders(0, nb_clients, nb_byz, nb_rounds, 'trmean', 'SF', 'fl')
+    con_orders = readOrders(0, nb_clients, nb_byz, nb_rounds, 'trmean', 'SF', 'con')
+    p2p_orders = dict()
+    for i in range(nb_clients):
+        p2p_orders[i] = 0
 
+    for i in range(nb_clients):
+        temp_orders = readOrders(i, nb_clients, nb_byz, nb_rounds, 'trmean', 'SF', 'p2p')
+        for key, value in temp_orders.items():
+            p2p_orders[key] += value
+
+    for key, value in p2p_orders.items():
+        p2p_orders[key] = value / nb_clients
+
+    orders_plot('trmean', fl_orders, 'fl', 'red')
+    orders_plot('trmean', p2p_orders, 'p2p', 'blue')
+    orders_plot('trmean', con_orders, 'con', 'green')
 ### plot the accuracy per mixing score
-    for agg in aggregators:
-        accuracy_per_mixing_plot(agg, 'SF', 'fl')
+    # for agg in aggregators:
+    #     accuracy_per_mixing_plot(agg, 'SF', 'fl')
         # accuracy_per_mixing_plot(agg, 'SF', 'con')
+### Bandwidth Consupmtion
+    # print(bandwidth_consumption('SF', 'fl'))
+    # print(bandwidth_consumption('SF', 'p2p'))
+    # print(bandwidth_consumption('SF', 'con'))
 if __name__ == "__main__":
     main()

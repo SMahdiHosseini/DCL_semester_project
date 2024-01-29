@@ -1,4 +1,4 @@
--- Creating current view from configuration file
+-- Using view stored on disk
 -- SSL/TLS handshake complete!, Id:0  ## CipherSuite: TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256.
 -- SSL/TLS handshake complete!, Id:1  ## CipherSuite: TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256.
 -- SSL/TLS handshake complete!, Id:2  ## CipherSuite: TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256.
@@ -18,182 +18,229 @@
 		###################################
 		    Ready to process operations    
 		###################################
-Server 3 Port: 39129
+Server 3 Port: 46609
 -- Session Created, active clients=0
--- Session Created, active clients=1
--- Session Created, active clients=2
+-- Session Created, active clients=0
 -- Session Created, active clients=2
 -- Session Created, active clients=3
-Got new param from 0 Curretn Round: 1 Client round:1
-Got new param from 3 Curretn Round: 1 Client round:1
+-- Session Created, active clients=4
 Got new param from 2 Curretn Round: 1 Client round:1
+Got new param from 0 Curretn Round: 1 Client round:1
+Got new param from 1 Curretn Round: 1 Client round:1
 Got new param from 4 Curretn Round: 1 Client round:1
 Send Aggregate to Aggregator by client 4
-Received params: [0, 3, 2, 4]
+Received params: [2, 0, 1, 4]
 Aggregating parameters of round 1
 **** Aggregated of round 1
-Got new param from 1 Curretn Round: 2 Client round:1
-Got new param from 3 Curretn Round: 2 Client round:2
+Got new param from 1 Curretn Round: 2 Client round:2
 Got new param from 2 Curretn Round: 2 Client round:2
-Got new param from 4 Curretn Round: 2 Client round:2
 Got new param from 0 Curretn Round: 2 Client round:2
-Send Aggregate to Aggregator by client 0
-Received params: [3, 2, 4, 0]
+Got new param from 4 Curretn Round: 2 Client round:2
+Send Aggregate to Aggregator by client 4
+Received params: [1, 2, 0, 4]
 Aggregating parameters of round 2
 **** Aggregated of round 2
-Got new param from 1 Curretn Round: 3 Client round:2
-Got new param from 2 Curretn Round: 3 Client round:3
+Got new param from 0 Curretn Round: 3 Client round:3
 Got new param from 1 Curretn Round: 3 Client round:3
-Got new param from 3 Curretn Round: 3 Client round:3
+Got new param from 2 Curretn Round: 3 Client round:3
 Got new param from 4 Curretn Round: 3 Client round:3
 Send Aggregate to Aggregator by client 4
-Received params: [2, 1, 3, 4]
+Received params: [0, 1, 2, 4]
 Aggregating parameters of round 3
 **** Aggregated of round 3
-Got new param from 0 Curretn Round: 4 Client round:3
 Got new param from 1 Curretn Round: 4 Client round:4
+Got new param from 0 Curretn Round: 4 Client round:4
 Got new param from 2 Curretn Round: 4 Client round:4
-Got new param from 3 Curretn Round: 4 Client round:4
 Got new param from 4 Curretn Round: 4 Client round:4
 Send Aggregate to Aggregator by client 4
-Received params: [1, 2, 3, 4]
+Received params: [1, 0, 2, 4]
 Aggregating parameters of round 4
 **** Aggregated of round 4
+-- Sending STOP message to install regency 1 with 0 request(s) to relay
 -- Received leader change message of type STOP for regency 1 from replica 0
--- Last regency: 0, next regency: 0
--- Received regency change request from replica 0 for regency 1
-Got new param from 0 Curretn Round: 5 Client round:4
+-- Last regency: 0, next regency: 1
+-- Received leader change message of type STOP for regency 1 from replica 4
+-- Last regency: 0, next regency: 1
+-- Sending STOPDATA of regency 1
+-- No out of context SYNC for regency 1
+-- Received leader change message of type STOP for regency 1 from replica 2
+-- Last regency: 1, next regency: 1
+-- Received leader change message of type STOP for regency 1 from replica 1
+-- Last regency: 1, next regency: 1
+-- Received leader change message of type SYNC for regency 1 from replica 1
+-- Last regency: 1, next regency: 1
+-- Installed proof of last decided consensus 144
+-- Sending WRITE message for CID 145, timestamp 1, value [-42, 80, -91, -35, -50, 58, -30, -72, 45, -114, -33, -83, -35, -95, 122, 113, -51, 105, -125, -94, 23, -76, 36, -107, -13, 15, -23, 75, -68, 45, 74, -98]
 Got new param from 2 Curretn Round: 5 Client round:5
-Got new param from 1 Curretn Round: 5 Client round:5
--- Received leader change message of type STOP for regency 1 from replica 0
--- Last regency: 0, next regency: 0
--- Received regency change request from replica 0 for regency 1
+-- Received leader change message of type STOP for regency 2 from replica 0
+-- Last regency: 1, next regency: 1
+-- Sending STOP message to install regency 2 with 0 request(s) to relay
+-- Received leader change message of type STOP for regency 2 from replica 1
+-- Last regency: 1, next regency: 2
+-- Sending STOPDATA of regency 2
+-- No out of context SYNC for regency 2
+-- Received leader change message of type STOP for regency 2 from replica 4
+-- Last regency: 2, next regency: 2
+-- Received leader change message of type STOP for regency 2 from replica 2
+-- Last regency: 2, next regency: 2
+-- Received leader change message of type STOP for regency 3 from replica 1
+-- Last regency: 2, next regency: 2
+-- Received leader change message of type STOP for regency 3 from replica 0
+-- Last regency: 2, next regency: 2
+-- Sending STOP message to install regency 3 with 0 request(s) to relay
+-- Received leader change message of type STOPDATA for regency 3 from replica 0
+-- Last regency: 3, next regency: 3
+-- Received leader change message of type STOPDATA for regency 3 from replica 1
+-- Last regency: 3, next regency: 3
+-- Received leader change message of type STOP for regency 3 from replica 4
+-- Last regency: 3, next regency: 3
+-- Received leader change message of type STOPDATA for regency 3 from replica 4
+-- Last regency: 3, next regency: 3
+-- Sending SYNC message for regency 3
+-- Installed proof of last decided consensus 146
+-- Sending WRITE message for CID 147, timestamp 3, value [101, -37, 84, -5, -4, 98, 80, -110, 40, -125, 13, 30, -21, -124, 15, 9, 48, 3, -10, 2, -24, 68, 29, 120, -9, -113, -62, -15, -77, -46, -74, 52]
+-- Received leader change message of type SYNC for regency 2 from replica 2
+-- Last regency: 3, next regency: 3
+-- Received leader change message of type STOP for regency 3 from replica 2
+-- Last regency: 3, next regency: 3
+-- Received leader change message of type STOPDATA for regency 3 from replica 2
+-- Last regency: 3, next regency: 3
+Got new param from 0 Curretn Round: 5 Client round:5
+-- Received leader change message of type STOP for regency 4 from replica 0
+-- Last regency: 3, next regency: 3
+-- Sending STOP message to install regency 4 with 0 request(s) to relay
+-- Received leader change message of type STOP for regency 4 from replica 4
+-- Last regency: 3, next regency: 4
+-- Sending STOPDATA of regency 4
+-- No out of context SYNC for regency 4
+-- Received leader change message of type STOP for regency 4 from replica 1
+-- Last regency: 4, next regency: 4
+-- Received leader change message of type STOP for regency 4 from replica 2
+-- Last regency: 4, next regency: 4
+-- Received leader change message of type STOP for regency 5 from replica 1
+-- Last regency: 4, next regency: 4
+-- Received leader change message of type STOP for regency 5 from replica 2
+-- Last regency: 4, next regency: 4
+-- Sending STOP message to install regency 5 with 0 request(s) to relay
+-- Sending STOPDATA of regency 5
+-- No out of context SYNC for regency 5
+-- Received leader change message of type STOP for regency 5 from replica 4
+-- Last regency: 5, next regency: 5
+-- Received leader change message of type STOP for regency 5 from replica 0
+-- Last regency: 5, next regency: 5
+-- Received leader change message of type SYNC for regency 4 from replica 4
+-- Last regency: 5, next regency: 5
+-- Received leader change message of type SYNC for regency 5 from replica 0
+-- Last regency: 5, next regency: 5
+-- Installed proof of last decided consensus 147
+-- Sending WRITE message for CID 148, timestamp 5, value [16, -38, -10, -66, 18, 43, -79, 92, -54, 66, -15, -54, 125, -25, 102, 114, 82, 7, 78, 88, -28, 45, 118, -30, -46, -77, 1, -62, -5, -73, 79, -120]
+-- Sending STOP message to install regency 6 with 0 request(s) to relay
+-- Received leader change message of type STOP for regency 6 from replica 2
+-- Last regency: 5, next regency: 6
+-- Received leader change message of type STOP for regency 6 from replica 4
+-- Last regency: 5, next regency: 6
+-- Sending STOPDATA of regency 6
+-- No out of context SYNC for regency 6
+-- Received leader change message of type STOP for regency 6 from replica 1
+-- Last regency: 6, next regency: 6
+-- Received leader change message of type STOP for regency 6 from replica 0
+-- Last regency: 6, next regency: 6
+-- Received leader change message of type SYNC for regency 6 from replica 1
+-- Last regency: 6, next regency: 6
+-- Installed proof of last decided consensus 149
+-- Sending WRITE message for CID 150, timestamp 6, value [50, -58, -18, 74, 43, -37, -23, -120, -18, -5, -85, 60, -1, 114, -2, -82, 69, 101, -99, 92, 44, 112, 122, 53, -38, 123, -14, -79, -23, 34, -37, 84]
+Got new param from 3 Curretn Round: 5 Client round:1
+-- Sending STOP message to install regency 7 with 0 request(s) to relay
+-- Received leader change message of type STOP for regency 7 from replica 0
+-- Last regency: 6, next regency: 7
+-- Received leader change message of type STOP for regency 7 from replica 4
+-- Last regency: 6, next regency: 7
+-- Sending STOPDATA of regency 7
+-- No out of context SYNC for regency 7
+-- Received leader change message of type STOP for regency 7 from replica 2
+-- Last regency: 7, next regency: 7
+-- Received leader change message of type STOP for regency 7 from replica 1
+-- Last regency: 7, next regency: 7
+-- Received leader change message of type SYNC for regency 7 from replica 2
+-- Last regency: 7, next regency: 7
+-- Installed proof of last decided consensus 151
+-- Sending WRITE message for CID 152, timestamp 7, value [9, -117, -52, 67, -126, 105, -99, -59, 58, 91, 64, -70, 53, -87, 100, -111, -72, 0, -84, 18, 65, 92, -76, 55, 36, -18, 70, -91, -119, -127, 32, 58]
+Got new param from 3 Curretn Round: 5 Client round:2
+-- Sending STOP message to install regency 8 with 0 request(s) to relay
+-- Received leader change message of type STOP for regency 8 from replica 1
+-- Last regency: 7, next regency: 8
+-- Received leader change message of type STOP for regency 8 from replica 2
+-- Last regency: 7, next regency: 8
+-- Received leader change message of type STOPDATA for regency 8 from replica 2
+-- Last regency: 8, next regency: 8
+-- Received leader change message of type STOPDATA for regency 8 from replica 1
+-- Last regency: 8, next regency: 8
+-- Received leader change message of type STOPDATA for regency 8 from replica 4
+-- Last regency: 8, next regency: 8
+-- Sending SYNC message for regency 8
+-- Installed proof of last decided consensus 153
+-- Sending WRITE message for CID 154, timestamp 8, value [107, -94, 76, 102, 51, -61, -64, -48, -21, -106, 44, 116, -117, 39, 60, 18, -69, 13, -60, 90, -87, -31, -53, 28, -122, -97, -89, -16, -73, 43, -94, 31]
+-- Received leader change message of type STOP for regency 8 from replica 4
+-- Last regency: 8, next regency: 8
+-- Received leader change message of type STOP for regency 8 from replica 0
+-- Last regency: 8, next regency: 8
+-- Received leader change message of type STOPDATA for regency 8 from replica 0
+-- Last regency: 8, next regency: 8
+Got new param from 3 Curretn Round: 5 Client round:3
+-- Sending STOP message to install regency 9 with 0 request(s) to relay
+-- Received leader change message of type STOP for regency 9 from replica 1
+-- Last regency: 8, next regency: 9
+-- Received leader change message of type STOP for regency 9 from replica 0
+-- Last regency: 8, next regency: 9
+-- Sending STOPDATA of regency 9
+-- No out of context SYNC for regency 9
+-- Received leader change message of type STOP for regency 9 from replica 2
+-- Last regency: 9, next regency: 9
+-- Received leader change message of type STOP for regency 9 from replica 4
+-- Last regency: 9, next regency: 9
+-- Received leader change message of type SYNC for regency 9 from replica 4
+-- Last regency: 9, next regency: 9
+-- Installed proof of last decided consensus 155
+-- Sending WRITE message for CID 156, timestamp 9, value [-48, 68, 124, 75, 126, 95, 24, -40, -118, -6, -38, -78, 92, -128, 53, -69, 6, 23, -18, 96, 38, 105, 10, -28, 77, 69, -5, 52, -121, 34, 74, 22]
+Got new param from 3 Curretn Round: 5 Client round:4
+-- Sending STOP message to install regency 10 with 0 request(s) to relay
+-- Received leader change message of type STOP for regency 10 from replica 2
+-- Last regency: 9, next regency: 10
+-- Received leader change message of type STOP for regency 10 from replica 4
+-- Last regency: 9, next regency: 10
+-- Sending STOPDATA of regency 10
+-- No out of context SYNC for regency 10
+-- Received leader change message of type STOP for regency 10 from replica 1
+-- Last regency: 10, next regency: 10
+-- Received leader change message of type STOP for regency 10 from replica 0
+-- Last regency: 10, next regency: 10
+-- Received leader change message of type SYNC for regency 10 from replica 0
+-- Last regency: 10, next regency: 10
+-- Installed proof of last decided consensus 157
+-- Sending WRITE message for CID 158, timestamp 10, value [53, 64, 82, -32, 73, 44, 48, -2, 117, -49, 69, -58, -113, 33, 127, -23, -45, 17, 118, 14, -87, -41, -118, -20, -60, 72, -86, 50, 15, 124, -125, -81]
 Got new param from 3 Curretn Round: 5 Client round:5
-Got new param from 4 Curretn Round: 5 Client round:5
-Send Aggregate to Aggregator by client 4
-Received params: [2, 1, 3, 4]
-Aggregating parameters of round 5
-**** Aggregated of round 5
-Got new param from 0 Curretn Round: 6 Client round:5
-Got new param from 1 Curretn Round: 6 Client round:6
-Got new param from 2 Curretn Round: 6 Client round:6
-Got new param from 4 Curretn Round: 6 Client round:6
-Got new param from 3 Curretn Round: 6 Client round:6
-Send Aggregate to Aggregator by client 3
-Received params: [1, 2, 4, 3]
-Aggregating parameters of round 6
-**** Aggregated of round 6
-Got new param from 1 Curretn Round: 7 Client round:7
-Got new param from 3 Curretn Round: 7 Client round:7
-Got new param from 2 Curretn Round: 7 Client round:7
-Got new param from 4 Curretn Round: 7 Client round:7
-Send Aggregate to Aggregator by client 4
-Received params: [1, 3, 2, 4]
-Aggregating parameters of round 7
-**** Aggregated of round 7
-Got new param from 1 Curretn Round: 8 Client round:8
-Got new param from 2 Curretn Round: 8 Client round:8
-Got new param from 4 Curretn Round: 8 Client round:8
-Got new param from 3 Curretn Round: 8 Client round:8
-Send Aggregate to Aggregator by client 3
-Received params: [1, 2, 4, 3]
-Aggregating parameters of round 8
-**** Aggregated of round 8
-Got new param from 2 Curretn Round: 9 Client round:9
-Got new param from 1 Curretn Round: 9 Client round:9
-Got new param from 3 Curretn Round: 9 Client round:9
-Got new param from 4 Curretn Round: 9 Client round:9
-Send Aggregate to Aggregator by client 4
-Received params: [2, 1, 3, 4]
-Aggregating parameters of round 9
-**** Aggregated of round 9
-Got new param from 1 Curretn Round: 10 Client round:10
-Got new param from 2 Curretn Round: 10 Client round:10
--- Received leader change message of type STOP for regency 1 from replica 0
--- Last regency: 0, next regency: 0
--- Received regency change request from replica 0 for regency 1
-Got new param from 3 Curretn Round: 10 Client round:10
-Got new param from 4 Curretn Round: 10 Client round:10
-Send Aggregate to Aggregator by client 4
-Received params: [1, 2, 3, 4]
-Aggregating parameters of round 10
-**** Aggregated of round 10
-Got new param from 2 Curretn Round: 11 Client round:11
-Got new param from 1 Curretn Round: 11 Client round:11
-Got new param from 3 Curretn Round: 11 Client round:11
-Got new param from 4 Curretn Round: 11 Client round:11
-Send Aggregate to Aggregator by client 4
-Received params: [2, 1, 3, 4]
-Aggregating parameters of round 11
-**** Aggregated of round 11
-Got new param from 1 Curretn Round: 12 Client round:12
-Got new param from 2 Curretn Round: 12 Client round:12
-Got new param from 4 Curretn Round: 12 Client round:12
-Got new param from 3 Curretn Round: 12 Client round:12
-Send Aggregate to Aggregator by client 3
-Received params: [1, 2, 4, 3]
-Aggregating parameters of round 12
-**** Aggregated of round 12
-Got new param from 2 Curretn Round: 13 Client round:13
-Got new param from 3 Curretn Round: 13 Client round:13
-Got new param from 4 Curretn Round: 13 Client round:13
-Got new param from 1 Curretn Round: 13 Client round:13
-Send Aggregate to Aggregator by client 1
-Received params: [2, 3, 4, 1]
-Aggregating parameters of round 13
-**** Aggregated of round 13
-Got new param from 2 Curretn Round: 14 Client round:14
-Got new param from 3 Curretn Round: 14 Client round:14
-Got new param from 1 Curretn Round: 14 Client round:14
-Got new param from 4 Curretn Round: 14 Client round:14
-Send Aggregate to Aggregator by client 4
-Received params: [2, 3, 1, 4]
-Aggregating parameters of round 14
-**** Aggregated of round 14
-Got new param from 2 Curretn Round: 15 Client round:15
--- Received leader change message of type STOP for regency 1 from replica 0
--- Last regency: 0, next regency: 0
--- Received regency change request from replica 0 for regency 1
-Got new param from 1 Curretn Round: 15 Client round:15
-Got new param from 4 Curretn Round: 15 Client round:15
-Got new param from 3 Curretn Round: 15 Client round:15
-Send Aggregate to Aggregator by client 3
-Received params: [2, 1, 4, 3]
-Aggregating parameters of round 15
-**** Aggregated of round 15
-Python process terminated
-Got new param from 4 Curretn Round: 16 Client round:16
-Got new param from 1 Curretn Round: 16 Client round:16
-Got new param from 2 Curretn Round: 16 Client round:16
-Got new param from 3 Curretn Round: 16 Client round:16
--- Received leader change message of type STOP for regency 1 from replica 0
--- Last regency: 0, next regency: 0
--- Received regency change request from replica 0 for regency 1
--- Received leader change message of type STOP for regency 1 from replica 0
--- Last regency: 0, next regency: 0
--- Received regency change request from replica 0 for regency 1
 -- 
 ---------- DEBUG INFO ----------
 
-Current time: 17:48:02.227
+Current time: 17:31:23.985
 Current leader: 0
-Current regency: 0
+Current regency: 10
 
-Last finished consensus: 146
+Last finished consensus: 158
 
 	 -- Consensus state: 
 
-		ETS=0 
-		WriteSet=[[0 :: 8li83cwRkA643ts7gPa18/ebXcHeCWKmTwco3ACN9oo=]] 
-		(VAL,TS)=[0 :: 8li83cwRkA643ts7gPa18/ebXcHeCWKmTwco3ACN9oo=]
+		ETS=10 
+		WriteSet=[[10 :: NUBS4EksMP51z0XGjyF/6dMRdg6p14rsxEiqMg98g68=]] 
+		(VAL,TS)=[10 :: NUBS4EksMP51z0XGjyF/6dMRdg6p14rsxEiqMg98g68=]
 
 	 -- Epoch state: 
 
-		CID=146 
-		TS=0 
-		Propose=[8li83cwRkA643ts7gPa18/ebXcHeCWKmTwco3ACN9oo=] 
-		Writes=([8li83cwRkA643ts7gPa18/ebXcHeCWKmTwco3ACN9oo=], [8li83cwRkA643ts7gPa18/ebXcHeCWKmTwco3ACN9oo=], [8li83cwRkA643ts7gPa18/ebXcHeCWKmTwco3ACN9oo=], [8li83cwRkA643ts7gPa18/ebXcHeCWKmTwco3ACN9oo=], [8li83cwRkA643ts7gPa18/ebXcHeCWKmTwco3ACN9oo=]) 
-		Accepts=([8li83cwRkA643ts7gPa18/ebXcHeCWKmTwco3ACN9oo=], [8li83cwRkA643ts7gPa18/ebXcHeCWKmTwco3ACN9oo=], [8li83cwRkA643ts7gPa18/ebXcHeCWKmTwco3ACN9oo=], [8li83cwRkA643ts7gPa18/ebXcHeCWKmTwco3ACN9oo=], [null])
+		CID=158 
+		TS=10 
+		Propose=[NUBS4EksMP51z0XGjyF/6dMRdg6p14rsxEiqMg98g68=] 
+		Writes=([NUBS4EksMP51z0XGjyF/6dMRdg6p14rsxEiqMg98g68=], [NUBS4EksMP51z0XGjyF/6dMRdg6p14rsxEiqMg98g68=], [null], [NUBS4EksMP51z0XGjyF/6dMRdg6p14rsxEiqMg98g68=], [NUBS4EksMP51z0XGjyF/6dMRdg6p14rsxEiqMg98g68=]) 
+		Accepts=([NUBS4EksMP51z0XGjyF/6dMRdg6p14rsxEiqMg98g68=], [NUBS4EksMP51z0XGjyF/6dMRdg6p14rsxEiqMg98g68=], [null], [NUBS4EksMP51z0XGjyF/6dMRdg6p14rsxEiqMg98g68=], [NUBS4EksMP51z0XGjyF/6dMRdg6p14rsxEiqMg98g68=])
 
 Consensus in execution: None
 
